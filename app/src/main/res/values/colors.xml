@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0A7A91</color>
+    <color name="colorPrimaryDark">#064E5D</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="list_background">#FFE5F3</color>
+    <!-- Background color for the numbers category -->
+    <color name="category_numbers">#08A78A</color>
+    <color name="category_options">#FAFAFA</color>
+</resources>
