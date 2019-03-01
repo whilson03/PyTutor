@@ -1,13 +1,16 @@
 package com.olabode.wilson.pytutor.fragment_exercises;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.olabode.wilson.pytutor.ExercisesReaderActivity;
 import com.olabode.wilson.pytutor.R;
 import com.olabode.wilson.pytutor.adapters.ExercisesAdapter;
 import com.olabode.wilson.pytutor.classes.Exercises;
@@ -40,6 +43,19 @@ public class FilesHandlingFragment extends Fragment {
         ListView listView = (ListView) rootView.findViewById(R.id.list_view);
 
         listView.setAdapter(exercisesAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Exercises currentExercise = exercisesList.get(position);
+
+                Intent i = new Intent(getContext(), ExercisesReaderActivity.class);
+                i.putExtra("Question", currentExercise.getTopic());
+                i.putExtra("Body", currentExercise.getExerciseBody());
+
+                startActivity(i);
+            }
+        });
         return rootView;
     }
 
