@@ -7,8 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.olabode.wilson.pytutor.fragment_exercises.BasicsFragment;
 import com.olabode.wilson.pytutor.fragment_exercises.ConditionalsFragment;
-import com.olabode.wilson.pytutor.fragment_exercises.DataTypesFragment;
-import com.olabode.wilson.pytutor.fragment_exercises.DateAndTime;
 import com.olabode.wilson.pytutor.fragment_exercises.FilesHandlingFragment;
 import com.olabode.wilson.pytutor.fragment_exercises.FunctionsFragment;
 import com.olabode.wilson.pytutor.fragment_exercises.OOPFragment;
@@ -16,7 +14,7 @@ import com.olabode.wilson.pytutor.fragment_exercises.OOPFragment;
 public class CategoryAdapter extends FragmentPagerAdapter {
 
 
-    private String tabTitles[] = new String[]{"Basics", "Conditionals", "Dates/Time", "OOP","Datatypes","Files","Functions"};
+    private String tabTitles[] = new String[]{"Basics", "Conditionals", "Functions", "Files", "OOP"};
 
 
     public CategoryAdapter(FragmentManager fm) {
@@ -32,25 +30,20 @@ public class CategoryAdapter extends FragmentPagerAdapter {
             return new ConditionalsFragment();
 
         } else if (position == 2) {
-            return new DateAndTime();
+            return new FunctionsFragment();
 
         } else if (position == 3) {
+            return new FilesHandlingFragment();
+
+        } else {
             return new OOPFragment();
 
-        } else if (position == 4) {
-            return new DataTypesFragment();
-
-        } else if (position == 5) {
-            return new FilesHandlingFragment();
-        } else {
-            return new FunctionsFragment();
         }
-
     }
 
     @Override
     public int getCount() {
-        return 7;
+        return 5;
     }
 
     // get current tab title

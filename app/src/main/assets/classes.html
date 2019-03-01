@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<font face="Arial, Helvetica, sans-serif" size="-1">
+    <h1>OOP</h1>
+    <div><h2>OOP Terminologies</h2>
+        <ul>
+            <li>Class − A user-defined prototype for an object that defines a set of attributes that
+                characterize any object of the class. The attributes are data members (class
+                variables and instance variables) and methods, accessed via dot notation.
+            </li>
+            <br/>
+            <li>Class variable − A variable that is shared by all instances of a class. Class
+                variables are defined within a class but outside any of the class's methods. Class
+                variables are not used as frequently as instance variables are.
+            </li>
+            <br/>
+            <li>Data member − A class variable or instance variable that holds data associated with
+                a class and its objects.
+            </li>
+            <br/>
+            <li>Function overloading − The assignment of more than one behavior to a particular
+                function. The operation performed varies by the types of objects or arguments
+                involved.
+            </li>
+            <br/>
+            <li>Instance variable − A variable that is defined inside a method and belongs only to
+                the current instance of a class.
+            </li>
+            <br/>
+            <li>Inheritance − The transfer of the characteristics of a class to other classes that
+                are derived from it.
+            </li>
+            <br/>
+            <li>Instance − An individual object of a certain class. An object obj that belongs to a
+                class Circle, for example, is an instance of the class Circle.
+            </li>
+            <br/>
+            <li>Instantiation − The creation of an instance of a class.</li>
+            <br/>
+            <li>Method − A special kind of function that is defined in a class definition.</li>
+            <br/>
+            <li>Object − A unique instance of a data structure that is defined by its class. An
+                object comprises both data members (class variables and instance variables) and
+                methods.
+            </li>
+            <br/>
+            <li>Operator overloading − The assignment of more than one function to a particular
+                operator.
+            </li>
+            <br/></ul>
+    </div>
+
+    <div>
+        <h2>Creating Classes</h2>
+        The class statement creates a new class definition. The name of the class immediately
+        follows the keyword class followed by a colon as follows −
+        <br/><br/>
+        <center><img src="Class1.JPG" width="570"/></center>
+        The variable empCount is a class variable whose value is shared among all the instances of a
+        in this class. This can be accessed as Employee.empCount from inside the class or outside
+        the class.
+        <br/>
+        The first method __init__() is a special method, which is called class constructor or
+        initialization method that Python calls when you create a new instance of this class.
+        <br/>
+        You declare other class methods like normal functions with the exception that the first
+        argument to each method is self. Python adds the self argument to the list for you; you do
+        not need to include it when you call the methods.
+        <br/>
+    </div>
+
+    <div>
+        <h2>Creating Instance Objects</h2>
+        To create instances of a class, you call the class using class name and pass in whatever
+        arguments its __init__ method accepts.
+        <dt>This would create first object of Employee class:</dt>
+        <dd>emp1 = Employee("Zara", 2000)</dd>
+        <dt>This would create second object of Employee class:</dt>
+        <dd>emp2 = Employee("Manni", 5000)</dd>
+        </dl>
+        <h2>Class Inheritance</h2>
+        <font face="Arial, Helvetica, sans-serif" size="-1">Instead of starting from a scratch, you
+            can create a class by deriving it from a pre-existing class by listing the parent class
+            in parentheses after the new class name.<br/>
+            The child class inherits the attributes of its parent class, and you can use those
+            attributes as if they were defined in the child class. A child class can also override
+            data members and methods from the parent.
+
+            Syntax
+            Derived classes are declared much like their parent class; however, a list of base
+            classes to inherit from is given after the class name −
+            <pre>
+class SubClassName (ParentClass1[, ParentClass2, ...]):
+   'Optional class documentation string'
+   class_suite
+class Parent:        # define parent class
+   parentAttr = 100
+   def __init__(self):
+      print ("Calling parent constructor")
+   def parentMethod(self):
+      print ('Calling parent method')
+   def setAttr(self, attr):
+      Parent.parentAttr = attr
+   def getAttr(self):
+      print ("Parent attribute :", Parent.parentAttr)
+
+class Child(Parent): # define child class
+   def __init__(self):
+      print ("Calling child constructor")
+   def childMethod(self):
+      print ('Calling child method')
+
+c = Child()          # instance of child
+c.childMethod()      # child calls its method
+c.parentMethod()     # calls parent's method
+c.setAttr(200)       # again call parent's method
+c.getAttr()          # again call parent's method
+When the above code is executed, it produces the following result −
+
+Calling child constructor
+Calling child method
+Calling parent method
+Parent attribute : 200
+        </font></pre>
+</font>
+

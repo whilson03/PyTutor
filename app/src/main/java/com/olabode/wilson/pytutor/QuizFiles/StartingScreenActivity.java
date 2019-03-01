@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.QuizFiles;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,9 +24,9 @@ public class StartingScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_starting_screen);
+        setContentView(R.layout.activity_quiz_starting_screen);
 
-        textViewHighscore = findViewById(R.id.text_view_highscore);
+
         loadHighscore();
 
         Button buttonStartQuiz = findViewById(R.id.button_start_quiz);

@@ -11,9 +11,11 @@
         android:id="@+id/text_container">
 
         <TextView
+
             android:id="@+id/exercise_title_text_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:lines="2"
             android:layout_centerVertical="true"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical"

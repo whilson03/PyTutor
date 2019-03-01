@@ -32,8 +32,9 @@ public class QuizStartScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_starting_screen, container, false);
-        textViewHighscore = rootView.findViewById(R.id.text_view_highscore);
+        View rootView = inflater.inflate(R.layout.activity_quiz_starting_screen, container, false);
+
+
 
         Button buttonStartQuiz = rootView.findViewById(R.id.button_start_quiz);
         buttonStartQuiz.setOnClickListener(new View.OnClickListener() {

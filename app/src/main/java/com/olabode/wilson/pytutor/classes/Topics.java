@@ -1,17 +1,13 @@
 package com.olabode.wilson.pytutor.classes;
 
-import android.graphics.drawable.Icon;
-
 public class Topics {
     private String mTitle;
     private int mLeftIcon;
-    private int mRightIcon;
 
 
-    public Topics(int leftIcon ,String title, int rightIcon) {
+    public Topics(int leftIcon, String title) {
         mTitle = title;
         mLeftIcon = leftIcon;
-        mRightIcon = rightIcon;
     }
 
     /*
@@ -38,11 +34,5 @@ public class Topics {
         this.mLeftIcon = mLeftIcon;
     }
 
-    public int getRightIcon() {
-        return mRightIcon;
-    }
 
-    public void setRightIcon(int rightIcon) {
-        this.mRightIcon = rightIcon;
-    }
 }

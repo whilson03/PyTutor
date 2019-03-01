@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.olabode.wilson.pytutor.classes.Exercises;
 import com.olabode.wilson.pytutor.R;
+import com.olabode.wilson.pytutor.classes.Exercises;
 
 import java.util.ArrayList;
 
@@ -32,6 +32,7 @@ public class ExercisesAdapter extends ArrayAdapter<Exercises> {
 
         Exercises currentExercise = getItem(position);
         TextView exerciseTitleTextView = (TextView) listItemView.findViewById(R.id.exercise_title_text_view);
+        assert currentExercise != null;
         exerciseTitleTextView.setText(currentExercise.getExerciseTitle());
 
 

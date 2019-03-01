@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+h1 {
+    color:blue;
+	text-align:center;
+	font-size:30px;
+}
+h2 {
+    color:black;
+	font-size:30px;
+}
+h3 {
+    color:red;
+	text-align:center;
+	font-size:30px;
+}
+h4 {
+    color:red;
+	text-align:center;
+	font-size:30px;
+}
+ol {
+    padding: 5px;
+    margin-left: 35px;
+    background-color:grey; 
+}
+ol {
+    text-align:center;
+    background: grey;
+    padding: 20px;
+}
+h5 {
+    color:red;
+	font-size:30px;
+	text-align:center;
+}
+h6 {
+    color:red;
+	font-size:30px;
+	text-align:center;	
+}
+
+    </style>
+</head>
+<body>
+<h1><b><u>Variables and Types</u></b></h1>
+<p>it's a lot easier in Python. There is no declaration of variable required in python. It's not
+    even possible. If there is need of a variable, you think of a name and start using it as a
+    variable.
+<p>
+
+<p>Another remarkable aspect of python: Not only the value of a variable may change during program
+    execution but the type as well. You can assign an integer value to a variable, use it as an
+    integer for a while and then assign a string to the same variable. In the following line of
+    code, we assign the value 42 to a variable:
+<p>
+    i = 42
+
+<p>The equal "=" sign in the assignment shouldn't be seen as "is equal to". It should be "read" or
+    interpreted as "is set to", meaning in our example "the variable i is set to 42". Now we will
+    increase the value of the variable by 1:
+<p>
+
+<p style="background-color:grey;">>> i = i + 1<br>
+    >> print(i)<br>
+    43
+    >>></p>
+<p> As we have said above, the type of a variable can change during the execution of a script. or to
+    be precised: A new object, which can be of any type, will be assigned to it. we illustrate this
+    in our following example:
+    example:
+<p style="background-color:grey;"> i = 42 # data type is implicitly set to integer<br>
+    i = 42 + 0.11 # data type is changed to float<br>
+    i = "forty" # and now it will be a string <br>
+</p>
+Python automatically takes care of the physical representation for different data types, i.e. an
+integer values will be stored in a different memeory location than a float or string.
+
+<h2><b><u>Object References</u></b></h2>
+<p>We want to take a closer look on variables now. Python variables are references to objects,but
+    the actual data is contained in the objects. As variables are pointing to objects and objects
+    can be of arbitary data type, variablescannot have types associated with them. This is a huge
+    difference to C, C++ or Java, where a variable is associated with a fixed data type. This
+    association can't be changed as long as the program is running. Therefore it is possible to
+    write code like thwe following in python:
+<p>
+<p style="background-color:grey;">>>> x = 42<br>
+    >>> print(x)<br>
+    42<br>
+    >>> x = "Now x references a string"<br>
+    >>> x references a string</p>
+We want to demonstrate something else now. Let's look at the following code:
+<p style="background-color:grey;">>>> x = 42<br>
+    >>> y = x</p>
+We created and integer object 42 and assigned it to the variable x. After this we assigned x to the
+variable y. This means that both variable reference the same object. The following picture
+ilustrates this: What will happen, when we execute
+<p style="background-color:grey">y = 78</p>
+after the previous code? Python will create a new integer object with the content 78 and then the
+variable y will reference this new created object, as we can see in the following picture: Most
+probabaly, we will see further changes to the variables in the flow of our program. There might be
+for example a string assignment to the variable x. The previously integer object "42" will be
+orphaned after this assignment. It will be removed by Python, because no other variable is
+referencing.</p>
+<b>id function</b>
+You may ask yourself, how can we see or prove that x and y really reference the same object after
+the assignment y = x of our previous example?
+<p>The identity function id() can be used for this purpose. Every instance(object or variable) has
+    an identity i.e. an integer which is unique within the script or program, i.e. other object have
+    different identities.
+    so, let's have a look at our previous example and how the the identities will change:
+<p style="background-color:grey;">>>> x = 42 <br>
+    >>> id(x)<br>
+    10107136<br>
+    >>> y = x<br>
+    >>> id(x), id(y)<br>
+    (10107136, 10107136)<br>
+    >>>id(x), id(y)<br>
+    (10107136, 10108288)<br>
+    >>>
+<h3><b><u>Valid Variable Names</u></b></h3>
+<p>The naming of variables follow the more general concept of an identifier. A python identifier is
+    a name used to identify a variable, function, class, module of other object.
+    A variable name and an identifier can consist of the uppercase letters "A" through "Z", the
+    lowercase letters "a" through "z", the underscore _ and, except for the first character, the
+    digits 0 through 9. Python 3.x is based on Unicode. This means that variable names and
+    identifier names can additionally contain Unicode character as well. But in Python 2,
+    identifiers can only be ASCII letters, numbers and underscores.
+    Identifiers are unlimited in length. Case is significant. The fact that identifier names are
+    case-sensitive can cause problems to some windows users, where file names are case-insensitive
+    for example.</p>
+
+<ol
+= type="1">
+<li>Numbers</li>
+<li>String</li>
+<li>List</li>
+<li>Tuple</li>
+<li>Dictionary</li>
+</ol>
+<h5><b><u>Numbers</u></b></h5>
+<p>Python supports four types of numbers - int,long,float and complex<br> For example<br>
+    3(int),4.0(float),51924361L(long),3.14j(complex)</p>
+<p>A complex number consists of an ordered pair of real floating-point numbers denoted by x + yj,
+    where x and y are the real numbers and j is the imaginary unit</p>
+<p>To define an integer, use the following syntax:
+<p style="background-color:grey;">myint = 7</p>
+To define a floating point number, you may use one of the following notations:
+<p style="background-color:grey;">my float = 7.0<br>
+    myfloat = float(7)<br>
+<h6><b><u>Strings</u></b></h6>
+<p>Strings are defined either with a single quote or a double quotes</p>
+<p style="background-color:grey;">mystring = 'hello'<br>
+    mystring = "hello"</p>
+There are additional variations on defining strings that makes it easier to include things such as
+carriage returns, backslashes and unicode characters. There are beyond the scope of this tutorial,
+but are covered in the Python documentation.
+simple operators can be executed on numbers and strings:
+<p style="background-color:grey;">one = 1<br>
+    two = 2<br>
+    three = one + two<br>
+    hello = "hello"<br>
+    world = "world"<br>
+    helloworld = hello + " " + world</p>
+Assignmenets can be done on more than one variable "simultaneously" on the same line like this
+<p style="background-color:grey;">a, b = 3, 4</p>

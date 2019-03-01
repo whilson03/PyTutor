@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.olabode.wilson.pytutor.R;
-import com.olabode.wilson.pytutor.classes.Topics;
 import com.olabode.wilson.pytutor.adapters.RecyclerAdapter;
+import com.olabode.wilson.pytutor.classes.Topics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,24 +44,24 @@ public class LearnTopicsListFragment extends Fragment {
 
         // list to hold all topic names objects and their side icons.
         mTopicsList = new ArrayList<>();
-        mTopicsList.add(new Topics(R.drawable.pink,"Overview",R.drawable.pink));
-        mTopicsList.add(new Topics(R.drawable.blue,"Environment Setup",R.drawable.blue));
-        mTopicsList.add(new Topics(R.drawable.green,"Basic Syntax",R.drawable.green));
-        mTopicsList.add(new Topics(R.drawable.orange,"Variable & Types",R.drawable.orange));
-        mTopicsList.add(new Topics(R.drawable.red,"Basic Operators",R.drawable.red));
-        mTopicsList.add(new Topics(R.drawable.yellow,"Decision Making",R.drawable.yellow));
-        mTopicsList.add(new Topics(R.drawable.pink,"Loops",R.drawable.pink));
-        mTopicsList.add(new Topics(R.drawable.blue,"Numbers",R.drawable.blue));
-        mTopicsList.add(new Topics(R.drawable.green,"Strings",R.drawable.green));
-        mTopicsList.add(new Topics(R.drawable.orange,"Lists",R.drawable.orange));
-        mTopicsList.add(new Topics(R.drawable.red,"Tuples",R.drawable.red));
-        mTopicsList.add(new Topics(R.drawable.yellow,"Dictionary",R.drawable.yellow));
-        mTopicsList.add(new Topics(R.drawable.pink,"Date & Time",R.drawable.pink));
-        mTopicsList.add(new Topics(R.drawable.blue,"Functions",R.drawable.blue));
-        mTopicsList.add(new Topics(R.drawable.green,"Modules",R.drawable.green));
-        mTopicsList.add(new Topics(R.drawable.orange,"Files I/O",R.drawable.orange));
-        mTopicsList.add(new Topics(R.drawable.red,"Exceptions",R.drawable.red));
-        mTopicsList.add(new Topics(R.drawable.yellow,"Classes & Objects",R.drawable.yellow));
+        mTopicsList.add(new Topics(R.drawable.pink, "Overview"));
+        mTopicsList.add(new Topics(R.drawable.blue, "Environment Setup"));
+        mTopicsList.add(new Topics(R.drawable.green, "Basic Syntax"));
+        mTopicsList.add(new Topics(R.drawable.orange, "Variable & Types"));
+        mTopicsList.add(new Topics(R.drawable.red, "Basic Operators"));
+        mTopicsList.add(new Topics(R.drawable.yellow, "Decision Making"));
+        mTopicsList.add(new Topics(R.drawable.pink, "Loops"));
+        mTopicsList.add(new Topics(R.drawable.blue, "Numbers"));
+        mTopicsList.add(new Topics(R.drawable.green, "Strings"));
+        mTopicsList.add(new Topics(R.drawable.orange, "Lists"));
+        mTopicsList.add(new Topics(R.drawable.red, "Tuples"));
+        mTopicsList.add(new Topics(R.drawable.yellow, "Dictionary"));
+        mTopicsList.add(new Topics(R.drawable.pink, "Date & Time"));
+        mTopicsList.add(new Topics(R.drawable.blue, "Functions"));
+        mTopicsList.add(new Topics(R.drawable.green, "Modules"));
+        mTopicsList.add(new Topics(R.drawable.orange, "Files I/O"));
+        mTopicsList.add(new Topics(R.drawable.red, "Exceptions"));
+        mTopicsList.add(new Topics(R.drawable.yellow, "Classes & Objects"));
 
 
         mReaderRecyclerAdapter = new RecyclerAdapter(getContext(), mTopicsList);

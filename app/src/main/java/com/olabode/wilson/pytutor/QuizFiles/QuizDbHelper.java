@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.olabode.wilson.pytutor.QuizFiles.QuizContract.*;
+import com.olabode.wilson.pytutor.QuizFiles.QuizContract.QuestionsTable;
 
 import java.util.ArrayList;
 
@@ -47,6 +47,56 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
 
     /**
+     * extract and insert the question and options into their respective columns in the database.
+     *
+     * @param question
+     */
+    private void addQuestion(Question question) {
+        ContentValues cv = new ContentValues();
+        cv.put(QuestionsTable.COLUMN_QUESTION, question.getQuestion());
+        cv.put(QuestionsTable.COLUMN_OPTION1, question.getOption1());
+        cv.put(QuestionsTable.COLUMN_OPTION2, question.getOption2());
+        cv.put(QuestionsTable.COLUMN_OPTION3, question.getOption3());
+        cv.put(QuestionsTable.COLUMN_ANSWER_NR, question.getAnswerNr());
+        db.insert(QuestionsTable.TABLE_NAME, null, cv);
+    }
+
+
+    /**
+     * Query the database and return a list of {@link Question}
+     *
+     * @return
+     */
+    public ArrayList<Question> getAllQuestions() {
+        ArrayList<Question> questionList = new ArrayList<>();
+        db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + QuestionsTable.TABLE_NAME + " WHERE " + QuestionsTable._ID + " IN (SELECT " + QuestionsTable._ID
+                + " FROM " + QuestionsTable.TABLE_NAME + " ORDER BY RANDOM() LIMIT 10)", null);
+
+        if (c.moveToFirst()) {
+            do {
+                Question question = new Question();
+                question.setQuestion(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_QUESTION)));
+                question.setOption1(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION1)));
+                question.setOption2(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION2)));
+                question.setOption3(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION3)));
+                question.setAnswerNr(c.getInt(c.getColumnIndex(QuestionsTable.COLUMN_ANSWER_NR)));
+                if (questionList.size() != 10) {
+                    questionList.add(question);
+                } else {
+                    break;
+                }
+
+            } while (c.moveToNext());
+        }
+
+        c.close();
+        return questionList;
+    }
+
+
+
+    /**
      * create {@link Question} that will be inserted in the the database.
      */
     private void fillQuestionsTable() {
@@ -76,7 +126,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q7 = new Question("what is the output\nn = [[9, 8, 7], [6, 5, 4], [3, 2, 1]]\n" +
                 "print n[2]", "[6, 5, 4]", "8", "[3, 2, 1]", 3);
         addQuestion(q7);
-        
+
         Question q8 = new Question("In python which is the correct method to load a module ?",
                 "using math", "import math", "include math", 2);
         addQuestion(q8);
@@ -168,45 +218,26 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 "var a = 2", "a = 2", "int a = 2", 2);
         addQuestion(q30);
 
+        Question q31 = new Question("Following set of commands are executed in shell," +
+                " what will be the output?\nstr=\"hello\"\n" +
+                "str[:2]", "he", "lo", "olleh", 1);
+        addQuestion(q31);
+
+        Question q32 = new Question("Select all options that print hello-how-are-you",
+                "print(‘hello’,‘how’,‘are’,‘you’)", "print(‘hello’,‘how’,‘are’,‘you’+ -‘ * 4)",
+                "print(‘hello-‘+‘how-are-you’)", 3);
+        addQuestion(q32);
+
+        Question q33 = new Question("What is the result of the code\nprint('a'*3)",
+                "aaaa", "aaa", "aa", 2);
+        addQuestion(q33);
+
+        Question q34 = new Question("A shorter option for the \"if else\" statement is:", "elif", "ifel"
+                , "elseif", 1);
+        addQuestion(q34);
+
+
+
     }
 
-    /**
-     * extract and insert the question and options into their respective columns in the database.
-     * @param question
-     */
-    private void addQuestion(Question question) {
-        ContentValues cv = new ContentValues();
-        cv.put(QuestionsTable.COLUMN_QUESTION, question.getQuestion());
-        cv.put(QuestionsTable.COLUMN_OPTION1, question.getOption1());
-        cv.put(QuestionsTable.COLUMN_OPTION2, question.getOption2());
-        cv.put(QuestionsTable.COLUMN_OPTION3, question.getOption3());
-        cv.put(QuestionsTable.COLUMN_ANSWER_NR, question.getAnswerNr());
-        db.insert(QuestionsTable.TABLE_NAME, null, cv);
-    }
-
-
-    /**
-     * Query the database and return a list of {@link Question}
-     * @return
-     */
-    public ArrayList<Question> getAllQuestions() {
-        ArrayList<Question> questionList = new ArrayList<>();
-        db = getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM " + QuestionsTable.TABLE_NAME, null);
-
-        if (c.moveToFirst()) {
-            do {
-                Question question = new Question();
-                question.setQuestion(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_QUESTION)));
-                question.setOption1(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION1)));
-                question.setOption2(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION2)));
-                question.setOption3(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION3)));
-                question.setAnswerNr(c.getInt(c.getColumnIndex(QuestionsTable.COLUMN_ANSWER_NR)));
-                questionList.add(question);
-            } while (c.moveToNext());
-        }
-
-        c.close();
-        return questionList;
-    }
 }

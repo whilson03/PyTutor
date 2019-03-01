@@ -1,10 +1,8 @@
 package com.olabode.wilson.pytutor.QuizFiles;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -25,11 +23,6 @@ public class QuizResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_result);
         ActionBar actionBar = getSupportActionBar();
-        assert actionBar != null;
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("Result");
-
-
         textViewHighscore = findViewById(R.id.result_text_view);
         highscore = getIntent().getIntExtra("extraScore",0);
         textViewHighscore.setText("Score: " + highscore);
