@@ -34,7 +34,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View itemView = mLayoutInflater.inflate(R.layout.learn_topics_list_items, viewGroup,false);
+        View itemView = mLayoutInflater.inflate(R.layout.learn_recycler_items, viewGroup, false);
         return new ViewHolder(itemView);
 
     }
@@ -74,9 +74,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
             final ArrayList<String> mAssetTitle = new ArrayList<>();
             mAssetTitle.add("overview.html");
-            mAssetTitle.add("classes.html");
+
             mAssetTitle.add("variables&datatypes.html");
+            mAssetTitle.add("functions.html");
             mAssetTitle.add("Modules.html");
+            mAssetTitle.add("classes.html");
 
 
 

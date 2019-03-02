@@ -32,7 +32,7 @@ public class BasicsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.exercises_list, container, false);
+        View rootView = inflater.inflate(R.layout.exercises_list_view, container, false);
 
 
         final  ArrayList<Exercises> exercisesList = new ArrayList<>();
@@ -173,8 +173,7 @@ public class BasicsFragment extends Fragment {
         ));
 
 
-
-        ExercisesAdapter exercisesAdapter = new ExercisesAdapter(getContext(),exercisesList,R.color.category_numbers);
+        ExercisesAdapter exercisesAdapter = new ExercisesAdapter(getContext(), exercisesList, R.color.category_list_view_color);
         ListView listView = (ListView) rootView.findViewById(R.id.list_view);
 
         listView.setAdapter(exercisesAdapter);

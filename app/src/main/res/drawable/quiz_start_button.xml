@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@android:color/holo_blue_bright" />
+    <solid android:color="#FF4747" />
     <corners android:radius="64dp" />
-    <stroke
-        android:width="6dp"
-        android:color="@android:color/background_light" />
-    <gradient android:centerColor="@android:color/holo_orange_light" />
-
-
+    <gradient
+        android:centerColor="#C51360"
+        android:gradientRadius="10dp"
+        android:type="linear" />
 </shape>

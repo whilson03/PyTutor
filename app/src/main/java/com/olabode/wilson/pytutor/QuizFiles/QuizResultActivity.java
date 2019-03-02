@@ -23,9 +23,12 @@ public class QuizResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_result);
         ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         textViewHighscore = findViewById(R.id.result_text_view);
         highscore = getIntent().getIntExtra("extraScore",0);
         textViewHighscore.setText("Score: " + highscore);
+
 
     }
 
@@ -40,7 +43,6 @@ public class QuizResultActivity extends AppCompatActivity {
                 finish();
                 break;
         }
-
         return true;
     }
 

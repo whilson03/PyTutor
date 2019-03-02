@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@drawable/computer"
     android:padding="16dp"
     tools:context=".QuizFiles.StartingScreenActivity">
 
 
 
     <Button
-        android:layout_width="300dp"
+        android:layout_width="400dp"
         android:id="@+id/button_start_quiz"
-        android:background="@drawable/circle_icon"
+        android:layout_height="100dp"
         android:padding="12dp"
-        android:text="Click "
-        android:layout_height="wrap_content"
+        android:background="@drawable/quiz_start_button"
+        android:text="Start Quiz"
         android:layout_centerInParent="true"
         android:textColor="@android:color/white"
         android:textSize="30sp" />

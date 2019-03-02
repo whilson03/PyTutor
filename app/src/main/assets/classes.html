@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+#shade{background-color:#999}
+
+
+    </style>
     <title></title>
 </head>
-<body>
+<body width="600">
 <font face="Arial, Helvetica, sans-serif" size="-1">
     <h1>OOP</h1>
     <div><h2>OOP Terminologies</h2>
@@ -59,7 +64,24 @@
         The class statement creates a new class definition. The name of the class immediately
         follows the keyword class followed by a colon as follows −
         <br/><br/>
-        <center><img src="Class1.JPG" width="570"/></center>
+        <div id="shade">
+<pre>
+class Employee:
+   'Common base class for all employees'
+   empCount = 0
+
+   def __init__(self, name, salary):
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+   
+   def displayCount(self):
+     print ("Total Employee %d" % Employee.empCount)
+
+   def displayEmployee(self):
+      print ("Name : ", self.name, ", Salary: ")
+</pre>
+        </div>
         The variable empCount is a class variable whose value is shared among all the instances of a
         in this class. This can be accessed as Employee.empCount from inside the class or outside
         the class.

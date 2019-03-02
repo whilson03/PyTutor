@@ -16,7 +16,7 @@
         android:id="@+id/recycler_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/learn_topics_list_items" />
+        tools:listitem="@layout/learn_recycler_items" />
 
 
 </RelativeLayout>

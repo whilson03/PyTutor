@@ -11,14 +11,11 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".QuizFiles.QuizResultActivity"
-            android:label="Result"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="Result"></activity>
         <activity
             android:name=".QuizFiles.StartingScreenActivity"
             android:label="PyTutor Quiz" />
-        <activity
-            android:name=".QuizFiles.QuizActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".QuizFiles.QuizActivity" />
         <activity android:name=".ExercisesReaderActivity" />
         <activity
             android:name=".LearnContentsActivity"

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#19B18D</color>
-    <color name="colorPrimaryDark">#19B18D</color>
+    <color name="colorPrimaryDark">#10856A</color>
     <color name="colorAccent">#D81B60</color>
     <color name="list_background">#FFE5F3</color>
     <!-- Background color for the numbers category -->
-    <color name="category_numbers">#08A78A</color>
+    <color name="category_list_view_color">#F6F6F6</color>
     <color name="category_options">#FAFAFA</color>
     <color name="color_quiz_start_button">#19B18D</color>
 </resources>
