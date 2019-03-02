@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.olabode.wilson.pytutor.ExercisesReaderActivity;
 import com.olabode.wilson.pytutor.R;
+import com.olabode.wilson.pytutor.activities.ExercisesReaderActivity;
 import com.olabode.wilson.pytutor.adapters.ExercisesAdapter;
 import com.olabode.wilson.pytutor.classes.Exercises;
 

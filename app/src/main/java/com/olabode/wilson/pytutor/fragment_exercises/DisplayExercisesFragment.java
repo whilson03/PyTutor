@@ -1,7 +1,6 @@
 package com.olabode.wilson.pytutor.fragment_exercises;
 
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,8 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.olabode.wilson.pytutor.adapters.CategoryAdapter;
+
 import com.olabode.wilson.pytutor.R;
+import com.olabode.wilson.pytutor.adapters.CategoryAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +27,6 @@ public class DisplayExercisesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_display_exercises, container, false);
-
 
         // Find the view pager that will allow the user to swipe between fragments
         ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);

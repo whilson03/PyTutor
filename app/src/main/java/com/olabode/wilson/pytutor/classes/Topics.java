@@ -5,16 +5,15 @@ public class Topics {
     private int mLeftIcon;
 
 
+    /**
+     * constructor to the topic and drawable icons for the tutorial sertion.
+     *
+     * @param leftIcon drawable icon
+     * @param title    topic considered.
+     */
     public Topics(int leftIcon, String title) {
         mTitle = title;
         mLeftIcon = leftIcon;
-    }
-
-    /*
-     Constructor for the exercises list
-     */
-    public Topics(String tiltle) {
-        mTitle = tiltle;
     }
 
 
@@ -22,17 +21,9 @@ public class Topics {
         return mTitle;
     }
 
-    public void setTopic(String mString) {
-        this.mTitle = mString;
-    }
 
     public int getLeftIcon() {
         return mLeftIcon;
     }
-
-    public void setLeftIcon(int leftIcon) {
-        this.mLeftIcon = mLeftIcon;
-    }
-
 
 }

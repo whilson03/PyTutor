@@ -49,14 +49,12 @@ public class LearnTopicsListFragment extends Fragment {
         mTopicsList.add(new Topics(R.drawable.green, "Basic Syntax"));
         mTopicsList.add(new Topics(R.drawable.orange, "Variable & Types"));
         mTopicsList.add(new Topics(R.drawable.red, "Basic Operators"));
+        mTopicsList.add(new Topics(R.drawable.green, "Strings"));
         mTopicsList.add(new Topics(R.drawable.yellow, "Decision Making"));
         mTopicsList.add(new Topics(R.drawable.pink, "Loops"));
-        mTopicsList.add(new Topics(R.drawable.blue, "Numbers"));
-        mTopicsList.add(new Topics(R.drawable.green, "Strings"));
         mTopicsList.add(new Topics(R.drawable.orange, "Lists"));
         mTopicsList.add(new Topics(R.drawable.red, "Tuples"));
         mTopicsList.add(new Topics(R.drawable.yellow, "Dictionary"));
-        mTopicsList.add(new Topics(R.drawable.pink, "Date & Time"));
         mTopicsList.add(new Topics(R.drawable.blue, "Functions"));
         mTopicsList.add(new Topics(R.drawable.green, "Modules"));
         mTopicsList.add(new Topics(R.drawable.orange, "Files I/O"));

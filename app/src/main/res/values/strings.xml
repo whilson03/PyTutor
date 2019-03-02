@@ -27,5 +27,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_quit">Quit</string>
+    <string name="time_place_holder">00:00</string>
+    <string name="score_placeholder_text">Score: 0</string>
+    <string name="question_count_placeholer_text">Question: 1/x</string>
+    <string name="question_placeholder_text">Here will be the question text  Here will be the question text  Here will be the question text</string>
+    <string name="option1_radio_button">Option 1</string>
+    <string name="option2_radio_button">Option 2</string>
+    <string name="option3_radio_button">Option 3</string>
+    <string name="comfirm_button_text">confirm</string>
 
 </resources>

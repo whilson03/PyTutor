@@ -74,10 +74,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
             final ArrayList<String> mAssetTitle = new ArrayList<>();
             mAssetTitle.add("overview.html");
-
             mAssetTitle.add("variables&datatypes.html");
+
+
+            mAssetTitle.add("basic_operator.html");
             mAssetTitle.add("functions.html");
             mAssetTitle.add("Modules.html");
+            mAssetTitle.add("file.html");
+            mAssetTitle.add("exceptions.html");
             mAssetTitle.add("classes.html");
 
 

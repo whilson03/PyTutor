@@ -1,18 +1,23 @@
 package com.olabode.wilson.pytutor.classes;
 
+/**
+ * class to hold exercises and solutions.
+ */
+
 public class Exercises {
     private String mExerciseTitle;
-    private String mExerciseBody;
-    ;
+    private String mExerciseSolution;
     private String mTopic;
 
-    public Exercises(String mExerciseTitle) {
-        this.mExerciseTitle = mExerciseTitle;
-    }
 
-    public Exercises(String mExerciseTitle, String topic, String mExerciseBody) {
+    /**
+     * @param mExerciseTitle    title to display in the list view.
+     * @param topic             main topic of the exercise and possible example output.
+     * @param mExerciseSolution solution to the quiz.
+     */
+    public Exercises(String mExerciseTitle, String topic, String mExerciseSolution) {
         this.mExerciseTitle = mExerciseTitle;
-        this.mExerciseBody = mExerciseBody;
+        this.mExerciseSolution = mExerciseSolution;
         this.mTopic = topic;
     }
 
@@ -20,17 +25,9 @@ public class Exercises {
         return mExerciseTitle;
     }
 
-    public void setExerciseTitle(String exerciseTitle) {
-        this.mExerciseTitle = exerciseTitle;
-    }
-
 
     public String getExerciseBody() {
-        return mExerciseBody;
-    }
-
-    private void setExerciseBody(String exerciseBody) {
-        this.mExerciseBody = exerciseBody;
+        return mExerciseSolution;
     }
 
 

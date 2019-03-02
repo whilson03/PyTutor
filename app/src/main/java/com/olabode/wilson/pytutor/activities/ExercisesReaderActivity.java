@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor;
+package com.olabode.wilson.pytutor.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.olabode.wilson.pytutor.R;
 
 public class ExercisesReaderActivity extends AppCompatActivity {
 
@@ -44,6 +46,5 @@ public class ExercisesReaderActivity extends AppCompatActivity {
         }
         return true;
     }
-
 
 }

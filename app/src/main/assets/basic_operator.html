@@ -1,0 +1,661 @@
+<!Doctype html>
+<html>
+<head>
+    <style>
+h1 {
+	text-align:center;
+}
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 50px;
+	background-color:grey;
+}
+p.one {
+    border-style:solid;
+	border-width:medium;
+}
+
+    </style>
+</head>
+<body>
+<h1>Basic Operators</h1>
+Operators are the constructs, which can manipulate the value of operands. Consider the
+expression 4 + 5 = 9. Here, 4 and 5 are called operands and + is called the operator.
+<u>Types of operator</u>
+
+Python language supports the following types of operators-
+<ul>
+    <li>Arithmetic Operators</li>
+    <li> Comparison (Relational) Operators</li>
+    <li> Assignment Operators</li>
+    <li>Logical Operators</li>
+    <li>Bitwise Operators</li>
+    <li> Membership Operators</li>
+    <li>Identity Operators</li>
+</ul>
+Let us have a look at all the operators one by one.
+<p><b><u>Python Arithmetic Operators</u></b></p>
+Assume variable a holds the value 10 and variable b holds the value 21, then
+<table>
+    <tr>
+        <th>operator</th>
+        <th>Description</th>
+        <th>Examples</th>
+    </tr>
+
+    <tr>
+        <td>+ Addition</td>
+        <td>Adds values on either side of the operator.</td>
+        <td> a + b = 31</td>
+    </tr>
+
+    <tr>
+        <td>- Subtraction</td>
+        <td>Subtracts right hand operand from left hand operand.</td>
+        <td>a – b = -11</td>
+    </tr>
+
+    <tr>
+        <td>*Multiplication</td>
+        <td> Multiplies values on either side of the operator</td>
+        <td>a * b = 210</td>
+    </tr>
+
+    <tr>
+        <td>/ Division</td>
+        <td>Divides left hand operand by right hand operand</td>
+        <td>b / a = 2.1</td>
+    </tr>
+
+    <tr>
+        <td>% Modulus</td>
+        <td>Divides left hand operand by right hand operand and returns remainder</td>
+        <td>b % a = 1</td>
+    </tr>
+
+    <tr>
+        <td>** Exponent</td>
+        <td>Performs exponential (power) calculation on operators</td>
+        <td> a**b =10 to the power 20</td>
+    </tr>
+
+    <tr>
+        <td>// Floor Division</td>
+        <td> The division of operands where the result is the quotient in which the digitsafter the
+            decimal point are removed.
+        </td>
+        <td>9//2 = 4 and 9.0//2.0 = 4.0</td>
+</table>
+Examples
+<p class="one">
+    Assume variable a holds 10 and variable b holds 20, then-
+    #!/usr/bin/python3
+    a = 21<br>
+    b = 10<br>
+    c = 0<br>
+    c = a + b<br>
+    print ("Line 1 - Value of c is ", c)<br>
+
+    c = a - b<br>
+    print ("Line 2 - Value of c is ", c )<br>
+
+    c = a * b<br>
+    print ("Line 3 - Value of c is ", c)<br>
+
+    c = a / b<br>
+    print ("Line 4 - Value of c is ", c )<br>
+
+    c = a % b<br>
+    print ("Line 5 - Value of c is ", c)<br>
+    a = 2<br>
+    b = 3<br>
+    c = a**b<br>
+    print ("Line 6 - Value of c is ", c)<br>
+    a = 10<br>
+    b = 5<br>
+    c = a//b<br>
+    print ("Line 7 - Value of c is ", c)</p>
+
+When you execute the above program, it produces the following result-
+<p class="one">Line 1 - Value of c is 31<br>
+    Line 2 - Value of c is 11</p>
+<p class="one">Line 3 - Value of c is 210<br>
+    Line 4 - Value of c is 2.1<br>
+    Line 5 - Value of c is 1<br>
+    Line 6 - Value of c is 8<br>
+    Line 7 - Value of c is 2</p>
+
+<u>Python Comparison Operators</u><br>
+These operators compare the values on either side of them and decide the relation among
+them. They are also called Relational operators.
+Assume variable a holds the value 10 and variable b holds the value 20, then
+
+<table>
+    <tr>
+        <th>Operators</th>
+        <th>Description</th>
+        <th>Examples</th>
+    </tr>
+
+    <tr>
+        <td>==</td>
+        <td>If the values of two operands are equal, then the condition becomes true.</td>
+        <td>(a == b) is not true.</td>
+    </tr>
+
+    <tr>
+        <td>!=</td>
+        <td> If values of two operands are not equal, then condition becomes true.</td>
+        <td>(a!= b) is true.</td>
+    </tr>
+
+    <tr>
+        <td>></td>
+        <td>If the value of left operand is greater than the value of right operand, then condition
+            becomes true.
+        </td>
+        <td>(a > b) is not true.</td>
+    </tr>
+
+    <tr>
+        <td><</td>
+        <td>If the value of left operand is less than the value of right operand, then condition
+            becomes true.
+        </td>
+        <td>(a < b) is true.</td>
+    </tr>
+
+    <tr>
+        <td>>=</td>
+        <td>If the value of left operand is greater than or equal to the value of right operand,
+            then condition becomes true
+        </td>
+        <td>(a >= b)is not true.</td>
+    </tr>
+
+    <tr>
+        <td><=</td>
+        <td>If the value of left operand is less than or equal to the value of right operand, then
+            condition becomes true.
+        </td>
+        <td>(a <= b)is true.</td>
+    </tr>
+</table>
+
+Example
+Assume variable a holds 10 and variable b holds 20, then
+<p class="one">#!/usr/bin/python3<br>
+    a = 21<br>
+    b = 10<br>
+    if ( a == b ):<br>
+    print ("Line 1 - a is equal to b")<br>
+    else:</p>
+
+<p class="one">print ("Line 1 - a is not equal to b")<br>
+    if ( a != b ):<br>
+    print ("Line 2 - a is not equal to b")<br>
+    else:<br>
+    print ("Line 2 - a is equal to b")<br>
+    if ( a < b ):<br>
+    print ("Line 3 - a is less than b" )<br>
+    else:<br>
+    print ("Line 3 - a is not less than b")<br>
+    if ( a > b ):<br>
+    print ("Line 4 - a is greater than b")<br>
+    else:<br>
+    print ("Line 4 - a is not greater than b")<br>
+    a,b=b,a #values of a and b swapped. a becomes 10, b becomes 21<br>
+    if ( a <= b ):<br>
+    print ("Line 5 - a is either less than or equal to b")<br>
+    else:<br>
+    print ("Line 5 - a is neither less than nor equal to b")<br>
+    if ( b >= a ):<br>
+    print ("Line 6 - b is either greater than or equal to b")<br>
+    else:<br>
+    print ("Line 6 - b is neither greater than nor equal to b")</p>
+When you execute the above program, it produces the following resultLine
+<p class="one">1 - a is not equal to b<br>
+    Line 2 - a is not equal to b<br>
+    Line 3 - a is not less than b<br>
+    Line 4 - a is greater than b<br>
+    Line 5 - a is either less than or equal to b<br>
+    Line 6 - b is either greater than or equal to b</p>
+<u>Python Assignment Operators</u>
+Assume variable a holds 10 and variable b holds 20, then
+<table>
+    <tr>
+        <th>Operators</th>
+        <th>Description</th>
+        <th>Example</th>
+    </tr>
+
+    <tr>
+        <td>=</td>
+        <td> Assigns values from right side operands to left side operand</td>
+        <td>c = a + b assigns value of a + b into c</td>
+    </tr>
+
+    <tr>
+        <td>+=</td>
+        <td> Add AND It adds right operand to the left operand and assign the result to left
+            operand
+        </td>
+        <td>c += a is equivalent to c = c + a</td>
+    </tr>
+
+    <tr>
+        <td>-=</td>
+        <td>Subtract AND It subtracts right operand from the left operand and assign the result to
+            left operand
+        </td>
+        <td>c -= a is equivalent to c = c - a</td>
+    </tr>
+
+    <tr>
+        <td>*=</td>
+        <td> Multiply AND It multiplies right operand with the left operand and assign the result to
+            left operand
+        </td>
+        <td>c *= a is equivalent to c = c * a</td>
+    </tr>
+
+    <tr>
+        <td>/=</td>
+        <td> Divide AND It divides left operand with the right operand and assign the result to left
+            operand
+        </td>
+        <td>c /= a is equivalent to c = c / ac /= a is equivalent to c = c /a</td>
+    </tr>
+
+    <tr>
+        <td>%=</td>
+        <td>Modulus AND It takes modulus using two operands and assign the result to left operand
+        </td>
+        <td>c %= a is equivalent to c = c % a</td>
+    </tr>
+
+    <tr>
+        <td>**=</td>
+        <td>Exponent AND Performs exponential (power) calculation on operators and assign value to
+            the left operand
+        </td>
+        <td>c **= a is equivalent to c = c** a</td>
+    </tr>
+
+    <tr>
+        <td>//=</td>
+        <td> Floor Division It performs floor division on operators and assign value to the left
+            operand
+        </td>
+        <td>c //= a is equivalent to c = c // a</td>
+    </tr>
+</table>
+
+Example
+Assume variable a holds 10 and variable b holds 20, then
+<p class="one">#!/usr/bin/python3<br>
+    a = 21<br>
+    b = 10<br>
+    c = 0<br>
+    c = a + b<br>
+    print ("Line 1 - Value of c is ", c)<br>
+    c += a<br>
+    print ("Line 2 - Value of c is ", c )<br>
+    c *= a<br>
+    print ("Line 3 - Value of c is ", c )</p>
+
+<p class="one"> /= a<br>
+    print ("Line 4 - Value of c is ", c )<br>
+    c = 2<br>
+    c %= a<br>
+    print ("Line 5 - Value of c is ", c)<br>
+    c **= a<br>
+    print ("Line 6 - Value of c is ", c)<br>
+    c //= a<br>
+    print ("Line 7 - Value of c is ", c)</p>
+
+When you execute the above program, it produces the following resultLine
+<p class="one">1 - Value of c is 31<br>
+    Line 2 - Value of c is 52<br>
+    Line 3 - Value of c is 1092<br>
+    Line 4 - Value of c is 52.0<br>
+    Line 5 - Value of c is 2<br>
+    Line 6 - Value of c is 2097152<br>
+    Line 7 - Value of c is 99864</p>
+
+<u><b>Python Bitwise Operators</b></u>
+Bitwise operator works on bits and performs bit-by-bit operation. Assume if a = 60; and b = 13; Now
+in binary format they will be as follows<br>
+a= 0011 1100<br>
+b = 0000 1101<br>
+-----------------<br>
+a&b = 0000 1100<br>
+a|b = 0011 1101<br>
+a^b = 0011 0001<br>
+~a = 1100 0011<br>
+Pyhton's built-in function bin() can be used to obtain binary representation of an integer
+number.</p>
+
+The following Bitwise operators are supported by Python languageOperator
+Description Example
+<table>
+    <tr>
+        <th>Operators</th>
+        <th>Description</th>
+        <th>Example</th>
+    </tr>
+
+    <tr>
+        <td>& Binary AND</td>
+        <td> Operator copies a bit to the result, if it exists in both operands</td>
+        <td>(a & b) (means 0000 1100)</td>
+    </tr>
+
+    <tr>
+        <td>| Binary OR</td>
+        <td> It copies a bit, if it exists in either operand.</td>
+        <td>(a | b) = 61 (means 0011 1101)</td>
+    </tr>
+
+    <tr>
+        <td>^ Binary XOR</td>
+        <td> It copies the bit, if it is set in one operand but not both.</td>
+        <td>(a ^ b) = 49 (means 0011 0001)</td>
+    </tr>
+
+    <tr>
+        <td>~ Binary Ones Complement</td>
+        <td>It is unary and has the effect of 'flipping' bits.</td>
+        <td>(~a ) = -61 (means 1100 0011 in 2's complement form due to a signed binary number.</td>
+
+    <tr>
+        <td><< Binary Left Shift</td>
+        <td>The left operand’s value is moved left by the number of bits specified by the right
+            operand.
+        </td>
+        <td>a << = 240 (means 1111 0000)</td>
+    </tr>
+
+    <tr>
+        <td>>> Binary Right Shift</td>
+        <td>The left operand’s value is moved right by the number of bits specified by the right
+            operand.
+        </td>
+        <td>a >> = 15 (means 0000 1111)</td>
+    </tr>
+</table>
+
+Example
+<p class="one">#!/usr/bin/python3<br>
+    a = 60 # 60 = 0011 1100<br>
+    b = 13 # 13 = 0000 1101<br>
+    print ('a=',a,':',bin(a),'b=',b,':',bin(b))<br>
+    c = 0<br>
+    c = a & b; # 12 = 0000 1100<br>
+    print ("result of AND is ", c,':',bin(c))<br>
+    c = a | b; # 61 = 0011 1101<br>
+    print ("result of OR is ", c,':',bin(c))</p>
+
+
+<p class="one">c = a ^ b; # 49 = 0011 0001<br>
+    print ("result of EXOR is ", c,':',bin(c))<br>
+    c = ~a; # -61 = 1100 0011<br>
+    print ("result of COMPLEMENT is ", c,':',bin(c))<br>
+    c = a << 2; # 240 = 1111 0000<br>
+    print ("result of LEFT SHIFT is ", c,':',bin(c))<br>
+    c = a >> 2; # 15 = 0000 1111<br>
+    print ("result of RIGHT SHIFT is ", c,':',bin(c))</p>
+
+<p class="one">When you execute the above program, it produces the following result<br>
+    a=60 : 0b111100 b= 13 : 0b1101<br>
+    result of AND is 12 : 0b1100<br>
+    result of OR is 61 : 0b111101<br>
+    result of EXOR is 49 : 0b110001<br>
+    result of COMPLEMENT is -61 : -0b111101<br>
+    result of LEFT SHIFT is 240 : 0b11110000<br>
+    result of RIGHT SHIFT is 15 : 0b111</p>
+
+<u><b>Python Logical Operators</b></u>
+The following logical operators are supported by Python language. Assume variable a holds True and
+variable b holds False then
+
+<table>
+    <tr>
+        <th>Operator</th>
+        <th>Description</th>
+        <th>Example</th>
+    </tr>
+
+    <tr>
+        <td>and Logical AND</td>
+        <td>If both the operands are true then condition becomes true.</td>
+        <td>(a and b) is False.</td>
+        </td>
+
+    <tr>
+        <td>or Logical OR</td>
+        <td> If any of the two operands are non-zero then condition becomes true.</td>
+        <td>(a or b) is True.</td>
+    </tr>
+
+    <tr>
+        <td>not Logical NOT</td>
+        <td> Used to reverse the logical state of its operand.</td>
+        <td> Not(a and b) is True.</td>
+    </tr>
+</table>
+
+<u><b>Python Membership Operators</u></b>
+Python’s membership operators test for membership in a sequence, such as strings, lists, or tuples.
+There are two membership operators as explained below
+<table>
+    <tr>
+    <tr>Operator</tr>
+    <tr>Description</tr>
+    <tr> Example</tr>
+    </tr>
+
+    <tr>
+        <td>in</td>
+        <td>Evaluates to true, if it finds a variable in the specified sequence and false
+            otherwise.
+        </td>
+        <td>x in y, here in results in a 1 if x is a member of sequence y.</td>
+    </tr>
+
+    <tr>
+        <td>not in</td>
+        <td> Evaluates to true, if it does not find a variable in the specified sequence and false
+            otherwise.
+        </td>
+        <td>x not in y, here not in results in a 1 if x is not a member of sequence y.</td>
+    </tr>
+</table>
+
+Example
+<p class="one">#!/usr/bin/python3<br>
+    b = 20<br>
+    list = [1, 2, 3, 4, 5 ]<br>
+    if ( a in list ):<br>
+    print ("Line 1 - a is available in the given list")<br>
+    else:<br>
+    print ("Line 1 - a is not available in the given list")<br>
+    if ( b not in list ):<br>
+    print ("Line 2 - b is not available in the given list")<br>
+    else:<br>
+    print ("Line 2 - b is available in the given list")<br>
+    c=b/a<br>
+    if ( c in list ):<br>
+    print ("Line 3 - a is available in the given list")<br>
+    else:<br>
+    print ("Line 3 - a is not available in the given list")</p>
+
+When you execute the above program, it produces the following resultLine
+<p class="one">1 - a is not available in the given list <br>
+    Line 2 - b is not available in the given list<br>
+    Line 3 - a is available in the given list</p>
+
+<u><b>Python Identity Operators</b></u>
+Identity operators compare the memory locations of two objects. There are two Identity
+operators as explained below:
+<table>
+    <tr>
+        <th>Operator</th>
+        <th> Description</th>
+        <th> Example</th>
+    </tr>
+
+    <tr>
+        <td>is</td>
+        <td>Evaluates to true if the variables on either side of the operator point to the same
+            object and false otherwise.
+        </td>
+        <td>x is y, here is results in 1 if id(x) equals id(y).</td>
+    </tr>
+
+    <tr>
+        <td>is not</td>
+        <td> Evaluates to false if the variables on either side of the operator point to the same
+            object and true otherwise.
+        </td>
+        <td>x is not y, here is not results in 1 if id(x) is not equal to id(y).</td>
+    </tr>
+</table>
+
+Example
+<p class="one">#!/usr/bin/python3<br>
+    a = 20<br>
+    b = 20<br>
+    print ('Line 1','a=',a,':',id(a), 'b=',b,':',id(b))<br>
+    if ( a is b ):<br>
+    print ("Line 2 - a and b have same identity")<br>
+    else:<br>
+    print ("Line 2 - a and b do not have same identity"),<br>
+    if ( id(a) == id(b) ):<br>
+    print ("Line 3 - a and b have same identity")<br>
+    else:<br>
+    print ("Line 3 - a and b do not have same identity")</p>
+
+
+<p class="one">b = 30<br>
+    print ('Line 4','a=',a,':',id(a), 'b=',b,':',id(b))
+    <bf>
+        if ( a is not b ):<br>
+        print ("Line 5 - a and b do not have same identity")<br>
+        else:<br>
+        print ("Line 5 - a and b have same identity")<br>
+        When you execute the above program, it produces the following resultLine<br>
+        1 a= 20 : 1594701888 b= 20 : 1594701888<br>
+        Line 2 - a and b have same identity<br>
+        Line 3 - a and b have same identity<Br>
+        Line 4 a= 20 : 1594701888 b= 30 : 1594702048<br>
+        Line 5 - a and b do not have same identity
+</p>
+
+<<b><u>Python Operators Precedence</u></b>
+The following table lists all the operators from highest precedence to the lowest.
+<table>
+    <tr>
+        <th>Operator</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td>**</td>
+        <td> Exponentiation (raise to the power)</td>
+    </tr>
+
+    <tr>
+        <td>~ + -</td>
+        <td> Ccomplement, unary plus and minus (method names for the last two are +@ and -@)</td>
+    </tr>
+
+    <tr>
+        <td>* / % //</td>
+        <td> Multiply, divide, modulo and floor division</td>
+    </tr>
+
+
+    <tr>
+        <td>+ -</td>
+        <td> Addition and subtraction</td>
+    </tr>
+
+    <tr>
+        <td>>> <<</td>
+        <td>Right and left bitwise shift & Bitwise 'AND'</td>
+    </tr>
+
+    <tr>
+        <td>^ |</td>
+        <td> Bitwise exclusive `OR' and regular `OR'</td>
+    </tr>
+
+    <tr>
+        <td><= < > >=</td>
+        <td> Comparison operators</td>
+    </tr>
+
+    <td><> == !=</td>
+    <td> Equality operators</td>
+    </tr>
+
+    <tr>
+        <td>= %= /= //= -= += *= **=</td>
+        <td>Assignment operators</td>
+    </tr>
+
+    <tr>
+        <td>is is not</td>
+        <td>Identity operators</td>
+    </tr>
+
+    <tr>
+        <td>in not in</td>
+        <td> Membership operators</td>
+    </tr>
+
+    <tr>
+        <td>not or and</td>
+        <td> Logical operators</td>
+    </tr>
+</table>
+
+Operator precedence affects the evaluation of an an expression. For example, x = 7 + 3 * 2; here, x
+is assigned 13, not 20 because the operator * has higher precedence than +, so it first multiplies
+3*2 and then is added to 7. Here, the operators with the highest precedence appear at the top of the
+table, those with the lowest appear at the bottom.
+
+Example
+<p class="one">#!/usr/bin/python3<br><br>
+    b = 10<br>
+    c = 15<br>
+    d = 5<br>
+    print ("a:%d b:%d c:%d d:%d" % (a,b,c,d ))<br>
+    e = (a + b) * c / d #( 30 * 15 ) / 5<br>
+    print ("Value of (a + b) * c / d is ", e)<br>
+    e = ((a + b) * c) / d # (30 * 15 ) / 5<br>
+    print ("Value of ((a + b) * c) / d is ", e)<br>
+    e = (a + b) * (c / d) # (30) * (15/5)<br>
+    print ("Value of (a + b) * (c / d) is ", e)<br>
+    e = a + (b * c) / d # 20 + (150/5)<br>
+    print ("Value of a + (b * c) / d is ", e)</p>
+
+When you execute the above program, it produces the following result
+<p class="one">a:20 b:10 c:15 d:5<br>
+    Value of (a + b) * c / d is 90.0</p>
+
+<p class="one">Value of ((a + b) * c) / d is 90.0<br>
+    Value of (a + b) * (c / d) is 90.0<br>
+    Value of a + (b * c) / d is 50.0</p>
+
+</body>
+</html>
