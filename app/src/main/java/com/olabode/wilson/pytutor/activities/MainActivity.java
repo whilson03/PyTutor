@@ -1,8 +1,8 @@
-package com.olabode.wilson.pytutor;
+package com.olabode.wilson.pytutor.activities;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.olabode.wilson.pytutor.QuizFiles.QuizStartScreen;
+import com.olabode.wilson.pytutor.R;
 import com.olabode.wilson.pytutor.fragment_exercises.DisplayExercisesFragment;
 import com.olabode.wilson.pytutor.fragments_topics.LearnTopicsListFragment;
 

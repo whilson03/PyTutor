@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Files I/O</title>
+</head>
+<body>
+<header><h1>Python Files I/O</h1></header>
+<section>
+    <p>
+        This chapter will cover all the basic I/O functions available in Python. For more functions,
+        please refer to standard Python documentation.
+    </p>
+    <h4>
+        Printing To The Screen
+    </h4>
+    <p>
+        The simplest way to produce output is using the print statement where you can pass zero or
+        more expressions separated by commas. This function converts the expressions you pass into a
+        string and writes the result to standard output as follows:
+        <br>
+        <mark><code>
+            #!/usr/bin/python<br>print "Python is really a great language,", "isn't it?";
+        </code></mark>
+        <br>
+        This would produce the following result on your standard screen:<br>
+        <mark>
+            <code>Python is really a great language, isn't it?</code>
+        </mark>
+    </p>
+    <h4>Reading Keyboard Input:</h4>
+    <p>
+        Python provides two built-in functions to read a line of text from standard input, which by
+        default comes from the keyboard. These functions are:
+        <br>
+    <ul class="list-group">
+        <li class="list-group-item active">raw_input</li>
+        <li class="list-group-item disabled">input</li>
+    </ul>
+    </p>
+    <h4>The <i>Raw_input</i> function</h4>
+    <p>
+        The <i>raw_input([prompt])</i> function reads one line from standard input and returns it as
+        a string (removing the trailing newline).
+        <br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+
+                str = raw_input("Enter your input: ");<br>
+                print "Received input is : ", str
+            </code>
+        </mark>
+        <br>
+        This would prompt you to enter any string and it would display same string on the screen.
+        When I typed "Hello Python!", its output is like this:<br>
+        <mark>
+            <code>
+                Enter your input: Hello Python<br>
+                Received input is : Hello Python
+            </code>
+        </mark>
+        <br>
+    </p>
+    <h4>The <i>input</i> Function</h4>
+    <p>
+        The <i>input([prompt])</i> function is equivalent to raw_input, except that it assumes the
+        input is a valid Python expression and returns the evaluated result to you.
+        <br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+
+                str = input("Enter your input: ");<br>
+                print "Received input is : ", str<br>
+            </code>
+        </mark>
+        This would produce the following result against the entered input:
+        <mark>
+            <code>
+                Enter your input: [x*5 for x in range(2,10,2)]<br>
+                Recieved input is : [10, 20, 30, 40]<br>
+            </code>
+        </mark>
+    </p>
+    <h4>
+        Opening and Closing Files:
+    </h4>
+    <p>
+        Until now, you have been reading and writing to the standard input and output. Now, we will
+        see how to play with actual data files.
+        <br>
+        Python provides basic functions and methods necessary to manipulate files by default. You
+        can do your most of the file manipulation using a file object.
+    </p>
+    <h4>
+        The <i>open</i> Function
+    </h4>
+    <p>
+        Before you can read or write a file, you have to open it using Python's built-in open()
+        function. This function creates a file object, which would be utilized to call other support
+        methods associated with it.
+        <br>SYNTAX:<br>
+        <mark>
+            <code>
+                file object = open(file_name [, access_mode][, buffering])
+            </code>
+        </mark>
+        <br>
+        Here is paramters' detail:
+        <
+    <ul class="list-group">
+        <li class="list-group-item active"><b>file_name:</b> The file_name argument is a string
+            value that contains the name of the file that you want to access.
+        </li>
+        <li class="list-group-item active"><b>access_mode:</b> The access_mode determines the mode
+            in which the file has to be opened, i.e., read, write, append, etc. A complete list of
+            possible values is given below in the table. This is optional parameter and the default
+            file access mode is read (r)..
+        </li>
+        li class="list-group-item active"><b>buffering:</b> If the buffering value is set to 0, no
+        buffering will take place. If the buffering value is 1, line buffering will be performed
+        while accessing a file. If you specify the buffering value as an integer greater than 1,
+        then buffering action will be performed with the indicated buffer size. If negative, the
+        buffer size is the system default(default behavior).</li>
+    </ul>
+    <table>
+        <tr>
+            <td>
+                <b>Modes</b>
+            </td>
+            <td>
+                <b>Description</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                r
+            </td>
+            <td>
+                Opens a file for reading only. The file pointer is placed at the beginning of the
+                file. This is the default mode.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                rb
+            </td>
+            <td>
+                Opens a file for reading only in binary format. The file pointer is placed at the
+                beginning of the file. This is the default mode.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                r+
+            </td>
+            <td>
+                Opens a file for both reading and writing. The file pointer will be at the beginning
+                of the file.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                rb+
+            </td>
+            <td>
+                Opens a file for both reading and writing in binary format. The file pointer will be
+                at the beginning of the file.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                w
+            </td>
+            <td>
+                Opens a file for writing only. Overwrites the file if the file exists. If the file
+                does not exist, creates a new file for writing.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                wb
+            </td>
+            <td>
+                Opens a file for writing only in binary format. Overwrites the file if the file
+                exists. If the file does not exist, creates a new file for writing.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                w+
+            </td>
+            <td>
+                Opens a file for both writing and reading. Overwrites the existing file if the file
+                exists. If the file does not exist, creates a new file for reading and writing.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                wb+
+            </td>
+            <td>
+                Opens a file for both writing and reading in binary format. Overwrites the existing
+                file if the file exists. If the file does not exist, creates a new file for reading
+                and writing.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                a
+            </td>
+            <td>
+                Opens a file for appending. The file pointer is at the end of the file if the file
+                exists. That is, the file is in the append mode. If the file does not exist, it
+                creates a new file for writing.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ab
+            </td>
+            <td>
+                Opens a file for appending in binary format. The file pointer is at the end of the
+                file if the file exists. That is, the file is in the append mode. If the file does
+                not exist, it creates a new file for writing.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                a+
+            </td>
+            <td>
+                Opens a file for both appending and reading. The file pointer is at the end of the
+                file if the file exists. The file opens in the append mode. If the file does not
+                exist, it creates a new file for reading and writing.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ab+
+            </td>
+            <td>
+                Opens a file for both appending and reading in binary format. The file pointer is at
+                the end of the file if the file exists. The file opens in the append mode. If the
+                file does not exist, it creates a new file for reading and writing.
+            </td>
+        </tr>
+    </table>
+    </p>
+    <h4>
+        The <i>file</i> object attributes:
+    </h4>
+    <p>
+        Once a file is opened and you have one file object, you can get various information related
+        to that file.
+
+        <br>Here is a list of all attributes related to file object:<br>
+    <table>
+        <tr>
+            <td>
+                <b>Attribute</b>
+            </td>
+            <td>
+                <b>Description</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                file.closed
+            </td>
+            <td>
+                Returns true if file is closed, false otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                file.mode
+            </td>
+            <td>
+                Returns access mode with which file was opened.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                file.name
+            </td>
+            <td>
+                Returns name of the file.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                file.softspace
+            </td>
+            <td>
+                Returns false if space explicitly required with print, true otherwise.
+            </td>
+        </tr>
+    </table>
+    EXAMPLE:<br>
+    <mark>
+        <code>
+            #!/usr/bin/python<br><br>
+
+            # Open a file<br>
+            fo = open("foo.txt", "wb")<br>
+            print "Name of the file: ", fo.name<br>
+            print "Closed or not : ", fo.closed<br>
+            print "Opening mode : ", fo.mode<br>
+            print "Softspace flag : ", fo.softspace<br>
+        </code>
+    </mark>
+    <br>
+    This would produce the following result:<br>
+    <mark>
+        <code>
+            Name of the file: foo.txt<br>
+            Closed or not : False<br>
+            Opening mode : wb<br>
+            Softspace flag : 0<br>
+        </code>
+    </mark>
+    </p>
+    <h4>
+        The <i>clode()</i> Method
+    </h4>
+    <p>
+        The close() method of a file object flushes any unwritten information and closes the file
+        object, after which no more writing can be done.
+
+        <br>Python automatically closes a file when the reference object of a file is reassigned to
+        another file. It is a good practice to use the close() method to close a file.
+        <br>
+        SYNTAX:<br>
+        <mark>
+            <code>
+                fileObject.close();
+            </code>
+        </mark>
+        <br>
+        EXAMPLE:<br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+
+                # Open a file<br>
+                fo = open("foo.txt", "wb")<br>
+                print "Name of the file: ", fo.name<br>
+
+                # Close opend file<br>
+                fo.close()<br>
+            </code>
+        </mark>
+        This would produce the following result:<br>
+        <mark>
+            <code>
+                Name of the file: foo.txt
+            </code>
+        </mark>
+    </p>
+    <h4>
+        Reading and Writing Files:
+    </h4>
+    <p>
+        The <i>file</i> object provides a set of access methods to make our lives easier. We would
+        see how to use read() and write() methods to read and write files.
+    </p>
+    <h4>
+        The <i>write()</i> Method:
+    </h4>
+    <p>
+        The <i>write()</i> method writes any string to an open file. It is important to note that
+        Python strings can have binary data and not just text.
+        <br>The <i>write()</i> method does not add a newline character ('\n') to the end of the
+        string:<br>
+        <br>SYNTAX:<br>
+        <mark>
+            <code>
+                fileObject.write(string);
+            </code>
+        </mark>
+        <br><br>
+        Here, passed parameter is the content to be written into the opened file.
+        <br>
+        EXAMPLE:<br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+
+                # Open a file<br>
+                fo = open("foo.txt", "wb")<br>
+                fo.write( "Python is a great language.\nYeah its great!!\n");<br>
+
+                # Close opend file<br>
+                fo.close()<br>
+            </code>
+        </mark>
+        <br>
+        The above method would create foo.txt file and would write given content in that file and
+        finally it would close that file. If you would open this file, it would have following
+        content.<br><br>
+        <mark>
+            <code>
+                Python is a great language.<br>
+                Yeah its great!!<br>
+            </code>
+        </mark>
+    </p>
+    <h4>
+        The <i>read()</i> Method:
+    </h4>
+    <p>
+        The read() method reads a string from an open file. It is important to note that Python
+        strings can have binary data and not just text.
+        <br>SYNTAX:<br>
+        <mark>
+            <code>
+                fileObject.read([count]);
+            </code>
+        </mark>
+        <br>
+        Here, passed parameter is the number of bytes to be read from the opened file. This method
+        starts reading from the beginning of the file and if count is missing, then it tries to read
+        as much as possible, maybe until the end of file.
+        <br><br>
+        EXAMPLE:<br>
+        Let's take a file foo.txt, which we have created above.<br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+
+                # Open a file<br>
+                fo = open("foo.txt", "r+")<br>
+                str = fo.read(10);<br>
+                print "Read String is : ", str<br>
+                # Close opend file<br>
+                fo.close()
+            </code>
+        </mark>
+        <br>
+        This would produce the following result:<br><br>
+        <mark>
+            <code>
+                Read String is : Python is
+            </code>
+        </mark>
+    </p>
+    <h4>
+        File Positions:
+    </h4>
+    <p>
+        The tell() method tells you the current position within the file; in other words, the next
+        read or write will occur at that many bytes from the beginning of the file.
+        <br>
+        The seek(offset[, from]) method changes the current file position. The offset argument
+        indicates the number of bytes to be moved. The from argument specifies the reference
+        position from where the bytes are to be moved.
+        <br>
+        If from is set to 0, it means use the beginning of the file as the reference position and 1
+        means use the current position as the reference position and if it is set to 2 then the end
+        of the file would be taken as the reference position.
+        <br><br>
+        EXAMPLE:
+        <br>Let's take a file foo.txt, which we have created above.
+        <br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+
+                # Open a file<br>
+                fo = open("foo.txt", "r+")<br>
+                str = fo.read(10);<br>
+                print "Read String is : ", str<br>
+                <br>
+                # Check current position<br>
+                position = fo.tell();<br>
+                print "Current file position : ", position<br>
+                <br>
+                # Reposition pointer at the beginning once again<br>
+                position = fo.seek(0, 0);<br>
+                str = fo.read(10);<br>
+                print "Again read String is : ", str<br>
+                # Close opend file<br>
+                fo.close()<br>
+            </code>
+        </mark>
+        <br>
+        This would produce the following result:<br>
+        <br>
+        <mark>
+            <code>
+                Read String is : Python is<br>
+                Current file position : 10<br>
+                Again read String is : Python is<br>
+            </code>
+        </mark>
+    </p>
+    <h4>
+        Renaming and Deleting Files
+    </h4>
+    <p>
+        Python os module provides methods that help you perform file-processing operations, such as
+        renaming and deleting files.
+        <br>
+        To use this module you need to import it first and then you can call any related functions.
+    </p>
+    <h4>
+        The rename() Method:
+    </h4>
+    <p>
+        The rename() method takes two arguments, the current filename and the new filename.
+        <br><br>
+        SYNTAX:<br>
+        <mark>
+            <code>
+                os.rename(current_file_name, new_file_name)
+            </code>
+        </mark>
+        <br>
+        <br>
+        EXAMPLE:<br>
+        Following is the example to rename an existing file test1.txt:
+        <br><br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+                import os<br>
+                <br>
+                # Rename a file from test1.txt to test2.txt<br>
+                os.rename( "test1.txt", "test2.txt" )<br>
+            </code>
+        </mark>
+    </p>
+    <h4>
+        The <i>remove() </i> Method:
+    </h4>
+    <p>
+        You can use the remove() method to delete files by supplying the name of the file to be
+        deleted as the argument.
+        <br>
+        SYNTAX:<br>
+        <mark>
+            <code>
+                os.remove(file_name)
+            </code>
+        </mark>
+        <br>
+        EXAMPLE:<br>
+        Following is the example to delete an existing file test2.txt:
+        <br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+                import os<br>
+                <br>
+                # Delete file test2.txt<br>
+                os.remove("text2.txt")<br>
+            </code>
+        </mark>
+    </p>
+    <h4>
+        Directories in Python:
+    </h4>
+    <p>
+        All files are contained within various directories, and Python has no problem handling these
+        too. The os module has several methods that help you create, remove and change directories.
+    </p>
+    <h4>
+        The <i>mkdir()</i> Method
+    </h4>
+    <p>
+        You can use the mkdir() method of the os module to create directories in the current
+        directory. You need to supply an argument to this method which contains the name of the
+        directory to be created.<br><br>
+        SYNTAX:<br>
+        <mark>
+            <code>
+                os.mkdir("newdir")
+            </code>
+        </mark>
+        <br>
+        EXAMPLE:<br>
+        Following is the example to create a directory test in the current directory:
+        <br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+                import os<br>
+                <br>
+                # Create a directory "test"<br>
+                os.mkdir("test")<br>
+            </code>
+        </mark>
+    </p>
+    <h4>The <i>chdir()</i> Method</h4>
+    <p>
+        You can use the chdir() method to change the current directory. The chdir() method takes an
+        argument, which is the name of the directory that you want to make the current
+        directory.<br><br>
+        SYNTAX:<br>
+        <mark>
+            <code>
+                os.chdir("newdir")
+            </code>
+        </mark>
+        <br>
+        EXAMPLE:<br>Following is the example to go into "/home/newdir" directory:<br><br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+                import os<br>
+                <br>
+                # Changing a directory to "/home/newdir"<br>
+                os.chdir("/home/newdir")<br>
+            </code>
+        </mark>
+    </p>
+    <h4>
+        The <i>getcwd()</i> Method
+    </h4>
+    <p>
+        The getcwd() method displays the current working directory.
+        <br><br>
+        SYNTAX:<br>
+        <mark>
+            <code>
+                os.getcwd()
+            </code>
+        </mark>
+        <br><br>
+        EXAMPLE:<br>
+        Following is the example to give current directory:
+        <br>
+        <br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+                import os<br>
+                <br>
+                # This would give location of the current directory
+                <br>os.getcwd()
+            </code>
+        </mark>
+        <br>
+    </p>
+    <h4>
+        The <i>rmdir()</i> Method
+    </h4>
+    <p>
+        The rmdir() method deletes the directory, which is passed as an argument in the method.
+        <br>
+        Before removing a directory, all the contents in it should be removed.
+        <br><br>
+        SYNTAX:<br>
+        <mark>
+            <code>
+                os.rmdir('dirname')
+            </code>
+        </mark>
+        <br><br>
+        EXAMPLE:<br>
+        Following is the example to remove "/tmp/test" directory. It is required to give fully
+        qualified name of the directory, otherwise it would search for that directory in the current
+        directory.<br><br>
+        <mark>
+            <code>
+                #!/usr/bin/python<br>
+                import os<br>
+                <br>
+                # This would remove "/tmp/test" directory.
+                <br>os.rmdir( "/tmp/test" )
+            </code>
+        </mark>
+    </p>
+    <h4>
+        File & Directory Related Methods:
+    </h4>
+    <p>
+        There are three important sources, which provide a wide range of utility methods to handle
+        and manipulate files & directories on Windows and Unix operating systems. They are as
+        follows:
+        <
+    <ul class="list-group">
+        <li class="list-group-item active">File Object Methods: The file object provides functions
+            to manipulate files.
+        </li>
+        <li class="list-group-item ">OS Object Methods: This provides methods to process files as
+            well as directories.
+        </li>
+    </ul>
+    </p>
+
+</section>
+</body>
+</html>
