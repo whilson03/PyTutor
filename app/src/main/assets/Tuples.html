@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+.code{background-color:#C3C3C3;}
+
+    </style>
+    <title>Tuples</title>
+</head>
+<body>
+<h1>Tuples</h1>
+<p>A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The
+    main difference between the tuples and the lists is that the tuples cannot be changed unlike
+    lists i.e they are immutable. Tuples use parentheses, whereas lists use square brackets.
+
+    Creating a tuple is as simple as putting different comma-separated values. Optionally, you can
+    put these comma-separated values between parentheses also. For example −
+<div class="code">
+<pre>
+tup1 = ('physics', 'chemistry', 1997, 2000)
+tup2 = (1, 2, 3, 4, 5 )
+tup3 = "a", "b", "c", "d"
+</pre>
+</div>
+The empty tuple is written as two parentheses containing nothing −
+<div class="code">
+<pre>
+tup1 = ();
+</pre>
+</div>
+To write a tuple containing a single value you have to include a comma, even though there is only
+one value −
+<div class="code">
+<pre>
+tup1 = (50,)
+</pre>
+</div>
+Like string indices, tuple indices start at 0, and they can be sliced, concatenated, and so on.
+</p>
+<p>
+<h3>Accessing Values in Tuples</h3>
+To access values in tuple, use the square brackets for slicing along with the index or indices to
+obtain the value available at that index. For example −
+<div class="code">
+<pre>
+tup1 = ('physics', 'chemistry', 1997, 2000)
+tup2 = (1, 2, 3, 4, 5, 6, 7 )
+
+print ("tup1[0]: ", tup1[0])
+print ("tup2[1:5]: ", tup2[1:5])
+</pre>
+</div>
+The output of the code above is given as:
+<div class="code">
+<pre>
+tup1[0]:  physics
+tup2[1:5]:  (2, 3, 4, 5)
+</pre>
+</div>
+<h3>Updating Tuples</h3>
+Tuples are immutable, which means you cannot update or change the values of tuple elements. You are
+able to take portions of the existing tuples to create new tuples as the following example
+demonstrates −
+<div class="code">
+<pre>
+tup1 = (12, 34.56)
+tup2 = ('abc', 'xyz')
+
+# Following action is not valid for tuples
+# tup1[0] = 100;
+
+# So let's create a new tuple as follows
+tup3 = tup1 + tup2
+print (tup3)
+</pre>
+</div>
+
+The output of the code above is given as:
+<div class="code">
+<pre>
+(12, 34.56, 'abc', 'xyz')
+</pre>
+</div>
+<h3>Delete Tuple Elements</h3>
+Removing individual tuple elements is not possible. There is, of course, nothing wrong with putting
+together another tuple with the undesired elements discarded.
+
+To explicitly remove an entire tuple, just use the del statement. For example −
+<div class="code">
+<pre>
+my_tup = ("school","reading","grades","football")
+print(my_tup)
+del(my_tup)
+print("After deleting my_tup:")
+print(my_tup)
+</pre>
+</div>
+This produces the following result:
+<div class="code">
+<pre>
+('school', 'reading', 'grades', 'football')
+After deleting my_tup:
+Traceback (most recent call last):
+  File "C:/Users/Fawaz/AppData/Local/Programs
+  /Python/Python37-32/aaa.py", line 5, in
+  < module >
+    print(my_tup)
+NameError: name 'my_tup' is not defined
+</pre>
+</div>
+Note − An exception is raised. This is because after del my_tup, the tuple does not exist any more.
+</p></body>
+</html>

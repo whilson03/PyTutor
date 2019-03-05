@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/sc"
     android:padding="16dp"
-    tools:context=".QuizFiles.StartingScreenActivity">
+    android:background="#19B18D"
 
 
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/laptop" />
 
 
     <Button
         android:layout_alignParentBottom="true"
-        android:layout_width="400dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="300dp"
+        android:layout_marginBottom="40dp"
         android:id="@+id/button_start_quiz"
         android:layout_height="100dp"
         android:padding="12dp"
-        android:textColor="#000"
+        android:textColor="@android:color/white"
         android:background="@drawable/quiz_start_button"
         android:text="Start Quiz"
         android:layout_centerInParent="true"
         android:textStyle="italic"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
 
 </RelativeLayout>

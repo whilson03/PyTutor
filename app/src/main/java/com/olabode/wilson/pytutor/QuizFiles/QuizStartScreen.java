@@ -3,25 +3,22 @@ package com.olabode.wilson.pytutor.QuizFiles;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.olabode.wilson.pytutor.R;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class QuizStartScreen extends Fragment {
-    private static final int REQUEST_CODE_QUIZ = 1;
-
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String KEY_HIGHSCORE = "keyHighscore";
-    private TextView textViewHighscore;
-    private int highscore;
 
 
     public QuizStartScreen() {
@@ -33,9 +30,6 @@ public class QuizStartScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_quiz_starting_screen, container, false);
-
-
-
         Button buttonStartQuiz = rootView.findViewById(R.id.button_start_quiz);
         buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,5 +44,13 @@ public class QuizStartScreen extends Fragment {
     private void startQuiz() {
         Intent intent = new Intent(getContext(), QuizActivity.class);
         startActivity(intent);
+        Objects.requireNonNull(getActivity()).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Objects.requireNonNull(getActivity()).setTitle("Py QUIZ");
     }
 }

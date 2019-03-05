@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- res/transition/change_image_transform.anim -->
-<!-- (see also Shared Transitions below) -->
-<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
-    <changeImageTransform/>
-</transitionSet>

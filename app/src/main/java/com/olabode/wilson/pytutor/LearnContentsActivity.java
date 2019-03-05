@@ -8,7 +8,6 @@ import android.webkit.WebView;
 
 public class LearnContentsActivity extends AppCompatActivity {
 
-
     private static final String TAG = LearnContentsActivity.class.getSimpleName();
 
 
@@ -19,7 +18,9 @@ public class LearnContentsActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         String title = getIntent().getStringExtra("title");
         if (title != null) {
-            actionBar.setTitle(title);
+            if (actionBar != null) {
+                actionBar.setTitle(title);
+            }
         }
 
         String assetName = getIntent().getStringExtra("ContentAssetName");

@@ -2,9 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B204475C"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:background="#3F8B79"
+    android:orientation="vertical">
 
 
     <Button
@@ -13,8 +12,9 @@
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="20dp"
-        android:background="@drawable/test"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="#3F8B79"
         android:drawableStart="@drawable/ic_arrow_back_black_24dp" />
 
     <TextView
@@ -23,31 +23,38 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_margin="20dp"
-        android:background="@drawable/test"
+        android:layout_margin="12dp"
+        android:background="@drawable/transparent_button"
         android:freezesText="true"
         android:text="@string/time_place_holder"
         android:textAlignment="center"
         android:textColor="#03EC0D"
+        android:paddingBottom="20dp"
         android:textSize="23sp" />
 
 
     <TextView
+
         android:id="@+id/text_view_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="20dp"
+        android:layout_marginEnd="5dp"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
         android:freezesText="true"
         android:text="@string/score_placeholder_text"
+        android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/question_card"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
+        app:cardBackgroundColor="#EFEFEF"
         android:layout_below="@+id/text_view_countdown"
         app:cardCornerRadius="10dp"
         app:cardElevation="50dp">
@@ -97,32 +104,39 @@
             android:layout_height="wrap_content">
 
             <RadioButton
+                android:layout_margin="5dp"
                 android:id="@+id/radio_button1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:background="@drawable/test"
+                android:background="@drawable/transparent_button"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
                 android:freezesText="true"
                 android:text="@string/option1_radio_button"
 
                 android:textSize="20sp" />
 
             <RadioButton
+                android:layout_margin="5dp"
+                android:background="@drawable/transparent_button"
                 android:id="@+id/radio_button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:background="@drawable/test"
+                android:padding="8dp"
+
+                android:textColor="@android:color/white"
                 android:freezesText="true"
                 android:text="@string/option2_radio_button"
                 android:textSize="20sp" />
 
             <RadioButton
+                android:layout_margin="5dp"
                 android:id="@+id/radio_button3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:background="@drawable/test"
+                android:background="@drawable/transparent_button"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
                 android:freezesText="true"
                 android:text="@string/option3_radio_button"
                 android:textSize="20sp" />
@@ -133,13 +147,13 @@
 
     <Button
         android:id="@+id/button_confirm_next"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_margin="50dp"
-        android:background="@drawable/test"
-        android:drawableEnd="@drawable/ic_arrow_forward_black_24dp"
+        android:layout_margin="30dp"
+        android:background="@android:color/white"
+        android:textColor="#218D73"
         android:text="@string/comfirm_button_text" />
 
 

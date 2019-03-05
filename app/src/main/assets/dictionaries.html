@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+.code{background-color:#C3C3C3;}
+
+    </style>
+    <title>Dictionaries</title>
+</head>
+<body>
+<h1>Dictionaries</h1>
+A dictionary is a data type in Python that is made up of keys and values.Each key is separated from
+its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in
+curly braces. An empty dictionary without any items is written with just two curly braces, like
+this: {}.
+
+Keys are unique within a dictionary while values may not be. The values of a dictionary can be of
+any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+<h3>Accessing Values in Dictionary</h3>
+To access dictionary elements, you can use the familiar square brackets along with the key to obtain
+its value. Following is a simple example −
+<div class="code">
+<pre>
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+print ("dict['Name']: ", dict['Name'])
+print ("dict['Age']: ", dict['Age'])
+</pre>
+</div>
+When the above code is eexcuted, the following output is obtained:
+<div class="code">
+<pre> 
+dict['Name']:  Zara
+dict['Age']:  7
+</pre>
+</div>
+If the user attempt to access a data item with a key, which is not a part of the dictionary, we get
+an error as follows −
+<div class="code">
+<pre>
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'};
+print "dict['Alice']: ", dict['Alice']
+</pre>
+</div>
+When the above code is eexcuted, the following output is obtained:
+<div class="code">
+<pre> 
+dict['Zara']:
+Traceback (most recent call last):
+   File "test.py", line 4, in <module>
+      print "dict['Alice']: ", dict['Alice'];
+KeyError: 'Alice'
+</pre>
+</div>
+<h3>Updating Dictionaries</h3>
+You can update a dictionary by adding a new entry or a key-value pair, modifying an existing entry,
+or deleting an existing entry as shown in a simple example given below.
+<div class="code">
+<pre>
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+dict['Age'] = 8; # update existing entry
+dict['School'] = "DPS School" # Add new entry
+
+print ("dict['Age']: ", dict['Age'])
+print ("dict['School']: ", dict['School'])
+</pre>
+</div>
+When the above code is executed, it produces the following result −
+<div class="code">
+<pre>
+dict['Age']:  8
+dict['School']:  DPS School
+</pre>
+</div>
+<h3>Delete Dictionary Elements</h3>
+You can either remove individual dictionary elements or clear the entire contents of a dictionary.
+You can also delete entire dictionary in a single operation.
+
+To explicitly remove an entire dictionary, just use the del statement. Following is a simple example
+−
+<div class="code">
+<pre>
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+
+del dict['Name'] # remove entry with key 'Name'
+dict.clear()     # remove all entries in dict
+del dict         # delete entire dictionary
+
+print ("dict['Age']: ", dict['Age'])
+print ("dict['School']: ", dict['School'])
+</pre>
+</div>
+This produces the following result.
+
+An exception is raised because after del dict, the dictionary does not exist anymore.\
+<div class="code">
+<pre>
+dict['Age']:
+Traceback (most recent call last):
+   File "test.py", line 8, in <module>
+      print "dict['Age']: ", dict['Age'];
+TypeError: 'type' object is unsubscriptable
+</pre>
+</div>
+<h3>Dictionary keys</h3>
+Dictionary values have no restrictions. They can be any arbitrary Python object, either standard
+objects or user-defined objects. However, same is not true for the keys.
+
+There are two important points to remember about dictionary keys −
+
+(a) More than one entry per key is not allowed. This means no duplicate key is allowed. When
+duplicate keys are encountered during assignment, the last assignment wins. For example −
+<div class="code">
+<pre>dict = {'Name': 'Zara', 'Age': 7, 'Name': 'Manni'}
+print ("dict['Name']: ", dict['Name'])
+</pre>
+</div>
+When the above code is executed, it produces the following result −
+<div class="code">
+<pre>
+dict['Name']:  Manni
+</pre>
+</div>
+(b) Keys must be immutable. This means you can use strings, numbers or tuples as dictionary keys but
+something like ['key'] is not allowed. Following is a simple example −
+<div class="code">
+<pre>
+dict = {['Name']: 'Zara', 'Age': 7}
+print ("dict['Name']: ", dict['Name'])
+</pre>
+</div>
+When the above code is executed, it produces the following result −
+<div class="code">
+<pre>
+Traceback (most recent call last):
+   File "test.py", line 3, in < module >
+      dict = {['Name']: 'Zara', 'Age': 7}
+TypeError: list objects are unhashable
+</pre>
+</div>
+
+
+</body>
+</html>
