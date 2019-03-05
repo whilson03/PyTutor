@@ -1,8 +1,11 @@
 package com.olabode.wilson.pytutor.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,6 +22,9 @@ import com.olabode.wilson.pytutor.fragments_topics.LearnTopicsListFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private DrawerLayout mDrawerLayout;
+    private FragmentTransaction ft;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,14 +32,16 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+                this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
         setFirstItemChecked();
         if (savedInstanceState == null) {
@@ -65,9 +73,8 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.anim.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
             return true;
         }
 
@@ -75,15 +82,28 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    /**
+     * update the main screen as new fragment ..
+     *
+     * @param item
+     * @return
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         displaySelectedScreen(id);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
+
+    /**
+     * get the current item clicked in the navigation drawer and switch to the
+     * corresponding fragment.
+     * @param id id for the items in the navigation view.
+     */
     public void displaySelectedScreen(int id) {
         Fragment fragment = null;
         switch (id) {
@@ -99,25 +119,41 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_feedback:
-
+                sendFeedback();
                 break;
 
             case R.id.nav_share:
                 break;
         }
         if (fragment != null) {
-            android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_main, fragment);
             ft.commit();
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+
     }
 
+
+    /**
+     * check the first item in navigation drawer.
+     */
     public void setFirstItemChecked() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu menu = navigationView.getMenu();
         menu.findItem(R.id.nav_Learn).setChecked(true);
     }
+
+
+    /**
+     * send feedback email
+     */
+    public void sendFeedback() {
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "whilson03@gmail.com"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "feedback from PyTutor app");
+        intent.putExtra(Intent.EXTRA_TEXT, "message");
+        startActivity(Intent.createChooser(intent, "Send Email"));
+    }
+
+
 
 }

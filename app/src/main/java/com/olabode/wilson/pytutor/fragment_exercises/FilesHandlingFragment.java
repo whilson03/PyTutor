@@ -41,7 +41,7 @@ public class FilesHandlingFragment extends Fragment {
                         "        txt = open(fname)\n" +
                         "        print(txt.read())\n" +
                         "\n" +
-                        "file_read('test.txt')"));
+                        "file_read('transparent_button.txt')"));
 
         exercisesList.add(new Exercises("read first line of file", "Write a Python program to read first n lines of a file.",
                 "def file_read_from_head(fname, nlines):\n" +
@@ -49,7 +49,7 @@ public class FilesHandlingFragment extends Fragment {
                         "        with open(fname) as f:\n" +
                         "                for line in islice(f, nlines):\n" +
                         "                        print(line)\n" +
-                        "file_read_from_head('test.txt',2)\n"
+                        "file_read_from_head('transparent_button.txt',2)\n"
 
         ));
 
@@ -84,7 +84,7 @@ public class FilesHandlingFragment extends Fragment {
                         "                                        print(''.join(data[-lines:]))\n" +
                         "                                        break\n" +
                         "\n" +
-                        "file_read_from_tail('test.txt',2)"
+                        "file_read_from_tail('transparent_button.txt',2)"
 
         ));
 
@@ -95,7 +95,7 @@ public class FilesHandlingFragment extends Fragment {
                 "                content_list = f.readlines()\n" +
                 "                print(content_list)\n" +
                 "\n" +
-                "file_read(\\'test.txt\\')\n"
+                "file_read(\\'transparent_button.txt\\')\n"
         ));
 
         exercisesList.add(new Exercises("Read and store file in variable", "Write a Python program to read a file " +
@@ -104,7 +104,7 @@ public class FilesHandlingFragment extends Fragment {
                 "        with open (fname, \"r\") as myfile:\n" +
                 "                data=myfile.readlines()\n" +
                 "                print(data)\n" +
-                "file_read('test.txt')\n"));
+                "file_read('transparent_button.txt')\n"));
 
         exercisesList.add(new Exercises("Longest word in file", "Write a python program to find the longest words" +
                 "", "def longest_word(filename):\n" +
@@ -113,7 +113,7 @@ public class FilesHandlingFragment extends Fragment {
                 "    max_len = len(max(words, key=len))\n" +
                 "    return [word for word in words if len(word) == max_len]\n" +
                 "\n" +
-                "print(longest_word('test.txt'))"
+                "print(longest_word('transparent_button.txt'))"
         ));
 
         exercisesList.add(new Exercises("Count no of lines in files", "Write a Python program to count the number of lines in a text file",
@@ -122,7 +122,7 @@ public class FilesHandlingFragment extends Fragment {
                         "                for i, l in enumerate(f):\n" +
                         "                        pass\n" +
                         "        return i + 1\n" +
-                        "print(\"Number of lines in the file: \",file_lengthy(\"test.txt\"))\n"
+                        "print(\"Number of lines in the file: \",file_lengthy(\"transparent_button.txt\"))\n"
         ));
 
 
@@ -132,7 +132,7 @@ public class FilesHandlingFragment extends Fragment {
                         "        with open(fname) as f:\n" +
                         "                return Counter(f.read().split())\n" +
                         "\n" +
-                        "print(\"Number of words in the file :\",word_count(\"test.txt\"))\n"
+                        "print(\"Number of words in the file :\",word_count(\"transparent_button.txt\"))\n"
 
         ));
 
@@ -142,7 +142,7 @@ public class FilesHandlingFragment extends Fragment {
                 "        statinfo = os.stat(fname)\n" +
                 "        return statinfo.st_size\n" +
                 "\n" +
-                "print(\"File size in bytes of a plain file: \",file_size(\"test.txt\"))\n"
+                "print(\"File size in bytes of a plain file: \",file_size(\"transparent_button.txt\"))\n"
         ));
 
 
@@ -151,12 +151,12 @@ public class FilesHandlingFragment extends Fragment {
                         "    flist = open(fname).readlines()\n" +
                         "    return [s.rstrip('\\n') for s in flist]\n" +
                         "\n" +
-                        "print(remove_newlines(\"test.txt\"))\n"
+                        "print(remove_newlines(\"transparent_button.txt\"))\n"
         ));
 
         exercisesList.add(new Exercises("Copy contents", "Write a Python program to copy the contents of a file to another file ",
                 "from shutil import copyfile\n" +
-                        "copyfile('test.py', 'abc.py')"
+                        "copyfile('transparent_button.py', 'abc.py')"
         ));
         exercisesList.add(new Exercises("Write list to file", "Write a Python program to write a list to a file", "" +
                 "color = ['app', 'written', 'for', 'swep 200', 'OAU', 'IFE']\n" +

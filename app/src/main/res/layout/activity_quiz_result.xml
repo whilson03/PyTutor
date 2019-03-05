@@ -1,17 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".QuizFiles.QuizResultActivity">
+    android:id="@+id/result_screen">
+
+    <TextView
+        android:id="@+id/congratulations_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="2dp"
+        android:fontFamily="cursive"
+        android:text="congratulations"
+        android:textSize="50sp"
+        android:textStyle="italic" />
+
+    <View
+        android:id="@+id/view"
+
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/congratulations_text_view"
+        android:layout_marginTop="20dp"
+        android:background="#c0c0c0" />
+
+
+    <ImageView
+        android:id="@+id/Congrats_cup_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:paddingTop="10dp"
+        android:src="@drawable/congrats" />
+
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Congrats_cup_image"
+        android:layout_centerInParent="true"
+        android:text="score"
+        android:textSize="30sp" />
+
 
     <TextView
         android:id="@+id/result_text_view"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"/>
+        android:layout_below="@+id/score"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="2dp"
+        android:text="0 / 10"
+        android:textSize="30sp" />
 
-</LinearLayout>
+
+    <Button
+        android:id="@+id/try_again"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="58dp"
+        android:background="#218D73"
+        android:drawableStart="@drawable/ic_arrow_back_black_24dp"
+        android:text="try Again"
+        android:textColor="@android:color/white" />
+
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="58dp"
+        android:background="#218D73"
+        android:text="Home"
+        android:textColor="@android:color/white" />
+
+
+</RelativeLayout>

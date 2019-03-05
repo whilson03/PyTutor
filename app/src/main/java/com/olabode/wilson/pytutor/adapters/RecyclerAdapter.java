@@ -72,12 +72,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             mTopicLeftIcon = (ImageView) itemView.findViewById(R.id.learn_topics_left_icon);
 
 
-            final ArrayList<String> mAssetTitle = new ArrayList<>();
+            final List<String> mAssetTitle = new ArrayList<>();
             mAssetTitle.add("overview.html");
             mAssetTitle.add("variables&datatypes.html");
 
 
             mAssetTitle.add("basic_operator.html");
+            mAssetTitle.add("Tuples.html");
+            mAssetTitle.add("dictionaries.html");
             mAssetTitle.add("functions.html");
             mAssetTitle.add("Modules.html");
             mAssetTitle.add("file.html");
@@ -93,6 +95,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     i.putExtra("title",mTopics.get(mCurrentTopicPosition).getTopic());
                     i.putExtra("ContentAssetName", mAssetTitle.get(mCurrentTopicPosition));
                     mContext.startActivity(i);
+
 
                 }
             });

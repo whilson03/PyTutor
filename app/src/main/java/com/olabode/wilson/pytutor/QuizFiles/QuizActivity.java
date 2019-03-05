@@ -249,6 +249,7 @@ public class QuizActivity extends AppCompatActivity {
         resultIntent.putExtra(EXTRA_SCORE, score);
         setResult(RESULT_OK, resultIntent);
         startActivity(resultIntent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         finish();
     }
 
@@ -263,7 +264,6 @@ public class QuizActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Press back again to finish", Toast.LENGTH_SHORT).show();
         }
-
         backPressedTime = System.currentTimeMillis();
     }
 

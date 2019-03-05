@@ -33,34 +33,10 @@
         default comes from the keyboard. These functions are:
         <br>
     <ul class="list-group">
-        <li class="list-group-item active">raw_input</li>
         <li class="list-group-item disabled">input</li>
     </ul>
     </p>
-    <h4>The <i>Raw_input</i> function</h4>
-    <p>
-        The <i>raw_input([prompt])</i> function reads one line from standard input and returns it as
-        a string (removing the trailing newline).
-        <br>
-        <mark>
-            <code>
-                #!/usr/bin/python<br>
 
-                str = raw_input("Enter your input: ");<br>
-                print "Received input is : ", str
-            </code>
-        </mark>
-        <br>
-        This would prompt you to enter any string and it would display same string on the screen.
-        When I typed "Hello Python!", its output is like this:<br>
-        <mark>
-            <code>
-                Enter your input: Hello Python<br>
-                Received input is : Hello Python
-            </code>
-        </mark>
-        <br>
-    </p>
     <h4>The <i>input</i> Function</h4>
     <p>
         The <i>input([prompt])</i> function is equivalent to raw_input, except that it assumes the
@@ -71,7 +47,7 @@
                 #!/usr/bin/python<br>
 
                 str = input("Enter your input: ");<br>
-                print "Received input is : ", str<br>
+                print ("Received input is : ", str)<br>
             </code>
         </mark>
         This would produce the following result against the entered input:
@@ -100,11 +76,10 @@
         function. This function creates a file object, which would be utilized to call other support
         methods associated with it.
         <br>SYNTAX:<br>
-        <mark>
             <code>
                 file object = open(file_name [, access_mode][, buffering])
             </code>
-        </mark>
+
         <br>
         Here is paramters' detail:
         <
@@ -322,7 +297,7 @@
     </mark>
     </p>
     <h4>
-        The <i>clode()</i> Method
+        The <i>close()</i> Method
     </h4>
     <p>
         The close() method of a file object flushes any unwritten information and closes the file
@@ -345,7 +320,7 @@
 
                 # Open a file<br>
                 fo = open("foo.txt", "wb")<br>
-                print "Name of the file: ", fo.name<br>
+                print ("Name of the file: ", fo.name)<br>
 
                 # Close opend file<br>
                 fo.close()<br>
@@ -391,7 +366,7 @@
                 fo = open("foo.txt", "wb")<br>
                 fo.write( "Python is a great language.\nYeah its great!!\n");<br>
 
-                # Close opend file<br>
+                # Close opened file<br>
                 fo.close()<br>
             </code>
         </mark>
@@ -432,8 +407,8 @@
                 # Open a file<br>
                 fo = open("foo.txt", "r+")<br>
                 str = fo.read(10);<br>
-                print "Read String is : ", str<br>
-                # Close opend file<br>
+                print ("Read String is : ", str)<br>
+                # Close opened file<br>
                 fo.close()
             </code>
         </mark>
@@ -470,17 +445,17 @@
                 # Open a file<br>
                 fo = open("foo.txt", "r+")<br>
                 str = fo.read(10);<br>
-                print "Read String is : ", str<br>
+                print ("Read String is : ", str)<br>
                 <br>
                 # Check current position<br>
                 position = fo.tell();<br>
-                print "Current file position : ", position<br>
+                print ("Current file position : ", position)<br>
                 <br>
                 # Reposition pointer at the beginning once again<br>
                 position = fo.seek(0, 0);<br>
                 str = fo.read(10);<br>
                 print "Again read String is : ", str<br>
-                # Close opend file<br>
+                # Close opened file<br>
                 fo.close()<br>
             </code>
         </mark>

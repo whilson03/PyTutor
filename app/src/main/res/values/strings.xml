@@ -35,5 +35,7 @@
     <string name="option2_radio_button">Option 2</string>
     <string name="option3_radio_button">Option 3</string>
     <string name="comfirm_button_text">confirm</string>
+    <string name="nav_exercises_fragment_title">Py Exercises</string>
+    <string name="menu_about">About</string>
 
 </resources>
