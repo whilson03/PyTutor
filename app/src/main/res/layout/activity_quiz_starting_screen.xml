@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/sc"
-    android:padding="16dp"
     android:background="#19B18D"
-
-
-    >
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/laptop" />
+        android:src="@drawable/laptop"
+        app:layout_constraintBottom_toTopOf="@+id/button_start_quiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <Button
-        android:layout_alignParentBottom="true"
-        android:layout_width="300dp"
-        android:layout_marginBottom="40dp"
-        android:id="@+id/button_start_quiz"
-        android:layout_height="100dp"
-        android:padding="12dp"
-        android:textColor="@android:color/white"
-        android:background="@drawable/quiz_start_button"
-        android:text="Start Quiz"
-        android:layout_centerInParent="true"
-        android:textStyle="italic"
-        android:textSize="35sp" />
 
-</RelativeLayout>
+        android:id="@+id/button_start_quiz"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:background="@drawable/quiz_start_button"
+        android:layout_marginBottom="30dp"
+        android:padding="10dp"
+        android:text="Start Quiz"
+        android:textColor="@android:color/white"
+        android:textSize="35sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

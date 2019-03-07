@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.olabode.wilson.pytutor.LearnContentsActivity;
 import com.olabode.wilson.pytutor.R;
+import com.olabode.wilson.pytutor.activities.LearnContentsActivity;
 import com.olabode.wilson.pytutor.classes.Topics;
 
 import java.util.ArrayList;
