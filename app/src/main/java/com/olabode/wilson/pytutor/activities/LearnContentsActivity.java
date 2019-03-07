@@ -1,9 +1,11 @@
-package com.olabode.wilson.pytutor;
+package com.olabode.wilson.pytutor.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
+
+import com.olabode.wilson.pytutor.R;
 
 
 public class LearnContentsActivity extends AppCompatActivity {

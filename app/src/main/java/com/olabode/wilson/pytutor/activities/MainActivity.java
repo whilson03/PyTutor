@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_share:
+                shareApp();
                 break;
         }
         if (fragment != null) {
@@ -130,7 +131,6 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_main, fragment);
             ft.commit();
         }
-
     }
 
 
@@ -155,5 +155,15 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
+    /**
+     * share application link to play store
+     */
+    public void shareApp() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT,
+                "Hey check out my app at: https://play.google.com/store/apps/details?id=com.olabode.wilson.pytutor");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
 }
