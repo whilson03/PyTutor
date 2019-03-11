@@ -9,14 +9,15 @@
     tools:context=".activities.MainActivity"
     android:id="@+id/content_main"
     android:orientation="vertical"
-    tools:showIn="@layout/app_bar_main"
-    android:background="@color/list_background">
+    tools:showIn="@layout/app_bar_main">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_list"
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/learn_recycler_items" />
+        android:id="@+id/fragment_container">
+
+    </FrameLayout>
 
 
 </RelativeLayout>

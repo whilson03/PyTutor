@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity
         }
         if (fragment != null) {
             ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_main, fragment);
+            ft.replace(R.id.fragment_container, fragment);
             ft.commit();
         }
     }

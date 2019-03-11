@@ -70,7 +70,7 @@
         android:layout_marginBottom="58dp"
         android:background="#218D73"
         android:drawableStart="@drawable/ic_arrow_back_black_24dp"
-        android:text="try Again"
+        android:text="@string/try_again"
         android:textColor="@android:color/white" />
 
 
