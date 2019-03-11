@@ -39,7 +39,7 @@ public class LearnTopicsListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.content_main, container, false);
+        View rootView = inflater.inflate(R.layout.tutorial, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_list);
         LinearLayoutManager newsLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(newsLayoutManager);
