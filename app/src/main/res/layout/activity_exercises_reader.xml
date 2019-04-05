@@ -18,7 +18,7 @@
             android:textSize="25sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Question"
+            android:text="@string/question_heading"
             android:textStyle="italic" />
 
         <ScrollView
@@ -32,7 +32,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
-                android:text="body"
+                tools:text="body"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </ScrollView>
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/solution_button"
-            android:text="SHow Solution" />
+            android:text="@string/show_solution" />
 
     </LinearLayout>
 

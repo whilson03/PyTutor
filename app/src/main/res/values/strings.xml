@@ -54,6 +54,8 @@
     <string name="topic_files">Files I/O</string>
     <string name="topic_exceptions">Exceptions</string>
     <string name="topic_classes"><![CDATA[Classes & Objects]]></string>
+    <string name="show_solution">SHow Solution</string>
+    <string name="question_heading">Question</string>
 
 
 </resources>
