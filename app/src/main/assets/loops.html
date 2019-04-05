@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+h1 {
+    text-align:center;
+}
+h1 {
+	text-align:center;
+}
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 50px;
+	background-color:grey;
+}
+p.one {
+    border-style:solid;
+	border-width:medium;
+}
+
+    </style>
+</head>
+<body>
+<h1><b>loops</b></h1>
+<p>In general, statements are executed sequentially- The first statement in a function is executed
+    first, followed by the second, and so on. There may be a situation when you need to execute a
+    block of code several number of times.
+    Programming languages provide various control structures that allow more complicated execution
+    paths.
+    A loop statement allows us to execute a statement or group of statements multiple times. The
+    following diagram illustrates a loop statement.</p>
+Python programming language provides the following types of loops to handle looping requirements.
+
+<table>
+    <tr>
+        <th>Loop type</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td>while loop</td>
+        <td>Repeats a statement or group of statements while a given condition is TRUE. It tests the
+            condition before executing the loop body.
+        </td>
+    </tr>
+
+    <tr>
+        <td> for loop</td>
+        <td> Executes a sequence of statements multiple times and abbreviates the code that manages
+            the loop variable.
+        </td>
+    </tr>
+
+    <tr>
+        <td> nested loops</td>
+        <td> You can use one or more loop inside any another while, or for loop.</td>
+    </tr>
+</table>
+
+<b><u>while Loop Statements</u></b><br>
+A while loop statement in Python programming language repeatedly executes a target statement as long
+as a given condition is true.</p>
+<b>Syntax</b><br>
+The syntax of a while loop in Python programming language is
+<p class="one">while expression: <br>
+    &nbsp; &nbsp;statement(s) </p>
+Here, <b>statement(s)</b> may be a single statement or a block of statements with uniform indent.
+The condition may be any expression, and true is any non-zero value. The loop iterates while the
+condition is true.
+When the <b>condition</b> becomes false, program control passes to the line immediately following
+the loop.
+In Python, all the statements indented by the same number of character spaces after a programming
+construct are considered to be part of a single block of code. Python uses indentation as its method
+of grouping statements. </p>
+
+When the condition is tested and the result is false, the loop body will be skipped and the first
+statement after the while loop will be executed.</p>
+<b>Example</b>
+<p class="one">#!/usr/bin/python3<br>
+
+    count = 0 <br>
+    while (count < 9):<br>
+    &nbsp; &nbsp;print ('The count is:', count)<br>
+    &nbsp; &nbsp;count = count + 1 <br>
+
+    print ("Good bye!") </p>
+
+When the above code is executed, it produces the following result<br>
+<p class="one">The count is: 0 <br>
+    The count is: 1 <br>
+    The count is: 2 <br>
+    The count is: 3 <br>
+    The count is: 4 </p>
+
+<p class="one">The count is: 5<br>
+    The count is: 6 <br>
+    The count is: 7 <br>
+    The count is: 8 <br>
+    Good bye! </p>
+The block here, consisting of the print and increment statements, is executed repeatedly until count
+is no longer less than 9. With each iteration, the current value of the index count is displayed and
+then increased by 1. </p>
+<b>The Infinite Loop</b><br>
+A loop becomes infinite loop if a condition never becomes FALSE. You must be cautious when using
+while loops because of the possibility that this condition never resolves to a FALSE value. This
+results in a loop that never ends. Such a loop is called an infinite loop.
+An infinite loop might be useful in client/server programming where the server needs to run
+continuously so that client programs can communicate with it as and when required. </p>
+<p class="one">#!/usr/bin/python3 <br>
+    var = 1 <br>
+    while var == 1 : &nbsp;# This constructs an infinite loop<br>
+    &nbsp; &nbsp;num = int(input("Enter a number :")) <br>
+    print ("You entered: ", num) <br>
+    print ("Good bye!") </p>
+When the above code is executed, it produces the following result</p>
+<p class="one">Enter a number :20 <br>
+    You entered: 20 <br>
+    Enter a number :29 <br>
+    You entered: 29 <br>
+    Enter a number :3 <br>
+    You entered: 3 <br>
+    Enter a number :11 <br>
+    You entered: 11 <br>
+    Enter a number :22 <br>
+    You entered: 22 <br>
+    Enter a number :Traceback (most recent call last):<br>
+    File "examples\test.py", line 5, in <br>
+    num = int(input("Enter a number :")) <br>
+    KeyboardInterrupt </p>
+
+The above example goes in an infinite loop and you need to use CTRL+C to exit the program.</p>
+<b>Using else Statement with Loops</b><br>
+Python supports having an else statement associated with a loop statement.
+<ul>
+    <li> If the else statement is used with a for loop, the else statement is executed when the loop
+        has exhausted iterating the list.
+    </li>
+    <li> If the else statement is used with a while loop, the else statement is executed when the
+        condition becomes false.
+    </li>
+</ul>
+The following example illustrates the combination of an else statement with a while statement that
+prints a number as long as it is less than 5, otherwise the else statement gets executed.
+
+<p class="one">#!/usr/bin/python3 <br>
+    count = 0 <br>
+    while count < 5:<br>
+    &nbsp; &nbsp;print (count, " is less than 5")<br>
+    &nbsp; &nbsp;count = count + 1 <br>
+    else: <br>
+    &nbsp;print (count, " is not less than 5")</p>
+
+When the above code is executed, it produces the following result-
+<p class="one"> is less than 5 <br>
+    1 is less than 5 <br>
+    2 is less than 5 <br>
+    3 is less than 5 <br>
+    4 is less than 5 <br>
+    5 is not less than 5 </p>
+
+<b>Single Statement</b><br>
+Suites Similar to the if statement syntax, if your <b>while</b> clause consists only of a single
+statement, it may be placed on the same line as the while header. Here is the syntax and example of
+a <b>one-line while</b> clause
+
+<p class="one">#!/usr/bin/python3<br>
+    flag = 1 <br>
+    while (flag):<br> &nbsp; &nbsp; print ('Given flag is really true!')<br>
+    print ("Good bye!") </p>
+
+The above example goes into an infinite loop and you need to press CTRL+C keys to exit. </p>
+<b><u>for Loop Statements</u></b><br>
+The for statement in Python has the ability to iterate over the items of any sequence, such as a
+list or a string. </p>
+
+<b>Syntax </b>
+<p class="one">for iterating_var in sequence:<br>
+    &nbsp; &nbsp;statements(s)</p>
+
+If a sequence contains an expression list, it is evaluated first. Then, the first item in the
+sequence is assigned to the iterating variable iterating_var. Next, the statements block is
+executed. Each item in the list is assigned to iterating_var, and the statement(s) block is executed
+until the entire sequence is exhausted.</p>
+
+<b>The range() function </b><br>
+The built-in function range() is the right function to iterate over a sequence of numbers. It
+generates an iterator of arithmetic progressions. </p>
+<p class="one"> >>> range(5) <br>
+    range(0, 5) <br>
+    >>> list(range(5))<br>
+    [0, 1, 2, 3, 4] </p>
+
+range() generates an iterator to progress integers starting with 0 upto n-1. To obtain a list object
+of the sequence, it is typecasted to list(). Now this list can be iterated using the for statement.
+<p class="one">for var in list(range(5)): <br>
+    &nbsp; &nbsp; &nbsp; &nbsp;print (var)</p>
+This will produce the following output.
+<p class="one">0 <br>
+    1 <br>
+    2 <br>
+    3 <br>
+    4 </p>
+
+<p class="one">#!/usr/bin/python3<br>
+    for letter in 'Python': &nbsp; # traversal of a string sequence <br>
+    &nbsp; &nbsp;print ('Current Letter :', letter) <br>
+    print() <br>
+    fruits = ['banana', 'apple', 'mango'] <br>
+    for fruit in fruits: # traversal of List sequence<br>
+    &nbsp; &nbsp;print ('Current fruit :', fruit)<br>
+    print ("Good bye!") </p>
+
+When the above code is executed, it produces the following result −
+<p class="one">Current Letter : P<br>
+    Current Letter : y </p>
+
+<p class="one">Current Letter : t <br>
+    Current Letter : h <br>
+    Current Letter : o <br>
+    Current Letter : n <br>
+
+    Current fruit : banana <br>
+    Current fruit : apple <br>
+    Current fruit : mango<br>
+    Good bye</p>
+
+Iterating by Sequence Index An alternative way of iterating through each item is by index offset
+into the sequence itself. Following is a simple example-
+<p class="one">#!/usr/bin/python3 <br>
+    fruits = ['banana', 'apple', 'mango']<br>
+    for index in range(len(fruits)): <br>
+    &nbsp; &nbsp;print ('Current fruit :', fruits[index])<br>
+    print ("Good bye!") </p>
+
+
+When the above code is executed, it produces the following result-
+<p class="one">Current fruit : banana<br>
+    Current fruit : mango <br>
+    Good bye! </p>
+Here, we took the assistance of the len() built-in function, which provides the total number of
+elements in the tuple as well as the range() built-in function to give us the actual sequence to
+iterate over</p>
+
+<b>Using else Statement with Loops</b>
+Python supports having an else statement associated with a loop statement.
+<ul>
+    <li>If the else statement is used with a for loop, the else block is executed only if for loops
+        terminates normally (and not by encountering break statement).
+    </li>
+    <li>If the else statement is used with a while loop, the else statement is executed when the
+        condition becomes false.
+    </li>
+</ul>
+
+
+The following example illustrates the combination of an else statement with a for statement that
+searches for even number in given list</p>
+
+<p class="one">#!/usr/bin/python3 <br>
+    numbers=[11,33,55,39,55,75,37,21,23,41,13]<br>
+    for num in numbers: <br>
+    &nbsp; &nbsp;if num%2==0:<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;print ('the list contains an even number')<br>
+    &nbsp; &nbsp; &nbsp; &nbsp;break <br>
+    &nbsp; &nbsp;else: <br>
+    &nbsp; &nbsp; &nbsp; &nbsp;print ('the list doesnot contain even number') </p>
+When the above code is executed, it produces the following result-
+<p class="one">the list does not contain even number</p>
+<b><u>Nested loops</u></b><br>
+Python programming language allows the use of one loop inside another loop. The following section
+shows a few examples to illustrate the concept. </p>
+<b>Syntax</b>
+<p class="one">for iterating_var in sequence: <br>
+    &nbsp; &nbsp; &nbsp; &nbsp;for iterating_var in sequence: <br>
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;statements(s) <br>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;statements(s) </p>
+The syntax for a nested while loop statement in Python programming language is as follows-
+<p class="one">while expression:<br>
+    &nbsp; &nbsp; &nbsp;statement(s) </p>
+A final note on loop nesting is that you can put any type of loop inside any other type of loop. For
+example a for loop can be inside a while loop or vice versa.</p>
+<b>Example</b><br>
+The following program uses a nested-for loop to display multiplication tables from 1-10.
+<p class="one">#!/usr/bin/python3 <br>
+    import sys </p>
+
+<p class="one">for i in range(1,11):<br>
+    &nbsp;&nbsp; &nbsp; &nbsp;for j in range(1,11): <br>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;k=i*j <br>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;print (k, end=' ') <br>
+    &nbsp; &nbsp; &nbsp;print() </p>
+The print() function inner loop has end=' ' which appends a space instead of default newline. Hence,
+the numbers will appear in one row. Last print() will be executed at the <b>end</b> of inner for
+loop.
+When the above code is executed, it produces the following result −
+<p class="one">1 2 3 4 5 6 7 8 9 10<br>
+    2 4 6 8 10 12 14 16 18 20 <br>
+    3 6 9 12 15 18 21 24 27 30 <br>
+    4 8 12 16 20 24 28 32 36 40<br>
+    5 10 15 20 25 30 35 40 45 50 <br>
+    6 12 18 24 30 36 42 48 54 60<br>
+    7 14 21 28 35 42 49 56 63 70<br>
+    8 16 24 32 40 48 56 64 72 80 <br>
+    9 18 27 36 45 54 63 72 81 90 <br>
+    10 20 30 40 50 60 70 80 90 100 </p>
+
+<b> Loop Control Statements </b><br>
+The Loop control statements change the execution from its normal sequence. When the execution leaves
+a scope, all automatic objects that were created in that scope are destroyed.
+Python supports the following control statements.
+
+<table>
+    <tr>
+        <th>Control Statement</th>
+        <th> Description</th>
+    </tr>
+
+    <tr>
+        <td>break statement</td>
+        <td> Terminates the loop statement and transfers execution to the statement immediately
+            following the loop.
+        </td>
+    </tr>
+
+    <tr>
+        <td>continue statement</td>
+        <td> Causes the loop to skip the remainder of its body and immediately retest its condition
+            prior to reiterating.
+        </td>
+    </tr>
+
+    <tr>
+        <td>pass statement</td>
+        <td> The pass statement in Python is used when a statement is required syntactically but you
+            do not want any command or code to execute.
+        </td>
+    </tr>
+</table>
+
+
+Let us go through the loop control statements briefly. </p>
+<b><u>break statement</u></b><br>
+The break statement is used for premature termination of the current loop. After abandoning the
+loop, execution at the next statement is resumed, just like the traditional break statement in C.
+The most common use of break is when some external condition is triggered requiring a hasty exit
+from a loop. The break statement can be used in both while and for loops.
+If you are using nested loops, the break statement stops the execution of the innermost loop and
+starts executing the next line of the code after the block.</p>
+<b>Syntax </b><br>
+The syntax for a break statement in Python is as follows-
+<p class="one">break </p>
+
+Example
+<p class="one">#!/usr/bin/python3<br>
+    for letter in 'Python': # First Example <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if letter == 'h': <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print ('Current Letter :', letter) <br>
+    var = 10 # Second Example <br>
+    while var > 0: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print ('Current variable value :', var) <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var = var -1 <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if var == 5: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break <br>
+
+    print ("Good bye!") </p>
+
+
+When the above code is executed, it produces the following result-
+<p class="one">Current Letter : P <br>
+    Current Letter : y <br>
+    Current Letter : t </p>
+
+<p class="one">Current variable value : 10 <br>
+    Current variable value : 9 <br>
+    Current variable value : 8 <br>
+    Current variable value : 7 <br>
+    Current variable value : 6 <br>
+    Good bye! </p>
+The following program demonstrates the use of break in a for loop iterating over a list. User inputs
+a number, which is searched in the list. If it is found, then the loop terminates with the 'found'
+message.
+<p class="one">#!/usr/bin/python3 <br>
+    no=int(input('any number: ')) <br>
+    numbers=[11,33,55,39,55,75,37,21,23,41,13] <br>
+    for num in numbers: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if num==no: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print ('number found in list') <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print ('number not found in list') </p>
+The above program will produce the following output-
+<p class="one">any number: 33 <br>
+    number found in list <br>
+    any number: 5 <br>
+    number not found in list </p>
+<b><u>continue Statement</u></b><br>
+The continue statement in Python returns the control to the beginning of the current loop. When
+encountered, the loop starts next iteration without executing the remaining statements in the
+current iteration.
+The continue statement can be used in both while and for loops. </p>
+<b>Syntax </b>
+<p class="one">continue</p>
+
+Example
+<p class="one">#!/usr/bin/python3 <br>
+
+    for letter in 'Python': # First Example <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if letter == 'h':<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print ('Current Letter :', letter) <br>
+    var = 10 # Second Example <br>
+    while var > 0: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;var = var -1 <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if var == 5:
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print ('Current variable value :', var) <br>
+    print ("Good bye!") </p>
+
+
+When the above code is executed, it produces the following result-
+<p class="one">Current Letter : P </p>
+
+<p class="one">Current Letter : y<br>
+    Current Letter : t <br>
+    Current Letter : o <br>
+    Current Letter : n <br>
+    Current variable value : 9 <br>
+    Current variable value : 8 <br>
+    Current variable value : 6 <br>
+    Current variable value : 4 <br>
+    Current variable value : 3 <br>
+    Current variable value : 2 <br>
+    Current variable value : 1 <br>
+    Current variable value : 0 <br>
+    Good bye! </p>
+<b><u>pass Statement</u></b>
+It is used when a statement is required syntactically but you do not want any command or code to
+execute.
+The pass statement is a null operation; nothing happens when it executes. The pass statement is also
+useful in places where your code will eventually go, but has not been written yet i.e. in
+stubs). </p>
+<b>Syntax</b>
+<p class="one">pass </p>
+Example
+<p class="one">#!/usr/bin/python3<br>
+
+    for letter in 'Python': <br>
+    if letter == 'h': <br>
+    &nbsp;&nbsp;&nbsp;pass <br>
+    &nbsp;&nbsp;&nbsp;print ('This is pass block') <br>
+    print ('Current Letter :', letter) <br>
+
+    print ("Good bye!") </p>
+When the above code is executed, it produces the following result-
+
+<p class="one">Current Letter : P <br>
+    Current Letter : y <br>
+    This is pass block <br>
+    Current Letter : n <br>
+    Good bye! </p>
+
+<u><b>Iterator and Generator</b></u><br>
+<b> Iterator </b>is an object, which allows a programmer to traverse through all the elements of a
+collection, regardless of its specific implementation. In Python, an iterator object implements two
+methods, <b>iter()</b> and <b>next(). </b>
+String, List or Tuple objects can be used to create an Iterator.
+<p class="one">list=[1,2,3,4] <br>
+    it = iter(list) # this builds an iterator object <br>
+    print (next(it)) #prints next available element in iterator <br>
+    # Iterator object can be traversed using regular for statement <br>
+    !usr/bin/python3 <br>
+    for x in it: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;print (x, end=" ") <br>
+    # or using next() function <br>
+    while True: <br>
+    &nbsp;&nbsp;&nbsp;try: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (next(it)) <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;except StopIteration: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit() #you have to import sys module for this </p>
+A <b>generator</b> is a function that produces or yields a sequence of values using yield method.
+When a generator function is called, it returns a generator object without even beginning execution
+of the function. When the next() method is called for the first time, the function starts executing,
+until it reaches the yield statement, which returns the yielded value. The yield keeps track i.e.
+remembers the last execution and the second next() call continues from previous value.
+The following example defines a generator, which generates an iterator for all the Fibonacci
+numbers.
+<p class="one">!usr/bin/python3<br>
+    import sys <br>
+    def fibonacci(n): #generator function<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a, b, counter = 0, 1, 0 <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while True: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (counter > n): <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield a <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a, b = b, a + b <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;counter += 1 <br>
+    f = fibonacci(5) #f is iterator object <br>
+    while True: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;try: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print (next(f), end=" ") <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;except StopIteration: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit() </p>
+</body>
+</html>	  
+ 
+  

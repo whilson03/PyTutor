@@ -13,10 +13,13 @@
         android:orientation="vertical">
 
         <TextView
+            android:fontFamily="sans-serif-black"
+            android:textAlignment="center"
+            android:textSize="25sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Question"
-            android:textSize="20sp" />
+            android:textStyle="italic" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -35,7 +38,9 @@
         </ScrollView>
     </LinearLayout>
 
+
     <LinearLayout
+        android:paddingTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -70,9 +75,7 @@
                 android:textSize="17sp"
                 android:textStyle="bold"
                 tools:text="body" />
-
         </ScrollView>
-
 
     </LinearLayout>
 </LinearLayout>

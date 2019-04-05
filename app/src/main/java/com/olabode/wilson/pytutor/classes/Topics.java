@@ -6,7 +6,7 @@ public class Topics {
 
 
     /**
-     * constructor to the topic and drawable icons for the tutorial sertion.
+     * constructor to the topic and drawable icons for the learn_recycler_view sertion.
      *
      * @param leftIcon drawable icon
      * @param title    topic considered.

@@ -39,29 +39,29 @@ public class LearnTopicsListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.tutorial, container, false);
+        View rootView = inflater.inflate(R.layout.learn_recycler_view, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_list);
-        LinearLayoutManager newsLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(newsLayoutManager);
+        LinearLayoutManager topicsLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(topicsLayoutManager);
 
         // list to hold all topic names objects and their side icons.
         mTopicsList = new ArrayList<>();
-        mTopicsList.add(new Topics(R.drawable.pink, "Overview"));
-        mTopicsList.add(new Topics(R.drawable.blue, "Environment Setup"));
-        mTopicsList.add(new Topics(R.drawable.green, "Basic Syntax"));
-        mTopicsList.add(new Topics(R.drawable.orange, "Variable & Types"));
-        mTopicsList.add(new Topics(R.drawable.red, "Basic Operators"));
-        mTopicsList.add(new Topics(R.drawable.green, "Strings"));
-        mTopicsList.add(new Topics(R.drawable.yellow, "Decision Making"));
-        mTopicsList.add(new Topics(R.drawable.pink, "Loops"));
-        mTopicsList.add(new Topics(R.drawable.orange, "Lists"));
-        mTopicsList.add(new Topics(R.drawable.red, "Tuples"));
-        mTopicsList.add(new Topics(R.drawable.yellow, "Dictionary"));
-        mTopicsList.add(new Topics(R.drawable.blue, "Functions"));
-        mTopicsList.add(new Topics(R.drawable.green, "Modules"));
-        mTopicsList.add(new Topics(R.drawable.orange, "Files I/O"));
-        mTopicsList.add(new Topics(R.drawable.red, "Exceptions"));
-        mTopicsList.add(new Topics(R.drawable.yellow, "Classes & Objects"));
+        mTopicsList.add(new Topics(R.drawable.pink, getString(R.string.topic_overview)));
+        mTopicsList.add(new Topics(R.drawable.blue, getString(R.string.topic_environment_setup)));
+        mTopicsList.add(new Topics(R.drawable.green, getString(R.string.topic_basic_syntax)));
+        mTopicsList.add(new Topics(R.drawable.orange, getString(R.string.topic_var_type)));
+        mTopicsList.add(new Topics(R.drawable.red, getString(R.string.topic_operators)));
+        mTopicsList.add(new Topics(R.drawable.green, getString(R.string.topic_strings)));
+        mTopicsList.add(new Topics(R.drawable.yellow, getString(R.string.topic_decision_making)));
+        mTopicsList.add(new Topics(R.drawable.pink, getString(R.string.topic_loops)));
+        mTopicsList.add(new Topics(R.drawable.orange, getString(R.string.topic_list)));
+        mTopicsList.add(new Topics(R.drawable.red, getString(R.string.topic_tuples)));
+        mTopicsList.add(new Topics(R.drawable.yellow, getString(R.string.topic_dictionary)));
+        mTopicsList.add(new Topics(R.drawable.blue, getString(R.string.topic_functions)));
+        mTopicsList.add(new Topics(R.drawable.green, getString(R.string.topic_modules)));
+        mTopicsList.add(new Topics(R.drawable.orange, getString(R.string.topic_files)));
+        mTopicsList.add(new Topics(R.drawable.red, getString(R.string.topic_exceptions)));
+        mTopicsList.add(new Topics(R.drawable.yellow, getString(R.string.topic_classes)));
 
 
         mReaderRecyclerAdapter = new RecyclerAdapter(getContext(), mTopicsList);

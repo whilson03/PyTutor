@@ -38,5 +38,22 @@
     <string name="nav_exercises_fragment_title">Py Exercises</string>
     <string name="menu_about">About</string>
     <string name="try_again">try Again</string>
+    <string name="topic_overview">Overview</string>
+    <string name="topic_environment_setup">Environment Setup</string>
+    <string name="topic_basic_syntax">Basic Syntax</string>
+    <string name="topic_var_type"><![CDATA[Variable & Types]]></string>
+    <string name="topic_operators">Basic Operators</string>
+    <string name="topic_strings">Strings</string>
+    <string name="topic_decision_making">Decision Making</string>
+    <string name="topic_loops">Loops</string>
+    <string name="topic_list">Lists</string>
+    <string name="topic_tuples">Tuples</string>
+    <string name="topic_dictionary">Dictionary</string>
+    <string name="topic_functions">Functions</string>
+    <string name="topic_modules">Modules</string>
+    <string name="topic_files">Files I/O</string>
+    <string name="topic_exceptions">Exceptions</string>
+    <string name="topic_classes"><![CDATA[Classes & Objects]]></string>
+
 
 </resources>

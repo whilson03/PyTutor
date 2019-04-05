@@ -5,8 +5,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 
-import com.olabode.wilson.pytutor.R;
-
 
 public class LearnContentsActivity extends AppCompatActivity {
 
@@ -16,7 +14,6 @@ public class LearnContentsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn_contents);
         ActionBar actionBar = getSupportActionBar();
         String title = getIntent().getStringExtra("title");
         if (title != null) {
@@ -35,7 +32,6 @@ public class LearnContentsActivity extends AppCompatActivity {
 
 
     }
-
 
 }
 
