@@ -74,10 +74,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
             final List<String> mAssetTitle = new ArrayList<>();
             mAssetTitle.add("overview.html");
+            mAssetTitle.add("Environment_Setup.html");
+            mAssetTitle.add("BasicSyntax.html");
             mAssetTitle.add("variables&datatypes.html");
-
-
             mAssetTitle.add("basic_operator.html");
+            mAssetTitle.add("strings.html");
+
+            mAssetTitle.add("decision_making.html");
+            mAssetTitle.add("loops.html");
+            mAssetTitle.add("lists.html");
             mAssetTitle.add("Tuples.html");
             mAssetTitle.add("dictionaries.html");
             mAssetTitle.add("functions.html");
@@ -92,7 +97,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(mContext, LearnContentsActivity.class);
-                    i.putExtra("title",mTopics.get(mCurrentTopicPosition).getTopic());
+                    i.putExtra("title", mTopics.get(mCurrentTopicPosition).getTopic());
                     i.putExtra("ContentAssetName", mAssetTitle.get(mCurrentTopicPosition));
                     mContext.startActivity(i);
 

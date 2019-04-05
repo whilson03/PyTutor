@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.olabode.wilson.pytutor.QuizFiles.QuizContract.QuestionsTable;
+import com.olabode.wilson.pytutor.QuizFiles.QuizContract.QuestionsTableEntry;
 
 import java.util.ArrayList;
 
@@ -25,23 +25,26 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         this.db = db;
 
-        final String SQL_CREATE_QUESTIONS_TABLE = "CREATE TABLE " +
-                QuestionsTable.TABLE_NAME + " ( " +
-                QuestionsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                QuestionsTable.COLUMN_QUESTION + " TEXT, " +
-                QuestionsTable.COLUMN_OPTION1 + " TEXT, " +
-                QuestionsTable.COLUMN_OPTION2 + " TEXT, " +
-                QuestionsTable.COLUMN_OPTION3 + " TEXT, " +
-                QuestionsTable.COLUMN_ANSWER_NR + " INTEGER" +
-                ")";
 
-        db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
+        String SQL_CREATE_TABLE =
+                "CREATE TABLE " +
+                        QuestionsTableEntry.TABLE_NAME + " ( " +
+                        QuestionsTableEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        QuestionsTableEntry.COLUMN_QUESTION + " TEXT, " +
+                        QuestionsTableEntry.COLUMN_OPTION1 + " TEXT, " +
+                        QuestionsTableEntry.COLUMN_OPTION2 + " TEXT, " +
+                        QuestionsTableEntry.COLUMN_OPTION3 + " TEXT, " +
+                        QuestionsTableEntry.COLUMN_ANSWER_NR + " INTEGER" +
+                        ")";
+
+
+        db.execSQL(SQL_CREATE_TABLE);
         fillQuestionsTable();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + QuestionsTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + QuestionsTableEntry.TABLE_NAME);
         onCreate(db);
     }
 
@@ -53,12 +56,12 @@ public class QuizDbHelper extends SQLiteOpenHelper {
      */
     private void addQuestion(Question question) {
         ContentValues cv = new ContentValues();
-        cv.put(QuestionsTable.COLUMN_QUESTION, question.getQuestion());
-        cv.put(QuestionsTable.COLUMN_OPTION1, question.getOption1());
-        cv.put(QuestionsTable.COLUMN_OPTION2, question.getOption2());
-        cv.put(QuestionsTable.COLUMN_OPTION3, question.getOption3());
-        cv.put(QuestionsTable.COLUMN_ANSWER_NR, question.getAnswerNr());
-        db.insert(QuestionsTable.TABLE_NAME, null, cv);
+        cv.put(QuestionsTableEntry.COLUMN_QUESTION, question.getQuestion());
+        cv.put(QuestionsTableEntry.COLUMN_OPTION1, question.getOption1());
+        cv.put(QuestionsTableEntry.COLUMN_OPTION2, question.getOption2());
+        cv.put(QuestionsTableEntry.COLUMN_OPTION3, question.getOption3());
+        cv.put(QuestionsTableEntry.COLUMN_ANSWER_NR, question.getAnswerNr());
+        db.insert(QuestionsTableEntry.TABLE_NAME, null, cv);
     }
 
 
@@ -70,17 +73,46 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     public ArrayList<Question> getAllQuestions() {
         ArrayList<Question> questionList = new ArrayList<>();
         db = getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM " + QuestionsTable.TABLE_NAME + " WHERE " + QuestionsTable._ID + " IN (SELECT " + QuestionsTable._ID
-                + " FROM " + QuestionsTable.TABLE_NAME + " ORDER BY RANDOM() LIMIT 10)", null);
+        // old query code
+//        Cursor c = db.rawQuery("SELECT * FROM " + QuestionsTableEntry.TABLE_NAME + " WHERE " + QuestionsTableEntry._ID + " IN (SELECT " + QuestionsTableEntry._ID
+//                + " FROM " + QuestionsTableEntry.TABLE_NAME + " ORDER BY RANDOM() LIMIT 10)", null);
+
+
+        // Define a projection that specifies the columns from the table we care about.
+        String[] projection = {
+                QuestionsTableEntry._ID,
+                QuestionsTableEntry.COLUMN_QUESTION,
+                QuestionsTableEntry.COLUMN_OPTION1,
+                QuestionsTableEntry.COLUMN_OPTION2,
+                QuestionsTableEntry.COLUMN_OPTION3,
+                QuestionsTableEntry.COLUMN_ANSWER_NR
+
+        };
+
+
+        String limit = "10";
+        String order = "RANDOM()";
+
+        Cursor c = db.query(QuestionsTableEntry.TABLE_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                order,
+                limit
+
+        );
+
 
         if (c.moveToFirst()) {
             do {
                 Question question = new Question();
-                question.setQuestion(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_QUESTION)));
-                question.setOption1(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION1)));
-                question.setOption2(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION2)));
-                question.setOption3(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION3)));
-                question.setAnswerNr(c.getInt(c.getColumnIndex(QuestionsTable.COLUMN_ANSWER_NR)));
+                question.setQuestion(c.getString(c.getColumnIndex(QuestionsTableEntry.COLUMN_QUESTION)));
+                question.setOption1(c.getString(c.getColumnIndex(QuestionsTableEntry.COLUMN_OPTION1)));
+                question.setOption2(c.getString(c.getColumnIndex(QuestionsTableEntry.COLUMN_OPTION2)));
+                question.setOption3(c.getString(c.getColumnIndex(QuestionsTableEntry.COLUMN_OPTION3)));
+                question.setAnswerNr(c.getInt(c.getColumnIndex(QuestionsTableEntry.COLUMN_ANSWER_NR)));
                 if (questionList.size() != 10) {
                     questionList.add(question);
                 } else {
@@ -236,6 +268,66 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 , "elseif", 1);
         addQuestion(q34);
 
+        Question q35 = new Question("what is the output\n" +
+                "n = 18\n" +
+                "if n % 2 == 0:\n" +
+                "    print(\"even\")\n" +
+                "else:\n" +
+                "    print(\"odd\")\n" +
+                "    ", "even", "odd", "None", 1);
+        addQuestion(q35);
+
+
+        Question q36 = new Question("which of the following is not\n" +
+                "a python keyword", "try", "catch", "except", 2);
+        addQuestion(q36);
+
+        Question q37 = new Question("which of these denotes a dictionary in python.",
+                "{ }", "[ ]", "( )", 1);
+        addQuestion(q37);
+
+
+        Question q38 = new Question("what is the output\n" +
+                "def greeting():\n" +
+                "    print(\"welcome\")\n" +
+                "\n" +
+                "var = greeting()\n" +
+                "print(var)", "null", "var", "None", 3);
+        addQuestion(q38);
+
+
+        Question q39 = new Question("what is the output ?\n" +
+                "var =  2\n" +
+                "var *= 3\n" +
+                "var = 12\n" +
+                "print(var - 1)", "3", "11", "12", 2);
+        addQuestion(q39);
+
+        Question q40 = new Question("when handling exception which of these blocks is always executed irrespective of an exception" +
+                "occurring or not ?", "try", "finally", "except", 2);
+        addQuestion(q40);
+
+        Question q41 = new Question("The code that may throw an exception is \n" +
+                "added in which block ?", "catch", "except", "try", 3);
+        addQuestion(q41);
+
+        Question q42 = new Question("what is the output?\n" +
+                "mList = [2,7,8]\n" +
+                "mList.append(12)\n" +
+                "mList.append(23)\n" +
+                "mList.pop(2)\n" +
+                "print(mList)", "[2, 7, 12, 23]", "[2, 8, 12, 23]", "[2, 7, 8, 23]", 1);
+        addQuestion(q42);
+
+        Question q45 = new Question("what is the output ?\n" +
+                "mylist = [\"wilson\",\"tom\",\"jack\",\"eden\"]\n" +
+                "for names in mylist:\n" +
+                "    if len (names) > 3 :\n" +
+                "        print (names,end=\", \")", "tom,jack", "wilson, jack, eden,", "jack, eden,", 2);
+        addQuestion(q45);
+
+//        Question q46 = new Question();
+//        addQuestion(q46);
 
 
     }

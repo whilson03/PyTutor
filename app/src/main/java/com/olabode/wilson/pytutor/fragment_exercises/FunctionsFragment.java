@@ -1,27 +1,30 @@
 package com.olabode.wilson.pytutor.fragment_exercises;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
+import com.olabode.wilson.pytutor.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.R;
-import com.olabode.wilson.pytutor.activities.ExercisesReaderActivity;
-import com.olabode.wilson.pytutor.adapters.ExercisesAdapter;
 import com.olabode.wilson.pytutor.classes.Exercises;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FunctionsFragment extends Fragment {
+    private ExercisesRecyclerAdapter mExercisesAdapter;
+    private List<Exercises> exercisesList;
+    private RecyclerView mRecyclerView;
+
 
 
     public FunctionsFragment() {
@@ -33,11 +36,15 @@ public class FunctionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.exercises_list_view, container, false);
+        View rootView = inflater.inflate(R.layout.exercises_recycler_view, container, false);
 
-        final ArrayList<Exercises> exercisesList = new ArrayList<>();
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.exercises_recycler);
+        LinearLayoutManager exercisesLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(exercisesLayoutManager);
 
-        exercisesList.add(new Exercises("Fucntion to check if a number is prime", "Fucntion to check if a number is prime\n" +
+
+        exercisesList = new ArrayList<>();
+        exercisesList.add(new Exercises("Function to check if a number is prime", "Fucntion to check if a number is prime\n" +
                 "def checkPrime(num):",
                 "def checkPrime(num):\n" +
                         "\t# num = int(input(\"Enter a number: \"))\n" +
@@ -202,24 +209,29 @@ public class FunctionsFragment extends Fragment {
                 "\n" +
                 "string_test('WHilCode')"));
 
+        exercisesList.add(new Exercises("Get no of even numbers in a list", "define a function to return total no of even numbers in a list",
+                "def countEven(mList = [ ] ):\n" +
+                        "    total = 0\n" +
+                        "    for numbers in mList:\n" +
+                        "        if numbers % 2 == 0:\n" +
+                        "            total += 1\n" +
+                        "    return total\n" +
+                        "print(countEven([2,4,6,4,1,0,3]))\n" +
+                        "    \n"));
 
-        ExercisesAdapter exercisesAdapter = new ExercisesAdapter(getContext(), exercisesList, R.color.category_list_view_color);
+        exercisesList.add(new Exercises("Sum up all values in a tuple", "Define a function to sum up all the values in" +
+                "a tuple \nE.g : mTuple = (2,3,4)\nOutput: 9", "def sumAllValues(mTuple = ()):\n" +
+                "    total = 0\n" +
+                "    for i in mTuple:\n" +
+                "        total += i\n" +
+                "    return total\n" +
+                "\n" +
+                "tup = (1,4,5)\n" +
+                "print(sumAllValues(tup))\n"));
 
-        ListView listView = (ListView) rootView.findViewById(R.id.list_view);
+        mExercisesAdapter = new ExercisesRecyclerAdapter(getContext(), exercisesList);
+        mRecyclerView.setAdapter(mExercisesAdapter);
 
-        listView.setAdapter(exercisesAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Exercises currentExercise = exercisesList.get(position);
-
-                Intent i = new Intent(getContext(), ExercisesReaderActivity.class);
-                i.putExtra("Question", currentExercise.getTopic());
-                i.putExtra("Body", currentExercise.getExerciseBody());
-                startActivity(i);
-            }
-        });
 
 
         return rootView;

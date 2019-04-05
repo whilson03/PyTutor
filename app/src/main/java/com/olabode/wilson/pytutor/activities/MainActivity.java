@@ -3,6 +3,8 @@ package com.olabode.wilson.pytutor.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.StrictMode;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.olabode.wilson.pytutor.BuildConfig;
 import com.olabode.wilson.pytutor.QuizFiles.QuizStartScreen;
 import com.olabode.wilson.pytutor.R;
 import com.olabode.wilson.pytutor.fragment_exercises.DisplayExercisesFragment;
@@ -21,9 +24,11 @@ import com.olabode.wilson.pytutor.fragments_topics.LearnTopicsListFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private Handler mHandler;
 
     private DrawerLayout mDrawerLayout;
     private FragmentTransaction ft;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mHandler = new Handler();
+        checkLoad();
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -39,15 +46,16 @@ public class MainActivity extends AppCompatActivity
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        setFirstItemChecked();
+
         if (savedInstanceState == null) {
             displaySelectedScreen(R.id.nav_Learn);
-
+            setFirstItemChecked();
         }
+
     }
 
     @Override
@@ -93,7 +101,14 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }, 300);
         displaySelectedScreen(id);
+
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -110,6 +125,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_Learn:
                 fragment = new  LearnTopicsListFragment();
                 break;
+
             case R.id.nav_questions:
                 fragment = new DisplayExercisesFragment();
                 break;
@@ -126,11 +142,13 @@ public class MainActivity extends AppCompatActivity
                 shareApp();
                 break;
         }
+
         if (fragment != null) {
             ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, fragment);
             ft.commit();
         }
+
     }
 
 
@@ -138,7 +156,6 @@ public class MainActivity extends AppCompatActivity
      * check the first item in navigation drawer.
      */
     public void setFirstItemChecked() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu menu = navigationView.getMenu();
         menu.findItem(R.id.nav_Learn).setChecked(true);
     }
@@ -166,4 +183,18 @@ public class MainActivity extends AppCompatActivity
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
     }
+
+    private void checkLoad() {
+        if (BuildConfig.DEBUG) {
+
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().detectAll()
+                    .penaltyLog().build();
+
+            StrictMode.setThreadPolicy(policy);
+
+        }
+
+    }
+
+
 }

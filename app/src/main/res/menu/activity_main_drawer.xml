@@ -10,7 +10,7 @@
             android:title="@string/learn" />
         <item
             android:id="@+id/nav_questions"
-            android:icon="@drawable/ic_menu_exercises"
+            android:icon="@drawable/ic_view_list"
             android:title="@string/exercises" />
         <item
             android:id="@+id/nav_quiz"

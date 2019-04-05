@@ -1,26 +1,28 @@
 package com.olabode.wilson.pytutor.fragment_exercises;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
+import com.olabode.wilson.pytutor.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.R;
-import com.olabode.wilson.pytutor.activities.ExercisesReaderActivity;
-import com.olabode.wilson.pytutor.adapters.ExercisesAdapter;
 import com.olabode.wilson.pytutor.classes.Exercises;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BasicsFragment extends Fragment {
+    private ExercisesRecyclerAdapter mExercisesAdapter;
+    private List<Exercises> exercisesList;
+    private RecyclerView mRecyclerView;
 
 
     public BasicsFragment() {
@@ -32,10 +34,14 @@ public class BasicsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.exercises_list_view, container, false);
+        View rootView = inflater.inflate(R.layout.exercises_recycler_view, container, false);
+
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.exercises_recycler);
+        LinearLayoutManager exercisesLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(exercisesLayoutManager);
 
 
-        final  ArrayList<Exercises> exercisesList = new ArrayList<>();
+        exercisesList = new ArrayList<>();
 
         exercisesList.add(new Exercises("Area of Triangle", "Find Area of triangle \nArea = 1/2 * base * height"
                 , "base = 2 \nheight = 2 \nArea = (1/2) * base * height \n" +
@@ -173,22 +179,11 @@ public class BasicsFragment extends Fragment {
         ));
 
 
-        ExercisesAdapter exercisesAdapter = new ExercisesAdapter(getContext(), exercisesList, R.color.category_list_view_color);
-        ListView listView = (ListView) rootView.findViewById(R.id.list_view);
+        mExercisesAdapter = new ExercisesRecyclerAdapter(getContext(), exercisesList);
+        mRecyclerView.setAdapter(mExercisesAdapter);
 
-        listView.setAdapter(exercisesAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Exercises currentExercise = exercisesList.get(position);
 
-                Intent i = new Intent(getContext(), ExercisesReaderActivity.class);
-                i.putExtra("Question", currentExercise.getTopic());
-                i.putExtra("Body", currentExercise.getExerciseBody());
 
-                startActivity(i);
-            }
-        });
         return rootView;
     }
 }
