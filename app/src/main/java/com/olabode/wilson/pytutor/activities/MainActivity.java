@@ -100,14 +100,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        final int id = item.getItemId();
+        // using handler to make drawer closing transition smoother.
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                displaySelectedScreen(id);
 
             }
         }, 300);
-        displaySelectedScreen(id);
+
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -186,10 +188,8 @@ public class MainActivity extends AppCompatActivity
 
     private void checkLoad() {
         if (BuildConfig.DEBUG) {
-
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().detectAll()
                     .penaltyLog().build();
-
             StrictMode.setThreadPolicy(policy);
 
         }
