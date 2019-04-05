@@ -186,6 +186,7 @@ public class MainActivity extends AppCompatActivity
         startActivity(sendIntent);
     }
 
+    // check for heavy tasks running on the UI thread
     private void checkLoad() {
         if (BuildConfig.DEBUG) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().detectAll()
