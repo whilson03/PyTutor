@@ -16,6 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.olabode.wilson.pytutor.BuildConfig;
 import com.olabode.wilson.pytutor.QuizFiles.QuizStartScreen;
 import com.olabode.wilson.pytutor.R;
@@ -24,29 +27,40 @@ import com.olabode.wilson.pytutor.fragments_topics.LearnTopicsListFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
     private Handler mHandler;
 
     private DrawerLayout mDrawerLayout;
     private FragmentTransaction ft;
     private NavigationView navigationView;
 
+    // google admob
+    private AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //admob app id
+        MobileAds.initialize(this, "ca-app-pub-3647278513203920~6360121266");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
         mHandler = new Handler();
         checkLoad();
 
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -60,7 +74,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -106,10 +120,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void run() {
                 displaySelectedScreen(id);
-
             }
         }, 300);
-
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -124,6 +136,7 @@ public class MainActivity extends AppCompatActivity
     public void displaySelectedScreen(int id) {
         Fragment fragment = null;
         switch (id) {
+
             case R.id.nav_Learn:
                 fragment = new  LearnTopicsListFragment();
                 break;
@@ -144,7 +157,6 @@ public class MainActivity extends AppCompatActivity
                 shareApp();
                 break;
         }
-
         if (fragment != null) {
             ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, fragment);

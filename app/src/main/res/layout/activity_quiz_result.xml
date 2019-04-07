@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:id="@+id/result_screen">
 
     <TextView
@@ -46,6 +47,8 @@
         android:layout_below="@+id/Congrats_cup_image"
         android:layout_centerInParent="true"
         android:text="score"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
         android:textSize="30sp" />
 
 
@@ -55,9 +58,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/score"
         android:layout_centerInParent="true"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
         android:layout_marginTop="2dp"
         android:text="0 / 10"
         android:textSize="30sp" />
+
+    <RatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/result_text_view"
+        android:layout_centerInParent="true"
+        android:isIndicator="true"
+
+        android:stepSize="5" />
 
 
     <Button
