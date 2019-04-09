@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //admob app id
-        MobileAds.initialize(this, "ca-app-pub-3647278513203920~6360121266");
+        MobileAds.initialize(this, getString(R.string.app_ad_key));
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -64,12 +64,10 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-
         if (savedInstanceState == null) {
             displaySelectedScreen(R.id.nav_Learn);
             setFirstItemChecked();
         }
-
     }
 
     @Override
@@ -105,8 +103,7 @@ public class MainActivity extends AppCompatActivity
 
 
     /**
-     * update the main screen as new fragment ..
-     *
+     * update the main screen as new fragment.
      * @param item
      * @return
      */

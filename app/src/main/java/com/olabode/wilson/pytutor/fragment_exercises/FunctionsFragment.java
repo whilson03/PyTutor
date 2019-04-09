@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.olabode.wilson.pytutor.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.R;
+import com.olabode.wilson.pytutor.adapters.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.classes.Exercises;
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class FunctionsFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.exercises_recycler_view, container, false);
 
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.exercises_recycler);
+        mRecyclerView = rootView.findViewById(R.id.exercises_recycler);
         LinearLayoutManager exercisesLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(exercisesLayoutManager);
 
@@ -204,8 +204,8 @@ public class FunctionsFragment extends Fragment {
                 "        else:\n" +
                 "           pass\n" +
                 "    print (\"Original String : \", s)\n" +
-                "    print (\"No. of Upper case characters : \", d[\"UPPER_CASE\"])\n" +
-                "    print (\"No. of Lower case Characters : \", d[\"LOWER_CASE\"])\n" +
+                "    print (\"No. of Upper case characters : \",d[\"UPPER_CASE\"])\n" +
+                "    print (\"No. of Lower case Characters : \",d[\"LOWER_CASE\"])\n" +
                 "\n" +
                 "string_test('WHilCode')"));
 
@@ -228,6 +228,60 @@ public class FunctionsFragment extends Fragment {
                 "\n" +
                 "tup = (1,4,5)\n" +
                 "print(sumAllValues(tup))\n"));
+
+
+        exercisesList.add(new Exercises("Python Program to Find LCM", "" +
+                "The least common multiple (L.C.M.) of two numbers is the smallest positive integer that is perfectly divisible by the two given numbers.\n" +
+                "\n" +
+                "For example, the L.C.M. of 12 and 14 is 84.", "" +
+                "# Python Program to find the L.C.M. of two input number\n" +
+                "\n" +
+                "# define a function\n" +
+                "def lcm(x, y):\n" +
+                "   \"\"\"This function takes two\n" +
+                "   integers and returns the L.C.M.\"\"\"\n" +
+                "\n" +
+                "   # choose the greater number\n" +
+                "   if x > y:\n" +
+                "       greater = x\n" +
+                "   else:\n" +
+                "       greater = y\n" +
+                "\n" +
+                "   while(True):\n" +
+                "       if((greater % x == 0) and (greater % y == 0)):\n" +
+                "           lcm = greater\n" +
+                "           break\n" +
+                "       greater += 1\n" +
+                "\n" +
+                "   return lcm\n" +
+                "\n" +
+                "# change the values of num1 and num2 for a different result\n" +
+                "num1 = 54\n" +
+                "num2 = 24\n" +
+                "\n" +
+                "# uncomment the following lines to take input from the user\n" +
+                "#num1 = int(input(\"Enter first number: \"))\n" +
+                "#num2 = int(input(\"Enter second number: \"))\n" +
+                "\n" +
+                "print(\"The L.C.M. of\", num1,\"and\", num2,\"is\", lcm(num1, num2))"));
+
+        exercisesList.add(new Exercises("Find Factors of Number", "Python Program to Find Factors of Number",
+                "# Python Program to find the factors of a number\n" +
+                        "\n" +
+                        "# define a function\n" +
+                        "def print_factors(x):\n" +
+                        "   # This function takes a number and prints the factors\n" +
+                        "\n" +
+                        "   print(\"The factors of\",x,\"are:\")\n" +
+                        "   for i in range(1, x + 1):\n" +
+                        "       if x % i == 0:\n" +
+                        "           print(i)\n" +
+                        "\n" +
+                        "# change this value for a different result.\n" +
+                        "num = 320\n" +
+                        "\n" +
+                        "\n" +
+                        "print_factors(num)"));
 
         mExercisesAdapter = new ExercisesRecyclerAdapter(getContext(), exercisesList);
         mRecyclerView.setAdapter(mExercisesAdapter);

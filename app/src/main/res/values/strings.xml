@@ -56,6 +56,8 @@
     <string name="topic_classes"><![CDATA[Classes & Objects]]></string>
     <string name="show_solution">SHow Solution</string>
     <string name="question_heading">Question</string>
+    <string name="ad_unit_key">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="app_ad_key">ca-app-pub-3647278513203920~6360121266</string>
 
 
 </resources>

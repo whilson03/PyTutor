@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor;
+package com.olabode.wilson.pytutor.adapters;
 
 
 import android.content.Context;
@@ -10,12 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.olabode.wilson.pytutor.R;
 import com.olabode.wilson.pytutor.activities.ExercisesReaderActivity;
 import com.olabode.wilson.pytutor.classes.Exercises;
 
 import java.util.List;
 
-
+/*
+  RecyclerView adapter to inflate layout that displays the exercises in the exercises section
+ */
 public class ExercisesRecyclerAdapter extends RecyclerView.Adapter<ExercisesRecyclerAdapter.ExercisesViewHolder> {
     private final Context mContext;
     private final LayoutInflater mLayoutInflater;
@@ -66,7 +69,7 @@ public class ExercisesRecyclerAdapter extends RecyclerView.Adapter<ExercisesRecy
 
         public ExercisesViewHolder(@NonNull final View itemView) {
             super(itemView);
-            exerciseTitle = (TextView) itemView.findViewById(R.id.exercise_title_text_view);
+            exerciseTitle = itemView.findViewById(R.id.exercise_title_text_view);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -78,8 +81,6 @@ public class ExercisesRecyclerAdapter extends RecyclerView.Adapter<ExercisesRecy
                     i.putExtra("Body", exerciseBody);
 
                     mContext.startActivity(i);
-
-
                 }
             });
 
