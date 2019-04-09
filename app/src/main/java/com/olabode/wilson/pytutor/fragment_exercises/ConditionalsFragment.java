@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.olabode.wilson.pytutor.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.R;
+import com.olabode.wilson.pytutor.adapters.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.classes.Exercises;
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class ConditionalsFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.exercises_recycler_view, container, false);
 
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.exercises_recycler);
+        mRecyclerView = rootView.findViewById(R.id.exercises_recycler);
         LinearLayoutManager exercisesLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(exercisesLayoutManager);
 
@@ -200,6 +200,73 @@ public class ConditionalsFragment extends Fragment {
                 "\t"
         ));
 
+
+        exercisesList.add(new Exercises("Check leap year", "A leap year is exactly divisible by 4 except for century years (years ending with 00). The century year is a leap year" +
+                " only if it is perfectly divisible by 400. For example,\n" +
+                "2017 is not a leap year\n" +
+                "1900 is a not leap year\n" +
+                "2012 is a leap year\n" +
+                "2000 is a leap year", "" +
+                "# Python program to check if the input year is a leap year or not\n" +
+                "\n" +
+                "year = 2000\n" +
+                "\n" +
+                "# To get year (integer input) from the user\n" +
+                "# year = int(input(\"Enter a year: \"))\n" +
+                "\n" +
+                "if (year % 4) == 0:\n" +
+                "   if (year % 100) == 0:\n" +
+                "       if (year % 400) == 0:\n" +
+                "           print(\"{0} is a leap year\".format(year))\n" +
+                "       else:\n" +
+                "           print(\"{0} is not a leap year\".format(year))\n" +
+                "   else:\n" +
+                "       print(\"{0} is a leap year\".format(year))\n" +
+                "else:\n" +
+                "   print(\"{0} is not a leap year\".format(year))"));
+
+        exercisesList.add(new Exercises("Check if a Number is Positive, Negative or 0", "check whether a number entered by the user is positive, negative " +
+                "or zero. This problem is solved using if...elif...else statement", "" +
+                "num = float(input(\"Enter a number: \"))\n" +
+                "if num > 0:\n" +
+                "   print(\"Positive number\")\n" +
+                "elif num == 0:\n" +
+                "   print(\"Zero\")\n" +
+                "else:\n" +
+                "   print(\"Negative number\")"));
+
+        exercisesList.add(new Exercises("Find the Largest Among Three Numbers", "Python Program to Find the Largest Among" +
+                " Three Numbers\n" +
+                "", "# Python program to find the largest number among the three input numbers\n" +
+                "\n" +
+                "# change the values of num1, num2 and num3\n" +
+                "# for a different result\n" +
+                "num1 = 10\n" +
+                "num2 = 14\n" +
+                "num3 = 12\n" +
+                "\n" +
+                "\n" +
+                "if (num1 >= num2) and (num1 >= num3):\n" +
+                "   largest = num1\n" +
+                "elif (num2 >= num1) and (num2 >= num3):\n" +
+                "   largest = num2\n" +
+                "else:\n" +
+                "   largest = num3\n" +
+                "\n" +
+                "print(\"The largest number between\",num1,\",\",num2,\"and\",num3,\"is\",largest)"));
+
+        exercisesList.add(new Exercises("Display the multiplication Table", "Python Program to Display the multiplication Table",
+                "''' Python program to find the\n" +
+                        "multiplication table (from 1 to 10)'''\n" +
+                        "\n" +
+                        "num = 12\n" +
+                        "\n" +
+                        "# To take input from the user\n" +
+                        "# num = int(input(\"Display multiplication table of? \"))\n" +
+                        "\n" +
+                        "# use for loop to iterate 10 times\n" +
+                        "for i in range(1, 11):\n" +
+                        "   print(num,'x',i,'=',num*i)"));
 
         mExercisesAdapter = new ExercisesRecyclerAdapter(getContext(), exercisesList);
         mRecyclerView.setAdapter(mExercisesAdapter);

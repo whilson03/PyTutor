@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.olabode.wilson.pytutor.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.R;
+import com.olabode.wilson.pytutor.adapters.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.classes.Exercises;
 
 import java.util.ArrayList;
@@ -36,12 +36,24 @@ public class BasicsFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.exercises_recycler_view, container, false);
 
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.exercises_recycler);
+        mRecyclerView = rootView.findViewById(R.id.exercises_recycler);
         LinearLayoutManager exercisesLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(exercisesLayoutManager);
 
 
         exercisesList = new ArrayList<>();
+
+        exercisesList.add(new Exercises(" Add Two Numbers", "Python Program to Add Two Numbers\n", "" +
+                "# This program adds two numbers\n" +
+                "\n" +
+                "num1 = 1.5\n" +
+                "num2 = 6.3\n" +
+                "\n" +
+                "# Add two numbers\n" +
+                "sum = float(num1) + float(num2)\n" +
+                "\n" +
+                "# Display the sum\n" +
+                "print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))"));
 
         exercisesList.add(new Exercises("Area of Triangle", "Find Area of triangle \nArea = 1/2 * base * height"
                 , "base = 2 \nheight = 2 \nArea = (1/2) * base * height \n" +
@@ -178,6 +190,61 @@ public class BasicsFragment extends Fragment {
 
         ));
 
+        exercisesList.add(new Exercises("Convert Celsius To Fahrenheit", "we take temperature in degree Celsius and convert it into degree Fahrenheit. They are related by the formula:\n" +
+                "\n", "" +
+                "# Python Program to convert temperature in celsius to fahrenheit\n" +
+                "\n" +
+                "# change this value for a different result\n" +
+                "celsius = 37.5\n" +
+                "\n" +
+                "# calculate fahrenheit\n" +
+                "fahrenheit = (celsius * 1.8) + 32\n" +
+                "print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))"));
+
+        exercisesList.add(new Exercises("Program to Find the Square Root", "" +
+                "Program to Find the Square Root", "" +
+                "# Python Program to calculate the square root\n" +
+                "\n" +
+                "# Note: change this value for a different result\n" +
+                "num = 8 \n" +
+                "\n" +
+                "# uncomment to take the input from the user\n" +
+                "#num = float(input('Enter a number: '))\n" +
+                "num_sqrt = num ** 0.5\n" +
+                "print('The square root of %0.3f is %0.3f'%(num ,num_sqrt))"));
+        exercisesList.add(new Exercises("Solve quadratic equation", "program to solve quadratic equation\n" +
+                "The standard form of a quadratic equation is:\n" +
+                "ax^2 + bx + c = 0, where\n" +
+                "a, b and c are real numbers and\n" +
+                "a ≠ 0\n", "# Solve the quadratic equation ax**2 + bx + c = 0\n" +
+                "\n" +
+                "# import complex math module\n" +
+                "import cmath\n" +
+                "\n" +
+                "a = 1\n" +
+                "b = 5\n" +
+                "c = 6\n" +
+                "\n" +
+                "# To take coefficient input from the users\n" +
+                "# a = float(input('Enter a: '))\n" +
+                "# b = float(input('Enter b: '))\n" +
+                "# c = float(input('Enter c: '))\n" +
+                "\n" +
+                "# calculate the discriminant\n" +
+                "d = (b**2) - (4*a*c)\n" +
+                "\n" +
+                "# find two solutions\n" +
+                "sol1 = (-b-cmath.sqrt(d))/(2*a)\n" +
+                "sol2 = (-b+cmath.sqrt(d))/(2*a)\n" +
+                "\n" +
+                "print('The solution are {0} and {1}'.format(sol1,sol2))"));
+        exercisesList.add(new Exercises("Generate a Random Number", "Python Program to Generate a Random Number",
+                "# Program to generate a random number between 0 and 9\n" +
+                        "\n" +
+                        "# import the random module\n" +
+                        "import random\n" +
+                        "\n" +
+                        "print(random.randint(0,9))"));
 
         mExercisesAdapter = new ExercisesRecyclerAdapter(getContext(), exercisesList);
         mRecyclerView.setAdapter(mExercisesAdapter);

@@ -123,6 +123,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         }
 
         c.close();
+        db.close();
         return questionList;
     }
 

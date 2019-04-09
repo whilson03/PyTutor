@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.olabode.wilson.pytutor.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.R;
+import com.olabode.wilson.pytutor.adapters.ExercisesRecyclerAdapter;
 import com.olabode.wilson.pytutor.classes.Exercises;
 
 import java.util.ArrayList;
@@ -40,7 +40,7 @@ public class FilesHandlingFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.exercises_recycler_view, container, false);
 
 
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.exercises_recycler);
+        mRecyclerView = rootView.findViewById(R.id.exercises_recycler);
         LinearLayoutManager exercisesLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(exercisesLayoutManager);
 
