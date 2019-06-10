@@ -14,7 +14,7 @@ import com.olabode.wilson.pytutor.fragment_exercises.OOPFragment;
 public class CategoryAdapter extends FragmentPagerAdapter {
 
 
-    private String tabTitles[] = new String[]{"Basics", "Conditionals & Loops ", "Functions", "Files", "OOP"};
+    private String[] tabTitles = new String[]{"Basics", "Conditionals & Loops ", "Functions", "Files", "OOP"};
 
 
     public CategoryAdapter(FragmentManager fm) {

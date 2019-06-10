@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.StrictMode;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -19,22 +18,20 @@ import android.view.MenuItem;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.olabode.wilson.pytutor.BuildConfig;
-import com.olabode.wilson.pytutor.QuizFiles.QuizStartScreen;
 import com.olabode.wilson.pytutor.R;
 import com.olabode.wilson.pytutor.fragment_exercises.DisplayExercisesFragment;
 import com.olabode.wilson.pytutor.fragments_topics.LearnTopicsListFragment;
+import com.olabode.wilson.pytutor.quizfiles.QuizStartScreen;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Handler mHandler;
-
     private DrawerLayout mDrawerLayout;
     private FragmentTransaction ft;
     private NavigationView navigationView;
 
-    // google admob
+    // google ad mob
     private AdView mAdView;
 
     @Override
@@ -43,15 +40,17 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //admob app id
+
+        //ad mob app id
         MobileAds.initialize(this, getString(R.string.app_ad_key));
+
         mAdView = findViewById(R.id.adView);
+
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
 
         mHandler = new Handler();
-        checkLoad();
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
@@ -91,14 +90,23 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.anim.
+        // as you specify a parent activity_learn_contents in AndroidManifest.anim.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_about) {
+        if (id == R.id.action_privacy) {
+            openWebrowser();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openWebrowser() {
+        String url = "https://whilson03.wixsite.com/wilsontech/post/privacy-policy";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+
     }
 
 
@@ -118,7 +126,8 @@ public class MainActivity extends AppCompatActivity
             public void run() {
                 displaySelectedScreen(id);
             }
-        }, 300);
+        }, 305);
+
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -146,19 +155,28 @@ public class MainActivity extends AppCompatActivity
                 fragment = new QuizStartScreen();
                 break;
 
+            case R.id.rate:
+                rateAppOnGooglePlay();
+
             case R.id.nav_feedback:
                 sendFeedback();
                 break;
 
             case R.id.nav_share:
                 shareApp();
+
                 break;
         }
+
         if (fragment != null) {
             ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_container, fragment);
             ft.commit();
         }
+
+    }
+
+    private void rateAppOnGooglePlay() {
 
     }
 
@@ -195,16 +213,7 @@ public class MainActivity extends AppCompatActivity
         startActivity(sendIntent);
     }
 
-    // check for heavy tasks running on the UI thread
-    private void checkLoad() {
-        if (BuildConfig.DEBUG) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().detectAll()
-                    .penaltyLog().build();
-            StrictMode.setThreadPolicy(policy);
 
-        }
-
-    }
 
 
 }

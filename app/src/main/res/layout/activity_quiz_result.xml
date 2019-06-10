@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
 
     android:id="@+id/result_screen">
 
@@ -14,7 +15,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="2dp"
         android:fontFamily="cursive"
-        android:text="congratulations"
+        tools:text="@string/congratulations"
         android:textSize="50sp"
         android:textStyle="italic" />
 
@@ -28,51 +29,40 @@
         android:background="#c0c0c0" />
 
 
-    <ImageView
-        android:id="@+id/Congrats_cup_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view"
+    <RelativeLayout
         android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="20dp"
-        android:paddingTop="10dp"
-        android:src="@drawable/congrats" />
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
 
+        <ProgressBar
+            android:id="@+id/circularProgressbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="50"
+            android:progressDrawable="@drawable/circular"
+            android:secondaryProgress="100" />
 
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Congrats_cup_image"
-        android:layout_centerInParent="true"
-        android:text="score"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
-        android:textSize="30sp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true" />
 
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="0%"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/result_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/score"
-        android:layout_centerInParent="true"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
-        android:layout_marginTop="2dp"
-        android:text="0 / 10"
-        android:textSize="30sp" />
+    </RelativeLayout>
 
-    <RatingBar
-        android:id="@+id/rating_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/result_text_view"
-        android:layout_centerInParent="true"
-        android:isIndicator="true"
-
-        android:stepSize="5" />
 
 
     <Button
@@ -83,7 +73,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="58dp"
-        android:background="#218D73"
+        android:background="@drawable/button_green_background"
         android:drawableStart="@drawable/ic_replay_black_24dp"
         android:padding="8dp"
         android:text="@string/try_again"
@@ -99,8 +89,8 @@
         android:layout_centerInParent="true"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="58dp"
-        android:background="#218D73"
-        android:text="Home"
+        android:background="@drawable/button_green_background"
+        android:text="@string/home"
         android:textColor="@android:color/white" />
 
 

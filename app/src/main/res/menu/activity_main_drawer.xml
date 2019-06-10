@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_Learn"
@@ -17,19 +16,20 @@
             android:icon="@drawable/ic_menu_brain"
             android:title="@string/quiz" />
     </group>
-
     <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/share" />
-
+            <item
+                android:id="@+id/rate"
+                android:icon="@drawable/ic_star_black_24dp"
+                android:title="Rate App" />
             <item
                 android:id="@+id/nav_feedback"
                 android:icon="@drawable/ic_chat_black_24dp"
                 android:title="@string/feedback" />
         </menu>
     </item>
-
 </menu>
