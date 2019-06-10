@@ -18,12 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-    // A menu item view type.
-    private static final int MENU_ITEM_VIEW_TYPE = 0;
-
-    // The unified native ad view type.
-    private static final int UNIFIED_NATIVE_AD_VIEW_TYPE = 1;
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.TopicViewHolder> {
 
 
     private  final Context mContext;
@@ -41,22 +36,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public TopicViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View itemView = mLayoutInflater.inflate(R.layout.learn_recycler_items, viewGroup, false);
-        return new ViewHolder(itemView);
-
+        return new TopicViewHolder(itemView);
     }
 
-
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull TopicViewHolder topicViewHolder, int position) {
         //associate each news items in the list vy their positions.
          Topics topic = mTopics.get(position);
 
-         viewHolder.mTopicsTextView.setText(topic.getTopic());
-         viewHolder.mTopicLeftIcon.setImageResource(topic.getLeftIcon());
+        topicViewHolder.mTopicsTextView.setText(topic.getTopic());
+        topicViewHolder.mTopicLeftIcon.setImageResource(topic.getLeftIcon());
         // news current position
-        viewHolder.mCurrentTopicPosition = position;
+        topicViewHolder.mCurrentTopicPosition = position;
 
         mClickedPosition = position;
     }
@@ -69,14 +62,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
 
     // view holder class that hold all the items in the card view for each item in the list.
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class TopicViewHolder extends RecyclerView.ViewHolder {
         // text view for the topic section.
         public final TextView mTopicsTextView ;
         public final ImageView mTopicLeftIcon;
         public int mCurrentTopicPosition;
 
 
-        public ViewHolder(@NonNull final View itemView) {
+        public TopicViewHolder(@NonNull final View itemView) {
             super(itemView);
             mTopicsTextView = itemView.findViewById(R.id.learn_topics_text_view);
             mTopicLeftIcon = itemView.findViewById(R.id.learn_topics_left_icon);
@@ -122,4 +115,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         }
     }
+
+
 }
