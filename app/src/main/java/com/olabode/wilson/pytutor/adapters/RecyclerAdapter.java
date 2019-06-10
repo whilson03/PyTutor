@@ -19,9 +19,17 @@ import java.util.List;
 
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+    // A menu item view type.
+    private static final int MENU_ITEM_VIEW_TYPE = 0;
+
+    // The unified native ad view type.
+    private static final int UNIFIED_NATIVE_AD_VIEW_TYPE = 1;
+
+
     private  final Context mContext;
     private final LayoutInflater mLayoutInflater;
     private final List<Topics> mTopics;
+    private int mClickedPosition;
 
     // recycler view constructor
     public RecyclerAdapter(Context context, List<Topics> topics) {
@@ -49,6 +57,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
          viewHolder.mTopicLeftIcon.setImageResource(topic.getLeftIcon());
         // news current position
         viewHolder.mCurrentTopicPosition = position;
+
+        mClickedPosition = position;
     }
 
 
@@ -68,15 +78,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
-            mTopicsTextView = (TextView) itemView.findViewById(R.id.learn_topics_text_view);
-            mTopicLeftIcon = (ImageView) itemView.findViewById(R.id.learn_topics_left_icon);
+            mTopicsTextView = itemView.findViewById(R.id.learn_topics_text_view);
+            mTopicLeftIcon = itemView.findViewById(R.id.learn_topics_left_icon);
 
 
+            // list of all the html files from the assets directory
             final List<String> mAssetTitle = new ArrayList<>();
             mAssetTitle.add("overview.html");
             mAssetTitle.add("Environment_Setup.html");
             mAssetTitle.add("BasicSyntax.html");
-            mAssetTitle.add("variables&datatypes.html");
+            mAssetTitle.add("variables.html");
             mAssetTitle.add("basic_operator.html");
             mAssetTitle.add("strings.html");
 
@@ -91,12 +102,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             mAssetTitle.add("exceptions.html");
             mAssetTitle.add("classes.html");
 
+            final int listLength = mAssetTitle.size();
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(mContext, LearnContentsActivity.class);
+                    i.putExtra("position", getAdapterPosition());
+                    i.putExtra("listLength", listLength);
                     i.putExtra("title", mTopics.get(mCurrentTopicPosition).getTopic());
                     i.putExtra("ContentAssetName", mAssetTitle.get(mCurrentTopicPosition));
                     mContext.startActivity(i);

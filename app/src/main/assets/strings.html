@@ -29,12 +29,12 @@ p.one {
     </style>
 </head>
 <body>
-<h1><b>Strings</b></h1>
+<h1><b>STRINGS</b></h1>
 Strings are amongst the most popular types in Python. We can create them simply by enclosing
 characters in quotes. Python treats single quotes the same as double quotes. Creating strings is as
 simple as assigning a value to a variable. For example-
 <p class="one">var1 = 'Hello World!'<br>
-    var2 = "Python Programming" </p>
+    var2 = "Python Programming is really cool" </p>
 <b><u>Accessing Values in Strings</u></b><br>
 Python does not support a character type; these are treated as strings of length one, thus also
 considered a substring.
@@ -341,12 +341,16 @@ three consecutive single or double quotes.
 <p class="one">#!/usr/bin/python3 <br>
 
     para_str = """this is a long string that is made up of <br>
-    several lines and non-printable characters such as <br>
-    TAB ( \t ) and they will show up that way when displayed.<br>
-    NEWLINEs within the string, whether explicitly given like <br>
-    this within the brackets [ \n ], or just a NEWLINE within <br>
-    the variable assignment will also show up. <br>
-    """ <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;several lines and non-printable characters such
+    as <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TAB ( \t ) and they will show up that way when
+    displayed.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NEWLINEs within the string, whether explicitly
+    given like <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this within the brackets [ \n ], or just a
+    NEWLINE within <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the variable assignment will also show up. <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;""" <br>
     print (para_str)</p>
 When the above code is executed, it produces the following result. Note how every single special
 character has been converted to its printed form, right down to the last NEWLINE at the end of the
@@ -371,7 +375,7 @@ Now let us make use of raw string. We would put expression in r'expression' as f
 When the above code is executed, it produces the following result
 <p class="one">C:\\nowhere </p>
 
-<u><b>Built-in String Methods</b></u><br>
+<u><b> Some Built-in String Methods</b></u><br>
 Python includes the following built-in methods to manipulate strings
 <table>
     <tr>
@@ -380,17 +384,20 @@ Python includes the following built-in methods to manipulate strings
     </tr>
     <tr>
         <td>1</td>
-        <td>capitalize() Capitalizes first letter of string</td>
+        <td><b>capitalize() </b><br>
+            Capitalizes first letter of string
+        </td>
     </tr>
     <tr>
         <td>2</td>
-        <td>center(width, fillchar) <br>Returns a string padded with fillchar with the original
+        <td><b>center(width, fillchar) </b><br>Returns a string padded with fillchar with the
+            original
             string centered to a total of width columns.
         </td>
     </tr>
     <tr>
         <td>3</td>
-        <td>count(str, beg= 0,end=len(string)) <br>
+        <td><b>count(str, beg= 0,end=len(string)) </b><br>
 
             Counts how many times str occurs in string or in a substring of string if starting index
             beg and ending index end are given.
@@ -398,7 +405,7 @@ Python includes the following built-in methods to manipulate strings
     </tr>
     <tr>
         <td>4</td>
-        <td>decode(encoding='UTF-8',errors='strict')<br>
+        <td><b>decode(encoding='UTF-8',errors='strict')</b><br>
 
             Decodes the string using the codec registered for encoding. encoding defaults to the
             default string encoding.
@@ -406,13 +413,125 @@ Python includes the following built-in methods to manipulate strings
     </tr>
     <tr>
         <td>5</td>
-        <td>encode(encoding='UTF-8',errors='strict') <br>
+        <td><b>encode(encoding='UTF-8',errors='strict')</b> <br>
 
             Returns encoded string version of string; on error, default is to raise a ValueError
             unless errors is given with 'ignore' or 'replace'.
         </td>
     </tr>
+    <tr>
+        <td>6</td>
+        <td><b>find(str, beg=0 end=len(string))</b><br>
+
+            Determine if str occurs in string or in a substring of string if starting index beg and
+            ending index end are given returns index if found and -1 otherwise
+        </td>
+    </tr>
+    <tr>
+
+        <td>7</td>
+        <td><b>islower()</b><br>
+
+            Returns true if string has at least 1 cased character and all cased characters are in
+            lowercase and false otherwise.
+        </td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td><b>isnumeric() </b><br>
+
+            Returns true if a unicode string contains only numeric characters and false otherwise
+        </td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td><b>isupper()</b><br>
+
+            Returns true if string has at least one cased character and all cased characters are in
+            uppercase and false otherwise.
+        </td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td><b>join(seq)</b><br>
+
+            Merges (concatenates) the string representations of elements in sequence seq into a
+            string, with separator string.
+        </td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td><b>len(string)</b></br>
+
+            Returns the length of the string
+        </td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td><b>lower()</b><br>
+
+            Converts all uppercase letters in string to lowercase.
+        </td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td><b>lstrip()</b><br>
+
+            Removes all leading whitespace in string
+        </td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td><b>max(str)</b><br>
+
+            Returns the max alphabetical character from the string str.
+        </td>
+    </tr>
+    <tr>
+        <td>16</td>
+        <td><b>min(str)</b><br>
+
+            Returns the min alphabetical character from the string str.
+        </td>
+    </tr>
+    <tr>
+        <td>17</td>
+        <td><b>rstrip()</b><br>
+
+            Removes all trailing whitespace of string.
+        </td>
+    </tr>
+    <tr>
+        <td>18</td>
+        <td><b>strip([chars]) </b><br>
+
+            Performs both lstrip() and rstrip() on string
+        </td>
+    </tr>
+    <tr>
+        <td>19</td>
+        <td><b>upper()</b><br>
+
+            Converts lowercase letters in string to uppercase
+        </td>
+    </tr>
+    <tr>
+        <td>20</td>
+        <td><b>replace(old, new [, max])</b><br>
+
+            Replaces all occurrences of old in string with new or at most max occurrences if max
+            given.
+        </td>
+    </tr>
+    <tr>
+        <td>21</td>
+        <td><b>split(str="", num=string.count(str)) </b><br>
+
+            Splits string according to delimiter str (space if not provided) and returns list of
+            substrings; split into at most num substrings if given.
+        </td>
+    </tr>
 </table>
 
 </body>
-</html>
+</html

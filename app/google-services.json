@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "92714901702",
+    "firebase_url": "https://pytutor-c8cfc.firebaseio.com",
+    "project_id": "pytutor-c8cfc",
+    "storage_bucket": "pytutor-c8cfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92714901702:android:a16ffa02577ca2fe",
+        "android_client_info": {
+          "package_name": "com.olabode.wilson.pytutor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92714901702-p5i12s2eccjvuaj1t7td4n5ce7pl8lpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjRusRaDu2hHcLTsbnS3kDkfsVlk-eKYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92714901702-p5i12s2eccjvuaj1t7td4n5ce7pl8lpp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-3647278513203920~6360121266"
+    }
+  ],
+  "configuration_version": "1"
+}

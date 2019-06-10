@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+h1 {
+    color:black;
+	text-align:center;
+	font-size:16px;
+	
+}
+h2 {
+    color:black;
+	font-size:30px;
+}
+h3 {
+    color:red;
+	text-align:center;
+	font-size:30px;
+}
+h4 {
+    color:red;
+	text-align:center;
+	font-size:30px;
+}
+ol {
+    padding: 5px;
+    background-color:grey;
+}
+h5 {
+    color:red;
+	font-size:30px;
+	text-align:center;
+}
+h6 {
+    color:red;
+	font-size:30px;
+	text-align:center;	
+}
+p.one {
+    border-style: Solid;
+    border-width: 2px;
+}
+
+table, td, th {
+    border:1px solid black;
+}
+table {
+    border-collapse:collapse;
+	width:100%;
+}
+th {
+    height:50px;
+	background-color:grey;
+
+
+    </style>
+</head>
+<body>
+<h1><b>VARIABLE AND TYPES</b></h1>
+Variables are nothing but reserved memory locations to store values. It means that when you create a
+variable, you reserve some space in the memory.
+Based on the data type of a variable, the interpreter allocates memory and decides what can be
+stored in the reserved memory. Therefore, by assigning different data types to the variables, you
+can store integers, decimals or characters in these variables.</p>
+<u><b>Assigning Values to Variables</b></u><br>
+Python variables do not need explicit declaration to reserve memory space. The declaration happens
+automatically when you assign a value to a variable. The equal sign (=) is used to assign values to
+variables.
+The operand to the left of the = operator is the name of the variable and the operand to the right
+of the = operator is the value stored in the variable. </p>
+<p class="one">#!/usr/bin/python3 <br>
+    counter = 100 # An integer assignment <br>
+    miles = 1000.0 # A floating point <br>
+    name = "Emmanuel" # A string <br>
+    print (counter) <br>
+    print (miles) <br>
+    print (name) </p>
+The output gives the following result</p>
+<p class="one">100 <br>
+    1000.0 <br>
+    Emmanuel</p>
+<b><u>Multiple Assignment</u></b><br>
+Python allows you to assign a single value to several variables simultaneously.
+For example
+<p class="one">a = b = c = 20</p>
+Here, an integer object is created with the value 20, and all the three variables are assigned to
+the same memory location. You can also assign multiple objects to multiple variables.
+For example
+<p class="one">a, b, c = 1, 2, "Emmanuel" </p>
+Here, two integer objects with values 1 and 2 are assigned to the variables a and b respectively,
+and one string object with the value "Emmanuel" is assigned to the variable c.</p>
+<b><u>Standard Data Types</u></b><br> The data stored in memory can be of many types. For example, a
+person's age is stored as a numeric value and his or her address is stored as alphanumeric
+characters. Python has various standard data types that are used to define the operations possible
+on them and the storage method for each of them.
+Python has five standard data types
+<ul>
+    <li>Numbers</li>
+    <li> String</li>
+    <li> List</li>
+    <li> Tuple</li>
+    <li>Dictionary</li>
+</ul>
+<b><u>Python Numbers Number</u></b><br>
+data types store numeric values. Number objects are created when you assign a value to them. For
+example
+<p class="one">var1 = 1 <br>
+    var2 = 10 </p>
+You can also delete the reference to a number object by using the <b>del</b> statement. The syntax
+of the <b>del</b> statement is
+<p class="one">del var1[,var2[,var3[....,varN]]]] </p>
+You can delete a single object or multiple objects by using the del statement.
+For example
+<p class="one">del var <br>
+    del var_a, var_b </p>
+Python supports three different numerical types
+<ul>
+    <li> int (signed integers)</li>
+    <li> float (floating point real values)</li>
+    <li>complex (complex numbers)</li>
+</ul>
+All integers in Python 3 are represented as long integers. Hence, there is no separate number type
+as long.
+Examples Here are some examples of numbers
+<table>
+    <th>int</th>
+    <th>float</th>
+    <th>Complex</th>
+    <tr>
+        <td>10</td>
+        <td>0.0</td>
+        <td> 3.14j</td>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td> 15.20</td>
+        <td> 45.j</td>
+    </tr>
+    <tr>
+        <td>-786</td>
+        <td> -21.9</td>
+        <td> 9.322e-36j</td>
+    </tr>
+    <tr>
+        <td>080</td>
+        <td> 32.3+e18</td>
+        <td> .876j</td>
+    </tr>
+    <tr>
+        <td>-0490</td>
+        <td> -90.</td>
+        <td>-.6545+0J</td>
+    </tr>
+    <tr>
+        <td>-0x260</td>
+        <td>-32.54e100</td>
+        <td> 3e+26J</td>
+    </tr>
+    <tr>
+        <td>0x69</td>
+        <td> 70.2-E12</td>
+        <td> 4.53e-7j</td>
+    </tr>
+</table>
+A complex number consists of an ordered pair of real floating-point numbers denoted by x + yj, where
+x and y are real numbers and j is the imaginary unit.

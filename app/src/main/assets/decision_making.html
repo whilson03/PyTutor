@@ -175,31 +175,33 @@ In a nested if construct, you can have an if...elif...else construct inside anot
 construct. </p>
 <b>Syntax</b>
 The syntax of the nested if...elif...else construct may be-
-<p class="one">if expression1: <br>
-    statement(s) <br>
-    if expression2: <br>
-    &nbsp;&nbsp; statement(s) <br>
-    elif expression3: <br>
-    &nbsp;&nbsp; statement(s) <br>
-    else <br>
-    &nbsp;&nbsp; statement(s)<br>
-    elif expression4: <br>
-    &nbsp;&nbsp; statement(s) <br>
-    else: <br>
-    &nbsp;&nbsp; statement(s) </p>
+<p class="one">&nbsp;&nbsp;if expression1: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if expression2: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif expression3: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s)<br>
+    &nbsp;&nbsp;elif expression4: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br>
+    &nbsp;&nbsp;else: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s) </p>
 Example
 <p class="one"># !/usr/bin/python3 <br>
     num=int(input("enter number")) <br>
-    if num%2==0: <br>
-    if num%3==0: <br>
-    &nbsp;&nbsp; print ("Divisible by 3 and 2") <br>
-    else: <br>
-    &nbsp;&nbsp; print ("divisible by 2 not divisible by 3") <br>
-    else: <br>
-    if num%3==0:<br>
+    &nbsp;&nbsp;if num%2==0: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if num%3==0: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print ("Divisible by 3 and 2") <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print ("divisible by 2 not divisible by
+    3") <br>
+    &nbsp;&nbsp;else: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if num%3==0:<br>
     &nbsp;&nbsp; print ("divisible by 3 not divisible by 2")<br>
-    else: <br>
-    &nbsp;&nbsp; print ("not Divisible by 2 not divisible by 3") </p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print ("not Divisible by 2 not divisible
+    by 3") </p>
 When the above code is executed, it produces the following result
 <p class="one">enter number8 <br>
     divisible by 2 not divisible by 3<br>

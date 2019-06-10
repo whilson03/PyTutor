@@ -1,382 +1,247 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+
+h1 {
+  text-align:center;
+  text-size : 16px;
+}
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 50px;
+  background-color:grey;
+}
+p.one {
+    border-style:solid;
+  border-width:medium;
+}
 
 
+    </style>
+</head>
 <body>
-<h2 style="font-size:25px; text-align:center;">Python Exceptions Handling</h2>
-<section>
-    <p>
-        Python provides two very important features to handle any unexpected error in your Python
-        programs and to
-        add debugging capabilities in them:
-        <
-    <ul class="list-group">
-        <li class="list-group-item active"><b>Exception Handling:</b> This would be covered in this
-            tutorial.
-            Here is a list standard Exceptions available in Python: Standard Exceptions.
-        </li>
-        <li class="list-group-item disabled"><b>Assertions:</b> This would be covered in Assertions
-            in Python
-            tutorial.
-        </li>
-    </ul>
-    </p>
-    <h4>
-        What is Exception?
-    </h4>
-    <p>
-        An exception is an event, which occurs during the execution of a program, that disrupts the
-        normal flow of
-        the program's instructions. In general, when a Python script encounters a situation that it
-        can't cope with,
-        it raises an exception. An exception is a Python object that represents an error.
-        <br>
-        <br> When a Python script raises an exception, it must either handle the exception
-        immediately otherwise it
-        would terminate and come out.
-    </p>
-    <h4>
-        Handling an exception:
-    </h4>
-    <p>
-        If you have some suspicious code that may raise an exception, you can defend your program by
-        placing the
-        suspicious code in a try: block. After the try: block, include an except: statement,
-        followed by a block of
-        code which handles the problem as elegantly as possible.
-        <br><br>
-        SYNTAX:<br>Here is simple syntax of try....except...else blocks:
-        <mark style="background-color:rgb(230,230,230);">
-            <code><br>
-                try:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;You do your operations here;<br>
-                ......................<br>
-                except ExceptionI:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;If there is ExceptionI, then execute this block.<br>
-                except ExceptionII:<br>
-                &nbsp;&nbsp;&nbsp;If there is ExceptionII, then execute this block.<br>
-                ......................<br>
-                else:<br>
-                &nbsp;If there is no exception then execute this block. <br>
-            </code>
-        </mark>
-        <br>
-        Here are few important points about the above-mentioned syntax:<br>
-        <
-    <ul class="list-group">
-        <li class="list-group-item active">A single try statement can have multiple except
-            statements. This is
-            useful when the try block contains statements that may throw different types of
-            exceptions.
-        </li>
-        <li class="list-group-item">You can also provide a generic except clause, which handles any
-            exception.
+<h1><b>Exceptions Handling</b></h1>
+Python provides two very important features to handle any unexpected error in your Python programs
+and to add debugging capabilities in them
+<ul>
+    <li>Exception Handling.</li>
+    <li>Assertions.</li>
+</ul>
+<b><u>Standard Exceptions</u></b><br>
+Here is a list of Standard Exceptions available in Python.
+<table>
+    <tr>
+        <th>EXCEPTION NAME</th>
+        <th>DESCRIPTION</th>
+    </tr>
+    <tr>
+        <td>StandardError</td>
+        <td> Base class for all built-in exceptions except StopIteration and SystemExit.</td>
+    </tr>
+    <tr>
+        <td>ArithmeticError</td>
+        <td>Base class for all errors that occur for numeric calculation.</td>
+    </tr>
+    <tr>
+        <td> OSError</td>
+        <td> Raised for operating system-related errors.</td>
+    </tr>
+    <tr>
+        <td>SyntaxError</td>
+        <td> Raised when there is an error in Python syntax.</td>
+    </tr>
+    <tr>
+        <td>IndexError</td>
+        <td> Raised when an index is not found in a sequence.</td>
+    </tr>
+    <tr>
+        <td>KeyError</td>
+        <td> Raised when the specified key is not found in the dictionary.</td>
+    </tr>
+    <tr>
+        <td>NameError</td>
+        <td> Raised when an identifier is not found in the local or global namespace.</td>
+    </tr>
+</table>
+<b><u>Assertions in Python</u></b><br>
+An assertion is a sanity-check that you can turn on or turn off when you are done with your testing
+of the program.
+<ul>
+    <li>The easiest way to think of an assertion is to liken it to a raise-if statement (or to be
+        more accurate, a raise-if-not statement). An expression is tested, and if the result comes
+        up false, an exception is raised.
+    </li>
 
-        </li>
-        <li class="list-group-item">After the except clause(s), you can include an else-clause. The
-            code in the
-            else-block executes if the code in the try: block does not raise an exception.
-        </li>
-        <li class="list-group-item">The else-block is a good place for code that does not need the
-            try: block's
-            protection.
-        </li>
-    </ul>
-    <br><br>
-    EXMPLE:
-    <br>
-    Here is simple example, which opens a file and writes the content in the file and comes out
-    gracefully
-    because there is no problem at all:
-    <br>
-    <mark style="background-color:rgb(230,230,230);">
-        <code>
-            #!/usr/bin/python<br>
-            <br>
-            try:<br>
-            &nbsp;&nbsp;fh = open("testfile", "w")<br>
-            &nbsp;&nbsp;fh.write("This is my test file for exception handling!!")<br>
-            except IOError:<br>
-            &nbsp;&nbsp;print "Error: can\'t find file or read data"<br>
-            else:<br>
-            &nbsp;&nbsp;print "Written content in the file successfully"<br>
-            &nbsp;&nbsp;fh.close()<br>
-        </code>
-    </mark>
-    <br>
-    This will produce the following result:<br>
-    <mark style="background-color:rgb(230,230,230);">
-        <code>
-            Written content in the file successfully
-        </code>
-    </mark>
-    <br>
-    <br> EXAMPLE:<br>
-    Here is one more simple example, which tries to open a file where you do not have permission to
-    write in
-    the file, so it raises an exception:
-    <br>
-    <mark style="background-color:rgb(230,230,230);">
-        <code>
-            #!/usr/bin/python<br>
-            <br>
-            try:<br>
-            &nbsp;fh = open("testfile", "r")<br>
-            &nbsp;fh.write("This is my test file for exception handling!!")<br>
-            except IOError:<br>
-            &nbsp;&nbsp;print "Error: can\'t find file or read data"<br>
-            else:<br>
-            &nbsp;print "Written content in the file successfully"<br>
-        </code>
-    </mark>
-    <br>
-    This will produce the following result:<br>
-    <mark style="background-color:rgb(230,230,230);">
-        <code>
-            Error: can't find file or read data
-        </code>
-    </mark>
-    </p>
-    <h4>The <i>except</i> clause with no exceptions:</h4>
-    <p>
-        You can also use the except statement with no exceptions defined as follows:<br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                try:<br>
-                &nbsp;&nbsp;You do your operations here;<br>
-                ......................<br>
-                except:<br>
-                &nbsp;&nbsp;If there is any exception, then execute this block.<br>
-                ......................<br>
-                else:<br>
-                &nbsp;&nbsp;If there is no exception then execute this block. <br>
-            </code>
-        </mark>
-        <br>
-        This kind of a try-except statement catches all the exceptions that occur. Using this kind
-        of try-except
-        statement is not considered a good programming practice though, because it catches all
-        exceptions but does
-        not make the programmer identify the root cause of the problem that may occur.
-    </p>
-    <h4>
-        The except clause with multiple exceptions:</h4>
-    <p>
-        <br>You can also use the same except statement to handle multiple exceptions as follows:<br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                try:<br>
-                &nbsp;&nbsp;You do your operations here;<br>
-                ......................<br>
-                except(Exception1[, Exception2[,...ExceptionN]]]):<br>
-                &nbsp;&nbsp;If there is any exception from the given exception list, <br>
-                &nbsp;&nbsp;then execute this block.<br>
-                ......................<br>
-                else:<br>
-                &nbsp;&nbsp;If there is no exception then execute this block.<br>
-            </code>
-        </mark>
-        <br>
-        Note that you can provide except clause(s), or a finally clause, but not both. You can not
-        use else clause
-        as well along with a finally clause.
-        <br>EXAMPLE:<br><br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                #!/usr/bin/python<br>
-                <br>
-                try:<br>
-                &nbsp;&nbsp;fh = open("testfile", "w")<br>
-                &nbsp;&nbsp;fh.write("This is my test file for exception handling!!")<br>
-                finally:<br>
-                &nbsp;&nbsp;print "Error: can\'t find file or read data"<br>
-            </code>
-        </mark>
-        <br>
-        If you do not have permission to open the file in writing mode, then this will produce the
-        following
-        result:<br>
-        <br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                Error: can't find file or read data
-            </code>
-        </mark>
-        <br>
-        Same example can be written more cleanly as follows:<br>
-        <br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                #!/usr/bin/python<br>
-                <br>
-                try:<br>
-                &nbsp;&nbsp;fh = open("testfile", "w")<br>
-                try:<br>
-                &nbsp;&nbsp;fh.write("This is my test file for exception handling!!")<br>
-                finally:<br>
-                &nbsp;&nbsp;print "Going to close the file"<br>
-                &nbsp;&nbsp;fh.close()<br>
-                except IOError:<br>
-                &nbsp;&nbsp;print "Error: can\'t find file or read data"<br>
-            </code>
-        </mark>
-        <br>
-        When an exception is thrown in the try block, the execution immediately passes to the
-        finally block. After
-        all the statements in the finally block are executed, the exception is raised again and is
-        handled in the
-        except statements if present in the next higher layer of the try-except statement.<br>
+    <li>Assertions are carried out by the assert statement, the newest keyword to Python, introduced
+        in version 1.5.
+    </li>
 
-    </p>
-    <h4>
-        Argument of an Exception:
-    </h4>
-    <p>
-        An exception can have an argument, which is a value that gives additional information about
-        the problem. The
-        contents of the argument vary by exception. You capture an exception's argument by supplying
-        a variable in
-        the except clause as follows:
-        <mark style="background-color:rgb(230,230,230);">
-            <code><br/>
-                try:<br>
-                &nbsp;&nbsp;You do your operations here;<br>
-                ......................<br>
-                except ExceptionType, Argument:<br>
-                &nbsp;&nbsp;You can print value of Argument here...<br>
-            </code>
-        </mark>
-        <br>
-        If you are writing the code to handle a single exception, you can have a variable follow the
-        name of the
-        exception in the except statement. If you are trapping multiple exceptions, you can have a
-        variable follow
-        the tuple of the exception.
-        <br>
-        This variable will receive the value of the exception mostly containing the cause of the
-        exception. The
-        variable can receive a single value or multiple values in the form of a tuple. This tuple
-        usually contains
-        the error string, the error number, and an error location.
-        <br>
-        EXAMPLE:<br>
-        Following is an example for a single exception:<br><br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                #!/usr/bin/python<br>
-                <br>
-                # Define a function here.<br>
-                def temp_convert(var):<br>
-                &nbsp;try:<br>
-                &nbsp;&nbsp;return int(var)<br>
-                &nbsp;except ValueError, Argument:<br>
-                &nbsp;&nbsp;print "The argument does not contain numbers\n", Argument<br>
-                <br>
-                # Call above function here.<br>
-                temp_convert("xyz");<br>
-            </code>
-        </mark>
-        <br>
-        This would produce the following result:<br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                The argument does not contain numbers<br>
-                invalid literal for int() with base 10: 'xyz'
-            </code>
-        </mark>
-    </p>
-    <h4>
-        Raising an exceptions:
-    </h4>
-    <p>
-        You can raise exceptions in several ways by using the raise statement. The general syntax
-        for the raise
-        statement.
-        <br><br>
-        SYNTAX:<br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                raise [Exception [, args [, traceback]]]
-            </code>
-        </mark>
-        <br>
-        Here, Exception is the type of exception (for example, NameError) and argument is a value
-        for the exception
-        argument. The argument is optional; if not supplied, the exception argument is None.<br>
-        <br>
-        The final argument, traceback, is also optional (and rarely used in practice), and if
-        present, is the
-        traceback object used for the exception.<br>
-        <br>
-        EXAMPLE:<br>
-        An exception can be a string, a class or an object. Most of the exceptions that the Python
-        core raises are
-        classes, with an argument that is an instance of the class. Defining new exceptions is quite
-        easy and can be
-        done as follows:<br>
-        <br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                def functionName( level ):<br>
-                &nbsp;&nbsp;if level < 1:<br>
-                &nbsp;&nbsp;&nbsp;raise "Invalid level!", level<br>
-                &nbsp;&nbsp;&nbsp;# The code below to this would not be executed<br>
-                &nbsp;&nbsp;&nbsp;# if we raise the exception<br>
-            </code>
-        </mark>
-        <br>
-        <b>Note:</b> In order to catch an exception, an "except" clause must refer to the same
-        exception thrown
-        either class object or simple string. For example, to capture above exception, we must write
-        our except
-        clause as follows:
-        <mark style="background-color:rgb(230,230,230);">
-            <code><br/>
-                try:<br>
-                &nbsp;&nbsp;Business Logic here...<br>
-                except "Invalid level!":<br>
-                &nbsp;&nbsp;Exception handling here...<br>
-                else:<br>
-                &nbsp;&nbsp;Rest of the code here...<br>
-            </code>
-        </mark>
-    </p>
+    <li>Programmers often place assertions at the start of a function to check for valid input, and
+        after a function call to check for valid output.
+    </li>
+</ul>
+<b><u>The assert Statement</u></b><br>
+When it encounters an assert statement, Python evaluates the accompanying expression, which is
+hopefully true. If the expression is false, Python raises anAssertionError exception.
+The syntax for assert is
+<p class="one">assert Expression[, Arguments] </p>
+If the assertion fails, Python uses ArgumentExpression as the argument for the AssertionError.
+AssertionError exceptions can be caught and handled like any other exception, using the try-except
+statement. If they are not handled, they will terminate the program and produce a traceback.
+<b>Example</b>
+Here is a function that converts a given temperature from degrees Kelvin to degrees Fahrenheit.
+Since 0° K is as cold as it gets, the function bails out if it sees a negative temperature
+<p class="one"> #!/usr/bin/python3 <br>
+    def KelvinToFahrenheit(Temperature): <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assert (Temperature >= 0),"Colder than absolute zero!"<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return ((Temperature-273)*1.8)+32 <br>
 
-    <h4>
-        User-Defined Exceptions:
-    </h4>
-    <p>
-        Python also allows you to create your own exceptions by deriving classes from the standard
-        built-in
-        exceptions.<br>
-        <br>
-        Here is an example related to RuntimeError. Here, a class is created that is subclassed from
-        RuntimeError.
-        This is useful when you need to display more specific information when an exception is
-        caught.<br>
-        <br>
-        In the try block, the user-defined exception is raised and caught in the except block. The
-        variable e is
-        used to create an instance of the class Networkerror.
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                class Networkerror(RuntimeError):<br>
-                &nbsp;def __init__(self, arg):<br>
-                &nbsp;&nbsp;self.args = arg<br>
-            </code>
-        </mark>
-        <br>
-        So once you defined above class, you can raise your exception as follows:<br><br>
-        <mark style="background-color:rgb(230,230,230);">
-            <code>
-                try:<br>
-                &nbsp;&nbsp;raise Networkerror("Bad hostname")<br>
-                except Networkerror,e:<br>
-                &nbsp;&nbsp;print e.args<br>
-            </code>
-        </mark>
-    </p>
-</section>
-</body>
+    print (KelvinToFahrenheit(273)) <br>
+    print (int(KelvinToFahrenheit(505.78))) <br>
+    print (KelvinToFahrenheit(-5)) </p>
+When the above code is executed, it produces the following result
+<p class="one">32.0 <br>
+    451 <br>
+    Traceback (most recent call last):<br>
+    File "test.py", line 9, in <br>
+    print KelvinToFahrenheit(-5) <br>
+    File "test.py", line 4, in KelvinToFahrenheit <br>
+    assert (Temperature >= 0),"Colder than absolute zero!" <br>
+    AssertionError: Colder than absolute zero! </p>
+<b><u>What is Exception?</u></b><br>
+An exception is an event, which occurs during the execution of a program that disrupts the normal
+flow of the program's instructions. In general, when a Python script encounters a situation that it
+cannot cope with, it raises an exception. An exception is a Python object that represents an error.
+When a Python script raises an exception, it must either handle the exception immediately otherwise
+it terminates and quits.</p>
+<b><u>Handling an Exception</u></b><br>
+If you have some suspicious code that may raise an exception, you can defend your program by placing
+the suspicious code in a try: block. After the try: block, include an except: statement, followed by
+a block of code which handles the problem as elegantly as possible. </p>
+<b><u>Syntax </u></b><br>
+Here is simple syntax of try....except...else blocks
+<p class="one">try: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; You do your operations here <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; ...................... <br>
 
-</html>
+
+    except ExceptionI: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; If there is ExceptionI, then execute this block. <br>
+    except ExceptionII: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; If there is ExceptionII, then execute this block. <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; ...................... <br>
+    else: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; If there is no exception then execute this block. </p>
+Here are few important points about the above-mentioned syntax
+<ul>
+    <li>A single try statement can have multiple except statements. This is useful when the try
+        block contains statements that may throw different types of exceptions.
+    </li>
+
+    <li>You can also provide a generic except clause, which handles any exception.</li>
+
+    <li> After the except clause(s), you can include an else-clause. The code in the elseblock
+        executes if the code in the try: block does not raise an exception.
+    </li>
+
+    <li>The else-block is a good place for code that does not need the try: block's protection.</li>
+</ul>
+<b>Example</b><br> This example opens a file, writes content in the file and comes out gracefully
+because there is no problem at all.
+<p class="one">#!/usr/bin/python3<br>
+
+    try: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; fh = open("testfile", "w") <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; fh.write("This is my test file for exception handling!!")<br>
+    except IOError: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; print ("Error: can\'t find file or read data") <br>
+    else: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; print ("Written content in the file successfully") <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; fh.close() </p>
+This produces the following result
+<p class="one">Written content in the file successfully </p>
+<b><u>Argument of an Exception</u></b><br>
+An exception can have an argument, which is a value that gives additional information about the
+problem. The contents of the argument vary by exception. You capture an exception's argument by
+supplying a variable in the except clause as follows
+<p class="one">&nbsp;try: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You do your operations here<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ......................<br>
+    &nbsp;except ExceptionType as Argument: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can print value of Argument here... </p>
+If you write the code to handle a single exception, you can have a variable follow the name of the
+exception in the except statement. If you are trapping multiple exceptions, you can have a variable
+follow the tuple of the exception.
+This variable receives the value of the exception mostly containing the cause of the exception. The
+variable can receive a single value or multiple values in the form of a tuple. This tuple usually
+contains the error string, the error number, and an error location. </p>
+<b>Example</b><br>
+Following is an example for a single exception
+<p class="one">&nbsp;&nbsp;#!/usr/bin/python3 <br>
+
+    &nbsp;&nbsp;# Define a function here. <br>
+    &nbsp;&nbsp;def temp_convert(var): <br>
+    &nbsp;&nbsp;try: <br>
+    &nbsp;&nbsp;returnint(var) <br>
+    &nbsp;&nbsp;except ValueError as Argument:<br>
+    &nbsp;&nbsp;print("The argument does not contain numbers\n",Argument) <br>
+
+    &nbsp;&nbsp;# Call above function here. <br>
+
+    &nbsp;&nbsp;temp_convert("xyz") </p>
+This produces the following result
+<p class="one">The argument does not contain numbers<br>
+    invalid literal for int() with base 10: 'xyz' </p>
+<b><u>Raising an Exception</u></b><br>
+You can raise exceptions in several ways by using the raise statement. The general syntax for the
+raise statement is as follows</p>
+<b>Syntax</b><br>
+<p class="one">raise [Exception [, args [, traceback]]]</p>
+Here, Exception is the type of exception (for example, NameError) and argument is a value for the
+exception argument. The argument is optional; if not supplied, the exception argument is None.
+The final argument, traceback, is also optional (and rarely used in practice), and if present, is
+the traceback object used for the exception.
+<b>Example</b><br>
+An exception can be a string, a class or an object. Most of the exceptions that the Python core
+raises are classes, with an argument that is an instance of the class. Defining new exceptions is
+quite easy and can be done as follows
+<p class="one">def functionName( level ): <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if level <1: ><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; raise Exception(level <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # The code below to this would not be executed <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # if we raise the exception <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; return level </p>
+<b>Note</b>: In order to catch an exception, an "except" clause must refer to the same exception
+thrown either as a class object or a simple string. For example, to capture the above exception, we
+must write the except clause as follows</p>
+<p class="one">try: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Business Logic here... <br>
+    except Exception as e: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Exception handling here using e.args...<br>
+    else: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Rest of the code here... </p>
+<b><u>User-Defined Exceptions</u></b><br>
+Python also allows you to create your own exceptions by deriving classes from the standard built-in
+exceptions.
+Here is an example related to RuntimeError. Here, a class is created that is subclassed from
+RuntimeError. This is useful when you need to display more specific information when an exception is
+caught.
+In the try block, the user-defined exception is raised and caught in the except block. The variable
+e is used to create an instance of the class Networkerror. </p>
+<p class="one">class Networkerror(RuntimeError):<br>
+    &nbsp;&nbsp;&nbsp; def __init__(self, arg):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.args = arg </p>
+So once you have defined the above class, you can raise the exception as follows
+<p class="one">try: <br>
+    &nbsp;&nbsp; raise Networkerror("Bad hostname") <br>
+    except Networkerror,e: <br>
+    &nbsp;&nbsp; print e.args </p>

@@ -1,55 +1,35 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Functions</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="Functions.css"/>
-    <script src="main.js"></script>
+    <style>
+
+h1 {
+    text-align:center;
+    text-size : 16px;
+}
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 50px;
+    background-color:grey;
+}
+p.one {
+    border-style:solid;
+    border-width:medium;
+}
+
+
+    </style>
 </head>
-<style>
-    body{
-    width:90%;
-
-    }
-    h3 {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 30px;
-    }
-    
-    p {
-        font-family: sans-serif;
-    }
-    
-    ul {
-        list-style: square;
-    }
-    
-    pre {
-        background-color: #e1e1d0;
-        width: 60vh;
-        ;
-    }
-    
-    cite {
-        color: rgb(24, 231, 24);
-    }
-    
-    em {
-        color: brown
-    }
-    
-    i {
-        color: rgb(16, 74, 182);
-    }
-
-
-</style>
-
 <body>
-<h2 style="font-size:25px; text-align:center;">Functions</h2>
+<h1><b><u>Functions</u></b></h1>
 <p>A function is a block of organized, reusable code that is used to perform a single, related
     action. Functions provide better modularity for your application and a high degree of code
     reusing.<br><br> As you already know, Python gives you many built-in
@@ -79,22 +59,19 @@
 </ul>
 <br>
 <h3>Syntax:</h3>
-<pre><i>def</i>functionname( parameters ):
-            <cite> "function_docstring"</cite>
-            function_suite
-            <i>return</i> [expression]
-    </pre>
+<p class="one">def</i>functionname( parameters ):<br>
+    "function_docstring"<br>
+    function_suite<br>
+    <i>return</i> [expression]</p>
 <p>By default, parameters have a positional behavior and you need to inform them in the same order
     that they were defined.</p>
 <h3>Example:</h3>
 <p>Here is the simplest form of a Python function. This function takes a string as input parameter
     and prints it on standard screen.</p>
-<pre><i>def</i> printme( str ):
-        <cite>"This prints a passed string into this function"</cite>
-        <i>print</i> str
-        <i>return</i>;
-    
-    </pre>
+<p class="one"><i>def</i> printme( str ):<br>
+    "This prints a passed string into this function"<br>
+    <i>print</i> str<br>
+    <i>return</i>;</p>
 <h3>Calling a Function</h3>
 <p>Defining a function only gives it a name, specifies the parameters that are to be included in the
     function and structures the blocks of code.<br><br> Once the basic structure of a function is
@@ -102,70 +79,62 @@
     function or directly from the Python prompt. Following is the example to call printme()
     function:
 </p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one">#!/usr/bin/python<br>
 
-    <em># Function definition is here</em>
-    <i>def</i>  printme( str ):
-     <cite>"This prints a passed string into this function"</cite> 
-      <i>print</i> str;
-      <i>return</i>;
-            
-    <em># Now you can call printme function</em>
-       printme(<cite>"I'm first call to user defined function!"</cite> );
-       printme(<cite>"Again second call to the same function"</cite>);
-    </pre>
+    # Function definition is here<br>
+    <i>def</i> printme( str ):<br>
+    "This prints a passed string into this function"<br>
+    <i>print</i> str;<br>
+    <i>return</i>;<br>
+
+    # Now you can call printme function<br>
+    printme("I'm first call to user defined function!");<br>
+    printme("Again second call to the same function");</p>
 <p>When the above code is executed, it produces the following result:</p>
-<pre>I'm first call to user defined function!
-      <br>Again second call to the same function
-    </pre>
+<p class="one">I'm first call to user defined function!<br>
+    Again second call to the same function</p>
 <h3>Pass by reference vs value</h3>
 <p>All parameters (arguments) in the Python language are passed by reference. It means if you change
     what a parameter refers to within a function, the change also reflects back in the calling
     function. For example:</p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one">#!/usr/bin/python<br>
 
-    <em># Function definition is here</em> 
-    <i>def</i> changeme( mylist ):
-        <cite>"This changes a passed list into this function"</cite>
-        mylist.append([1,2,3,4]);
-        <i>print</i> <cite>"Values inside the function: "</cite>, mylist
-        <i>return</i>;
-            
-    <em># Now you can call changeme function</em>
-        mylist = [10,20,30];
-        changeme( mylist );
-        <i>print</i> <cite>"Values outside the function: "</cite>, mylist
-    </pre>
+    # Function definition is here<br>
+    <i>def</i> changeme( mylist ):<br>
+    "This changes a passed list into this function"<br>
+    mylist.append([1,2,3,4]);<br>
+    <i>print</i> "Values inside the function: ", mylist<br>
+    <i>return</i>;<br>
+
+    # Now you can call changeme function<br>
+    mylist = [10,20,30];<br>
+    changeme( mylist );<br>
+    <i>print</i> "Values outside the function: ", mylist</p>
 <p>Here, we are maintaining reference of the passed object and appending values in the same object.
     So, this would produce the following result:</p>
-<pre>Values in the function:[10, 20, 30, [1, 2, 3, 4]]
-    Values outside the function:[10, 20, 30, [1, 2, 3, 4]]</pre>
+<p class="one">Values in the function:[10, 20, 30, [1, 2, 3, 4]]<br>
+    Values outside the function:[10, 20, 30, [1, 2, 3, 4]]</p>
 <p>There is one more example where argument is being passed by reference and the reference is being
     overwritten inside the called function.</p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one">#!/usr/bin/python<br>
 
-    <em># Function definition is here</em>
-    <i>def</i> changeme( mylist ):
-        <cite>"This changes a passed list into this function"</cite>
-        mylist = [1,2,3,4];
-    <em># This would assig new reference in mylist</em>
-        <i>print</i> "Values inside the function: ", mylist
-        <i>return</i>;
-            
-    <em># Now you can call changeme function</em>
-        mylist = [10,20,30];
-        changeme( mylist );
-        <i>print</i> <cite>"Values outside the function: "</cite>, mylist
-     </pre>
+    # Function definition is here<br>
+    <i>def</i> changeme( mylist ):<br>
+    "This changes a passed list into this function"<br>
+    mylist = [1,2,3,4];<br>
+    # This would assig new reference in mylist<br>
+    <i>print</i> "Values inside the function: ", mylist<br>
+    <i>return</i>;<br>
+
+    # Now you can call changeme function<br>
+    mylist = [10,20,30];<br>
+    changeme( mylist );<br>
+    <i>print</i> "Values outside the function: ", mylist</p>
 <p>The parameter mylist is local to the function changeme. Changing mylist within the function does
     not affect mylist. The function accomplishes nothing and finally this would produce the
     following result:</p>
-<pre>Values inside the function:  [1, 2, 3, 4]
-    Values outside the function:  [10, 20, 30]
-    </pre>
+<p class="one">Values inside the function: [1, 2, 3, 4]<br>
+    Values outside the function: [10, 20, 30]</p>
 <h3>Function Arguments:</h3>
 <p>You can call a function by using the following types of formal arguments:</p>
 <ul>
@@ -180,70 +149,60 @@
 <h3>Required arguments:</h3>
 <p>Required arguments are the arguments passed to a function in correct positional order. Here, the
     number of arguments in the function call should match exactly with the function
-    definition.<br><br> To call the function <em>printme()</em>, you definitely
+    definition.<br><br> To call the function printme(), you definitely
     need to pass one argument, otherwise it would give a syntax error as follows:
 </p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one">#!/usr/bin/python<br>
 
-    <em># Function definition is here</em> 
-    <i>def</i> printme( str ):
-        <cite>"This prints a passed string into this function"</cite>
-        <i>print </i>str;
-        <i>return</i>;
-            
-    <em># Now you can call printme function</em>
-        printme( str = <cite>"My string"</cite>);
-    </pre>
+    # Function definition is here<br>
+    <i>def</i> printme( str ):,br>
+    "This prints a passed string into this function"<br>
+    <i>print </i>str;<br>
+    <i>return</i>;<br>
+
+    # Now you can call printme function<br>
+    printme( str = "My string"</p>
 <p>When the above code is executed, it produces the following result:</p>
-<pre>My string</pre>
+<p class="one">My string</p>
 <p>Following example gives more clear picture. Note, here order of the parameter does not
     matter.</p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one">#!/usr/bin/python<br>
 
-    <em># Function definition is here</em>
-    <i>def</i> printinfo( name, age ):
-        <cite>"This prints a passed info into this function"</cite>
-        <i>print</i> <cite>"Name: "</cite>, name;
-        <i>print</i> <cite>"Age "</cite>, age;
-        <i>return</i>;
-            
-    <em># Now you can call printinfo function</em>
-        printinfo( age=50, name=<cite>"miki"</cite> );
-    </pre>
+    # Function definition is here</br>
+    <i>def</i> printinfo( name, age ):<br>
+    "This prints a passed info into this function"<br>
+    <i>print</i> "Name: ", name;<br>
+    <i>print</i> <"Age ", age;<br>
+    <i>return</i>;<br>
+
+    # Now you can call printinfo function<br>
+    printinfo( age=50, name=<"miki" )</p>
 <p>When the above code is executed, it produces the following result:</p>
-<pre>
-    Name:  miki
-    Age  50
-    </pre>
+<p class="one"> Name: miki<br>
+    Age 50</p>
 <h3>Default arguments:</h3>
 <p>
     A default argument is an argument that assumes a default value if a value is not provided in the
     function call for that argument. Following example gives an idea on default arguments, it would
     print default age if it is not passed:
 </p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one"> #!/usr/bin/python<br>
 
-    <em># Function definition is here</em>
-    <i>def</i> printinfo( name, age = 35 ):
-        <cite>"This prints a passed info into this function"</cite>
-        <i>print</i> <cite>"Name: "</cite>, name;
-        <i>print</i> <cite>"Age "</cite>, age;
+    # Function definition is here<br>
+    <i>def</i> printinfo( name, age = 35 ):<br>
+    "This prints a passed info into this function"<br>
+    <i>print</i> "Name", name;<br>
+    <i>print</i> "Age ", age;<br>
         <i>return</i>;
-            
-    <em># Now you can call printinfo function</em>
-        printinfo( age=50, name=<cite>"miki"</cite> );
-        printinfo( name=<cite>"miki"</cite> );
-    </pre>
+
+    # Now you can call printinfo function<br>
+    printinfo( age=50, name="miki";<br>
+    printinfo( name="miki";</p>
 <p>When the above code is executed, it produces the following result:</p>
-<pre>
-    Name:  miki
-    Age  50
-    Name:  miki
-    Age  35
-    </pre>
+<p class="one">Name: miki<br>
+    Age 50<br>
+    Name: miki<br>
+    Age 35</pre>p>
 <h3>Variable-length arguments:</h3>
 <p>
     You may need to process a function for more arguments than you specified while defining the
@@ -251,44 +210,37 @@
     definition, unlike required and default arguments.
     <br><br> The general syntax for a function with non-keyword variable arguments is this:
 </p>
-<pre>
-    <i>def</i> functionname([formal_args,] *var_args_tuple ):
-        <cite>"function_docstring"</cite>
-            function_suite
-        <i>return</i> [expression]
-    </pre>
+
+<p class="one"><i>def</i> functionname([formal_args,] *var_args_tuple ):<br>
+    "function_docstring"<br>
+    function_suite<br>
+    <i>return</i> [expression]</p>
 <p>
     An asterisk (*) is placed before the variable name that will hold the values of all nonkeyword
     variable arguments. This tuple remains empty if no additional arguments are specified during the
     function call. Following is a simple example:
 </p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one">#!/usr/bin/python<br>
 
-    <em># Function definition is here</em>
-    <i>def</i> printinfo( arg1, *vartuple ):
-        <cite>"This prints a variable passed arguments"</cite>
-            <i>print</i> <cite>"Output is: "</cite>
-            <i>print</i> arg1
-            <i>for var in</i> vartuple:
-            <i>print var</i>
-        <i>return</i>;
-            
-    <em># Now you can call printinfo function</em>
-        printinfo( 10 );
-        printinfo( 70, 60, 50 );   
-    </pre>
-<p>
-    When the above code is executed, it produces the following result:
-</p>
-<pre>
-     Output is:
-    10
-    Output is:
-    70
-    60
-    50
-    </pre>
+    <# Function definition is here<br>
+    <i>def</i> printinfo( arg1, *vartuple ):<br>
+    "This prints a variable passed arguments"<br>
+    <i>print</i> "Output is: "<br>
+    <i>print</i> arg1<br>
+    <i>for var in</i> vartuple:<br>
+    <i>print var</i><br>
+    <i>return</i>;<br>
+
+    # Now you can call printinfo function<br>
+    printinfo( 10 );<br>
+    printinfo( 70, 60, 50 ); </p>
+When the above code is executed, it produces the following result:
+<p class="one">Output is:<br>
+    10<br>
+    Output is:<br>
+    70<br>
+    60<br>
+    50</p>
 <h3>The Anonymous Functions:</h3>
 <p>
     You can use the <em>lambda</em> keyword to create small anonymous functions. These functions are
@@ -312,52 +264,41 @@
 </ul>
 <h3>Syntax:</h3>
 <p>The syntax of lambda functions contains only a single statement, which is as follows:</p>
-<pre>
-        
-    <i>lambda</i> [arg1 [,arg2,.....argn]]:expression
-    </pre>
+<p class="one"><i>lambda</i> [arg1 [,arg2,.....argn]]:expression</p>
 <p>Following is the example to show how lambda form of function works:</p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one">#!/usr/bin/python<br>
 
-    <em># Function definition is here</em>
-        sum = <i>lambda</i> arg1, arg2: arg1 + arg2;
-            
-             
-            
-    <em># Now you can call sum as a function</em>
-        <i>print</i> <cite>"Value of total : "</cite>, sum( 10, 20 )
-        <i>print</i> <cite>"Value of total : "</cite>, sum( 20, 20 )
-    </pre>
+    # Function definition is here<br>
+    sum = <i>lambda</i> arg1, arg2: arg1 + arg2;<br>
+
+
+    # Now you can call sum as a function<br>
+    <i>print</i> Value of total : sum( 10, 20 )<br>
+    <i>print</i> "Value of total : sum( 20, 20 )<br>
 <p>When the above code is executed, it produces the following result:</p>
-<pre>
-     Value of total :  30
-     Value of total :  40
-    </pre>
+<p class="one"> Value of total : 30<br>
+    Value of total : 40</p>
 <h3>The return Statement:</h3>
 <p>The statement return [expression] exits a function, optionally passing back an expression to the
     caller. A return statement with no arguments is the same as return None.
     <br><br> All the above examples are not returning any value, but if you like you can return a
     value from a function as follows:</p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one">#!/usr/bin/python<br>
 
-    <em># Function definition is here</em>
+    # Function definition is here<br>
         <i>def</i> sum( arg1, arg2 ):
-    <em># Add both the parameters and return them."</em>
-        total = arg1 + arg2
-        <i>print</i> <cite>"Inside the function : "</cite>, total
+    # Add both the parameters and return them."<br>
+    total = arg1 + arg2<br>
+    <i>print</i> Inside the function : total<br>
         <i>return</i> total;
-            
-    <em># Now you can call sum function</em>
-        total = sum( 10, 20 );
-        <i>print</i> <cite>"Outside the function : "</cite>, total 
-    </pre>
+
+    # Now you can call sum function<br>
+    total = sum( 10, 20 );<br>
+    <i>print</i> Outside the function :total<br>
 <p>When the above code is executed, it produces the following result:</p>
-<pre>
-    Inside the function :  30
-     Outside the function :  30
-    </pre>
+
+<p class="one"> Inside the function : 30<br>
+    Outside the function : 30</p>
 <h3>Scope of Variables:</h3>
 <p>All variables in a program may not be accessible at all locations in that program. This depends
     on where you have declared a variable.
@@ -376,29 +317,23 @@
     functions. When you call a function, the variables declared
     inside it are brought into scope. Following is a simple example:
 </p>
-<pre>
-    <em>#!/usr/bin/python</em>
+<p class="one">#!/usr/bin/python<br>
 
-        total = 0; # This is global variable.
-    <em># Function definition is here</em>
-        <i>def</i> sum( arg1, arg2 ):
-    <em># Add both the parameters and return them."</em>
-        total = arg1 + arg2; <em># Here total is local variable.</em>
-        <i>print</i> <cite>"Inside the function local total : "</cite>, total
+    total = 0; # This is global variable.<br>
+    # Function definition is here<br>
+    <i>def</i> sum( arg1, arg2 ):<br>
+    # Add both the parameters and return them."<br>
+    total = arg1 + arg2;# Here total is local variable.<br>
+    <i>print</i> Inside the function local total : total
         <i>return</i> total;
-            
-    <em># Now you can call sum function</em>
+
+    # Now you can call sum function
         sum( 10, 20 );
-        <i>print</i> <cite>"Outside the function global total : "</cite>, total 
-    </pre>
+    <i>print</i>Outside the function global total total </p>
 <p>When the above code is executed, it produces the following result:</p>
-<pre>
-        
-    Inside the function local total :  30
-    Outside the function global total :  0
-    </pre>
 
-
+<p class="one"> Inside the function local total : 30
+    Outside the function global total : 0</p>
 </body>
 
 </html>
