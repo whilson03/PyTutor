@@ -2,9 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     xmlns:tools="http://schemas.android.com/tools"
-
-
     android:id="@+id/result_screen">
 
     <TextView
@@ -21,7 +20,6 @@
 
     <View
         android:id="@+id/view"
-
         android:layout_width="fill_parent"
         android:layout_height="2dp"
         android:layout_below="@+id/congratulations_text_view"
@@ -30,15 +28,17 @@
 
 
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_above="@id/try_again"
+        android:layout_below="@id/view">
 
         <ProgressBar
             android:id="@+id/circularProgressbar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:layout_centerInParent="true"
             android:indeterminate="false"
             android:max="100"
@@ -46,20 +46,18 @@
             android:progressDrawable="@drawable/circular"
             android:secondaryProgress="100" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true" />
+
 
         <TextView
             android:id="@+id/tv"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="0%"
+            android:fontFamily="casual"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp" />
+            android:textSize="40sp" />
 
     </RelativeLayout>
 

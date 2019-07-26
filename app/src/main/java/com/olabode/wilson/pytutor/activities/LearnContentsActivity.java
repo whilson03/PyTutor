@@ -57,7 +57,6 @@ public class LearnContentsActivity extends AppCompatActivity {
         pos = getIntent().getIntExtra("position", 0);
         size = getIntent().getIntExtra("listLength", mAssetTitle.size());
 
-        Log.v(TAG, "intent " + "position " + pos + " size " + size);
 
         String title = getIntent().getStringExtra("title");
 
