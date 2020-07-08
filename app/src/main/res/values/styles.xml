@@ -5,51 +5,10 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="actionBarStyle">@style/PyTutorAppBarStyle</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-
-    <!-- App bar style -->
-    <style name="PyTutorAppBarStyle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <!-- Remove the shadow below the app bar -->
-        <item name="elevation">0dp</item>
-    </style>
-
-
-    <!-- Style for a tab that displays a category name -->
-    <style name="CategoryTab" parent="Widget.Design.TabLayout">
-        <item name="tabIndicatorColor">#FF4747</item>
-        <item name="tabSelectedTextColor">#DFDFDF</item>
-        <item name="tabTextAppearance">@style/CategoryTabTextAppearance</item>
-    </style>
-
-
-    <!-- Text appearance style for a category tab -->
-    <style name="CategoryTabTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="android:textColor">@android:color/white</item>
-    </style>
-
-
-    <!-- splash screen style -->
-    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_background</item>
-    </style>
-
-    <style name="QuizTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@color/colorPrimary</item>
-    </style>
 
 
 </resources>
