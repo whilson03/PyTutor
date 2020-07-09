@@ -2,81 +2,17 @@
     <string name="app_name">PyTutor</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">PyTutor</string>
-    <string name="nav_header_subtitle">Bringing learning to you… </string>
+
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_reader">ReaderActivity</string>
-    <string name="exercises">Exercises</string>
-    <string name="quiz">Quiz</string>
-    <string name="send">Send</string>
-    <string name="title_activity_main2">Main2Activity</string>
-
-
-    <string name="title_activity_topic_content">TopicContentActivity</string>
-    <string name="title_activity_scrolling">ScrollingActivity</string>
-    <string name="solution">Solution:</string>
-    <string name="output_text_view"><u>Output</u></string>
-    <string name="question_text_view"><u>Question</u></string>
-
-    <string name="learn">Learn</string>
-    <string name="feedback">Feedback</string>
-    <string name="communicate">Communicate</string>
-    <string name="share">Share</string>
-
-
-    <string name="menu_quit">Quit</string>
-    <string name="time_place_holder">00:00</string>
-    <string name="score_placeholder_text">Score: 0</string>
-    <string name="question_count_placeholer_text">Question: 1/x</string>
-    <string name="question_placeholder_text">Here will be the question text  Here will be the question text  Here will be the question text</string>
-    <string name="option1_radio_button">Option 1</string>
-    <string name="option2_radio_button">Option 2</string>
-    <string name="option3_radio_button">Option 3</string>
-    <string name="comfirm_button_text">confirm</string>
-    <string name="nav_exercises_fragment_title">Py Exercises</string>
-    <string name="menu_about">About</string>
-    <string name="try_again">try Again</string>
-    <string name="topic_overview">Overview</string>
-    <string name="topic_environment_setup">Environment Setup</string>
-    <string name="topic_basic_syntax">Basic Syntax</string>
-    <string name="topic_var_type"><![CDATA[Variable & Types]]></string>
-    <string name="topic_operators">Basic Operators</string>
-    <string name="topic_strings">Strings</string>
-    <string name="topic_decision_making">Decision Making</string>
-    <string name="topic_loops">Loops</string>
-    <string name="topic_list">Lists</string>
-    <string name="topic_tuples">Tuples</string>
-    <string name="topic_dictionary">Dictionary</string>
-    <string name="topic_functions">Functions</string>
-    <string name="topic_modules">Modules</string>
-    <string name="topic_files">Files I/O</string>
-    <string name="topic_exceptions">Exceptions</string>
-    <string name="topic_classes"><![CDATA[Classes & Objects]]></string>
-    <string name="show_solution">Show Solution</string>
-    <string name="question_heading">Question</string>
-
 
     <string name="ad_unit_key">ca-app-pub-3647278513203920/9940752551</string>
 
     <string name="app_ad_key">ca-app-pub-3647278513203920~6360121266</string>
 
 
-    <string name="previous">previous</string>
-    <string name="next">next</string>
-    <string name="start_quiz">Start Quiz</string>
-    <string name="congratulations">congratulations</string>
-    <string name="home">Home</string>
-    <string name="frag_quiz_title">Py QUIZ</string>
-    <string name="congrats">Congratulations</string>
-    <string name="challenges">Challenges</string>
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="desc_laptop_image">laptop image</string>
-    <string name="percent">0%</string>
-    <string name="quit_button">quit button</string>
-    <string name="remind_me">Remind me later</string>
+    <string name="learn">Learn</string>
 
 
 </resources>
