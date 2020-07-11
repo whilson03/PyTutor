@@ -17,6 +17,8 @@
     <string name="quiz">Quiz</string>
     <string name="samples">Samples</string>
     <string name="settings">Settings</string>
+    <string name="basic">Basic</string>
+    <string name="advanced">Advanced</string>
 
 
 </resources>
