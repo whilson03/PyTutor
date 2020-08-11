@@ -2,6 +2,8 @@ package com.olabode.wilson.pytutor.ui.learn
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.olabode.wilson.pytutor.ui.learn.advanced.AdvancedFragment
+import com.olabode.wilson.pytutor.ui.learn.basic.BasicFragment
 
 /**
  *   Created by OLABODE WILSON on 7/11/20.
