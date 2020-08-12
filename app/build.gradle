@@ -80,6 +80,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
 
-
+    def dynamicanimation_version = '1.0.0'
+    // AndroidX Dynamic Animation
+    implementation "androidx.dynamicanimation:dynamicanimation:$dynamicanimation_version"
     implementation 'com.jakewharton.timber:timber:4.7.1'
 }
