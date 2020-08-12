@@ -3,6 +3,8 @@ package com.olabode.wilson.pytutor.ui.learn
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.dynamicanimation.animation.SpringAnimation
+import androidx.dynamicanimation.animation.SpringForce
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -27,13 +29,33 @@ class TutorialsRecyclerAdapter : ListAdapter<Tutorial, TutorialViewHolder>(Tutor
     inner class TutorialViewHolder constructor(private val binding: ItemTopicBinding) :
             RecyclerView.ViewHolder(binding.root) {
 
+        var currentVelocity = 0f
+
+        val rotation: SpringAnimation = SpringAnimation(binding.root, SpringAnimation.ROTATION)
+                .setSpring(
+                        SpringForce()
+                                .setFinalPosition(0f)
+                                .setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY)
+                                .setStiffness(SpringForce.STIFFNESS_LOW)
+                )
+                .addUpdateListener { _, _, velocity ->
+                    currentVelocity = velocity
+                }
+
+        val translationY: SpringAnimation = SpringAnimation(binding.root, SpringAnimation.TRANSLATION_Y)
+                .setSpring(
+                        SpringForce()
+                                .setFinalPosition(0f)
+                                .setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY)
+                                .setStiffness(SpringForce.STIFFNESS_LOW)
+                )
+
         fun bind(item: Tutorial) {
             binding.lockIcon.isVisible = item.isLocked
             binding.progressBar.progress = item.completionPercent
             binding.title.text = item.topic
             binding.shortDetail.text = item.shortDescription
             binding.topicCount.text = getTopicNumber(adapterPosition + 1)
-
             binding.root.setOnClickListener {
                 if (clickListener != null && adapterPosition != RecyclerView.NO_POSITION) {
                     clickListener!!.onClick(getItem(adapterPosition))
