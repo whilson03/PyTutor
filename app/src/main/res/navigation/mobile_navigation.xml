@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation.xml"
-    app:startDestination="@id/learnFragment">
-
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/learnFragment"
-        android:name="com.olabode.wilson.pytutor.ui.learn.LearnFragment"
-        android:label="@string/learn"
-        tools:layout="@layout/fragment_learn" />
+        android:id="@+id/homeFragment"
+        android:name="com.olabode.wilson.pytutor.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
 </navigation>

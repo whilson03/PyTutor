@@ -1,24 +1,9 @@
 <resources>
     <string name="app_name">PyTutor</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="nav_header_desc">Navigation header</string>
-
-    <string name="ad_unit_key">ca-app-pub-3647278513203920/9940752551</string>
-
-    <string name="app_ad_key">ca-app-pub-3647278513203920~6360121266</string>
-
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="learn">Learn</string>
-    <string name="exercises">Exercises</string>
-    <string name="quiz">Quiz</string>
-    <string name="samples">Samples</string>
-    <string name="settings">Settings</string>
-    <string name="basic">Basic</string>
-    <string name="advanced">Advanced</string>
+    <string name="dummy_long_text">Sunt abaculuses reperire bassus, barbatus turpises.Rumor de altus historia, vitare devatio!Germanus compaters ducunt ad musa.Cum gabalium cadunt, omnes guttuses imitari secundus, bassus acipenseres.Nunquam resuscitabo pars.Paluss sunt demissios de alter orexis.Ignigenas resistere, tanquam bi-color apolloniates.Mori rare ducunt ad primus lixa.Nunquam talem plasmator.Classiss trabem!Cur plasmator observare?Menss trabem in palatium!Est emeritis amicitia, cesaris.Pol, a bene vita, fidelis abactus!Cur planeta accelerare?Cum hilotae favere, omnes accentores quaestio superbus, altus acipenseres.Ecce.Deuss peregrinatione in castus infernum!Hilotaes sunt advenas de germanus buxum.Verpa, guttus, et equiso.Sunt imberes contactus alter, lotus aonideses.Nixus camerarius bromium est.Glutens sunt pulchritudines de salvus lacta.Ridetis satis ducunt ad emeritis gallus.Pol.Resistentias experimentum!A falsis, humani generis lotus demolitione.Lubas accelerare in brevis tubinga!Adiurators sunt onuss de peritus fermium.</string>
+    <string name="home">Home</string>
 
 
 </resources>

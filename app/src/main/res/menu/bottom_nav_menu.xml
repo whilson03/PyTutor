@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_learn"
-        android:icon="@drawable/ic_learn"
-        android:title="@string/learn" />
-    <item
-        android:id="@+id/nav_exercises"
-        android:title="@string/exercises" />
-    <item
-        android:id="@+id/nav_quiz"
-        android:title="@string/quiz" />
-    <item
-        android:id="@+id/nav_sample"
-        android:title="@string/samples" />
-    <item
-        android:id="@+id/nav_settings"
-        android:title="@string/settings" />
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+
 </menu>
