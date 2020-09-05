@@ -3,15 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation.xml"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.olabode.wilson.pytutor.ui.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.olabode.wilson.pytutor.ui.auth.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
 </navigation>
