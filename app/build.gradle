@@ -78,4 +78,10 @@ dependencies {
 
     //Logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-core:17.5.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:19.3.2'
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.6.0'
+
 }
