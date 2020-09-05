@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setupWithNavController(navController)
 
         bottomNavigationView.setOnNavigationItemReselectedListener {
-            /** NO OP **/
+            /** NO OPERATION **/
         }
     }
 }
