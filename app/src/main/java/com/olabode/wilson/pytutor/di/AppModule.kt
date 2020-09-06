@@ -4,8 +4,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.olabode.wilson.pytutor.repository.UserRepository
-import com.olabode.wilson.pytutor.repository.UserRepositoryImpl
+import com.olabode.wilson.pytutor.repository.AuthRepository
+import com.olabode.wilson.pytutor.repository.AuthRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,7 +34,7 @@ object AppModule {
     fun provideUserRepository(
             firebaseAuth: FirebaseAuth,
             firestore: FirebaseFirestore
-    ): UserRepository = UserRepositoryImpl(
+    ): AuthRepository = AuthRepositoryImpl(
             firebaseAuth,
             firestore
     )
