@@ -5,15 +5,17 @@ import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.databinding.FragmentSignUpBinding
 import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
 import com.olabode.wilson.pytutor.utils.AuthResult
+import com.olabode.wilson.pytutor.utils.EventObserver
+import com.olabode.wilson.pytutor.utils.Messages
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -46,13 +48,17 @@ class SignUpFragment : Fragment() {
                         binding.confirmPasswordField.text.toString().trim()
                 )
             } else {
-                Toast.makeText(requireContext(), "All Field Must be Filled", Toast.LENGTH_SHORT).show()
+                authViewModel.snackBarMessage(Messages.ALERT_BLANK_FIELDS)
             }
         }
 
         binding.backToLogin.setOnClickListener {
             findNavController().navigateUp()
         }
+
+        authViewModel.showSnackBar.observe(viewLifecycleOwner, EventObserver {
+            Snackbar.make(binding.coordinatorLayout, it, Snackbar.LENGTH_LONG).show()
+        })
     }
 
 
@@ -75,7 +81,7 @@ class SignUpFragment : Fragment() {
                 }
 
                 is AuthResult.Failed -> {
-                    Toast.makeText(requireContext(), result.data, Toast.LENGTH_SHORT).show()
+                    authViewModel.snackBarMessage(result.data)
                     binding.progressBar.isVisible = false
                     binding.signIn.isClickable = true
                 }
@@ -83,7 +89,7 @@ class SignUpFragment : Fragment() {
                 is AuthResult.Success -> {
                     binding.progressBar.isVisible = false
                     binding.signIn.isClickable = true
-                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                    authViewModel.snackBarMessage(result.data)
                 }
             }
         })
