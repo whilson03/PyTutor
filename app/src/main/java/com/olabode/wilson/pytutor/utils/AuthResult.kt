@@ -5,10 +5,10 @@ package com.olabode.wilson.pytutor.utils
  */
 sealed class AuthResult<out R> {
 
-
     data class Success<out T>(val data: T) : AuthResult<T>()
     data class Failed<out T>(val data: T) : AuthResult<T>()
     data class Error(val exception: Exception) : AuthResult<Nothing>()
+    object Complete : AuthResult<Nothing>()
     object Loading : AuthResult<Nothing>()
     object UnAuthenticated : AuthResult<Nothing>()
 
@@ -19,6 +19,7 @@ sealed class AuthResult<out R> {
             Loading -> "Loading"
             UnAuthenticated -> "UnAuthenticated"
             is Failed -> "Failed"
+            Complete -> "Complete"
         }
     }
 }
