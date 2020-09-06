@@ -9,4 +9,6 @@ object Messages {
     const val ACCOUNT_CREATION_SUCCESS = "Account Created : Check Email for verification link"
     const val ACCOUNT_CREATION_FAILURE = "Error occurred while attempting to register"
     const val VERIFY_EMAIL = "Check your email box for verification link"
+    const val GENERIC_SUCCESS = "SUCCESS"
+    const val LOGIN_FAILED = "Login Failed. Try Again"
 }

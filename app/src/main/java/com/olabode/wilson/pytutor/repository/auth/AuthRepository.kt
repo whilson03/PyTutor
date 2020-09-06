@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.repository
+package com.olabode.wilson.pytutor.repository.auth
 
 import com.google.firebase.auth.FirebaseUser
 import com.olabode.wilson.pytutor.utils.AuthResult
