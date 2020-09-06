@@ -11,4 +11,5 @@ object Messages {
     const val VERIFY_EMAIL = "Check your email box for verification link"
     const val GENERIC_SUCCESS = "SUCCESS"
     const val LOGIN_FAILED = "Login Failed. Try Again"
+    const val ALERT_BLANK_FIELDS = "Fields cannot be blank"
 }
