@@ -1,10 +1,11 @@
-package com.olabode.wilson.pytutor.repository
+package com.olabode.wilson.pytutor.repository.auth
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.olabode.wilson.pytutor.models.User
 import com.olabode.wilson.pytutor.utils.AuthResult
+import com.olabode.wilson.pytutor.utils.Constants
 import com.olabode.wilson.pytutor.utils.Messages
 import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
 import kotlinx.coroutines.Dispatchers
@@ -34,18 +35,19 @@ class AuthRepositoryImpl @Inject constructor(
     ): Flow<AuthResult<String>> = flow {
         emit(AuthResult.Loading)
         val login = auth.signInWithEmailAndPassword(email, password).await()
-        val user = login.user
-        user?.let {
-            if (user.isEmailVerified) {
-                emit(AuthResult.Complete)
-            } else {
-                emit(AuthResult.Failed(Messages.VERIFY_EMAIL))
-                logOut()
-                return@flow
-            }
+        val user = login.user!!
+
+        if (user.isEmailVerified) {
+            emit(AuthResult.Success(Messages.GENERIC_SUCCESS))
+        } else {
+            emit(AuthResult.Failed(Messages.VERIFY_EMAIL))
+            logOut()
+            return@flow
         }
+
     }.catch { e ->
         Timber.e(e)
+        emit(AuthResult.Failed(Messages.LOGIN_FAILED))
     }.flowOn(Dispatchers.IO)
 
     override fun registerNewUser(
@@ -55,7 +57,7 @@ class AuthRepositoryImpl @Inject constructor(
             confirmPassword: String
     ): Flow<AuthResult<String>> = flow {
         emit(AuthResult.Loading)
-        if (password.length < 8) {
+        if (password.length < Constants.PASSWORD_LENGTH) {
             emit(AuthResult.Failed(Messages.SHORT_PASSWORD))
             return@flow
         }
@@ -81,7 +83,7 @@ class AuthRepositoryImpl @Inject constructor(
     override fun logOut(): Flow<AuthResult<String>> = flow {
         emit(AuthResult.Loading)
         auth.signOut()
-        emit(AuthResult.Complete)
+        emit(AuthResult.Success(Messages.GENERIC_SUCCESS))
     }.flowOn(Dispatchers.IO)
 
     override suspend fun sendEmailVerificationLink(firebaseUser: FirebaseUser) {

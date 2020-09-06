@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "92714901702-pf3artjqrkgghjifh8g41lgpr749tlop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.olabode.wilson.pytutor",
+            "certificate_hash": "c4fc181eb3fb6f9b0ea74636591eaa35801c840f"
+          }
+        },
+        {
           "client_id": "92714901702-p5i12s2eccjvuaj1t7td4n5ce7pl8lpp.apps.googleusercontent.com",
           "client_type": 3
         }
