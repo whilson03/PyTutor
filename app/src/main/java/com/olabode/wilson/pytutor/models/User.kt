@@ -14,7 +14,8 @@ data class User(
         @ServerTimestamp
         val dateJoined: Date? = null,
         val currentXp: Int = 0,
-        val badgesAttained: List<Badge>? = null
+        val badgesAttained: List<Badge>? = null,
+        val userId: String
 
 ) {
 
@@ -24,6 +25,6 @@ data class User(
             0,
             null,
             0,
-            null
+            null, ""
     )
 }
