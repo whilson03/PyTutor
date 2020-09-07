@@ -20,6 +20,7 @@
     <string name="profile">Profile</string>
     <string name="achievements_header">Achievements</string>
     <string name="level_prefix">Level 12</string>
+    <string name="home_greeting">Hello,</string>
 
 
 </resources>
