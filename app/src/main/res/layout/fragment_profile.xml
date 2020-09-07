@@ -33,7 +33,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_profile" />
+                app:srcCompat="@drawable/ic_profile"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/username"
@@ -42,6 +43,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Rhodeon"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +90,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Level 12"
+                android:text="@string/level_prefix"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintBottom_toTopOf="@+id/progressBar2"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="Level 12" />
@@ -130,7 +133,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Achievements"
+                android:text="@string/achievements_header"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
