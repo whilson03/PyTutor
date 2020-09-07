@@ -17,6 +17,9 @@
     <string name="full_name">Full Name</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="profile">Profile</string>
+    <string name="achievements_header">Achievements</string>
+    <string name="level_prefix">Level 12</string>
 
 
 </resources>
