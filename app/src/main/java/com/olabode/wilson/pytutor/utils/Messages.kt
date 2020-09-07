@@ -12,4 +12,5 @@ object Messages {
     const val GENERIC_SUCCESS = "SUCCESS"
     const val LOGIN_FAILED = "Login Failed. Try Again"
     const val ALERT_BLANK_FIELDS = "Fields cannot be blank"
+    const val ACCOUNT_IN_USE_FAILURE = "Email already in use, Login."
 }
