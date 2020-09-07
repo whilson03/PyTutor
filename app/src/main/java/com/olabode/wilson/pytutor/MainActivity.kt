@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
+                R.id.homeFragment -> toolbar.isVisible = false
+
                 R.id.loginFragment, R.id.signUpFragment -> {
                     bottomNavigationView.isVisible = false
                     toolbar.isVisible = false
