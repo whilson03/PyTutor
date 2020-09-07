@@ -5,4 +5,9 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
 
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile" />
+
 </menu>
