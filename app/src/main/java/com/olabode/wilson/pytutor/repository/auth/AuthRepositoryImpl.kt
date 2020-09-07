@@ -1,6 +1,7 @@
 package com.olabode.wilson.pytutor.repository.auth
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.olabode.wilson.pytutor.models.User
@@ -73,12 +74,17 @@ class AuthRepositoryImpl @Inject constructor(
         remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS).document(firebaseUser.uid)
                 .set(user).await()
         sendEmailVerificationLink(firebaseUser)
-        logOut()
         emit(AuthResult.Success(Messages.ACCOUNT_CREATION_SUCCESS))
+        logOut()
     }.catch { e ->
-        Timber.e(e)
-        emit(AuthResult.Failed(Messages.ACCOUNT_CREATION_FAILURE))
-    }
+        logOut()
+        when (e) {
+            is FirebaseAuthUserCollisionException -> emit(AuthResult.Failed(Messages.ACCOUNT_IN_USE_FAILURE))
+            else -> emit(AuthResult.Failed(Messages.ACCOUNT_CREATION_FAILURE))
+        }
+
+    }.flowOn(Dispatchers.IO)
+
 
     override fun logOut(): Flow<AuthResult<String>> = flow {
         emit(AuthResult.Loading)
