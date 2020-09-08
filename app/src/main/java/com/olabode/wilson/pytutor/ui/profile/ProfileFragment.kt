@@ -31,15 +31,5 @@ class ProfileFragment : Fragment() {
         _binding = null
     }
 
-    fun getDummyList(): List<AchievementItem> {
-        return List(8) {AchievementItem(R.drawable.ic_baseline_stars_24, "Baby Steps", "Completed your first lesson")}
-//        return listOf(
-//                AchievementItem(R.drawable.ic_baseline_stars_24, "Baby Steps", "Completed your first lesson"),
-//                AchievementItem(R.drawable.ic_baseline_stars_24, "Baby Steps", "Completed your first lesson"),
-//                AchievementItem(R.drawable.ic_baseline_stars_24, "Baby Steps", "Completed your first lesson"),
-//                AchievementItem(R.drawable.ic_baseline_stars_24, "Baby Steps", "Completed your first lesson")
-//        )
-    }
-
-
+    private fun getDummyList(): List<AchievementItem> = List(8) {AchievementItem(R.drawable.ic_round_stars_24, "Baby Steps", "Completed your first lesson")}
 }
