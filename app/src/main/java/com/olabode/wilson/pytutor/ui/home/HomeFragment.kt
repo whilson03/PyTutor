@@ -27,7 +27,9 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        adapter = HomeListAdapter { }
+        adapter = HomeListAdapter {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTutorialTopicsFragment())
+        }
         binding.homeRecycler.adapter = adapter
         return binding.root
     }
