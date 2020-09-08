@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 data class HomeListItem(val id: Int, val imagesRes: Int, val title: String) {
 
     companion object {
-        val diffCallback = object : DiffUtil.ItemCallback<HomeListItem>() {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<HomeListItem>() {
             override fun areItemsTheSame(oldItem: HomeListItem, newItem: HomeListItem): Boolean {
                 return oldItem.id == newItem.id
             }

@@ -1,9 +1,11 @@
 package com.olabode.wilson.pytutor
 
+
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -12,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.olabode.wilson.pytutor.databinding.ActivityMainBinding
 import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -45,6 +48,11 @@ class MainActivity : AppCompatActivity() {
                     bottomNavigationView.isVisible = true
                 }
 
+                R.id.tutorialTopicsFragment -> {
+                    bottomNavigationView.isVisible = false
+                    toolbar.isVisible = true
+                }
+
                 R.id.loginFragment, R.id.signUpFragment -> {
                     bottomNavigationView.isVisible = false
                     toolbar.isVisible = false
@@ -56,4 +64,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return (Navigation.findNavController(this, R.id.fragments_container).navigateUp()
+                || super.onSupportNavigateUp())
+    }
+
 }

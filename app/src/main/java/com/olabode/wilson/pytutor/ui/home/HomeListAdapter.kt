@@ -11,7 +11,7 @@ import com.olabode.wilson.pytutor.models.HomeListItem
  *   Created by OLABODE WILSON on 9/7/20.
  */
 class HomeListAdapter(private val clickListener: (homeListItem: HomeListItem) -> Unit)
-    : ListAdapter<HomeListItem, HomeListAdapter.ViewHolder>(HomeListItem.diffCallback) {
+    : ListAdapter<HomeListItem, HomeListAdapter.ViewHolder>(HomeListItem.DIFF_CALLBACK) {
 
     class ViewHolder(
             private val binding: ItemHomeTopicBinding,
