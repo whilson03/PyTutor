@@ -52,7 +52,8 @@ class HomeFragment : Fragment() {
         viewModel.userStatus.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is AuthResult.Failed -> {
-                    findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAuthNavigation())
+                    findNavController()
+                            .navigate(HomeFragmentDirections.actionHomeFragmentToAuthNavigation())
                 }
             }
         })
