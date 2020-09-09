@@ -47,5 +47,21 @@
         android:id="@+id/tutorialTopicsFragment"
         android:name="com.olabode.wilson.pytutor.ui.tutorial.TutorialTopicsFragment"
         android:label="@string/tutorial"
-        tools:layout="@layout/fragment_tutorial_topics" />
+        tools:layout="@layout/fragment_tutorial_topics">
+        <action
+            android:id="@+id/action_tutorialTopicsFragment_to_viewTutorialsFragment"
+            app:destination="@id/viewTutorialsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewTutorialsFragment"
+        android:name="com.olabode.wilson.pytutor.ui.tutorial.ViewTutorialsFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_view_tutorials">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="topic"
+            app:argType="com.olabode.wilson.pytutor.models.tutorial.TopicResponse" />
+    </fragment>
 </navigation>
