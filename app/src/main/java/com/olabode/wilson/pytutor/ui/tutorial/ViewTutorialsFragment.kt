@@ -1,26 +1,13 @@
 package com.olabode.wilson.pytutor.ui.tutorial
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentViewTutorialsBinding
+import com.olabode.wilson.pytutor.extensions.viewBinding
 
 
-class ViewTutorialsFragment : Fragment() {
+class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
-    private var _binding: FragmentViewTutorialsBinding? = null
-    private val binding get() = _binding!!
+    private val binding by viewBinding(FragmentViewTutorialsBinding::bind)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        _binding = FragmentViewTutorialsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

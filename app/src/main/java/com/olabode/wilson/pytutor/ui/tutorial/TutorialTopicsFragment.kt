@@ -1,34 +1,26 @@
 package com.olabode.wilson.pytutor.ui.tutorial
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentTutorialTopicsBinding
+import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.tutorial.TopicResponse
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TutorialTopicsFragment : Fragment() {
+class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
 
-    private var _binding: FragmentTutorialTopicsBinding? = null
-    private val binding get() = _binding!!
+
+    private val binding by viewBinding(FragmentTutorialTopicsBinding::bind)
 
     private lateinit var adapter: TutorialTopicAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        _binding = FragmentTutorialTopicsBinding.inflate(inflater, container, false)
-        adapter = TutorialTopicAdapter { topic ->
-
-        }
-        binding.topicsRecycler.adapter = adapter
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapter = TutorialTopicAdapter { topic -> }
+        binding.topicsRecycler.adapter = adapter
         adapter.submitList(dummyList())
     }
 
@@ -63,8 +55,4 @@ class TutorialTopicsFragment : Fragment() {
                     )
             )
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
 }
