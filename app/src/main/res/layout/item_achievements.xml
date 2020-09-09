@@ -2,10 +2,11 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardBackgroundColor="#F8F6F6"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#F8F6F6"
+    app:cardCornerRadius="32dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,14 +24,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_stars_24" />
+            app:srcCompat="@drawable/ic_round_stars_24" />
 
         <TextView
             android:id="@+id/achievement_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Baby Steps"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/achiement_detail"
@@ -42,7 +42,6 @@
             android:id="@+id/achiement_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Completed your first lesson"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
