@@ -3,6 +3,7 @@ package com.olabode.wilson.pytutor.ui.tutorial
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentTutorialTopicsBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
@@ -19,7 +20,10 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = TutorialTopicAdapter { topic -> }
+        adapter = TutorialTopicAdapter { topic ->
+            findNavController().navigate(TutorialTopicsFragmentDirections
+                    .actionTutorialTopicsFragmentToViewTutorialsFragment(topic.Title, topic))
+        }
         binding.topicsRecycler.adapter = adapter
         adapter.submitList(dummyList())
     }
@@ -30,7 +34,7 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
                             1,
                             "Variables",
                             "learn how to creates  variables",
-                            8,
+                            5,
                             "we",
                             isLocked = false,
                             isCompleted = false
@@ -39,7 +43,7 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
                             1,
                             "Lists",
                             "learn how to creates  Lists",
-                            8,
+                            7,
                             "wrtye",
                             isLocked = false,
                             isCompleted = false
@@ -48,7 +52,7 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
                             1,
                             "Dictionary",
                             "learn how to creates  Dictionaries",
-                            8,
+                            7,
                             "weetrry",
                             isLocked = false,
                             isCompleted = false

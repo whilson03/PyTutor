@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                     bottomNavigationView.isVisible = true
                 }
 
-                R.id.tutorialTopicsFragment -> {
+                R.id.tutorialTopicsFragment, R.id.viewTutorialsFragment -> {
                     bottomNavigationView.isVisible = false
                     toolbar.isVisible = true
                 }
