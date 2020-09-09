@@ -2,16 +2,16 @@ package com.olabode.wilson.pytutor.ui.auth.signup
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentSignUpBinding
+import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
 import com.olabode.wilson.pytutor.utils.AuthResult
 import com.olabode.wilson.pytutor.utils.EventObserver
@@ -19,23 +19,10 @@ import com.olabode.wilson.pytutor.utils.Messages
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignUpFragment : Fragment() {
-
-    private var _binding: FragmentSignUpBinding? = null
-    private val binding get() = _binding!!
+class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
     private val authViewModel: AuthViewModel by activityViewModels()
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    private val binding by viewBinding(FragmentSignUpBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
