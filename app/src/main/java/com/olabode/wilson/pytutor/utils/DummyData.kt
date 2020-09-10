@@ -10,8 +10,7 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  *   Created by OLABODE WILSON on 9/9/20.
  */
 object DummyData {
-
-
+    // Test Data
     fun getAllTopics(): List<TopicResponse> {
         return listOf(
                 TopicResponse(
