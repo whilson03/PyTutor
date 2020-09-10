@@ -10,5 +10,13 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class LessonResponse(
         val page: Int,
-        val lessons: Map<Int, Lesson>
+        val lessons: Map<Int, Lesson>? = null,
+        val question: Map<Int, Question>? = null,
+        val type: Int = LessonResponseType.LESSON.ordinal
+
 ) : Parcelable
+
+
+enum class LessonResponseType {
+    LESSON, QUESTION
+}

@@ -38,6 +38,6 @@ class TutorialPageFragment : Fragment(R.layout.fragment_tutorial_page) {
 
         val adapter = LessonAdapter()
         binding.lessonsRecycler.adapter = adapter
-        adapter.submitList(param1!!.lessons.values.toList())
+        adapter.submitList(param1!!.lessons!!.values.toList())
     }
 }
