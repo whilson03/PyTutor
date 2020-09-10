@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.ui.tutorial
+package com.olabode.wilson.pytutor.ui.tutorial.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

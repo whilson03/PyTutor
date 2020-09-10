@@ -13,6 +13,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentViewTutorialsBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialPageAdapter
+import com.olabode.wilson.pytutor.utils.DummyData
 
 
 class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
@@ -27,7 +29,7 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
         val topic = ViewTutorialsFragmentArgs.fromBundle(requireArguments()).topic
         val totalNoOfPages = topic.noOfPages
         setUpPageCounter(totalNoOfPages)
-        pagesAdapter = TutorialPageAdapter(this, totalNoOfPages)
+        pagesAdapter = TutorialPageAdapter(this, totalNoOfPages, DummyData.getLessons())
         viewPager = binding.lessonViewPager
         viewPager.adapter = pagesAdapter
 
