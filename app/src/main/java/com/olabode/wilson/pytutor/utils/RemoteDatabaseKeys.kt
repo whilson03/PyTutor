@@ -5,12 +5,14 @@ package com.olabode.wilson.pytutor.utils
  */
 object RemoteDatabaseKeys {
 
-    // collections
-    const val NODE_USERS = "USERS"
+    // Tutorial
     const val NODE_TUTORIALS = "TUTORIALS"
-    const val NODE_LESSONS = "LESSONS"
+    const val DOC_LESSONS = "LESSONS"
+    const val DOC_TOPICS = "TOPICS"
+    const val ALL_TOPICS = "ALL_TOPICS"
 
 
-    //documents
-    const val DOC_LESSONS_AND_TUTORIAL = "LESSONS_AND_TUTORIAL"
+    //AUTH
+    const val NODE_USERS = "USERS"
+
 }

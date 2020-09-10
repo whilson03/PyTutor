@@ -8,7 +8,7 @@ import com.google.firebase.FirebaseException
 sealed class DataState<out R> {
 
     data class Success<out T>(val data: T) : DataState<T>()
-    data class Failed<out T>(val data: T) : DataState<T>()
+    data class Failed<out T>(val message: String) : DataState<T>()
     data class Error(val exception: FirebaseException) : DataState<Nothing>()
     object Loading : DataState<Nothing>()
 
