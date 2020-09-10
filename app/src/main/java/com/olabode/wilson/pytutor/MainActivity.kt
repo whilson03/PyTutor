@@ -2,8 +2,6 @@ package com.olabode.wilson.pytutor
 
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -70,12 +68,5 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return (Navigation.findNavController(this, R.id.fragments_container).navigateUp()
                 || super.onSupportNavigateUp())
-    }
-
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.settings_menu, menu)
-        return true
     }
 }
