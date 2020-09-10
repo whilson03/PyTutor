@@ -11,13 +11,18 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class TopicResponse(
         val orderKey: Int,
-        val Title: String,
+        val title: String,
         val description: String,
         val noOfPages: Int,
-        val topicId: String,
+        var topicId: String,
         val isLocked: Boolean,
         val isCompleted: Boolean
 ) : Parcelable {
+
+    constructor() : this(
+            0, "", "", 0, "", true, true
+    )
+
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TopicResponse>() {
             override fun areItemsTheSame(oldItem: TopicResponse, newItem: TopicResponse): Boolean {

@@ -28,13 +28,13 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         super.onViewCreated(view, savedInstanceState)
         adapter = TutorialTopicAdapter { topic ->
             findNavController().navigate(TutorialTopicsFragmentDirections
-                    .actionTutorialTopicsFragmentToViewTutorialsFragment(topic.Title, topic))
+                    .actionTutorialTopicsFragmentToViewTutorialsFragment(topic.title, topic))
         }
         binding.topicsRecycler.adapter = adapter
 
         viewModel.topics.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
-                is DataState.Success -> adapter.submitList(result.data)
+                is DataState.Success -> adapter.submitList(result.data.sortedBy { it.orderKey })
                 is DataState.Failed -> {
                     Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
                 }
