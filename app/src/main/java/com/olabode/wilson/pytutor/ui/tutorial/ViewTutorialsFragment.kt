@@ -19,8 +19,9 @@ import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialPageAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialLessonViewModel
 import com.olabode.wilson.pytutor.utils.DataState
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
     private val binding by viewBinding(FragmentViewTutorialsBinding::bind)

@@ -29,7 +29,7 @@ class TutorialTopicAdapter(private val clickListener: (topic: TopicResponse) -> 
         fun bind(item: TopicResponse) {
             this.item = item
             binding.topicCount.text = getTopicNumber(adapterPosition + 1)
-            binding.title.text = item.Title
+            binding.title.text = item.title
             binding.shortDetail.text = item.description
         }
 
