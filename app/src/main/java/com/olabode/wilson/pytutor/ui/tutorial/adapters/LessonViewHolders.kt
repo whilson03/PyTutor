@@ -2,6 +2,7 @@ package com.olabode.wilson.pytutor.ui.tutorial.adapters
 
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
+import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialBodyBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialImageBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialSnippetBinding
@@ -43,6 +44,16 @@ class TextViewHolder(val binding: ItemTutorialBodyBinding)
 }
 
 
+class BulletViewHolder(val binding: ItemBulletTextBinding) : RecyclerView.ViewHolder(binding.root) {
+
+    fun bind(item: Lesson) {
+        item.body.let {
+            binding.text.text = it
+        }
+    }
+}
+
+
 enum class LessonTypes {
-    CODE, TEXT, IMAGE
+    CODE, TEXT, IMAGE, BULLET
 }
