@@ -3,6 +3,7 @@ package com.olabode.wilson.pytutor.ui.tutorial
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -34,9 +35,17 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
 
         viewModel.topics.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
-                is DataState.Success -> adapter.submitList(result.data.sortedBy { it.orderKey })
+                is DataState.Success -> {
+                    binding.progressBar.isVisible = false
+                    adapter.submitList(result.data.sortedBy { it.orderKey })
+                }
                 is DataState.Failed -> {
+                    binding.progressBar.isVisible = false
                     Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
+                }
+
+                is DataState.Loading -> {
+                    binding.progressBar.isVisible = true
                 }
             }
         })
