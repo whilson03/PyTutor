@@ -1,7 +1,8 @@
-package com.olabode.wilson.pytutor.utils
+package com.olabode.wilson.pytutor.files
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.olabode.wilson.pytutor.models.tutorial.TopicResponse
+import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -46,7 +47,7 @@ fun upload() {
         for (i in genTopicResponse()) {
             val id = ref.document().id
             i.topicId = id
-            ref.add(i)
+            ref.document(id).set(i)
         }
 
     }

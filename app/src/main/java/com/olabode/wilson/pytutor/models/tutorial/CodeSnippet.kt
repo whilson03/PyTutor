@@ -8,4 +8,9 @@ data class CodeSnippet(
         val footer: String,
         val code: String,
         val header: String
-) : Parcelable
+) : Parcelable {
+
+    constructor() : this(
+            "", "", ""
+    )
+}

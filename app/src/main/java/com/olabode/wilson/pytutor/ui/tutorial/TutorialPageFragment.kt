@@ -10,19 +10,19 @@ import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val ARG_PARAM1 = "param1"
+private const val ARG_RESPONSE = "param1"
 
 @AndroidEntryPoint
 class TutorialPageFragment : Fragment(R.layout.fragment_tutorial_page) {
-    private var param1: LessonResponse? = null
+    private var lessonResponse: LessonResponse? = null
 
     companion object {
 
         @JvmStatic
-        fun newInstance(param1: LessonResponse) =
+        fun newInstance(lessonResponse: LessonResponse) =
                 TutorialPageFragment().apply {
                     arguments = Bundle().apply {
-                        putParcelable(ARG_PARAM1, param1)
+                        putParcelable(ARG_RESPONSE, lessonResponse)
                     }
                 }
     }
@@ -33,11 +33,11 @@ class TutorialPageFragment : Fragment(R.layout.fragment_tutorial_page) {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            param1 = it.getParcelable(ARG_PARAM1)
+            lessonResponse = it.getParcelable(ARG_RESPONSE)
         }
 
         val adapter = LessonAdapter()
         binding.lessonsRecycler.adapter = adapter
-        adapter.submitList(param1!!.lessons!!.values.toList())
+        adapter.submitList(lessonResponse!!.lessons!!.values.toList())
     }
 }
