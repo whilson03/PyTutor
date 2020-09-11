@@ -10,10 +10,10 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Question(
         val question: String,
-        val options: Map<Int, String>,
-        val answerKey: Int
+        val options: Map<String, String>,
+        val answerKey: String
 ) : Parcelable {
     constructor() : this(
-            "", mapOf(0 to ""), 0
+            "", mapOf("" to ""), ""
     )
 }
