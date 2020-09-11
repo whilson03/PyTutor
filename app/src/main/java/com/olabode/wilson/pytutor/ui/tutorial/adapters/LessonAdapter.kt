@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialBodyBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialImageBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialSnippetBinding
@@ -35,6 +36,15 @@ class LessonAdapter : ListAdapter<Lesson, RecyclerView.ViewHolder>(LessonDiffCal
                 TextViewHolder(binding)
             }
 
+            LessonTypes.BULLET.ordinal -> {
+                val binding = ItemBulletTextBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                )
+                BulletViewHolder(binding)
+            }
+
             else -> {
                 val binding = ItemTutorialSnippetBinding.inflate(
                         LayoutInflater.from(parent.context),
@@ -52,6 +62,7 @@ class LessonAdapter : ListAdapter<Lesson, RecyclerView.ViewHolder>(LessonDiffCal
             LessonTypes.CODE.ordinal -> (holder as CodeViewHolder).bind(lesson)
             LessonTypes.IMAGE.ordinal -> (holder as ImageViewHolder).bind(lesson)
             LessonTypes.TEXT.ordinal -> (holder as TextViewHolder).bind(lesson)
+            LessonTypes.BULLET.ordinal -> (holder as BulletViewHolder).bind(lesson)
         }
     }
 
