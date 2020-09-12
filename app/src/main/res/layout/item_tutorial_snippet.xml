@@ -2,18 +2,59 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp">
 
     <TextView
-        android:id="@+id/code_text"
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/code_background"
-        android:padding="4dp"
-        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:cardBackgroundColor="@color/off_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/code_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="hello world" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/run"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Run"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
