@@ -26,4 +26,6 @@
     <color name="white">#FFF</color>
     <color name="off_white">#e0e0e0</color>
     <color name="gray">#88898b</color>
+
+    <color name="lesson_card_bg_color">#F4F0F0</color>
 </resources>
