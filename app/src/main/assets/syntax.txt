@@ -1,0 +1,136 @@
+This Topic illustrates some rules, syntax and common function used in python.
+
+As you keep progressing you would get a better understanding of them.
+
+
+
+Example: First Python program.
+
+print("Hello World")
+- print() is a function used in python to output values to the user.
+
+Output
+Hello World
+
+Python Identifiers
+
+A Python identifier is a name used to identify a variable, function, class, module or other object.
+
+A variable name is one example of an identifier.
+
+Identifiers have the following form:
+
+Identifiers must contain at least one character.
+
+An identifier starts with a letter A to Z or a to z or an underscore (_) followed by zero or more letters, underscores and digits (0 to 9).
+
+Python does not allow punctuation characters such as @, $, and % within identifiers.
+
+Python is a case sensitive programming language. i.e shapes and SHAPES are different Identifiers.
+
+A reserved word cannot be used as an identifier
+
+Spaces aren't permitted in identifiers
+
+Examples of valid and invalid identifiers:
+a, x1, age, shopping_list, FLAG, _count
+
+Examples of Invalid identifiers
+shopping-list
+(dash is not a legal symbol in an identifier)
+
+class
+(class is a reserved word).
+
+first entry
+(space is not a legal symbol in an identifier),
+
+$2
+(Dollar sign is not a legal symbol in an identifier)
+
+
+
+Python reserves a number of words for special use, called reserved words or keywords
+
+There are 35 keywords in Python.
+
+and, del, from, None, try, as, elif, global, nonlocal, True,
+assert, else, if, not, while, break, except, import, or, with
+class, False, in, pass, yield, continue, finally, is, raise,
+def, for, lambda, return
+
+Multi-Line Statements
+
+
+name = 'toby'
+sentence = "This is a sentence."
+paragraph = """This is a paragraph. It is
+made up of multiple lines and sentences."""
+
+
+Comments in Python
+
+A hash sign (#) that is not inside a string literal is the beginning of a comment. All
+characters after the #, up to the end of the physical line, are part of the comment and the
+Python interpreter ignores them.
+
+
+# This is a comment \n# Another comment
+
+
+Which combination is are not valid Python Keywords?
+
+let, pass, break
+
+def, class, continue,
+
+raise, try, and
+
+
+Which of the following combination Identifiers are valid ?
+
+A , _A , tel_no
+
+1A , tel-no, age
+
+a g e , tel_no, age
+
+
+Which Symbol is used to denote a Comment in Python?
+
+%
+
+&
+
+#
+
+
+Python supports multi-line comments?
+True
+False
+Not sure
+
+
+Which function is used to display values to the console?
+
+print()
+
+display()
+
+console.log()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
