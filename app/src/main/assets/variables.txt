@@ -1,0 +1,21 @@
+Variables are reserved memory locations to store values.
+
+When a variable is created, you reserve some space in the memory.
+
+The Datatype of the variable determines how much memory  is allocated.
+
+Python variables do not need explicit declaration to reserve memory space.The declaration happens automatically when you assign a value to a variable.
+
+The ' = ' Assignment operator is used to assign values to variables.
+
+//CODE
+
+myWeight = 34.6     # a floating point
+
+myName   = "wilson" # a string
+
+myAge    = 14       # an integer
+
+
+
+
