@@ -1,22 +1,20 @@
 package com.olabode.wilson.pytutor.files
 
-import com.google.rpc.Code
 import com.olabode.wilson.pytutor.models.tutorial.*
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
- * Created by Ogheneruona Onobrakpeya on 9/11/20.
+ * Created by Ogheneruona Onobrakpeya on 9/12/20.
  */
 
-val lists = listOf(
+val dictionaries = listOf(
         LessonResponse(
                 1,
                 lessons = mapOf(
                         "1" to Lesson(
                                 1,
                                 "",
-                                "Lists are sequences which are used to hold any data type in Python.\n" +
-                                        "A distinguishing feature is their mutability, i.e. The elements of lists can be altered.",
+                                "In Python, dictionaries are data structures used to hold data in a key-value pair.",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -24,7 +22,8 @@ val lists = listOf(
                         "2" to Lesson(
                                 2,
                                 "",
-                                "Lists are declared with square brackets ([]) in Python.",
+                                "Unlike lists and tuples, dictionaries are not ordered. \n" +
+                                        "This means their elements are not guaranteed to be arranged in the same order the are stored.",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -32,23 +31,28 @@ val lists = listOf(
                         "3" to Lesson(
                                 3,
                                 "",
-                                "",
-                                CodeSnippet("", "listEx = [12, 13, 14]    # this is a list of 3 elements", ""),
-                                LessonTypes.CODE.ordinal
+                                "Due to this property, indexing isn't possible with dictionaries.\n" +
+                                        "To obtain values, their corresponding keys are used.",
+                                null,
+                                LessonTypes.TEXT.ordinal
                         ),
 
                         "4" to Lesson(
                                 4,
                                 "",
-                                "Indexing a List",
-                                null,
-                                LessonTypes.TEXT.ordinal
+                                "",
+                                CodeSnippet("Structure of a Dictionary", "dictTest = {\n" +
+                                        "    key: value,\n" +
+                                        "    key: value,\n" +
+                                        "    key: value\n" +
+                                        "}", ""),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "5" to Lesson(
                                 5,
                                 "",
-                                "In Python, elements of a list are accessed with square brackets, and indexing begins at 0 (the first element has an index of 0, not 1).",
+                                "Almost any Python data type can be a dictionary key as long as it is immutable. Thus lists cannot be keys.",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -56,37 +60,29 @@ val lists = listOf(
                         "6" to Lesson(
                                 6,
                                 "",
-                                "",
-                                CodeSnippet("To index listEx in the previous example:","listEx_1st = listEx[0]    # first element of listEx\n" +
-                                        "listEx_2nd = listEx[1]    # second element of listEx\n" +
-                                        "listEx_3rd = listEx[2]    # third element of listEx\n" +
-                                        "\n" +
-                                        "print(listEx_2nd)\n" +
-                                        "print(listEx_3rd)\n" +
-                                        "print(listEx_4th",""),
-                                LessonTypes.CODE.ordinal
+                                "Additionally, keys are unique meaning they can appear only once in a dictionary.",
+                                null,
+                                LessonTypes.TEXT.ordinal
                         ),
 
                         "7" to Lesson(
                                 7,
                                 "",
-                                "",
-                                CodeSnippet("Output:","12\n" +
-                                        "13\n" +
-                                        "14",""),
-                                LessonTypes.CODE.ordinal
+                                "These restrictions do not apply to values as they can be mutable and appear multiple times in a dictionary.",
+                                null,
+                                LessonTypes.TEXT.ordinal
                         )
-                ),
-                question = null,
-                type = LessonResponseType.LESSON.ordinal
+                )
         ),
+
+
         LessonResponse(
                 2,
                 lessons = mapOf(
                         "1" to Lesson(
                                 1,
                                 "",
-                                "Manipulating Lists",
+                                "Creating a Dictionary",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -94,7 +90,7 @@ val lists = listOf(
                         "2" to Lesson(
                                 2,
                                 "",
-                                "Python provides some methods and functions which can be used to change the contents of a list and we’ll cover a few.",
+                                "Dictionaries are created with curly braces ({})",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -102,76 +98,49 @@ val lists = listOf(
                         "3" to Lesson(
                                 3,
                                 "",
-                                "listName.append(x): Adds the value of x to the end of the list.",
-                                null,
-                                LessonTypes.TEXT.ordinal
+                                "",
+                                CodeSnippet("", "clientInfo = {\"firstName\": \"John\", \"lastName\": \"Doe\", \"gender\": \"Male\", \"age\": 32}", ""),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "4" to Lesson(
                                 4,
                                 "",
-                                "",
-                                CodeSnippet("", "to_append = a\n" +
-                                        "listEx.append(to_append)\n" +
-                                        "print(listEx)", ""),
-                                LessonTypes.CODE.ordinal
+                                "clientInfo is a dictionary whose keys are \"firstName\", \"lastName\", \"gender\" and \"age\" respectively.\n" +
+                                        "Their corresponding values are \"John\", \"Doe\", \"Male\" and 32.",
+                                null,
+                                LessonTypes.TEXT.ordinal
                         ),
 
                         "5" to Lesson(
                                 5,
                                 "",
-                                "",
-                                CodeSnippet("Output", "[12, 13, 14, 'a']", ""),
-                                LessonTypes.CODE.ordinal
+                                "To access the values of clientInfo, use the keys as indexes:",
+                                null,
+                                LessonTypes.TEXT.ordinal
                         ),
 
                         "6" to Lesson(
                                 6,
                                 "",
-                                "listName.remove(x): Removes the first occurrence of x from the list.",
-                                null,
-                                LessonTypes.TEXT.ordinal
+                                "",
+                                CodeSnippet("", "print(clientInfo[\"firstName\"])\n" +
+                                        "print(clientInfo[\"lastName\"])\n" +
+                                        "print(clientInfo[\"gender\"])\n" +
+                                        "print(clientInfo[\"age\"])", ""
+                                ),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "7" to Lesson(
                                 7,
                                 "",
                                 "",
-                                CodeSnippet("", "listEx.remove(13)\n" +
-                                        "print(listEx)\n", ""),
-                                LessonTypes.CODE.ordinal
-                        ),
-
-                        "9" to Lesson(
-                                9,
-                                "",
-                                "",
-                                CodeSnippet("Output", "[12, 14, 'a']", ""),
-                                LessonTypes.CODE.ordinal
-                        ),
-
-                        "10" to Lesson(
-                                10,
-                                "",
-                                "listName.insert(index, x): Inserts the value of x into the list at the position of index.",
-                                null,
-                                LessonTypes.TEXT.ordinal
-                        ),
-
-                        "11" to Lesson(
-                                11,
-                                "",
-                                "",
-                                CodeSnippet("", "listEx.insert(2, 'afri')\n" +
-                                        "print(listEx)", ""),
-                                LessonTypes.CODE.ordinal
-                        ),
-
-                        "12" to Lesson(
-                                12,
-                                "",
-                                "",
-                                CodeSnippet("Output", "[12, 14, 'afri', 'a']", ""),
+                                CodeSnippet("Output", "John\n" +
+                                        "Doe\n" +
+                                        "Male\n" +
+                                        "32", ""
+                                ),
                                 LessonTypes.CODE.ordinal
                         )
                 ),
@@ -185,7 +154,7 @@ val lists = listOf(
                         "1" to Lesson(
                                 1,
                                 "",
-                                "listName.pop(x): Removes and returns the element at the index x. Acts on the last element by default.",
+                                "Dictionary Operations",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -193,76 +162,90 @@ val lists = listOf(
                         "2" to Lesson(
                                 2,
                                 "",
-                                "",
-                                CodeSnippet("", "popped = listEx.pop()\n" +
-                                        "print(popped)\n" +
-                                        "popped2 = listEx.pop(1)\n" +
-                                        "print(popped2)", ""),
-                                LessonTypes.CODE.ordinal
+                                "Dictionaries have 3 methods which are used to access keys and values in a list format.",
+                                null,
+                                LessonTypes.TEXT.ordinal
                         ),
 
                         "3" to Lesson(
                                 3,
                                 "",
-                                "",
-                                CodeSnippet("", "a\n" +
-                                        "14\n" +
-                                        "[12, 'afri']", "Output"),
-                                LessonTypes.CODE.ordinal
+                                "keys(): Returns an array of a dictionary's keys.",
+                                null,
+                                LessonTypes.TEXT.ordinal
                         ),
 
                         "4" to Lesson(
                                 4,
                                 "",
-                                "listName.reverse(): Reverses the order of elements in the list.",
-                                null,
-                                LessonTypes.TEXT.ordinal
+                                "",
+                                CodeSnippet("", "print(clientInfo.keys())", ""
+                                ),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "5" to Lesson(
                                 5,
                                 "",
                                 "",
-                                CodeSnippet("", "listEx.reverse()\n" +
-                                        "print(listEx)", ""),
+                                CodeSnippet("Output", "['lastName', 'age', 'firstName', 'gender']", ""
+                                ),
                                 LessonTypes.CODE.ordinal
                         ),
 
                         "6" to Lesson(
                                 6,
                                 "",
-                                "",
-                                CodeSnippet("", "['afri', 12]", "Output"),
-                                LessonTypes.CODE.ordinal
+                                "values(): Returns an array of a dictionary's values.",
+                                null,
+                                LessonTypes.TEXT.ordinal
                         ),
 
                         "7" to Lesson(
                                 7,
                                 "",
-                                "len(listName): Returns the number of elements in the list.",
-                                null,
-                                LessonTypes.TEXT.ordinal
+                                "",
+                                CodeSnippet("", "print(clientInfo.values())", ""
+                                ),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "8" to Lesson(
                                 8,
                                 "",
                                 "",
-                                CodeSnippet("", "length = len(listEx)\n" +
-                                        "print(length)", ""),
+                                CodeSnippet("Output", "['Doe', 32, 'John', 'Male']", ""
+                                ),
                                 LessonTypes.CODE.ordinal
                         ),
 
                         "9" to Lesson(
                                 9,
                                 "",
+                                "items(): Returns an array of both a dictionary's keys and values.",
+                                null,
+                                LessonTypes.TEXT.ordinal
+                        ),
+
+                        "10" to Lesson(
+                                10,
                                 "",
-                                CodeSnippet("", "2", "Output"),
+                                "",
+                                CodeSnippet("", "print(clientInfo.items())", ""
+                                ),
+                                LessonTypes.CODE.ordinal
+                        ),
+
+                        "11" to Lesson(
+                                11,
+                                "",
+                                "",
+                                CodeSnippet("Output", "[('lastName', 'Doe'), ('age', 32), ('firstName', 'John'), ('gender', 'Male')]", ""
+                                ),
                                 LessonTypes.CODE.ordinal
                         )
-                ),
-                question = null,
-                type = LessonResponseType.LESSON.ordinal
+                )
+
         ),
 
         LessonResponse(
@@ -271,7 +254,7 @@ val lists = listOf(
                         "1" to Lesson(
                                 1,
                                 "",
-                                "Iterating over a List",
+                                "get(): Takes two parameters, key and default value and returns the value at \"key\". If the specified key does not exist, the default value is returned instead.",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -279,17 +262,16 @@ val lists = listOf(
                         "2" to Lesson(
                                 2,
                                 "",
-                                "The for-loop can be used to traverse over a list and perform different operations.",
-                                null,
-                                LessonTypes.TEXT.ordinal
+                                "",
+                                CodeSnippet("", "print(clientInfo.get(\"age\", 18))", ""),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "3" to Lesson(
                                 3,
                                 "",
                                 "",
-                                CodeSnippet("Syntax", "for x in listName:\n" +
-                                        "    # perform operations", "Here, x is the current element in the list."),
+                                CodeSnippet("Output", "32", "32 is returned since it is the value of \"age\"."),
                                 LessonTypes.CODE.ordinal
                         ),
 
@@ -297,8 +279,7 @@ val lists = listOf(
                                 4,
                                 "",
                                 "",
-                                CodeSnippet("", "for i in listEx:\n" +
-                                        "print(i)", ""),
+                                CodeSnippet("Let's try an invalid key:", "print(clientInfo.get(\"height\", 170))", ""),
                                 LessonTypes.CODE.ordinal
                         ),
 
@@ -306,41 +287,7 @@ val lists = listOf(
                                 5,
                                 "",
                                 "",
-                                CodeSnippet("Output", "afri\n" +
-                                        "12", ""),
-                                LessonTypes.CODE.ordinal
-                        ),
-
-                        "6" to Lesson(
-                                6,
-                                "",
-                                "“Slicing” means accessing a part of a list.",
-                                null,
-                                LessonTypes.TEXT.ordinal
-                        ),
-
-                        "7" to Lesson(
-                                7,
-                                "",
-                                "",
-                                CodeSnippet("Syntax", "listName[a:b]", "This slices the list starting from index a and stopping at index b – 1."),
-                                LessonTypes.CODE.ordinal
-                        ),
-
-                        "8" to Lesson(
-                                8,
-                                "",
-                                "",
-                                CodeSnippet("", "listEx2 = [5, 'afri', 8, 0, 'portal']\n" +
-                                        "print(listEx2[0:3])", ""),
-                                LessonTypes.CODE.ordinal
-                        ),
-
-                        "9" to Lesson(
-                                9,
-                                "",
-                                "",
-                                CodeSnippet("Output", "[5, 'afri', 8]", ""),
+                                CodeSnippet("Output", "170", "170 is returned because no such key called \"height\" exists in clientInfo."),
                                 LessonTypes.CODE.ordinal
                         )
                 ),
@@ -350,6 +297,64 @@ val lists = listOf(
 
         LessonResponse(
                 5,
+                lessons = mapOf(
+                        "1" to Lesson(
+                                1,
+                                "",
+                                "setdefault(): Takes two parameters, \"key\" and \"default value\" and creates a new element with them only if the key does not exist.",
+                                null,
+                                LessonTypes.TEXT.ordinal
+                        ),
+
+                        "2" to Lesson(
+                                2,
+                                "",
+                                "",
+                                CodeSnippet("", "clientInfo.setdefault(\"weight\", 70)\n" +
+                                        "print(clientInfo)", ""),
+                                LessonTypes.CODE.ordinal
+                        ),
+
+                        "3" to Lesson(
+                                3,
+                                "",
+                                "",
+                                CodeSnippet("Output", "{'lastName': 'Doe', 'age': 32, 'weight': 70, 'firstName': 'John', 'gender': 'Male'}", "A new key \"weight\" was created with the value \"70\"."),
+                                LessonTypes.CODE.ordinal
+                        ),
+
+                        "4" to Lesson(
+                                4,
+                                "",
+                                "",
+                                CodeSnippet("To change an existing key's value, use square braces to access the key.", "clientInfo[\"lastName\"] = \"Smith\"\n" +
+                                        "print(clientInfo)", ""),
+                                LessonTypes.CODE.ordinal
+                        ),
+
+                        "5" to Lesson(
+                                5,
+                                "",
+                                "",
+                                CodeSnippet("Output", "{'lastName': 'Smith', 'age': 32, 'weight': 70, 'firstName': 'John', 'gender': 'Male'}", "lastName was changed from \"Doe\" to \"Smith\""),
+                                LessonTypes.CODE.ordinal
+                        ),
+
+                        "6" to Lesson(
+                                6,
+                                "",
+                                "Because they don't make use of numerical indexes and are unordered, operations such as slicing cannot be performed on dictionaries.",
+                                null,
+                                LessonTypes.TEXT.ordinal
+                        )
+
+                ),
+                question = null,
+                type = LessonResponseType.LESSON.ordinal
+        ),
+
+        LessonResponse(
+                4,
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
@@ -378,7 +383,7 @@ val lists = listOf(
                                         "2" to "",
                                         "3" to ""
                                 ),
-                                answerKey = "1"
+                                answerKey = ""
                         ),
 
                         "4" to Question(
@@ -397,7 +402,7 @@ val lists = listOf(
                                         "2" to "",
                                         "3" to ""
                                 ),
-                                answerKey = "3"
+                                answerKey = ""
                         )
                 ),
                 type = LessonResponseType.QUESTION.ordinal
