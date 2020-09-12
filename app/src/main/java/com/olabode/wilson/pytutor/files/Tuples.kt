@@ -48,12 +48,12 @@ val tuples = listOf(
                                 5,
                                 "",
                                 "",
-                                CodeSnippet("Creating a tuple.", "tuple_ex = (5, 4, 2, 5, 9, 4)\n" +
-                                        "print(tuple_ex)\n" +
-                                        "tuple_ex2 = (\"a\", \"d\", \"e\", \"f\")\n" +
-                                        "print(tuple_ex2)\n" +
-                                        "tuple_ex3 = (\"a\", 10, 23, \"d\", 14, \"e\", \"f\")\n" +
-                                        "print(tuple_ex3)", ""),
+                                CodeSnippet("Creating a tuple.", "tupleEx = (5, 4, 2, 5, 9, 4)\n" +
+                                        "print(tupleEx)\n" +
+                                        "tupleEx2 = (\"a\", \"d\", \"e\", \"f\")\n" +
+                                        "print(tupleEx2)\n" +
+                                        "tupleEx3 = (\"a\", 10, 23, \"d\", 14, \"e\", \"f\")\n" +
+                                        "print(tupleEx3)", ""),
                                 LessonTypes.CODE.ordinal
                         ),
 
@@ -202,7 +202,7 @@ val tuples = listOf(
                         "7" to Lesson(
                                 7,
                                 "",
-                                "len(tuple_name): Returns the number of elements in the tuple.",
+                                "len(tupleName): Returns the number of elements in the tuple.",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
