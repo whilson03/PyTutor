@@ -29,8 +29,7 @@ val introduction = listOf(
                         "1" to Lesson(
                                 1,
                                 "",
-                                "Python is a general-purpose interpreted, interactive, object-oriented, and high-level scripting programming language.\n" +
-                                        "It was created by Guido van Rossum during 1985 – 1990.",
+                                "Python is a general-purpose interpreted, interactive, object-oriented, and high-level scripting programming language.",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -38,17 +37,65 @@ val introduction = listOf(
                         "2" to Lesson(
                                 2,
                                 "",
-                                "Python is named after a TV Show called ‘Monty Python’s Flying Circus’.\n" +
-                                        "\n" +
-                                        "Some features of python includes :",
+                                "It was created by Guido van Rossum during 1985 – 1990.",
                                 null,
                                 LessonTypes.TEXT.ordinal
+
                         ),
 
                         "3" to Lesson(
                                 3,
                                 "",
+                                "Python is named after a TV Show called ‘Monty Python’s Flying Circus’.",
+                                null,
+                                LessonTypes.TEXT.ordinal
+
+                        ),
+
+                        "4" to Lesson(
+                                4,
+                                "",
+                                "Some features of python includes :",
+                                null,
+                                LessonTypes.TEXT.ordinal
+                        ),
+
+                        "5" to Lesson(
+                                5,
+                                "",
                                 "Readable: Python is a very readable language.",
+                                null,
+                                LessonTypes.BULLET.ordinal
+                        )
+                ),
+                question = null,
+                type = LessonResponseType.LESSON.ordinal
+        ),
+
+        LessonResponse(
+                2,
+                lessons = mapOf(
+                        "1" to Lesson(
+                                1,
+                                "",
+                                "Cross platform: Python is available and can run on various operating systems such as Mac, Windows, Linux, Unix etc.",
+                                null,
+                                LessonTypes.BULLET.ordinal
+                        ),
+
+                        "2" to Lesson(
+                                2,
+                                "",
+                                "Open Source: Python is a open source programming language.",
+                                null,
+                                LessonTypes.BULLET.ordinal
+                        ),
+
+                        "3" to Lesson(
+                                3,
+                                "",
+                                "Easy-to-learn: Python has few keywords, simple structure, and a clearly defined syntax.\n" +
+                                        "This allows the student to pick up the language quickly.\n",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
@@ -56,8 +103,8 @@ val introduction = listOf(
                         "4" to Lesson(
                                 4,
                                 "",
-                                "Cross platform: Python is available and can run on various operating systems such as Mac, Windows, Linux, Unix etc.\n" +
-                                        " This makes it a cross platform and portable language.",
+                                "Extendable: You can add low-level modules to the Python interpreter.\n" +
+                                        "These modules enable programmers to add to or customize their tools to be more efficient.",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
@@ -65,42 +112,16 @@ val introduction = listOf(
                         "5" to Lesson(
                                 5,
                                 "",
-                                "Open Source: Python is a open source programming language.",
-                                null,
-                                LessonTypes.BULLET.ordinal
-                        ),
-
-                        "6" to Lesson(
-                                6,
-                                "",
-                                "Easy-to-learn: Python has few keywords, simple structure, and a clearly defined syntax.\n" +
-                                        " This allows the student to pick up the language quickly.\n",
-                                null,
-                                LessonTypes.BULLET.ordinal
-                        ),
-
-                        "7" to Lesson(
-                                7,
-                                "",
-                                "Extendable: You can add low-level modules to the Python interpreter.\n" +
-                                        " These modules enable programmers to add to or customize their tools to be more efficient.",
-                                null,
-                                LessonTypes.BULLET.ordinal
-                        ),
-
-                        "8" to Lesson(
-                                8,
-                                "",
                                 "Apart from the above-mentioned features, Python has a big list of good features.",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         )
-                ),
-                question = null,
-                type = LessonResponseType.LESSON.ordinal
+                )
         ),
+
+
         LessonResponse(
-                2,
+                3,
                 lessons = mapOf(
                         "1" to Lesson(
                                 1,
@@ -144,32 +165,6 @@ val introduction = listOf(
                                         " Libraries such as  Pandas, Scikit-Learn, NumPy are used for developing AI based applications in Python.",
                                 null,
                                 LessonTypes.BULLET.ordinal
-                        ),
-
-                        "6" to Lesson(
-                                6,
-                                "",
-                                "Data Science and Data Analysis: Python can be used to study the data, extract relevant information from datasets and perform various operations or take certain decisions based on the extracted data.",
-                                null,
-                                LessonTypes.BULLET.ordinal
-                        ),
-
-                        "7" to Lesson(
-                                7,
-                                "",
-                                "Game Development: Python is also used in the development of interactive games." +
-                                        " Libraries such as PySoy which is a 3D game engine supporting Python 3, PyGame which provides functionality and a library for game development." +
-                                        " Some games built in python are Civilization-IV, Battlefield 2, The Sims 4, Vega Strike, Mount & Blade etc.",
-                                null,
-                                LessonTypes.BULLET.ordinal
-                        ),
-
-                        "8" to Lesson(
-                                8,
-                                "",
-                                "Web Scraping Applications: Python can be used to extract a large amount of data from websites which can then be helpful in various real-world processes such as price comparison, job listings, research and development and much more. ",
-                                null,
-                                LessonTypes.BULLET.ordinal
                         )
                 ),
                 question = null,
@@ -177,7 +172,38 @@ val introduction = listOf(
         ),
 
         LessonResponse(
-                3,
+                4,
+                lessons = mapOf(
+                        "1" to Lesson(
+                                1,
+                                "",
+                                "Data Science and Data Analysis: Python can be used to study the data, extract relevant information from datasets and perform various operations or take certain decisions based on the extracted data.",
+                                null,
+                                LessonTypes.BULLET.ordinal
+                        ),
+
+                        "2" to Lesson(
+                                2,
+                                "",
+                                "Game Development: Python is also used in the development of interactive games." +
+                                        "Libraries such as PySoy which is a 3D game engine supporting Python 3, PyGame which provides functionality and a library for game development." +
+                                        "Some games built in python are Civilization-IV, Battlefield 2, The Sims 4, Vega Strike, Mount & Blade etc.",
+                                null,
+                                LessonTypes.BULLET.ordinal
+                        ),
+
+                        "3" to Lesson(
+                                3,
+                                "",
+                                "Web Scraping Applications: Python can be used to extract a large amount of data from websites which can then be helpful in various real-world processes such as price comparison, job listings, research and development and much more. ",
+                                null,
+                                LessonTypes.BULLET.ordinal
+                        )
+                )
+        ),
+
+        LessonResponse(
+                5,
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
