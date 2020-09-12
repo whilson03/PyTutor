@@ -5,9 +5,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class CodeSnippet(
-        val footer: String,
+        val header: String,
         val code: String,
-        val header: String
+        val footer: String
 ) : Parcelable {
 
     constructor() : this(
