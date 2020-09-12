@@ -28,4 +28,5 @@
     <color name="gray">#88898b</color>
 
     <color name="lesson_card_bg_color">#F4F0F0</color>
+    <color name="code_background">#5A5858</color>
 </resources>

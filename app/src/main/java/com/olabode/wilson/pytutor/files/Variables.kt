@@ -64,23 +64,15 @@ val variables = listOf(
                         "1" to Lesson(
                                 1,
                                 "",
-                                "",
-                                CodeSnippet(
-                                        header = "",
-                                        code = "myWeight = 34.6     # a floating point\n" +
-                                                "\n" +
-                                                "myName   = \"wilson\" # a string\n" +
-                                                "\n" +
-                                                "myAge    = 14       # an integer",
-                                        footer = ""
-                                ),
-                                LessonTypes.CODE.ordinal
+                                "They also provide a way of labeling data with a descriptive name, so our programs can be understood more clearly by the reader and ourselves.",
+                                null,
+                                LessonTypes.TEXT.ordinal
                         ),
 
                         "2" to Lesson(
                                 2,
                                 "",
-                                "",
+                                "Their sole purpose is to label and store data in memory. This data can then be used throughout your program.",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
@@ -89,24 +81,40 @@ val variables = listOf(
                                 3,
                                 "",
                                 "",
-                                null,
-                                LessonTypes.BULLET.ordinal
+                                CodeSnippet(
+                                        header = "Example :1",
+                                        code = "name = \"Olabode\"",
+                                        footer = "In the above example we created a variable called name and assigned a String value 'Olabode'."
+                                ),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "4" to Lesson(
                                 4,
                                 "",
                                 "",
-                                null,
-                                LessonTypes.BULLET.ordinal
+                                CodeSnippet(
+                                        header = "Example 2: Assigning values to variables",
+                                        footer = "NB: The ' = ' Assignment operator is used to assign values to variables.",
+                                        code = "evenNo = 8\n" +
+                                                "weight = 26.6\n" +
+                                                "\n" +
+                                                "print(evenNo)\n" +
+                                                "print(weight)"
+                                ),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "5" to Lesson(
                                 5,
                                 "",
                                 "",
-                                null,
-                                LessonTypes.TEXT.ordinal
+                                CodeSnippet(
+                                        header = "Output: ",
+                                        footer = "",
+                                        code = "8\n26.6"
+                                ),
+                                LessonTypes.CODE.ordinal
                         )
                 )
         ),
@@ -119,40 +127,52 @@ val variables = listOf(
                                 1,
                                 "",
                                 "",
-                                null,
-                                LessonTypes.TEXT.ordinal
+                                CodeSnippet(
+                                        header = "Example 3: Python allows you to assign a single value to several variables simultaneously.\n" +
+                                                "Python allows you to assign a single value to several variables simultaneously.",
+                                        code = "a = b = c = 1\nprint(a)\nprint(b)\nprint(c)",
+                                        footer = "Here, an integer object is created with the value 1, and all the three variables are assigned to the same memory location."
+                                ),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "2" to Lesson(
                                 2,
                                 "",
                                 "",
-                                null,
-                                LessonTypes.BULLET.ordinal
+                                CodeSnippet(
+                                        header = "Output:",
+                                        code = "1\n2\n3\n",
+                                        footer = ""
+                                ),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "3" to Lesson(
                                 3,
                                 "",
                                 "",
-                                null,
-                                LessonTypes.BULLET.ordinal
+                                CodeSnippet(
+                                        header = "Example 4 : Assign multiple objects to multiple variables.",
+                                        code = "name , age = \"Ruona\", 43\n" +
+                                                "\n" +
+                                                "print(name)\n" +
+                                                "print(age)",
+                                        footer = ""
+                                ),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "4" to Lesson(
                                 4,
                                 "",
                                 "",
-                                null,
-                                LessonTypes.BULLET.ordinal
-                        ),
-
-                        "5" to Lesson(
-                                5,
-                                "",
-                                "",
-                                null,
-                                LessonTypes.BULLET.ordinal
+                                CodeSnippet(
+                                        header = "Output: ",
+                                        code = "Ruona\n43",
+                                        footer = ""
+                                ),
+                                LessonTypes.CODE.ordinal
                         )
                 ),
                 question = null,
@@ -166,24 +186,30 @@ val variables = listOf(
                                 1,
                                 "",
                                 "",
-                                null,
-                                LessonTypes.BULLET.ordinal
+                                CodeSnippet(
+                                        header = "Example 5: Reassigning variables",
+                                        code = "name = \"Jack\"\n" +
+                                                "\n" +
+                                                "print(name)\n" +
+                                                "\n" +
+                                                "name = \"Smith\"\n" +
+                                                "\n" +
+                                                "print(name)",
+                                        footer = ""
+                                ),
+                                LessonTypes.CODE.ordinal
                         ),
 
                         "2" to Lesson(
                                 2,
                                 "",
                                 "",
-                                null,
-                                LessonTypes.BULLET.ordinal
-                        ),
-
-                        "3" to Lesson(
-                                3,
-                                "",
-                                "",
-                                null,
-                                LessonTypes.BULLET.ordinal
+                                CodeSnippet(
+                                        header = "Output: ",
+                                        code = "Jack\nSmith",
+                                        footer = "In the above example we assigned 'Jack' to variable `name`.Then changed the value to 'Smith'."
+                                ),
+                                LessonTypes.CODE.ordinal
                         )
                 )
         ),
@@ -193,26 +219,41 @@ val variables = listOf(
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
-                                question = "Who created Python?",
+                                question = "Whats the output?\n" +
+                                        "count = 4\n" +
+                                        "count = count + 2\n" +
+                                        "\n" +
+                                        "print(count)",
                                 options = mapOf(
-                                        "1" to "Guido Van Rossum",
-                                        "2" to "James Gosling",
-                                        "3" to "Dennis Ritchie"
+                                        "1" to "6",
+                                        "2" to "2",
+                                        "3" to "Error"
                                 ),
                                 answerKey = "1"
                         ),
 
                         "2" to Question(
-                                question = "Which of these is not a feature of Python?",
+                                question = "Whats the output of `c`?\n" +
+                                        "\n" +
+                                        "a , b , c = 3 \n" +
+                                        "\n" +
+                                        "a = c + b\n" +
+                                        "\n" +
+                                        "c = c - 1\n" +
+                                        "\n" +
+                                        "print(c)",
                                 options = mapOf(
-                                        "1" to "Readability",
-                                        "2" to "Difficult to learn",
-                                        "3" to "Cross platform"
+                                        "1" to "1",
+                                        "2" to "6",
+                                        "3" to "2"
                                 ),
-                                answerKey = "2"
+                                answerKey = "3"
                         ),
                         "3" to Question(
-                                question = "Can Python be used to develop games?",
+                                question = "\n" +
+                                        "Is this a valid assignment statement? \n" +
+                                        "\n" +
+                                        "a , b ,c = 4, 5 ,7",
                                 options = mapOf(
                                         "1" to "True",
                                         "2" to "False",
@@ -222,22 +263,15 @@ val variables = listOf(
                         ),
 
                         "4" to Question(
-                                question = "Python is a compiled language.",
+                                question = "Why will this Statement show an Error?\n" +
+                                        "\n" +
+                                        "name ,age, height = \"Tom\", \"5\"",
                                 options = mapOf(
-                                        "1" to "True",
-                                        "2" to "False",
-                                        "3" to "Not sure"
+                                        "1" to "Its a valid statement, No Error.",
+                                        "2" to "No value assigned to height.",
+                                        "3" to "\"5\" is assigned to `age`"
                                 ),
                                 answerKey = "2"
-                        ),
-                        "5" to Question(
-                                question = "In which of these fields can Python be used?",
-                                options = mapOf(
-                                        "1" to "Scripting, Data science",
-                                        "2" to "Web development, GUI",
-                                        "3" to "All of the above"
-                                ),
-                                answerKey = "3"
                         )
                 ),
                 type = LessonResponseType.QUESTION.ordinal

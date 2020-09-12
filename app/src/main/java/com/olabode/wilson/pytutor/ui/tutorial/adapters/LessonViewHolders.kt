@@ -1,5 +1,6 @@
 package com.olabode.wilson.pytutor.ui.tutorial.adapters
 
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
@@ -28,6 +29,19 @@ class CodeViewHolder(val binding: ItemTutorialSnippetBinding)
     fun bind(item: Lesson) {
         item.codeSnippet?.let { code ->
             binding.codeText.text = code.code
+            if (code.header.isNotEmpty()) {
+                binding.header.text = code.header
+                binding.header.isVisible = true
+            } else {
+                binding.header.isVisible = false
+            }
+
+            if (code.footer.isNotEmpty()) {
+                binding.footer.text = code.footer
+                binding.footer.isVisible = true
+            } else {
+                binding.footer.isVisible = false
+            }
         }
     }
 }
