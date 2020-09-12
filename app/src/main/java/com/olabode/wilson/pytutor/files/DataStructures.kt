@@ -10,7 +10,7 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  * Created by Ogheneruona Onobrakpeya on 9/11/20.
  */
 
-val data_structures = listOf(
+val dataStructures = listOf(
         LessonResponse(
                 1,
                 lessons = mapOf(
@@ -63,49 +63,49 @@ val data_structures = listOf(
                         "2" to Lesson(
                                 2,
                                 "",
-                                "1. Data Structures allow programmers in managing data in the most efficient manners.",
+                                "Data Structures allow programmers in managing data in the most efficient manners.",
                                 null,
-                                LessonTypes.TEXT.ordinal
+                                LessonTypes.BULLET.ordinal
                         ),
 
                         "3" to Lesson(
                                 3,
                                 "",
-                                "2. They allow programmers to effectively make use of algorithms.",
+                                "They allow programmers to effectively make use of algorithms.",
                                 null,
-                                LessonTypes.TEXT.ordinal
+                                LessonTypes.BULLET.ordinal
                         ),
 
                         "4" to Lesson(
                                 4,
                                 "",
-                                "3. They allow efficient use of memory and other resources.",
+                                "They allow efficient use of memory and other resources.",
                                 null,
-                                LessonTypes.TEXT.ordinal
+                                LessonTypes.BULLET.ordinal
                         ),
 
                         "5" to Lesson(
                                 5,
                                 "",
-                                "4. They are very useful when working with a huge dataset.",
+                                "They are very useful when working with a huge dataset.",
                                 null,
-                                LessonTypes.TEXT.ordinal
+                                LessonTypes.BULLET.ordinal
                         ),
 
                         "6" to Lesson(
                                 6,
                                 "",
-                                "5. Data structures are reusable.",
+                                "Data structures are reusable.",
                                 null,
-                                LessonTypes.TEXT.ordinal
+                                LessonTypes.BULLET.ordinal
                         ),
 
                         "7" to Lesson(
                                 7,
                                 "",
-                                "6. They allow multiple solutions for a particular problem.",
+                                "They allow multiple solutions for a particular problem.",
                                 null,
-                                LessonTypes.TEXT.ordinal
+                                LessonTypes.BULLET.ordinal
                         )
                 ),
                 question = null,
