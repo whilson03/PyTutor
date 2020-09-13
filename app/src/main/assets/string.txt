@@ -1,0 +1,131 @@
+String is a Data type in python. The data stored in memory can be of many types.
+
+Python has various standard data types that are used to define the operations possible on them
+and the storage method for each of them.
+
+
+
+String is a Data type in python.
+
+Strings in Python are identified as a contiguous set of characters represented in the quotation marks.
+
+Python allows either pair of single or double quotes.Multi-line strings can be denoted using triple quotes, ''' or """
+
+Subsets of strings can be taken using the slice operator ([ ] and [:] ) with indexes starting at 0 in the
+beginning of the string and working their way from -1 to the end.
+
+Example
+
+school = "my cool school" # double quotes is used
+
+name = 'jack jack' # single quotes is used
+
+long_name = """     # multi line string
+    my
+    multiline
+    name
+    """
+
+print(school)
+print(name)
+print(long_name)
+
+my cool school
+jack jack
+    my
+    multiline
+    name
+
+
+Subsets of strings can be taken using the slice operator ([ ] and [:] ) with indexes starting at 0 in the beginning of the string and working their way from -1 to the end.
+
+
+hero = "Batman"
+
+print(hero) # Prints complete string
+print(hero[0]) # Prints first character of the string
+
+print(hero[0:4]) # Prints characters starting from 1st to the 3rd
+print (str[2:]) # Prints the whole string starting from 3rd character
+
+Batman
+B
+Batm
+tman
+
+
+
+
+Strings can also be index backwards. The last character is -1
+
+print(hero[-1]) # Prints the last character in the string
+print(hero[-3: -1]) # Prints the 3rd and 2nd character from behind in the string
+
+
+String Concatenation.
+
+The plus (+) sign is the string concatenation operator and the asterisk (*) is the repetition
+operator
+
+greeting = "Hello"
+print(greeting * 2)
+print(greeting + "World")
+print("Welcome  " + "back")
+
+N.B: The Spaces at the end of `Welcome` are also characters in the String.
+
+HelloWorld
+Welcome  back
+
+language = "Python"
+print(language[0:6:2])
+
+A very common case when working with Strings is to know how many characters it contain. Python has and handy function for that.
+
+len() is used to get the number of characters in a String.
+language = "Python"
+
+print(len(language))
+
+6
+
+
+Apart from len() there several other Built-In Functions for working and manipulating Strings in Python.
+
+whats the output?
+print(len("hello"))
+
+5
+6
+Error
+
+Whats the output?
+name = 'Wilson"
+print(name[0])
+
+Error
+Wilson
+W
+
+Whats the output?
+name = "Pytutor"
+print(name[0: len(name) - 1 ])
+
+Pytuto
+Pytutor
+Error
+
+
+Which is used for multi-line Strings.
+
+''
+""
+""" """ , ''' '''
+
+
+
+
+
+
+
+
