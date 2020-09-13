@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 fun genTopicResponse(): List<TopicResponse> {
     return listOf(
             TopicResponse(orderKey = 1, title = "Introduction", description = "Get an overview of Python and what it entails.", noOfPages = 3, topicId = "introduction", isLocked = true, isCompleted = true),
-            TopicResponse(orderKey = 2, title = "Variables", description = "Learn how to store assign data to variables.", noOfPages = 3, topicId = "variables", isLocked = true, isCompleted = true),
-            TopicResponse(orderKey = 3, title = "Data Types", description = "See the different data types Python has to offer.", noOfPages = 3, topicId = "data_types", isLocked = true, isCompleted = true),
+            TopicResponse(orderKey = 2, title = "Variables", description = "Learn how to store data in variables.", noOfPages = 3, topicId = "variables", isLocked = true, isCompleted = true),
+            TopicResponse(orderKey = 3, title = "Numbers", description = "Number data types store numeric values. Number objects are created when you assign a value to them.", noOfPages = 3, topicId = "data_types", isLocked = true, isCompleted = true),
             TopicResponse(orderKey = 4, title = "Operators", description = "Learn about Python operators, their order and associated types.", noOfPages = 3, topicId = "operators", isLocked = true, isCompleted = true),
             TopicResponse(orderKey = 5, title = "Input/Output", description = "Handle user input and perform output operations.", noOfPages = 3, topicId = "input_output", isLocked = true, isCompleted = true),
             TopicResponse(orderKey = 6, title = "Data Structures", description = "Learn about data structures.", noOfPages = 3, topicId = "data_structures", isLocked = true, isCompleted = true),
