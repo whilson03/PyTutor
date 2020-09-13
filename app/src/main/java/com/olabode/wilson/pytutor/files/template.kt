@@ -140,51 +140,51 @@ val template = listOf(
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
-                                question = "Who created Python?",
+                                question = "",
                                 options = mapOf(
-                                        "1" to "Guido Van Rossum",
-                                        "2" to "James Gosling",
-                                        "3" to "Dennis Ritchie"
+                                        "1" to "",
+                                        "2" to "",
+                                        "3" to ""
                                 ),
-                                answerKey = "1"
+                                answerKey = ""
                         ),
 
                         "2" to Question(
-                                question = "Which of these is not a feature of Python?",
+                                question = "",
                                 options = mapOf(
-                                        "1" to "Readability",
-                                        "2" to "Difficult to learn",
-                                        "3" to "Cross platform"
+                                        "1" to "",
+                                        "2" to "",
+                                        "3" to ""
                                 ),
-                                answerKey = "2"
+                                answerKey = ""
                         ),
                         "3" to Question(
-                                question = "Can Python be used to develop games?",
+                                question = "",
                                 options = mapOf(
-                                        "1" to "True",
-                                        "2" to "False",
-                                        "3" to "Not sure"
+                                        "1" to "",
+                                        "2" to "",
+                                        "3" to ""
                                 ),
-                                answerKey = "1"
+                                answerKey = ""
                         ),
 
                         "4" to Question(
-                                question = "Python is a compiled language.",
+                                question = "",
                                 options = mapOf(
-                                        "1" to "True",
-                                        "2" to "False",
-                                        "3" to "Not sure"
+                                        "1" to "",
+                                        "2" to "",
+                                        "3" to ""
                                 ),
                                 answerKey = "2"
                         ),
                         "5" to Question(
-                                question = "In which of these fields can Python be used?",
+                                question = "",
                                 options = mapOf(
-                                        "1" to "Scripting, Data science",
-                                        "2" to "Web development, GUI",
-                                        "3" to "All of the above"
+                                        "1" to "",
+                                        "2" to "",
+                                        "3" to ""
                                 ),
-                                answerKey = "3"
+                                answerKey = ""
                         )
                 ),
                 type = LessonResponseType.QUESTION.ordinal
