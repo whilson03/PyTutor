@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentViewTutorialsBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.files.operators
 import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialPageAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialLessonViewModel
@@ -34,16 +35,18 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val topic = ViewTutorialsFragmentArgs.fromBundle(requireArguments()).topic
-        val totalNoOfPages = topic.noOfPages
+        val totalNoOfPages = 7//topic.noOfPages
         setUpPageCounter(totalNoOfPages)
 
 
         viewModel.getLessons(topic.topicId).observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is DataState.Success -> {
-                    doOnSuccess(totalNoOfPages, result.data)
+                    doOnSuccess(totalNoOfPages, operators)
+
                 }
                 is DataState.Failed -> {
+                    doOnSuccess(totalNoOfPages, operators)
                     Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
                 }
             }
