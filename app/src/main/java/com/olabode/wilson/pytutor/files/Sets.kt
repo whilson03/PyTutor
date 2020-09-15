@@ -258,23 +258,23 @@ val sets = listOf(
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
-                                question = "",
+                                question = "Sets are ordered.",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "True",
+                                        "2" to "False",
+                                        "3" to "Sometimes"
                                 ),
-                                answerKey = ""
+                                answerKey = "2"
                         ),
 
                         "2" to Question(
-                                question = "",
+                                question = "What is a difference between a set and a list?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "Lists can have duplicate values unlike sets",
+                                        "2" to "Lists are mutable and sets are not",
+                                        "3" to "Sets are multidimensional but lists are not"
                                 ),
-                                answerKey = ""
+                                answerKey = "1"
                         ),
                         "3" to Question(
                                 question = "",
@@ -296,13 +296,13 @@ val sets = listOf(
                                 answerKey = "2"
                         ),
                         "5" to Question(
-                                question = "",
+                                question = "What methods returns the combination of two sets?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "intersection",
+                                        "2" to "union",
+                                        "3" to "difference"
                                 ),
-                                answerKey = "3"
+                                answerKey = "2"
                         )
                 ),
                 type = LessonResponseType.QUESTION.ordinal
