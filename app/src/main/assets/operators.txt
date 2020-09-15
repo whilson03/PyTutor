@@ -1,0 +1,31 @@
+In the previous chapter we talked about Arithmetic Operators and their uses.
+
+In this Chapter you will learn about Comparison Operators and Logical Operators
+
+name = "Python"
+print("j" in name)
+
+"y" is a member of the string
+
+
+Identity Operators
+
+x = 2
+y = 2
+
+print(a is b)
+
+
+x and y are integers of the same values, so they are equal as well as identical
+
+x = 8
+
+print( type(x) is not float)
+
+
+Fill in the Blanks.
+
+ = 0
+
+print( `?` value) // output is 1
+
