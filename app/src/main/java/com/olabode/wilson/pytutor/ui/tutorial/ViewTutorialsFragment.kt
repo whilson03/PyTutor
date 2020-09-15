@@ -42,6 +42,7 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
             when (result) {
                 is DataState.Success -> {
                     doOnSuccess(totalNoOfPages, result.data)
+
                 }
                 is DataState.Failed -> {
                     Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
