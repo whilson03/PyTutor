@@ -172,15 +172,6 @@ fun genTopicResponse(): List<TopicResponse> {
             ),
             TopicResponse(
                     orderKey = 18,
-                    title = "Modules & Importing",
-                    description = "Learn about Python modules and importing.",
-                    noOfPages = 3,
-                    topicId = "modules_importing",
-                    isLocked = true,
-                    isCompleted = true
-            ),
-            TopicResponse(
-                    orderKey = 19,
                     title = "Exception Handling",
                     description = "Learn how to deal with exceptions.",
                     noOfPages = 3,
