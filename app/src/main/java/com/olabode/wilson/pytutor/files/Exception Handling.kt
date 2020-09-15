@@ -203,49 +203,30 @@ val exception_handling = listOf(
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
-                                question = "",
+                                question = "Which is not a valid Python exception?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "ZeroDivisionError",
+                                        "2" to "NameError",
+                                        "3" to "SyntaxError"
                                 ),
-                                answerKey = ""
+                                answerKey = "3"
                         ),
 
                         "2" to Question(
-                                question = "",
+                                question = "Exception handling may consist of all but",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = ""
-                        ),
-                        "3" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = "1"
-                        ),
-
-                        "4" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "try blocks",
+                                        "2" to "catch block",
+                                        "3" to "except block"
                                 ),
                                 answerKey = "2"
                         ),
-                        "5" to Question(
-                                question = "",
+                        "3" to Question(
+                                question = "What is a use of exceptions?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "To make programs faster.",
+                                        "2" to "To hinder user experience",
+                                        "3" to "To improve communication to users."
                                 ),
                                 answerKey = "3"
                         )
