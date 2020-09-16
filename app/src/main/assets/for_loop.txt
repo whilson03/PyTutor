@@ -1,0 +1,160 @@
+A loop statement allows us to execute a statement or group of statements multiple times
+
+<image>
+
+The for loop in Python is used to iterate over a sequence (list, tuple, string) or other iterable objects.
+Iterating over a sequence is called traversal.
+
+Syntax:
+
+for var in sequence:
+	# Body of for loop
+	statement1
+	statementN
+
+
+`var` is a temporary variable that takes the value of the item inside the sequence on each iteration.
+
+whatever statements are in the BODY of the for loop are executed until the loop reaches the last item in the sequence.
+
+NB: The body of the for-loop is indented.This is because python uses indentation to specify blocks rather than {} curly braces used
+by most languages .
+i.e the indented block is to be executed in the for-loop.
+
+
+Example:
+Iterating over a string.
+
+language = "Python"
+
+for i in language:
+    print(letter)
+
+
+Output:
+P
+y
+t
+h
+o
+n
+
+
+N.B: `i` takes the value of each letter in the String `Python` on each iteration until it reaches the last item.
+i.e : no more letters to iterate over.
+
+
+Example :
+Iterating over a list.
+
+numbers = [1, 2, 3, 4]
+for number in numbers:
+    print('current number is: ', number)
+
+Output:
+current number is: 1
+current number is: 2
+current number is: 3
+current number is: 4
+
+`range() function`
+
+range(startValue, stopValue)
+
+The built-in function range() is the right function to iterate over a sequence of numbers.
+It generates an iterator to progress integers starting with `startValue` up to `stopValue - 1`.
+
+range(startValue, stopValue ,stepSize)
+It generates a arithmetic progress starting from the `startValue` up to the `stopValue - 1` taking certain number of steps.
+An optional step can be provided,the default value is 1.
+
+`range(stopValue)`
+The range function can also  be provided just one value, This value is used as the `stopValue`.
+It generate sequences from 0 up to `stopValue - 1`.
+
+Example:
+for num in range(0,4):
+    print(num)
+
+Output:
+0
+1
+2
+3
+
+Example:
+Only stopValue is provided
+for num in range(4):
+    print(num)
+
+0
+1
+2
+3
+
+
+
+Example:
+`start, stop and step` is provided
+for num in range(0,8,2):
+    print(num)
+
+0
+2
+4
+6
+
+NB: It skips 2 values each time.
+
+
+Iterate through a list using indexes:
+
+names = ['tom', 'will', 'toby']
+
+# iterate over the list using index
+for i in range(len(names)):
+	print("I am", names[i])
+
+I am tom
+I am will
+I am toby
+
+`for loop with else :`
+
+If the `else` statement is used with a for loop, the else block is executed only if for
+loops terminates normally (and not by encountering break statement.
+
+num = [0, 1, 2]
+
+for i in digits:
+    print(i)
+else:
+    print("No numbers left.")
+
+0
+1
+2
+No numbers left.
+
+we will discuss `break` statement later
+
+whats the output?
+
+xlist = ["aa", "bb", "cc"]
+    for i in [2, 1, 0]:
+        print(xlist[i], end=" ")
+
+count = 0
+
+for num in range(4):
+    count = count + num
+
+print(count)
+
+for num in range(4,0,-1):
+    print(num, end=' ')
+
+
+
+A for-loop can be used to Iterate over a Tuple
+
