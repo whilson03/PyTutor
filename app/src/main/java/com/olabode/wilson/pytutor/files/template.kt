@@ -15,9 +15,9 @@ val template = listOf(
                         "1" to Lesson(
                                 1,
                                 "",
-                                "",
+                                "`Break Statement`",
                                 null,
-                                LessonTypes.BULLET.ordinal
+                                LessonTypes.TEXT.ordinal
                         ),
 
                         "2" to Lesson(
