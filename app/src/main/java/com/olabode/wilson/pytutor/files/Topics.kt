@@ -105,18 +105,9 @@ fun genTopicResponse(): List<TopicResponse> {
                     isLocked = true,
                     isCompleted = true
             ),
-            TopicResponse(
-                    orderKey = 11,
-                    title = "Flow Control",
-                    description = "Learn how to control the flow of your programs.",
-                    noOfPages = 3,
-                    topicId = "flow_control",
-                    isLocked = true,
-                    isCompleted = true
-            ),
 
             TopicResponse(
-                    orderKey = 12,
+                    orderKey = 11,
                     title = "Operators",
                     description = "Learn about Python operators, their order and associated types.",
                     noOfPages = 3,
@@ -126,7 +117,7 @@ fun genTopicResponse(): List<TopicResponse> {
             ),
 
             TopicResponse(
-                    orderKey = 13,
+                    orderKey = 12,
                     title = "If...Else Statements",
                     description = "Learn flow control with if...else statements.",
                     noOfPages = 3,
@@ -135,7 +126,7 @@ fun genTopicResponse(): List<TopicResponse> {
                     isCompleted = true
             ),
             TopicResponse(
-                    orderKey = 14,
+                    orderKey = 13,
                     title = "For Loops",
                     description = "Learn flow control with for loops.",
                     noOfPages = 3,
@@ -144,7 +135,7 @@ fun genTopicResponse(): List<TopicResponse> {
                     isCompleted = true
             ),
             TopicResponse(
-                    orderKey = 15,
+                    orderKey = 14,
                     title = "While Loops",
                     description = "Learn flow control with while loops.",
                     noOfPages = 3,
@@ -153,8 +144,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     isCompleted = true
             ),
             TopicResponse(
-                    orderKey = 16,
-                    title = "Break & Continue",
+                    orderKey = 15,
+                    title = "Pass,Break & Continue",
                     description = "Use break and continue statements for further flow control.",
                     noOfPages = 3,
                     topicId = "break_continue",
@@ -162,7 +153,7 @@ fun genTopicResponse(): List<TopicResponse> {
                     isCompleted = true
             ),
             TopicResponse(
-                    orderKey = 17,
+                    orderKey = 16,
                     title = "Functions",
                     description = "Learn how to group procedures in functions.",
                     noOfPages = 3,
@@ -171,16 +162,7 @@ fun genTopicResponse(): List<TopicResponse> {
                     isCompleted = true
             ),
             TopicResponse(
-                    orderKey = 18,
-                    title = "Modules & Importing",
-                    description = "Learn about Python modules and importing.",
-                    noOfPages = 3,
-                    topicId = "modules_importing",
-                    isLocked = true,
-                    isCompleted = true
-            ),
-            TopicResponse(
-                    orderKey = 19,
+                    orderKey = 17,
                     title = "Exception Handling",
                     description = "Learn how to deal with exceptions.",
                     noOfPages = 3,

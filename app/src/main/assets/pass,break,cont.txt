@@ -1,0 +1,23 @@
+In Python, pass is a null statement. The interpreter does not ignore a pass statement, but nothing happens and the statement results into no operation.
+
+Example:
+mList = [1, 2, 4, 6]
+for number in mList:
+    pass
+`pass` is just a placeholder for functionality to be added later.
+
+
+The break statement is used for premature termination of the current loop.
+After terminating the loop, execution at the next statement is resumed.
+
+The break statement can be used in both while and for loops.
+
+If the break statement is inside a nested loop (i.e loop inside another loop), the break statement will terminate the innermost loop.
+
+for letter in 'Python':
+    if letter == 'h':
+        continue
+    print ('Current Letter :', letter)
+
+
+That is, the current iteration of the loop will be disrupted, but the program will return to the top of the loop.
