@@ -42,12 +42,12 @@
             tools:text="01" />
 
         <TextView
-            android:ellipsize="end"
-            android:maxLines="2"
             android:id="@+id/short_detail"
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
             app:layout_constraintBottom_toBottomOf="@+id/topic_count"
             app:layout_constraintEnd_toEndOf="@+id/title"
             app:layout_constraintStart_toStartOf="@+id/title"

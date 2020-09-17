@@ -48,20 +48,47 @@
         android:name="com.olabode.wilson.pytutor.ui.tutorial.TutorialTopicsFragment"
         android:label="@string/tutorial"
         tools:layout="@layout/fragment_tutorial_topics">
+
         <action
             android:id="@+id/action_tutorialTopicsFragment_to_viewTutorialsFragment"
-            app:destination="@id/viewTutorialsFragment" />
+            app:destination="@id/lesson_graph">
+            <argument
+                android:name="title"
+                app:argType="string" />
+            <argument
+                android:name="topic"
+                app:argType="com.olabode.wilson.pytutor.models.tutorial.TopicResponse" />
+        </action>
     </fragment>
     <fragment
-        android:id="@+id/viewTutorialsFragment"
-        android:name="com.olabode.wilson.pytutor.ui.tutorial.ViewTutorialsFragment"
-        android:label="{title}"
-        tools:layout="@layout/fragment_view_tutorials">
+        android:id="@+id/lessonCompletionFragment"
+        android:name="com.olabode.wilson.pytutor.ui.tutorial.LessonCompletionFragment"
+        tools:layout="@layout/fragment_lesson_completion">
         <argument
-            android:name="title"
-            app:argType="string" />
+            android:name="score"
+            app:argType="integer" />
         <argument
-            android:name="topic"
-            app:argType="com.olabode.wilson.pytutor.models.tutorial.TopicResponse" />
+            android:name="numberOfQuestions"
+            app:argType="integer" />
     </fragment>
+    <navigation
+        android:id="@+id/lesson_graph"
+        app:startDestination="@id/viewTutorialsFragment">
+        <fragment
+            android:id="@+id/viewTutorialsFragment"
+            android:name="com.olabode.wilson.pytutor.ui.tutorial.ViewTutorialsFragment"
+            android:label="{title}"
+            tools:layout="@layout/fragment_view_tutorials">
+            <argument
+                android:name="title"
+                app:argType="string" />
+            <argument
+                android:name="topic"
+                app:argType="com.olabode.wilson.pytutor.models.tutorial.TopicResponse" />
+            <action
+                android:id="@+id/action_viewTutorialsFragment_to_lessonCompletionFragment"
+                app:destination="@id/lessonCompletionFragment"
+                app:popUpTo="@id/tutorialTopicsFragment" />
+        </fragment>
+    </navigation>
 </navigation>
