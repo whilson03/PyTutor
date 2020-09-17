@@ -16,9 +16,14 @@ class TutorialLessonViewModel @ViewModelInject constructor(
         private val tutorialRepository: TutorialRepository
 ) : ViewModel() {
 
+    init {
+        Timber.d("TUTORIAL VIEWMODEL CREATED")
+    }
+
     fun getLessons(topicId: String): LiveData<DataState<List<LessonResponse>>> {
         return tutorialRepository.getLessonsForTopic(topicId).asLiveData()
     }
+
 
     override fun onCleared() {
         super.onCleared()

@@ -36,4 +36,9 @@
     </style>
 
 
+    <style name="RatingBar" parent="AppTheme">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/lightGrey</item>
+    </style>
+
 </resources>

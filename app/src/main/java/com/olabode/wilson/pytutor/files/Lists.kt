@@ -1,6 +1,5 @@
 package com.olabode.wilson.pytutor.files
 
-import com.google.rpc.Code
 import com.olabode.wilson.pytutor.models.tutorial.*
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
@@ -58,13 +57,13 @@ val lists = listOf(
                                 6,
                                 "",
                                 "",
-                                CodeSnippet("To index listEx in the previous example:","listEx_1st = listEx[0]    # first element of listEx\n" +
+                                CodeSnippet("To index listEx in the previous example:", "listEx_1st = listEx[0]    # first element of listEx\n" +
                                         "listEx_2nd = listEx[1]    # second element of listEx\n" +
                                         "listEx_3rd = listEx[2]    # third element of listEx\n" +
                                         "\n" +
                                         "print(listEx_2nd)\n" +
                                         "print(listEx_3rd)\n" +
-                                        "print(listEx_4th",""),
+                                        "print(listEx_4th", ""),
                                 LessonTypes.CODE.ordinal
                         ),
 
@@ -72,9 +71,9 @@ val lists = listOf(
                                 7,
                                 "",
                                 "",
-                                CodeSnippet("Output:","12\n" +
+                                CodeSnippet("Output:", "12\n" +
                                         "13\n" +
-                                        "14",""),
+                                        "14", ""),
                                 LessonTypes.CODE.ordinal
                         )
                 ),
