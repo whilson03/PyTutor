@@ -29,7 +29,7 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         super.onViewCreated(view, savedInstanceState)
         adapter = TutorialTopicAdapter { topic ->
             findNavController().navigate(TutorialTopicsFragmentDirections
-                    .actionTutorialTopicsFragmentToViewTutorialsFragment(topic.title, topic))
+                    .actionTutorialTopicsFragmentToViewTutorialsFragment(title = topic.title, topic = topic))
         }
         binding.topicsRecycler.adapter = adapter
 

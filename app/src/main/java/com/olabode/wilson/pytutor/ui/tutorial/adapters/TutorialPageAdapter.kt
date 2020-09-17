@@ -17,8 +17,8 @@ class TutorialPageAdapter(fragment: Fragment, private val pages: Int, val list: 
     override fun createFragment(position: Int): Fragment {
         val response = list[position]
         return when (response.type) {
-            LessonResponseType.LESSON.ordinal -> TutorialPageFragment.newInstance(list[position])
-            else -> QuestionFragment()
+            LessonResponseType.LESSON.ordinal -> TutorialPageFragment.newInstance(response)
+            else -> QuestionFragment.newInstance(response)
         }
     }
 }

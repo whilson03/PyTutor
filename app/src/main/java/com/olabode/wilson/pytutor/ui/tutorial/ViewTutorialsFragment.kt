@@ -8,13 +8,16 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.navGraphViewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentViewTutorialsBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.files.while_loop
 import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialPageAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialLessonViewModel
@@ -25,7 +28,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
     private val binding by viewBinding(FragmentViewTutorialsBinding::bind)
-    private val viewModel: TutorialLessonViewModel by viewModels()
+    private val viewModel: TutorialLessonViewModel
+            by navGraphViewModels(R.id.lesson_graph) { defaultViewModelProviderFactory }
+
+    private val arg: ViewTutorialsFragmentArgs by navArgs()
 
     private lateinit var pagesAdapter: TutorialPageAdapter
     private lateinit var viewPager: ViewPager2
@@ -33,7 +39,7 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val topic = ViewTutorialsFragmentArgs.fromBundle(requireArguments()).topic
+        val topic = arg.topic
         val totalNoOfPages = topic.noOfPages
         setUpPageCounter(totalNoOfPages)
 
@@ -45,6 +51,7 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
                 }
                 is DataState.Failed -> {
+                    doOnSuccess(totalNoOfPages, while_loop)
                     Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
                 }
             }
@@ -60,9 +67,10 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 if (position == totalNoOfPages - 1) {
-                    binding.nextPage.text = getString(R.string.finish)
+                    binding.nextPage.visibility = View.INVISIBLE
                 } else {
                     binding.nextPage.text = getString(R.string.next)
+                    binding.nextPage.isVisible = true
                 }
                 currentPosition = position
                 setCurrentIndicator(index = position)
@@ -74,13 +82,6 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
                 currentPosition < totalNoOfPages - 1 -> {
                     currentPosition++
                     viewPager.currentItem = currentPosition
-                    if (currentPosition == totalNoOfPages - 1) {
-                        binding.nextPage.text = getString(R.string.finish)
-                    }
-                }
-                else -> {
-                    Toast.makeText(requireContext(), "NAVIGATE", Toast.LENGTH_SHORT).show()
-                    // finish
                 }
             }
         }

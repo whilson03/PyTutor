@@ -1,6 +1,5 @@
 package com.olabode.wilson.pytutor.di
 
-import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -9,12 +8,10 @@ import com.olabode.wilson.pytutor.repository.auth.AuthRepository
 import com.olabode.wilson.pytutor.repository.auth.AuthRepositoryImpl
 import com.olabode.wilson.pytutor.repository.main.UserRepository
 import com.olabode.wilson.pytutor.repository.main.UserRepositoryImpl
-import com.protectsoft.webviewcode.Codeview
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 /**
@@ -53,12 +50,5 @@ object AppModule {
             firebaseAuth,
             firestore
     )
-
-    @Singleton
-    @Provides
-    fun provideCodeView(@ApplicationContext context: Context): Codeview {
-        return Codeview.with(context)
-    }
-
 
 }

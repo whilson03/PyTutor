@@ -19,7 +19,7 @@ class AchievementsViewHolder(private val binding: ItemAchievementsBinding) : Rec
 
 class AchievementsListAdapter : ListAdapter<AchievementItem, AchievementsViewHolder>(DIFF_CONFIG) {
     companion object {
-        val DIFF_CONFIG = object: DiffUtil.ItemCallback<AchievementItem>() {
+        val DIFF_CONFIG = object : DiffUtil.ItemCallback<AchievementItem>() {
             override fun areItemsTheSame(oldItem: AchievementItem, newItem: AchievementItem): Boolean {
                 return oldItem === newItem
             }

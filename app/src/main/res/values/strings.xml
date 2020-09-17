@@ -27,6 +27,10 @@
     <string name="prev">Prev</string>
     <string name="finish">Finish</string>
     <string name="code">CODE</string>
+    <string name="submit">Submit</string>
+    <string name="pick_option_prompt">Please make a selection</string>
+    <string name="next_lesson_button_text">Continue</string>
+    <string name="lesson_complete">Lesson Complete</string>
 
 
 </resources>

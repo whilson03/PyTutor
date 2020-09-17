@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                     toolbar.isVisible = true
                 }
 
-                R.id.loginFragment, R.id.signUpFragment -> {
+                R.id.loginFragment, R.id.signUpFragment, R.id.lessonCompletionFragment -> {
                     bottomNavigationView.isVisible = false
                     toolbar.isVisible = false
                 }
