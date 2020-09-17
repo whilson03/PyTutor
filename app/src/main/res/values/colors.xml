@@ -11,8 +11,6 @@
 
     <color name="dividerColor">#BDBDBD</color>
 
-    <color name="new_photfab_bg">#F5F5F5</color>
-
     <!-- Palette Greens -->
     <color name="green_lightest">#e2ffc7</color>
     <color name="green_light">#7eb0ad</color>
@@ -29,4 +27,8 @@
 
     <color name="lesson_card_bg_color">#F4F0F0</color>
     <color name="code_background">#5A5858</color>
+
+
+    <color name="duskYellow">#ffc922</color>
+    <color name="lightGrey">#D3D3D3</color>
 </resources>
