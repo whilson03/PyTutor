@@ -3,7 +3,8 @@ package com.olabode.wilson.pytutor.data
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
-import com.olabode.wilson.pytutor.models.tutorial.TopicResponse
+import androidx.room.Query
+import com.olabode.wilson.pytutor.models.cache.tutorial.TopicCacheEntity
 
 /**
  *   Created by OLABODE WILSON on 9/18/20.
@@ -13,7 +14,12 @@ import com.olabode.wilson.pytutor.models.tutorial.TopicResponse
 interface TopicsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun inserAll(topics: List<TopicResponse>)
+    suspend fun insert(topics: TopicCacheEntity)
 
+    @Query("SELECT * FROM topics_table")
+    suspend fun getTopics(): List<TopicCacheEntity>
+
+    @Query("DELETE FROM topics_table")
+    suspend fun clearTopics()
 
 }

@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentQuestionBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
-import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
+import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.tutorial.Question
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*

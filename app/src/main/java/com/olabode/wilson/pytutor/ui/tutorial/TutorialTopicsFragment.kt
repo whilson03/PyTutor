@@ -15,6 +15,7 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialTopicAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialTopicViewModel
 import com.olabode.wilson.pytutor.utils.DataState
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
@@ -39,8 +40,9 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
                     binding.progressBar.isVisible = false
                     adapter.submitList(result.data.sortedBy { it.orderKey })
                 }
-                is DataState.Failed -> {
+                is DataState.Error -> {
                     binding.progressBar.isVisible = false
+                    Timber.d(result.message)
                     Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
                 }
 

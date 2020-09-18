@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentTutorialPageBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
-import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
+import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

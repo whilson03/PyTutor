@@ -1,7 +1,7 @@
 package com.olabode.wilson.pytutor.files
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.olabode.wilson.pytutor.models.tutorial.TopicResponse
+import com.olabode.wilson.pytutor.models.remote.tutorial.TopicResponse
 import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

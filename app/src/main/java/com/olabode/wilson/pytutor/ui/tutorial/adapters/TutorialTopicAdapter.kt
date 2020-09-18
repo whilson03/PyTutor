@@ -5,20 +5,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.TutorialItemBinding
-import com.olabode.wilson.pytutor.models.tutorial.TopicResponse
+import com.olabode.wilson.pytutor.models.Topic
 
 /**
  *   Created by OLABODE WILSON on 9/8/20.
  */
-class TutorialTopicAdapter(private val clickListener: (topic: TopicResponse) -> Unit)
-    : ListAdapter<TopicResponse, TutorialTopicAdapter.ViewHolder>(TopicResponse.DIFF_CALLBACK) {
-
+class TutorialTopicAdapter(private val clickListener: (topic: Topic) -> Unit)
+    : ListAdapter<Topic, TutorialTopicAdapter.ViewHolder>(Topic.DIFF_CALLBACK) {
 
     class ViewHolder(
             private val binding: TutorialItemBinding,
-            private val clickListener: (topic: TopicResponse) -> Unit
+            private val clickListener: (topic: Topic) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        private var item: TopicResponse? = null
+        private var item: Topic? = null
 
         init {
             binding.root.setOnClickListener {
@@ -26,7 +25,7 @@ class TutorialTopicAdapter(private val clickListener: (topic: TopicResponse) -> 
             }
         }
 
-        fun bind(item: TopicResponse) {
+        fun bind(item: Topic) {
             this.item = item
             binding.topicCount.text = getTopicNumber(adapterPosition + 1)
             binding.title.text = item.title
