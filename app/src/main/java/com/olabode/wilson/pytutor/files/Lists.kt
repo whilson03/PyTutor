@@ -15,7 +15,8 @@ val lists = listOf(
                                 1,
                                 "",
                                 "Lists are sequences which are used to hold any data type in Python.\n" +
-                                        "A distinguishing feature is their mutability, i.e. The elements of lists can be altered.",
+                                        "A distinguishing feature is their mutability, i.e. The elements of lists can be altered.\n" +
+                                        "Lists are also multidimensional which means a single list can hold different data types.",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -204,9 +205,9 @@ val lists = listOf(
                                 3,
                                 "",
                                 "",
-                                CodeSnippet("", "a\n" +
+                                CodeSnippet("Output", "a\n" +
                                         "14\n" +
-                                        "[12, 'afri']", "Output"),
+                                        "[12, 'afri']", ""),
                                 LessonTypes.CODE.ordinal
                         ),
 
@@ -231,7 +232,7 @@ val lists = listOf(
                                 6,
                                 "",
                                 "",
-                                CodeSnippet("", "['afri', 12]", "Output"),
+                                CodeSnippet("Output", "['afri', 12]", ""),
                                 LessonTypes.CODE.ordinal
                         ),
 
@@ -256,7 +257,7 @@ val lists = listOf(
                                 9,
                                 "",
                                 "",
-                                CodeSnippet("", "2", "Output"),
+                                CodeSnippet("Output", "2", ""),
                                 LessonTypes.CODE.ordinal
                         )
                 ),
@@ -352,51 +353,34 @@ val lists = listOf(
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
-                                question = "",
+                                question = "colourList = [\"black\", \"red\", \"blue\", \"pink\", \"yellow\"]\n" +
+                                        "what is the index of blue in the list above?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = ""
-                        ),
-
-                        "2" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = ""
-                        ),
-                        "3" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = "1"
-                        ),
-
-                        "4" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "3",
+                                        "2" to "2",
+                                        "3" to "4"
                                 ),
                                 answerKey = "2"
                         ),
-                        "5" to Question(
-                                question = "",
+
+                        "2" to Question(
+                                question = "colourList.pop()\n" +
+                                        "what does this return?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "yellow",
+                                        "2" to "black",
+                                        "3" to "blue"
                                 ),
-                                answerKey = "3"
+                                answerKey = "1"
+                        ),
+                        "3" to Question(
+                                question = "Which of these is true?",
+                                options = mapOf(
+                                        "1" to "A list can contain several different data types.",
+                                        "2" to "A list can hold only one data type.",
+                                        "3" to "A list can hold only integers and strings."
+                                ),
+                                answerKey = "1"
                         )
                 ),
                 type = LessonResponseType.QUESTION.ordinal

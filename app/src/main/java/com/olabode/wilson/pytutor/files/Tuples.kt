@@ -22,7 +22,7 @@ val tuples = listOf(
                         "2" to Lesson(
                                 2,
                                 "",
-                                "Like lists, they are also ordered.",
+                                "Like lists, they are also ordered and multidimensional.",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
@@ -263,51 +263,32 @@ val tuples = listOf(
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
-                                question = "",
+                                question = "Which is false?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "Tuples are immutable.",
+                                        "2" to "Tuples are multidimensional.",
+                                        "3" to "Tuples are unordered."
                                 ),
-                                answerKey = ""
+                                answerKey = "3"
                         ),
 
                         "2" to Question(
-                                question = "",
+                                question = "What is used to create tuples?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = ""
-                        ),
-                        "3" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "Parenthesis.",
+                                        "2" to "Square braces.",
+                                        "3" to "Curly braces."
                                 ),
                                 answerKey = "1"
                         ),
-
-                        "4" to Question(
-                                question = "",
+                        "3" to Question(
+                                question = "Can tuples be sliced?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "No.",
+                                        "2" to "Yes.",
+                                        "3" to "Kinda."
                                 ),
-                                answerKey = "2"
-                        ),
-                        "5" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = "3"
+                                answerKey = "1"
                         )
                 ),
                 type = LessonResponseType.QUESTION.ordinal
