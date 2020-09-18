@@ -4,7 +4,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
+import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.repository.main.tutorial.TutorialRepository
 import com.olabode.wilson.pytutor.utils.DataState
 import timber.log.Timber

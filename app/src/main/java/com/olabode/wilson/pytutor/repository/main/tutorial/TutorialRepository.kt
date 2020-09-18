@@ -1,7 +1,7 @@
 package com.olabode.wilson.pytutor.repository.main.tutorial
 
-import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
-import com.olabode.wilson.pytutor.models.tutorial.TopicResponse
+import com.olabode.wilson.pytutor.models.Topic
+import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.utils.DataState
 import kotlinx.coroutines.flow.Flow
 
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
  */
 interface TutorialRepository {
 
-    fun getAllTopics(): Flow<DataState<List<TopicResponse>>>
+    fun getAllTopics(): Flow<DataState<List<Topic>>>
 
     fun getLessonsForTopic(topicId: String): Flow<DataState<List<LessonResponse>>>
 

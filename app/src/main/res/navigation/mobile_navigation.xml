@@ -57,7 +57,7 @@
                 app:argType="string" />
             <argument
                 android:name="topic"
-                app:argType="com.olabode.wilson.pytutor.models.tutorial.TopicResponse" />
+                app:argType="com.olabode.wilson.pytutor.models.Topic" />
         </action>
     </fragment>
     <fragment
@@ -84,7 +84,7 @@
                 app:argType="string" />
             <argument
                 android:name="topic"
-                app:argType="com.olabode.wilson.pytutor.models.tutorial.TopicResponse" />
+                app:argType="com.olabode.wilson.pytutor.models.Topic" />
             <action
                 android:id="@+id/action_viewTutorialsFragment_to_lessonCompletionFragment"
                 app:destination="@id/lessonCompletionFragment"

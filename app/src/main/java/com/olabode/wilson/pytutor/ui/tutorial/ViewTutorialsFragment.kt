@@ -18,7 +18,7 @@ import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentViewTutorialsBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.files.while_loop
-import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
+import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialPageAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialLessonViewModel
 import com.olabode.wilson.pytutor.utils.DataState
@@ -50,7 +50,7 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
                     doOnSuccess(totalNoOfPages, result.data)
 
                 }
-                is DataState.Failed -> {
+                is DataState.Error -> {
                     doOnSuccess(totalNoOfPages, while_loop)
                     Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
                 }

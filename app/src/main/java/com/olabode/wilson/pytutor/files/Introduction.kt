@@ -1,8 +1,8 @@
 package com.olabode.wilson.pytutor.files
 
+import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
+import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
-import com.olabode.wilson.pytutor.models.tutorial.LessonResponse
-import com.olabode.wilson.pytutor.models.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.Question
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
