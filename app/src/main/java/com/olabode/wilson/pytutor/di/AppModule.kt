@@ -1,17 +1,22 @@
 package com.olabode.wilson.pytutor.di
 
+import android.content.Context
+import androidx.room.Room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.olabode.wilson.pytutor.data.PytutorDatabase
 import com.olabode.wilson.pytutor.repository.auth.AuthRepository
 import com.olabode.wilson.pytutor.repository.auth.AuthRepositoryImpl
 import com.olabode.wilson.pytutor.repository.main.UserRepository
 import com.olabode.wilson.pytutor.repository.main.UserRepositoryImpl
+import com.olabode.wilson.pytutor.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 /**
@@ -50,5 +55,16 @@ object AppModule {
             firebaseAuth,
             firestore
     )
+
+
+    @Singleton
+    @Provides
+    fun providePytutorDatabase(
+            @ApplicationContext
+            context: Context
+    ) = Room.databaseBuilder(
+            context, PytutorDatabase::class.java,
+            Constants.DATABASE_NAME
+    ).build()
 
 }
