@@ -327,7 +327,7 @@ val dictionaries = listOf(
                                 4,
                                 "",
                                 "",
-                                CodeSnippet("To change an existing key's value, use square braces to access the key.", "clientInfo[\"lastName\"] = \"Smith\"\n" +
+                                CodeSnippet("To add or change an existing key's value, use square braces to access the key.", "clientInfo[\"lastName\"] = \"Smith\"\n" +
                                         "print(clientInfo)", ""),
                                 LessonTypes.CODE.ordinal
                         ),
@@ -358,51 +358,33 @@ val dictionaries = listOf(
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
-                                question = "",
+                                question = "Which of these cannot be a dictionary key?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = ""
-                        ),
-
-                        "2" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = ""
-                        ),
-                        "3" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = ""
-                        ),
-
-                        "4" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "Tuple",
+                                        "2" to "List",
+                                        "3" to "String"
                                 ),
                                 answerKey = "2"
                         ),
-                        "5" to Question(
-                                question = "",
+
+                        "2" to Question(
+                                question = "Which of these is not a valid way of adding data to a dictionary?",
                                 options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
+                                        "1" to "userInfo[\"name\"] = \"Paul\"",
+                                        "2" to "userInfo = {\"name\": \"Paul\", \"age\": 32}",
+                                        "3" to "userInfo = [\"name\": \"Paul\", \"age\": 32]"
                                 ),
-                                answerKey = ""
+                                answerKey = "3"
+                        ),
+
+                        "3" to Question(
+                                question = "Which command returns boths the keys and values of a dictionary?",
+                                options = mapOf(
+                                        "1" to "dict.all()",
+                                        "2" to "dict.items()",
+                                        "3" to "dict.data()"
+                                ),
+                                answerKey = "2"
                         )
                 ),
                 type = LessonResponseType.QUESTION.ordinal
