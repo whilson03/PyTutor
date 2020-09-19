@@ -1,18 +1,18 @@
 package com.olabode.wilson.pytutor.models.tutorial
 
 import android.os.Parcelable
-import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
+import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import kotlinx.android.parcel.Parcelize
+
+/**
+ *   Created by OLABODE WILSON on 9/18/20.
+ */
 
 @Parcelize
 data class Lesson(
-        val orderKey: Int,
-        val imageUrl: String = "",
-        val body: String = "",
-        val codeSnippet: CodeSnippet?,
-        val type: Int
-) : Parcelable {
-
-    constructor() : this(
-            0, "", "", null, LessonTypes.TEXT.ordinal)
-}
+        val topicId: String,
+        val page: Int,
+        val lessons: Map<String, Tutorial>? = null,
+        val question: Map<String, Question>? = null,
+        val type: Int = LessonResponseType.LESSON.ordinal
+) : Parcelable

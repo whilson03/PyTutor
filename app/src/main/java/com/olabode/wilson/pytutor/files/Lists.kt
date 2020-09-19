@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val lists = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "Lists are sequences which are used to hold any data type in Python.\n" +
@@ -25,7 +25,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "Lists are declared with square brackets ([]) in Python.",
@@ -33,7 +33,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "",
@@ -41,7 +41,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "Indexing a List",
@@ -49,7 +49,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "In Python, elements of a list are accessed with square brackets, and indexing begins at 0 (the first element has an index of 0, not 1).",
@@ -57,7 +57,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "",
@@ -71,7 +71,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to Tutorial(
                                 7,
                                 "",
                                 "",
@@ -84,10 +84,10 @@ val lists = listOf(
                 question = null,
                 type = LessonResponseType.LESSON.ordinal
         ),
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Manipulating Lists",
@@ -95,7 +95,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Python provides some methods and functions which can be used to change the contents of a list and we’ll cover a few.",
@@ -103,7 +103,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "listName.append(x): Adds the value of x to the end of the list.",
@@ -111,7 +111,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -121,7 +121,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -129,7 +129,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "listName.remove(x): Removes the first occurrence of x from the list.",
@@ -137,7 +137,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "",
@@ -146,7 +146,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "9" to Lesson(
+                        "9" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 9,
                                 "",
                                 "",
@@ -154,7 +154,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "10" to Lesson(
+                        "10" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 10,
                                 "",
                                 "listName.insert(index, x): Inserts the value of x into the list at the position of index.",
@@ -162,7 +162,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "11" to Lesson(
+                        "11" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 11,
                                 "",
                                 "",
@@ -171,7 +171,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "12" to Lesson(
+                        "12" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 12,
                                 "",
                                 "",
@@ -183,10 +183,10 @@ val lists = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "listName.pop(x): Removes and returns the element at the index x. Acts on the last element by default.",
@@ -194,7 +194,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -205,7 +205,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -215,7 +215,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "listName.reverse(): Reverses the order of elements in the list.",
@@ -223,7 +223,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -232,7 +232,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -240,7 +240,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "len(listName): Returns the number of elements in the list.",
@@ -248,7 +248,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 8,
                                 "",
                                 "",
@@ -257,7 +257,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "9" to Lesson(
+                        "9" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 9,
                                 "",
                                 "",
@@ -269,10 +269,10 @@ val lists = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Iterating over a List",
@@ -280,7 +280,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "The for-loop can be used to traverse over a list and perform different operations.",
@@ -288,7 +288,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -297,7 +297,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -306,7 +306,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -315,7 +315,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "“Slicing” means accessing a part of a list.",
@@ -323,7 +323,7 @@ val lists = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "",
@@ -331,7 +331,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 8,
                                 "",
                                 "",
@@ -340,7 +340,7 @@ val lists = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "9" to Lesson(
+                        "9" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 9,
                                 "",
                                 "",
@@ -352,7 +352,7 @@ val lists = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = null,
                 question = mapOf(

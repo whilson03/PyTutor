@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val syntax = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "This Topic illustrates some rules, syntax and common function used in python.",
@@ -23,7 +23,7 @@ val syntax = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "As you keep progressing you would get a better understanding of them.",
@@ -31,7 +31,7 @@ val syntax = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "A variable name is one example of an identifier.",
@@ -39,7 +39,7 @@ val syntax = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "Identifiers have the following form:",
@@ -47,7 +47,7 @@ val syntax = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "Identifiers must contain at least one character.",
@@ -55,14 +55,14 @@ val syntax = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "An identifier starts with a letter A to Z or a to z or an underscore (_) followed by zero or more letters, underscores and digits (0 to 9).",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "7" to Lesson(
+                        "7" to Tutorial(
                                 7,
                                 "",
                                 "Python does not allow punctuation characters such as @, \$, and % within identifiers.",
@@ -74,10 +74,10 @@ val syntax = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Python is a case sensitive programming language. i.e shapes and SHAPES are different Identifiers.",
@@ -85,7 +85,7 @@ val syntax = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "A reserved word cannot be used as an identifier",
@@ -93,7 +93,7 @@ val syntax = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "Spaces aren't permitted in identifiers",
@@ -101,7 +101,7 @@ val syntax = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "Examples of valid identifiers:\n" +
@@ -110,7 +110,7 @@ val syntax = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "Examples of Invalid identifiers\n" +
@@ -133,10 +133,10 @@ val syntax = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Python reserves a number of words for special use, called reserved words or keywords.",
@@ -144,7 +144,7 @@ val syntax = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "These words are special and are used to define the structure of Python programs and statements.",
@@ -152,7 +152,7 @@ val syntax = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "There are 35 keywords in Python.",
@@ -160,14 +160,14 @@ val syntax = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "and, del, from, None, try, as, elif, global, nonlocal, True, assert, else, if, not, while, break, except, import, or, with",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "class, False, in, pass, yield, continue, finally, is, raise, def, for, lambda, return",
@@ -177,10 +177,10 @@ val syntax = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Multi-Line Statements",
@@ -188,7 +188,7 @@ val syntax = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -203,7 +203,7 @@ val syntax = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -219,7 +219,7 @@ val syntax = listOf(
 
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -235,7 +235,7 @@ val syntax = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "Comments in Python",
@@ -244,10 +244,10 @@ val syntax = listOf(
                         )
                 )
         ),
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Comments in Python",
@@ -255,7 +255,7 @@ val syntax = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "A hash sign (#) that is not inside a string literal is the beginning of a comment. All\n" +
@@ -265,7 +265,7 @@ val syntax = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "Python does not have multiple-line commenting feature. You have to comment each line\n" +
@@ -280,7 +280,7 @@ val syntax = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 6,
                 lessons = null,
                 question = mapOf(

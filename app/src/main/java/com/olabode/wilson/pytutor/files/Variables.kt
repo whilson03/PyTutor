@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -13,10 +13,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 
 val variables = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "Variables are reserved memory locations to store values.",
@@ -24,7 +24,7 @@ val variables = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "When a variable is created, you reserve some space in the memory.",
@@ -33,7 +33,7 @@ val variables = listOf(
 
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "The Datatype of the variable determines how much memory  is allocated.",
@@ -42,7 +42,7 @@ val variables = listOf(
 
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "Python variables do not need explicit declaration to reserve memory space.The declaration happens automatically when you assign a value to a variable.",
@@ -50,7 +50,7 @@ val variables = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "The ' = ' Assignment operator is used to assign values to variables.",
@@ -62,10 +62,10 @@ val variables = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "They also provide a way of labeling data with a descriptive name, so our programs can be understood more clearly by the reader and ourselves.",
@@ -73,7 +73,7 @@ val variables = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Their sole purpose is to label and store data in memory. This data can then be used throughout your program.",
@@ -81,7 +81,7 @@ val variables = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -93,7 +93,7 @@ val variables = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -109,7 +109,7 @@ val variables = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -124,10 +124,10 @@ val variables = listOf(
         ),
 
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "",
@@ -140,7 +140,7 @@ val variables = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -152,7 +152,7 @@ val variables = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -167,7 +167,7 @@ val variables = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -183,10 +183,10 @@ val variables = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "",
@@ -204,7 +204,7 @@ val variables = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -218,7 +218,7 @@ val variables = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = null,
                 question = mapOf(

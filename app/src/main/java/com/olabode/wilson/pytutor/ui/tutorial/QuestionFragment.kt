@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentQuestionBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
-import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
+import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -17,7 +17,7 @@ import java.util.*
 @AndroidEntryPoint
 class QuestionFragment : Fragment(R.layout.fragment_question) {
     private val binding by viewBinding(FragmentQuestionBinding::bind)
-    private lateinit var lessonQuestionResponse: LessonResponse
+    private lateinit var lessonQuestionResponse: Lesson
     private var currentQuestionIndex = 0
     private var isQuizAnswered = false
     private var score = 0
@@ -32,10 +32,10 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         const val LIST_OF_KEYS_ANSWERED = "LIST_OF_KEYS_ANSWERED"
 
         @JvmStatic
-        fun newInstance(lessonResponse: LessonResponse) =
+        fun newInstance(lesson: Lesson) =
                 QuestionFragment().apply {
                     arguments = Bundle().apply {
-                        putParcelable(QUESTION_RESPONSE, lessonResponse)
+                        putParcelable(QUESTION_RESPONSE, lesson)
                     }
                 }
     }

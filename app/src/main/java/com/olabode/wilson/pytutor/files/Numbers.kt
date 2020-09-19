@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -13,10 +13,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 
 val numbers = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "Number data types store numeric values. Number objects are created when you assign a " +
@@ -25,7 +25,7 @@ val numbers = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "",
@@ -39,7 +39,7 @@ val numbers = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "Python supports three different numerical types: ",
@@ -47,7 +47,7 @@ val numbers = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "int (signed integers)",
@@ -55,21 +55,21 @@ val numbers = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "float (floating point real values)",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "complex (complex numbers)",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "7" to Lesson(
+                        "7" to Tutorial(
                                 7,
                                 "",
                                 "",
@@ -84,10 +84,10 @@ val numbers = listOf(
         ),
 
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Arithmetic Operators: ",
@@ -95,7 +95,7 @@ val numbers = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Arithmetic Operations are a common task in our everyday life, its also a common task in programming.",
@@ -103,7 +103,7 @@ val numbers = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "Lets create two variables to illustrate these operators",
@@ -111,7 +111,7 @@ val numbers = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -129,10 +129,10 @@ val numbers = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "+ Addition :\nAdds values on either side of the operator.",
@@ -140,7 +140,7 @@ val numbers = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -152,7 +152,7 @@ val numbers = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -164,7 +164,7 @@ val numbers = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 " - Subtraction :\nSubtracts right hand operand from left hand " +
@@ -173,7 +173,7 @@ val numbers = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -184,7 +184,7 @@ val numbers = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -199,10 +199,10 @@ val numbers = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "* Multiplication :\nMultiplies values on either side of the operator",
@@ -210,7 +210,7 @@ val numbers = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -222,7 +222,7 @@ val numbers = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -234,7 +234,7 @@ val numbers = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "/ Division :\nDivides left hand operand by right hand " +
@@ -243,7 +243,7 @@ val numbers = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -254,7 +254,7 @@ val numbers = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -268,10 +268,10 @@ val numbers = listOf(
 
                 )
         ),
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "% Modulus :\nDivides left hand operand by right hand operand and returns remainder",
@@ -279,7 +279,7 @@ val numbers = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -291,7 +291,7 @@ val numbers = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -303,7 +303,7 @@ val numbers = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "** Exponent :\nPerforms exponential (power) calculation on " +
@@ -312,7 +312,7 @@ val numbers = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -323,7 +323,7 @@ val numbers = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -336,10 +336,10 @@ val numbers = listOf(
                         )
                 )
         ),
-        LessonResponse(
+        LessonResponse("",
                 6,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "// Floor Division :\nDivides left hand operand by right hand operand and returns the quotient.",
@@ -347,7 +347,7 @@ val numbers = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -359,7 +359,7 @@ val numbers = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -373,7 +373,7 @@ val numbers = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 7,
                 lessons = null,
                 question = mapOf(

@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val functions = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "A function is a block of code which only runs when it is called. \n" +
@@ -24,7 +24,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "Functions are a convenient way to divide your code into useful blocks.\n" +
@@ -33,7 +33,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "You can pass data, known as parameters, into a function.",
@@ -41,7 +41,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "Creating a Function",
@@ -49,7 +49,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "In Python, functions are declared with the \"def\" keyword.",
@@ -57,7 +57,7 @@ val functions = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "This is then followed by the name of the function.",
@@ -65,7 +65,7 @@ val functions = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to Tutorial(
                                 7,
                                 "",
                                 "Next, the parameters of the function are declared in parentheses.\n" +
@@ -74,7 +74,7 @@ val functions = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to Tutorial(
                                 8,
                                 "",
                                 "Finally the body of the function is written after a colon and indentation.",
@@ -82,7 +82,7 @@ val functions = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "9" to Lesson(
+                        "9" to Tutorial(
                                 9,
                                 "",
                                 "",
@@ -95,10 +95,10 @@ val functions = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Why Use Functions",
@@ -106,7 +106,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Functions are very important concepts in programming.\n" +
@@ -115,7 +115,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -133,7 +133,7 @@ val functions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -146,7 +146,7 @@ val functions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "You may notice that the print statements are repeated often.\n" +
@@ -155,7 +155,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -169,7 +169,7 @@ val functions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "",
@@ -182,7 +182,7 @@ val functions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 8,
                                 "",
                                 "Now we have the greeting messages in a function which can be called with any name.\n" +
@@ -195,10 +195,10 @@ val functions = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Return Values from a Function",
@@ -206,7 +206,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "A function can also return data as a result.",
@@ -214,7 +214,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -229,7 +229,7 @@ val functions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -241,10 +241,10 @@ val functions = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "The Pass Statement",
@@ -252,7 +252,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "The \"Pass\" keyword is used when an expression is required but you do not want to execute any command.\n" +
@@ -262,7 +262,7 @@ val functions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -273,7 +273,7 @@ val functions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -287,7 +287,7 @@ val functions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -299,7 +299,7 @@ val functions = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = null,
                 question = mapOf(

@@ -9,12 +9,12 @@ import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialBodyBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialImageBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialSnippetBinding
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 
 /**
  *   Created by OLABODE WILSON on 9/9/20.
  */
-class LessonAdapter : ListAdapter<Lesson, RecyclerView.ViewHolder>(LessonDiffCallback()) {
+class LessonAdapter : ListAdapter<Tutorial, RecyclerView.ViewHolder>(LessonDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -71,12 +71,12 @@ class LessonAdapter : ListAdapter<Lesson, RecyclerView.ViewHolder>(LessonDiffCal
     }
 }
 
-class LessonDiffCallback : DiffUtil.ItemCallback<Lesson>() {
-    override fun areItemsTheSame(oldItem: Lesson, newItem: Lesson): Boolean {
+class LessonDiffCallback : DiffUtil.ItemCallback<Tutorial>() {
+    override fun areItemsTheSame(oldItem: Tutorial, newItem: Tutorial): Boolean {
         return oldItem === newItem
     }
 
-    override fun areContentsTheSame(oldItem: Lesson, newItem: Lesson): Boolean {
+    override fun areContentsTheSame(oldItem: Tutorial, newItem: Tutorial): Boolean {
         return oldItem == newItem
     }
 

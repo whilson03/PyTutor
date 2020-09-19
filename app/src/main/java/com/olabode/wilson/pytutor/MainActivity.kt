@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             /** NO OPERATION **/
         }
 
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment -> {
@@ -63,10 +64,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return (Navigation.findNavController(this, R.id.fragments_container).navigateUp()
                 || super.onSupportNavigateUp())
     }
+
 }

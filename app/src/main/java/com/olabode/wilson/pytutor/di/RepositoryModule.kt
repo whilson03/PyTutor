@@ -1,7 +1,10 @@
 package com.olabode.wilson.pytutor.di
 
 import com.google.firebase.firestore.FirebaseFirestore
+import com.olabode.wilson.pytutor.data.LessonsDao
 import com.olabode.wilson.pytutor.data.TopicsDao
+import com.olabode.wilson.pytutor.mappers.tutorial.LessonCacheMapper
+import com.olabode.wilson.pytutor.mappers.tutorial.LessonNetworkMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicCacheMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicNetworkMapper
 import com.olabode.wilson.pytutor.repository.main.tutorial.TutorialRepository
@@ -25,13 +28,19 @@ object RepositoryModule {
     @Provides
     fun provideTutorialRepository(
             fireStore: FirebaseFirestore,
-            networkMapper: TopicNetworkMapper,
-            cacheMapper: TopicCacheMapper,
-            topicsDao: TopicsDao
+            topicsDao: TopicsDao,
+            topicNetworkMapper: TopicNetworkMapper,
+            topicCacheMapper: TopicCacheMapper,
+            lessonNetworkMapper: LessonNetworkMapper,
+            lessonCacheMapper: LessonCacheMapper,
+            lessonsDao: LessonsDao
     ): TutorialRepository = TutorialRepositoryImpl(
-            fireStore,
-            networkMapper,
-            cacheMapper,
-            topicsDao
+            remoteDatabase = fireStore,
+            topicNetworkMapper = topicNetworkMapper,
+            topicCacheMapper = topicCacheMapper,
+            topicsDao = topicsDao,
+            lessonNetworkMapper = lessonNetworkMapper,
+            lessonsCacheMapper = lessonCacheMapper,
+            lessonsDao = lessonsDao
     )
 }

@@ -4,7 +4,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
+import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.repository.main.tutorial.TutorialRepository
 import com.olabode.wilson.pytutor.utils.DataState
 import timber.log.Timber
@@ -20,7 +20,7 @@ class TutorialLessonViewModel @ViewModelInject constructor(
         Timber.d("TUTORIAL VIEWMODEL CREATED")
     }
 
-    fun getLessons(topicId: String): LiveData<DataState<List<LessonResponse>>> {
+    fun getLessons(topicId: String): LiveData<DataState<List<Lesson>>> {
         return tutorialRepository.getLessonsForTopic(topicId).asLiveData()
     }
 

@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val loop_keywords = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "`Pass Statement`",
@@ -23,7 +23,7 @@ val loop_keywords = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "In Python, pass is a null statement. The interpreter does not ignore a pass statement," +
@@ -32,7 +32,7 @@ val loop_keywords = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "",
@@ -50,10 +50,10 @@ val loop_keywords = listOf(
         ),
 
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "`Break Statement`",
@@ -61,7 +61,7 @@ val loop_keywords = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "The break statement is used for premature termination of the current loop.\n" +
@@ -70,7 +70,7 @@ val loop_keywords = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "The break statement can be used in both while and for loops.",
@@ -78,7 +78,7 @@ val loop_keywords = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "If the break statement is inside a nested loop (i.e loop inside another loop), the break statement will terminate the innermost loop.",
@@ -86,7 +86,7 @@ val loop_keywords = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -100,7 +100,7 @@ val loop_keywords = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -118,10 +118,10 @@ val loop_keywords = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "",
@@ -140,7 +140,7 @@ val loop_keywords = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -154,10 +154,10 @@ val loop_keywords = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "`Continue Statement`",
@@ -165,7 +165,7 @@ val loop_keywords = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "The continue statement is used to skip the rest of the code inside a loop for the current iteration only.\n" +
@@ -174,7 +174,7 @@ val loop_keywords = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "The break statement can be used in both while and for loops.",
@@ -182,7 +182,7 @@ val loop_keywords = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "If the break statement is inside a nested loop (i.e loop inside another loop), the break statement will terminate the innermost loop.",
@@ -190,7 +190,7 @@ val loop_keywords = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -204,7 +204,7 @@ val loop_keywords = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -224,10 +224,10 @@ val loop_keywords = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "",
@@ -246,7 +246,7 @@ val loop_keywords = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -260,7 +260,7 @@ val loop_keywords = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 6,
                 lessons = null,
                 question = mapOf(

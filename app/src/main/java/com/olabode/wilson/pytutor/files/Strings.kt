@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val strings = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "Strings in Python are identified as a set of characters surrounded by quotation marks.",
@@ -23,7 +23,7 @@ val strings = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "Python allows either pair of single or double quotes.Multi-line strings can be denoted using triple quotes, ''' or \"\"\"",
@@ -31,7 +31,7 @@ val strings = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "",
@@ -55,7 +55,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "",
@@ -71,7 +71,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "Spaces within a String are also counted as Characters",
@@ -79,7 +79,7 @@ val strings = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "",
@@ -94,10 +94,10 @@ val strings = listOf(
         ),
 
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "",
@@ -115,7 +115,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -130,7 +130,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -144,7 +144,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -156,7 +156,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -169,7 +169,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -185,10 +185,10 @@ val strings = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "A very common case when working with Strings is to know how many characters it contain. Python has and handy function for that.",
@@ -196,7 +196,7 @@ val strings = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -210,7 +210,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "String Concatenation: ",
@@ -218,7 +218,7 @@ val strings = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -233,7 +233,7 @@ val strings = listOf(
                         ),
 
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "Output: ",
@@ -250,10 +250,10 @@ val strings = listOf(
         ),
 
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "String Repetition: ",
@@ -261,7 +261,7 @@ val strings = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -275,7 +275,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -287,7 +287,7 @@ val strings = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "Apart from len() there several other Built-In Functions for working and manipulating Strings in Python.",
@@ -296,7 +296,7 @@ val strings = listOf(
                         )
                 )
         ),
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = null,
                 question = mapOf(

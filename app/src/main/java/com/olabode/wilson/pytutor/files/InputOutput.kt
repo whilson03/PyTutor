@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val io = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "A common scenario in programming is allowing user interact with our programs, i.e getting user inputs and also displaying outputs for them to see.",
@@ -23,7 +23,7 @@ val io = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "In this Chapter we will be focusing on how to get inputs from users and also display some meaningful " +
@@ -32,7 +32,7 @@ val io = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "Getting user input:",
@@ -40,7 +40,7 @@ val io = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "Programs may use the `input()` function to obtain information from the user.",
@@ -48,7 +48,7 @@ val io = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "",
@@ -62,7 +62,7 @@ val io = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "",
@@ -81,10 +81,10 @@ val io = listOf(
         ),
 
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "NB: `input() returns a String.`",
@@ -92,7 +92,7 @@ val io = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "input([prompt]) also takes an optional prompt which must be a String. This prompt is displayed to the user before the input is entered.",
@@ -100,7 +100,7 @@ val io = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -113,7 +113,7 @@ val io = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -127,7 +127,7 @@ val io = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "But how do we actually get the value inputted as an integer ?",
@@ -139,10 +139,10 @@ val io = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "This takes us to Type Conversion",
@@ -150,7 +150,7 @@ val io = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Python has some Built-In functions for converting from one Data type to another.",
@@ -158,14 +158,14 @@ val io = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "To convert a string-number (\"22\") from a string into a number we can use int() or float() functions.",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -182,7 +182,7 @@ val io = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -198,10 +198,10 @@ val io = listOf(
                         )
                 )
         ),
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Output Using `print()` function",
@@ -209,7 +209,7 @@ val io = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Before now we have used the `print()` to display outputs.Lets take a closer look into this function.",
@@ -217,21 +217,21 @@ val io = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "The `print()` function is used output data to the standard output device (screen).",
                                 null,
                                 LessonTypes.TEXT.ordinal
                         ),
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "print(object(s), sep=' ', end='\\n', file=sys.stdout, flush=False)",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "Lets take a closer look at this syntax.",
@@ -241,10 +241,10 @@ val io = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "object(s)\nAn object or multiple objects Separated by commas `,`.They Will be converted to string before printed.\n" +
@@ -253,7 +253,7 @@ val io = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -265,7 +265,7 @@ val io = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -277,7 +277,7 @@ val io = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "sep\n" +
@@ -287,7 +287,7 @@ val io = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -298,7 +298,7 @@ val io = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -312,10 +312,10 @@ val io = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 6,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "The last argument we will be looking at is the `end=' ' ` ",
@@ -323,7 +323,7 @@ val io = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "end\n" +
@@ -335,7 +335,7 @@ val io = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -349,7 +349,7 @@ val io = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "sep\n" +
@@ -359,7 +359,7 @@ val io = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -375,7 +375,7 @@ val io = listOf(
         ),
 
 
-        LessonResponse(
+        LessonResponse("",
                 7,
                 lessons = null,
                 question = mapOf(

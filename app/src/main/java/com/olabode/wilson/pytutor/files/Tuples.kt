@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val tuples = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "Similar to lists, tuples are data structures which are used to hold elements in Python.",
@@ -23,7 +23,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "Like lists, they are also ordered and multidimensional.",
@@ -31,7 +31,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "The key difference however, is that while lists are mutable, tuples are not.\n" +
@@ -40,7 +40,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "Tuples are declared with parenthesis (()).",
@@ -48,7 +48,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "",
@@ -61,7 +61,7 @@ val tuples = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "",
@@ -75,10 +75,10 @@ val tuples = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Creating a Tuple with One Element",
@@ -86,7 +86,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Constructing a tuple with a single element requires an extra step.",
@@ -94,7 +94,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "Try creating one as before.",
@@ -102,7 +102,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -111,7 +111,7 @@ val tuples = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -119,7 +119,7 @@ val tuples = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "As seen above, a tuple declaration with a single element isn’t a tuple at all, but it takes the type of the element, in this case, string.",
@@ -127,7 +127,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "To make it a tuple, you have to append a comma after the element.",
@@ -139,10 +139,10 @@ val tuples = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Operations with Tuples",
@@ -150,7 +150,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Tuples has most operations applicable to lists except those which modify elements.",
@@ -158,7 +158,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "You shouldn’t expect to be able to use append, insert, remove, and pop.",
@@ -166,7 +166,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "Like lists, elements of tuples can be accessed by indexing, slicing, and looping through.",
@@ -174,7 +174,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -188,7 +188,7 @@ val tuples = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -203,7 +203,7 @@ val tuples = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "len(tupleName): Returns the number of elements in the tuple.",
@@ -211,7 +211,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 8,
                                 "",
                                 "",
@@ -223,10 +223,10 @@ val tuples = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Why use Tuples?",
@@ -234,7 +234,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Tuples may seem to be just less flexible forms of lists, but they also have their use cases.",
@@ -242,7 +242,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "For a constant set of values which you have no plans of changing in the future, tuples are preferred as they are much faster than lists.",
@@ -250,7 +250,7 @@ val tuples = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "Also, dictionaries require immutable data as keys for which tuples can be used unlike lists.",
@@ -262,7 +262,7 @@ val tuples = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = null,
                 question = mapOf(

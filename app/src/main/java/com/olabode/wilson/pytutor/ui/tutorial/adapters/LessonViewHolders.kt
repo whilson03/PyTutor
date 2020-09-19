@@ -7,7 +7,7 @@ import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialBodyBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialImageBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialSnippetBinding
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 
 /**
  *   Created by OLABODE WILSON on 9/9/20.
@@ -15,7 +15,7 @@ import com.olabode.wilson.pytutor.models.tutorial.Lesson
 class ImageViewHolder(val binding: ItemTutorialImageBinding)
     : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Lesson) {
+    fun bind(item: Tutorial) {
         if (item.imageUrl.isNotEmpty()) {
             binding.tutorialImage.load(item.imageUrl)
         }
@@ -26,7 +26,7 @@ class ImageViewHolder(val binding: ItemTutorialImageBinding)
 class CodeViewHolder(val binding: ItemTutorialSnippetBinding)
     : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Lesson) {
+    fun bind(item: Tutorial) {
         item.codeSnippet?.let { code ->
             binding.codeText.text = code.code
             if (code.header.isNotEmpty()) {
@@ -50,7 +50,7 @@ class CodeViewHolder(val binding: ItemTutorialSnippetBinding)
 class TextViewHolder(val binding: ItemTutorialBodyBinding)
     : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Lesson) {
+    fun bind(item: Tutorial) {
         item.body.let {
             binding.bodyText.text = it
         }
@@ -60,7 +60,7 @@ class TextViewHolder(val binding: ItemTutorialBodyBinding)
 
 class BulletViewHolder(val binding: ItemBulletTextBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Lesson) {
+    fun bind(item: Tutorial) {
         item.body.let {
             binding.text.text = it
         }

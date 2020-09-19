@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.repository.main
+package com.olabode.wilson.pytutor.repository.main.user
 
 import androidx.lifecycle.LiveData
 import com.olabode.wilson.pytutor.utils.AuthResult

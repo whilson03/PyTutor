@@ -6,12 +6,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.olabode.wilson.pytutor.data.LessonsDao
 import com.olabode.wilson.pytutor.data.PytutorDatabase
 import com.olabode.wilson.pytutor.data.TopicsDao
 import com.olabode.wilson.pytutor.repository.auth.AuthRepository
 import com.olabode.wilson.pytutor.repository.auth.AuthRepositoryImpl
-import com.olabode.wilson.pytutor.repository.main.UserRepository
-import com.olabode.wilson.pytutor.repository.main.UserRepositoryImpl
+import com.olabode.wilson.pytutor.repository.main.user.UserRepository
+import com.olabode.wilson.pytutor.repository.main.user.UserRepositoryImpl
 import com.olabode.wilson.pytutor.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -72,6 +73,12 @@ object AppModule {
     @Provides
     fun provideTopicsDao(database: PytutorDatabase): TopicsDao {
         return database.topicDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideLessonDao(database: PytutorDatabase): LessonsDao {
+        return database.lessonDao()
     }
 
 }
