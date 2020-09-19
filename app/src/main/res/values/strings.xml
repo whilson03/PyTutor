@@ -31,6 +31,12 @@
     <string name="pick_option_prompt">Please make a selection</string>
     <string name="next_lesson_button_text">Continue</string>
     <string name="lesson_complete">Lesson Complete</string>
+    <string name="greeting_hello">Hello,</string>
+    <string name="keep_learning">Keep Learning</string>
+    <string name="your_progress_is">your progress is:</string>
+    <string name="placeholder_name">Adeyoriju Wilson</string>
+    <string name="challenges">Challenges</string>
+    <string name="explore">Explore</string>
 
 
 </resources>
