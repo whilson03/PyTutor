@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val exception_handling = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "Exceptions are undesirable events which, contrary to errors, can be handled.",
@@ -23,7 +23,7 @@ val exception_handling = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "Examples of Python exceptions are:",
@@ -31,7 +31,7 @@ val exception_handling = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "ZeroDivisionError: Raised when a value is divided by zero.",
@@ -39,7 +39,7 @@ val exception_handling = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "NameError: Raised when a variable name is not defined.",
@@ -47,7 +47,7 @@ val exception_handling = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "ModuleNotFoundError: Raised when a module designated for importing does not exist.",
@@ -55,7 +55,7 @@ val exception_handling = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "Exception handling is very useful in controlling the flow of a program.\n" +
@@ -64,7 +64,7 @@ val exception_handling = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to Tutorial(
                                 7,
                                 "",
                                 "Handling exceptions is achieved which the use of \"try-except\" blocks.",
@@ -72,7 +72,7 @@ val exception_handling = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to Tutorial(
                                 8,
                                 "",
                                 "",
@@ -87,10 +87,10 @@ val exception_handling = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "The expression which is excepted to contain an exception is placed in the \"try\" block.\n" +
@@ -99,7 +99,7 @@ val exception_handling = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -109,7 +109,7 @@ val exception_handling = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -117,7 +117,7 @@ val exception_handling = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -131,7 +131,7 @@ val exception_handling = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -143,10 +143,10 @@ val exception_handling = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "There is an optional \"finally\" block for exception handling. \n" +
@@ -155,7 +155,7 @@ val exception_handling = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -173,16 +173,16 @@ val exception_handling = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
                                 CodeSnippet("Output", "Division by zero not possible\n" +
-                                        "Finally",""),
+                                        "Finally", ""),
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "Although sys.exit() was called in the \"except\" block, the \"finally\" block was executed before the program quit running.",
@@ -190,7 +190,7 @@ val exception_handling = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "If no exception name is specified in the \"except\" block parameter, all exceptions will be caught.",
@@ -202,7 +202,7 @@ val exception_handling = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = null,
                 question = mapOf(

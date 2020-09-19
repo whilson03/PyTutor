@@ -2,8 +2,8 @@ package com.olabode.wilson.pytutor.files
 
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -11,10 +11,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val dataStructures = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "In programming, data structures are containers which help us to group related data together in a meaningful way.",
@@ -22,7 +22,7 @@ val dataStructures = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "They are a means of organizing data for efficient usage.",
@@ -30,7 +30,7 @@ val dataStructures = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "Python has a multitude of data structures with the major ones being lists, tuples, dictionaries and sets.",
@@ -38,7 +38,7 @@ val dataStructures = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "Other examples of data structures include stacks, queues, trees and heaps.",
@@ -49,10 +49,10 @@ val dataStructures = listOf(
                 question = null,
                 type = LessonResponseType.LESSON.ordinal
         ),
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Uses of Data Structures:",
@@ -60,7 +60,7 @@ val dataStructures = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Data Structures allow programmers in managing data in the most efficient manners.",
@@ -68,7 +68,7 @@ val dataStructures = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "They allow programmers to effectively make use of algorithms.",
@@ -76,7 +76,7 @@ val dataStructures = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "They allow efficient use of memory and other resources.",
@@ -84,7 +84,7 @@ val dataStructures = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "They are very useful when working with a huge dataset.",
@@ -92,7 +92,7 @@ val dataStructures = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "Data structures are reusable.",
@@ -100,7 +100,7 @@ val dataStructures = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "They allow multiple solutions for a particular problem.",
@@ -112,7 +112,7 @@ val dataStructures = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = null,
                 question = mapOf(

@@ -2,8 +2,8 @@ package com.olabode.wilson.pytutor.files
 
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -23,10 +23,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 
 val introduction = listOf(
-        LessonResponse(
+        LessonResponse("IJECZPSWPRCDWYVfkRCc",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "Python is a general-purpose interpreted, interactive, object-oriented, and high-level scripting programming language.",
@@ -34,7 +34,7 @@ val introduction = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "It was created by Guido van Rossum during 1985 – 1990.",
@@ -43,7 +43,7 @@ val introduction = listOf(
 
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "Python is named after a TV Show called ‘Monty Python’s Flying Circus’.",
@@ -52,7 +52,7 @@ val introduction = listOf(
 
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "Some features of python includes :",
@@ -60,7 +60,7 @@ val introduction = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "Readable: Python is a very readable language.",
@@ -72,10 +72,10 @@ val introduction = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("IJECZPSWPRCDWYVfkRCc",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Cross platform: Python is available and can run on various operating systems such as Mac, Windows, Linux, Unix etc.",
@@ -83,7 +83,7 @@ val introduction = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Open Source: Python is a open source programming language.",
@@ -91,7 +91,7 @@ val introduction = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "Easy-to-learn: Python has few keywords, simple structure, and a clearly defined syntax.\n" +
@@ -100,7 +100,7 @@ val introduction = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "Extendable: You can add low-level modules to the Python interpreter.\n" +
@@ -109,7 +109,7 @@ val introduction = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "Apart from the above-mentioned features, Python has a big list of good features.",
@@ -120,10 +120,10 @@ val introduction = listOf(
         ),
 
 
-        LessonResponse(
+        LessonResponse("IJECZPSWPRCDWYVfkRCc",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Some uses of python includes: ",
@@ -131,7 +131,7 @@ val introduction = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Web development: Web frameworks like Django and Flask are based on Python. They help you write server side code which helps you manage database, write \n" +
@@ -140,7 +140,7 @@ val introduction = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "Desktop GUI: Python can be used to program desktop applications. It provides the Tkinter library that can be used to develop user interfaces." +
@@ -149,7 +149,7 @@ val introduction = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "Scripting: Scripting is writing small programs to automate simple tasks such as sending automated response emails etc." +
@@ -158,7 +158,7 @@ val introduction = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "Machine Learning and Artificial Intelligence: Machine learning is a way to write a logic so that a machine can learn and solve a particular problem on its own. " +
@@ -171,10 +171,10 @@ val introduction = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("IJECZPSWPRCDWYVfkRCc",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Data Science and Data Analysis: Python can be used to study the data, extract relevant information from datasets and perform various operations or take certain decisions based on the extracted data.",
@@ -182,7 +182,7 @@ val introduction = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Game Development: Python is also used in the development of interactive games." +
@@ -192,7 +192,7 @@ val introduction = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "Web Scraping Applications: Python can be used to extract a large amount of data from websites which can then be helpful in various real-world processes such as price comparison, job listings, research and development and much more. ",
@@ -202,7 +202,7 @@ val introduction = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("IJECZPSWPRCDWYVfkRCc",
                 5,
                 lessons = null,
                 question = mapOf(

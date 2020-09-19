@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val conditions = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "In programming, conditions are very useful concepts to control a program flow.\n" +
@@ -24,7 +24,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "What are Boolean Values?",
@@ -32,7 +32,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "Booleans are another data type in Python like numbers and strings.\n" +
@@ -41,7 +41,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "",
@@ -50,7 +50,7 @@ val conditions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "",
@@ -59,7 +59,7 @@ val conditions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "Boolean Expressions",
@@ -67,7 +67,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to Tutorial(
                                 7,
                                 "",
                                 "Boolean expressions are expressions that evaluate to a Boolean value.\n" +
@@ -76,7 +76,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to Tutorial(
                                 8,
                                 "",
                                 "",
@@ -85,7 +85,7 @@ val conditions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "9" to Lesson(
+                        "9" to Tutorial(
                                 9,
                                 "",
                                 "",
@@ -97,10 +97,10 @@ val conditions = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "If Statements",
@@ -108,7 +108,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "If Statements are used to execute a block of code only if the expression in the parameter resolves to \"True\".",
@@ -116,7 +116,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -125,7 +125,7 @@ val conditions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -139,7 +139,7 @@ val conditions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -148,7 +148,7 @@ val conditions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -158,11 +158,11 @@ val conditions = listOf(
                                         "if num1 < num2:\n" +
                                         "    print(\"num1 is greater than num2\")\n" +
                                         "\n" +
-                                        "print(\"done\")", "" ),
+                                        "print(\"done\")", ""),
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "",
@@ -174,10 +174,10 @@ val conditions = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Else Statements",
@@ -185,7 +185,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Else statements are used as complements to ifs.\n" +
@@ -194,7 +194,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -211,7 +211,7 @@ val conditions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -224,10 +224,10 @@ val conditions = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Elif Statements",
@@ -235,7 +235,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Elif statements provide a means to check for other conditions.\n" +
@@ -244,7 +244,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -264,7 +264,7 @@ val conditions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -273,7 +273,7 @@ val conditions = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "The flow of condition scopes essentially falls through from the first if block and checking the remaining elif blocks for a satisfied condition.",
@@ -281,7 +281,7 @@ val conditions = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "If a condition is satisfied, the scope is immediately broken out of.\n" +
@@ -294,7 +294,7 @@ val conditions = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = null,
                 question = mapOf(

@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val while_loop = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "A while loop statement in Python programming language repeatedly executes a target\n" +
@@ -24,7 +24,7 @@ val while_loop = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "",
@@ -37,7 +37,7 @@ val while_loop = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "In a while loop, test expression is checked first. The body of the loop is executed only if the `expression` evaluates to True.",
@@ -45,7 +45,7 @@ val while_loop = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "The `while` loop stops execution once the `expression` evaluates to False",
@@ -53,7 +53,7 @@ val while_loop = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "N.B:\n" +
@@ -62,7 +62,7 @@ val while_loop = listOf(
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "The condition may be any expression, and true is any non-zero value.",
@@ -72,10 +72,10 @@ val while_loop = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "N.B:\nThe body of a while loop will never get executed if the `expression` for the loop evaluates to  False.",
@@ -83,7 +83,7 @@ val while_loop = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -102,7 +102,7 @@ val while_loop = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -120,7 +120,7 @@ val while_loop = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "The Infinite Loop",
@@ -128,7 +128,7 @@ val while_loop = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "A loop becomes infinite loop if a condition never becomes FALSE.",
@@ -140,10 +140,10 @@ val while_loop = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "You must be cautious when using while loops because of the possibility that this condition never resolves to a FALSE value",
@@ -151,7 +151,7 @@ val while_loop = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "This results in a loop that never ends.",
@@ -159,7 +159,7 @@ val while_loop = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -173,7 +173,7 @@ val while_loop = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -193,10 +193,10 @@ val while_loop = listOf(
                         )
                 )
         ),
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "`while` with `else`:",
@@ -204,7 +204,7 @@ val while_loop = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Same as with for loops, while loops can also have an optional else block.",
@@ -212,21 +212,21 @@ val while_loop = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "The else part is executed if the condition in the while loop evaluates to False.",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "The while loop can be terminated with a break statement. In such cases, the else part is ignored.",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -245,7 +245,7 @@ val while_loop = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -261,7 +261,7 @@ val while_loop = listOf(
                         )
                 )
         ),
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = null,
                 question = mapOf(

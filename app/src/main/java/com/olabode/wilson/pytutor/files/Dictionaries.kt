@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val dictionaries = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "In Python, dictionaries are data structures used to hold data in a key-value pair.",
@@ -23,7 +23,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "Unlike lists and tuples, dictionaries are not ordered. \n" +
@@ -32,7 +32,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "Due to this property, indexing isn't possible with dictionaries.\n" +
@@ -41,7 +41,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "",
@@ -53,7 +53,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "Almost any Python data type can be a dictionary key as long as it is immutable. Thus lists cannot be keys.",
@@ -61,7 +61,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "Additionally, keys are unique meaning they can appear only once in a dictionary.",
@@ -69,7 +69,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to Tutorial(
                                 7,
                                 "",
                                 "These restrictions do not apply to values as they can be mutable and appear multiple times in a dictionary.",
@@ -80,10 +80,10 @@ val dictionaries = listOf(
         ),
 
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Creating a Dictionary",
@@ -91,7 +91,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Dictionaries are created with curly braces ({})",
@@ -99,7 +99,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -107,7 +107,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "clientInfo is a dictionary whose keys are \"firstName\", \"lastName\", \"gender\" and \"age\" respectively.\n" +
@@ -116,7 +116,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "To access the values of clientInfo, use the keys as indexes:",
@@ -124,7 +124,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -136,7 +136,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "",
@@ -152,10 +152,10 @@ val dictionaries = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Dictionary Operations",
@@ -163,7 +163,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Dictionaries have 3 methods which are used to access keys and values in a list format.",
@@ -171,7 +171,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "keys(): Returns an array of a dictionary's keys.",
@@ -179,7 +179,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -188,7 +188,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -197,7 +197,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "values(): Returns an array of a dictionary's values.",
@@ -205,7 +205,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "",
@@ -214,7 +214,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 8,
                                 "",
                                 "",
@@ -223,7 +223,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "9" to Lesson(
+                        "9" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 9,
                                 "",
                                 "items(): Returns an array of both a dictionary's keys and values.",
@@ -231,7 +231,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "10" to Lesson(
+                        "10" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 10,
                                 "",
                                 "",
@@ -240,7 +240,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "11" to Lesson(
+                        "11" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 11,
                                 "",
                                 "",
@@ -252,10 +252,10 @@ val dictionaries = listOf(
 
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "get(): Takes two parameters, key and default value and returns the value at \"key\". If the specified key does not exist, the default value is returned instead.",
@@ -263,7 +263,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -271,7 +271,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -279,7 +279,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -287,7 +287,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -299,10 +299,10 @@ val dictionaries = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "setdefault(): Takes two parameters, \"key\" and \"default value\" and creates a new element with them only if the key does not exist.",
@@ -310,7 +310,7 @@ val dictionaries = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -319,7 +319,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -327,7 +327,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "",
@@ -336,7 +336,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -344,7 +344,7 @@ val dictionaries = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "Because they don't make use of numerical indexes and are unordered, operations such as slicing cannot be performed on dictionaries.",
@@ -357,7 +357,7 @@ val dictionaries = listOf(
                 type = LessonResponseType.LESSON.ordinal
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = null,
                 question = mapOf(

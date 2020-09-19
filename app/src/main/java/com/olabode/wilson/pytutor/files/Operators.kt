@@ -3,8 +3,8 @@ package com.olabode.wilson.pytutor.files
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType
 import com.olabode.wilson.pytutor.models.tutorial.CodeSnippet
-import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
+import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
 
 /**
@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 val operators = listOf(
-        LessonResponse(
+        LessonResponse("",
                 1,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to Tutorial(
                                 1,
                                 "",
                                 "In the previous chapters we talked about the Assignment Operator, Arithmetic Operators and their uses.",
@@ -23,7 +23,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to Tutorial(
                                 2,
                                 "",
                                 "In this Chapter you will learn other operators : ",
@@ -31,7 +31,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to Tutorial(
                                 3,
                                 "",
                                 "Logical Operators",
@@ -39,7 +39,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to Tutorial(
                                 4,
                                 "",
                                 "Comparison Operators",
@@ -47,21 +47,21 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to Tutorial(
                                 5,
                                 "",
                                 "Membership Operators",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to Tutorial(
                                 6,
                                 "",
                                 "Identity Operators",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "7" to Lesson(
+                        "7" to Tutorial(
                                 7,
                                 "",
                                 "Comparison Operators: ",
@@ -69,7 +69,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to Tutorial(
                                 8,
                                 "",
                                 "These operators compare the values on either side of them and decide the relation among " +
@@ -78,7 +78,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "9" to Lesson(
+                        "9" to Tutorial(
                                 9,
                                 "",
                                 "Lets create two variables to illustrate these operators",
@@ -86,7 +86,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "10" to Lesson(
+                        "10" to Tutorial(
                                 10,
                                 "",
                                 "",
@@ -101,10 +101,10 @@ val operators = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 2,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Equal Operator ` == ` :\nIf the values of two operands are equal, then the condition " +
@@ -113,7 +113,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -125,7 +125,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -137,7 +137,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "not equal ` != ` : \nIf values of two operands are not equal, then condition " +
@@ -146,7 +146,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -157,7 +157,7 @@ val operators = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -169,7 +169,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "greater than ` > `: \nIf the value of left operand is greater than the value of right" +
@@ -178,7 +178,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 8,
                                 "",
                                 "",
@@ -189,7 +189,7 @@ val operators = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "9" to Lesson(
+                        "9" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 9,
                                 "",
                                 "",
@@ -204,10 +204,10 @@ val operators = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 3,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Less than Operator ` < ` :\nIf the value of left operand is less than the value of right " +
@@ -216,7 +216,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -228,7 +228,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -240,7 +240,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "greater than or equal ` >= ` : \nIf the value of left operand is greater than or equal to the " +
@@ -249,7 +249,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -260,7 +260,7 @@ val operators = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -272,7 +272,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "greater than ` <= `: \nIf the value of left operand is less than or equal to the value " +
@@ -281,7 +281,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 8,
                                 "",
                                 "",
@@ -292,7 +292,7 @@ val operators = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "9" to Lesson(
+                        "9" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 9,
                                 "",
                                 "",
@@ -307,10 +307,10 @@ val operators = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 4,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Logical Operators: ",
@@ -318,7 +318,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Python supports the following Logical operators.",
@@ -326,7 +326,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "Logical AND ` and `\nIf both the operands are true then condition becomes true",
@@ -334,7 +334,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "Example: ",
@@ -346,7 +346,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -357,14 +357,14 @@ val operators = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "Logical OR ` or `\nIf any of the operands is `True` then `or` will evaluate to `True`",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "Example: ",
@@ -376,7 +376,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 8,
                                 "",
                                 "",
@@ -388,7 +388,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "9" to Lesson(
+                        "9" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 9,
                                 "",
                                 "Logical NOT ` not `\nUsed to reverse the logical state of its operand.",
@@ -396,7 +396,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "10" to Lesson(
+                        "10" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 10,
                                 "",
                                 "Example: ",
@@ -408,7 +408,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "11" to Lesson(
+                        "11" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 11,
                                 "",
                                 "",
@@ -422,10 +422,10 @@ val operators = listOf(
                 )
         ),
 
-        LessonResponse(
+        LessonResponse("",
                 5,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "Membership Operators: ",
@@ -433,7 +433,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "Membership Operators are used to check whether a sequence contains a certain value.",
@@ -441,7 +441,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "` in ` is a membership operator.\nTrue if value/variable is found in the sequence",
@@ -449,7 +449,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "Example: ",
@@ -462,7 +462,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -473,14 +473,14 @@ val operators = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "` not in `\nTrue if value/variable is not found in the sequence",
                                 null,
                                 LessonTypes.BULLET.ordinal
                         ),
-                        "7" to Lesson(
+                        "7" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 7,
                                 "",
                                 "Example: ",
@@ -493,7 +493,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "8" to Lesson(
+                        "8" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 8,
                                 "",
                                 "",
@@ -505,7 +505,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "9" to Lesson(
+                        "9" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 9,
                                 "",
                                 "Identity Operators: ",
@@ -513,7 +513,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "10" to Lesson(
+                        "10" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 10,
                                 "",
                                 "Identity operators compare the memory locations of two objects.",
@@ -521,7 +521,7 @@ val operators = listOf(
                                 LessonTypes.TEXT.ordinal
                         ),
 
-                        "11" to Lesson(
+                        "11" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 11,
                                 "",
                                 "There are two Identity operators.",
@@ -530,10 +530,10 @@ val operators = listOf(
                         )
                 )
         ),
-        LessonResponse(
+        LessonResponse("",
                 6,
                 lessons = mapOf(
-                        "1" to Lesson(
+                        "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 1,
                                 "",
                                 "` is `\nEvaluates to true if the variables on " +
@@ -544,7 +544,7 @@ val operators = listOf(
 
                         ),
 
-                        "2" to Lesson(
+                        "2" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 2,
                                 "",
                                 "",
@@ -559,7 +559,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "3" to Lesson(
+                        "3" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 3,
                                 "",
                                 "",
@@ -571,7 +571,7 @@ val operators = listOf(
                                 LessonTypes.CODE.ordinal
                         ),
 
-                        "4" to Lesson(
+                        "4" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 4,
                                 "",
                                 "` is not `\nEvaluates to false if the variables on " +
@@ -581,7 +581,7 @@ val operators = listOf(
                                 LessonTypes.BULLET.ordinal
                         ),
 
-                        "5" to Lesson(
+                        "5" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 5,
                                 "",
                                 "",
@@ -594,7 +594,7 @@ val operators = listOf(
                                 ),
                                 LessonTypes.CODE.ordinal
                         ),
-                        "6" to Lesson(
+                        "6" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                                 6,
                                 "",
                                 "",
@@ -607,7 +607,7 @@ val operators = listOf(
                         )
                 )
         ),
-        LessonResponse(
+        LessonResponse("",
                 7,
                 lessons = null,
                 question = mapOf(

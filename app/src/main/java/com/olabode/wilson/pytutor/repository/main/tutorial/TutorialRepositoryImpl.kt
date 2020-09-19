@@ -2,13 +2,16 @@ package com.olabode.wilson.pytutor.repository.main.tutorial
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import com.google.firebase.firestore.ktx.toObjects
+import com.olabode.wilson.pytutor.data.LessonsDao
 import com.olabode.wilson.pytutor.data.TopicsDao
+import com.olabode.wilson.pytutor.mappers.tutorial.LessonCacheMapper
+import com.olabode.wilson.pytutor.mappers.tutorial.LessonNetworkMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicCacheMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicNetworkMapper
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.TopicResponse
+import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.utils.DataState
 import com.olabode.wilson.pytutor.utils.Messages
 import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
@@ -34,16 +37,19 @@ import javax.inject.Inject
 @ExperimentalCoroutinesApi
 class TutorialRepositoryImpl @Inject constructor(
         private val remoteDatabase: FirebaseFirestore,
-        private val networkMapper: TopicNetworkMapper,
-        private val cacheMapper: TopicCacheMapper,
-        private val topicsDao: TopicsDao
+        private val topicNetworkMapper: TopicNetworkMapper,
+        private val topicCacheMapper: TopicCacheMapper,
+        private val lessonNetworkMapper: LessonNetworkMapper,
+        private val lessonsCacheMapper: LessonCacheMapper,
+        private val topicsDao: TopicsDao,
+        private val lessonsDao: LessonsDao
 ) : TutorialRepository {
 
     override fun getAllTopics(): Flow<DataState<List<Topic>>> = flow {
         val cachedTopics = topicsDao.getTopics()
         emit(DataState.Loading)
 
-        if (cachedTopics.isEmpty()) {
+        if (cachedTopics.isNullOrEmpty()) {
             val topicsCollection = remoteDatabase
                     .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
                     .document(RemoteDatabaseKeys.DOC_TOPICS)
@@ -56,10 +62,10 @@ class TutorialRepositoryImpl @Inject constructor(
                 val result = topicResponse.map {
                     it?.toObject<TopicResponse>()!!
                 }
-                val topics = networkMapper.mapFromEntityList(result)
+                val topics = topicNetworkMapper.mapFromEntityList(result)
 
                 for (topic in topics) {
-                    topicsDao.insert(cacheMapper.mapToEntity(topic))
+                    topicsDao.insert(topicCacheMapper.mapToEntity(topic))
                     Timber.d("INSERTING ${topic.topicId}")
                 }
 
@@ -70,7 +76,7 @@ class TutorialRepositoryImpl @Inject constructor(
             }
 
         } else {
-            val topics = cacheMapper.mapFromEntityList(cachedTopics)
+            val topics = topicCacheMapper.mapFromEntityList(cachedTopics)
             emit(DataState.Success(topics))
         }
     }.catch { error ->
@@ -78,19 +84,38 @@ class TutorialRepositoryImpl @Inject constructor(
         emit(DataState.Error(null, "ERROR LOADING TOPICS"))
     }.flowOn(Dispatchers.IO)
 
-    override fun getLessonsForTopic(topicId: String): Flow<DataState<List<LessonResponse>>> = flow {
+    override fun getLessonsForTopic(topicId: String): Flow<DataState<List<Lesson>>> = flow {
         emit(DataState.Loading)
 
-        val response = remoteDatabase
-                .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
-                .document(RemoteDatabaseKeys.DOC_LESSONS)
-                .collection(topicId)
-                .get().await()
+        val cachedLessons = lessonsDao.getLessonById(topicId)
 
-        if (response.isEmpty) {
-            emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+        if (cachedLessons.isNullOrEmpty()) {
+            val response = remoteDatabase
+                    .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
+                    .document(RemoteDatabaseKeys.DOC_LESSONS)
+                    .collection(topicId)
+                    .get().await()
+            val lessonResponse = response.documents
+
+            if (!lessonResponse.isNullOrEmpty()) {
+                val result = lessonResponse.map {
+                    it?.toObject<LessonResponse>()!!
+                }
+
+                val lessons = lessonNetworkMapper.mapFromEntityList(result)
+
+                for (lesson in lessons) {
+                    lessonsDao.insert(lessonsCacheMapper.mapToEntity(lesson))
+                    Timber.d("INSERTING ${lesson.topicId}")
+                }
+
+                emit(DataState.Success(lessons))
+            } else {
+                emit(DataState.Error(null, "NO LESSONS AVAILABLE"))
+            }
         } else {
-            emit(DataState.Success(response.toObjects<LessonResponse>()))
+            val lessons = lessonsCacheMapper.mapFromEntityList(cachedLessons)
+            emit(DataState.Success(lessons))
         }
     }.catch { e ->
         Timber.e(e)
