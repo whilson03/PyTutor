@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
         android:numStars="3"
+        android:stepSize="0.1"
         android:theme="@style/RatingBar"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
