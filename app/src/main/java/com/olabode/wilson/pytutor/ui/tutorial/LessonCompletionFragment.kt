@@ -56,7 +56,11 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
 
     private fun getRating(score: Float, numberOfQuestions: Float): Float {
         // Convert score to star rating
-        val maxRating = 3
-        return maxRating/numberOfQuestions * score
+        val maxRating = NO_STARS
+        return maxRating / numberOfQuestions * score
+    }
+
+    companion object {
+        const val NO_STARS = 3
     }
 }
