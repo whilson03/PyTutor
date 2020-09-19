@@ -43,14 +43,20 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
             findNavController().popBackStack()
         }
 
-        setUpRating(score.toFloat())
+        val scoreRating = getRating(score.toFloat(), numberOfQuestions.toFloat())
+        setUpRating(scoreRating)
     }
-
 
     private fun setUpRating(value: Float) {
         val current: Float = binding.ratingBar.rating
         val anim = ObjectAnimator.ofFloat(binding.ratingBar, "rating", current, value)
         anim.duration = 2000
         anim.start()
+    }
+
+    private fun getRating(score: Float, numberOfQuestions: Float): Float {
+        // Convert score to star rating
+        val maxRating = 3
+        return maxRating/numberOfQuestions * score
     }
 }
