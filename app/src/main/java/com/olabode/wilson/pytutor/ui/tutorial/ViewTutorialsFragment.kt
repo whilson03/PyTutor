@@ -21,6 +21,8 @@ import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialPageAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialLessonViewModel
 import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.EventObserver
+import com.olabode.wilson.pytutor.utils.LoadingState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,13 +45,26 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
         setUpPageCounter(totalNoOfPages)
 
 
+        viewModel.showProgressBar.observe(viewLifecycleOwner, EventObserver { state ->
+            when (state) {
+                is LoadingState.Loading -> binding.progressBar.isVisible = true
+                is LoadingState.LoadingComplete -> binding.progressBar.isVisible = false
+            }
+        })
+
+
         viewModel.getLessons(topic.topicId).observe(viewLifecycleOwner, Observer { result ->
             when (result) {
-                is DataState.Success -> {
-                    doOnSuccess(totalNoOfPages, result.data.sortedBy { it.page })
+                is DataState.Loading -> {
+                    viewModel.updateProgressBar(LoadingState.Loading)
+                }
 
+                is DataState.Success -> {
+                    viewModel.updateProgressBar(LoadingState.LoadingComplete)
+                    doOnSuccess(totalNoOfPages, result.data.sortedBy { it.page })
                 }
                 is DataState.Error -> {
+                    viewModel.updateProgressBar(LoadingState.LoadingComplete)
                     Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
                 }
             }

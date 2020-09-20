@@ -31,4 +31,5 @@
 
     <color name="duskYellow">#ffc922</color>
     <color name="lightGrey">#D3D3D3</color>
+    <color name="main_page_background">#EFF2F4</color>
 </resources>

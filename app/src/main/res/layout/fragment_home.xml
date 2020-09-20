@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#EFF2F4"
+        android:background="@color/main_page_background"
         tools:context=".ui.home.HomeFragment">
 
         <TextView
@@ -170,7 +170,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/catamaran_thin"
+            android:fontFamily="@font/catamaran_medium"
             android:text="@string/explore"
             android:textSize="20sp"
             android:textStyle="bold"
