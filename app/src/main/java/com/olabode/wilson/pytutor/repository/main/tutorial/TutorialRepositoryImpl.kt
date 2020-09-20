@@ -52,8 +52,6 @@ class TutorialRepositoryImpl @Inject constructor(
         if (cachedTopics.isNullOrEmpty()) {
             val topicsCollection = remoteDatabase
                     .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
-                    .document(RemoteDatabaseKeys.DOC_TOPICS)
-                    .collection(RemoteDatabaseKeys.ALL_TOPICS)
                     .get().await()
 
             val topicResponse = topicsCollection.documents
@@ -92,8 +90,8 @@ class TutorialRepositoryImpl @Inject constructor(
         if (cachedLessons.isNullOrEmpty()) {
             val response = remoteDatabase
                     .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
-                    .document(RemoteDatabaseKeys.DOC_LESSONS)
-                    .collection(topicId)
+                    .document(topicId)
+                    .collection(RemoteDatabaseKeys.NODE_LESSONS)
                     .get().await()
             val lessonResponse = response.documents
 

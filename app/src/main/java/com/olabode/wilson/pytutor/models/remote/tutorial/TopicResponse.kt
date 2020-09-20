@@ -16,7 +16,7 @@ data class TopicResponse(
 
         val description: String,
 
-        val noOfPages: Int,
+        var noOfPages: Int,
 
         var topicId: String,
 

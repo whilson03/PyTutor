@@ -11,17 +11,6 @@ import com.olabode.wilson.pytutor.ui.tutorial.adapters.LessonTypes
  */
 
 
-//fun uploadLesson(id: String) {
-//    val ref = FirebaseFirestore.getInstance()
-//            .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
-//            .document(RemoteDatabaseKeys.DOC_LESSONS)
-//            .collection(id)
-//    CoroutineScope(Dispatchers.IO).launch {
-//        ref.add(introduction[0])
-//    }
-//}
-
-
 val introduction = listOf(
         LessonResponse("IJECZPSWPRCDWYVfkRCc",
                 1,
