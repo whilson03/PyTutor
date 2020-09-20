@@ -70,8 +70,6 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
             disableOptions()
         }
 
-        Toast.makeText(requireContext(), "$score", Toast.LENGTH_SHORT).show()
-
         binding.submitOrNext.setOnClickListener {
             if (getString(R.string.finish) != binding.submitOrNext.text.toString()) {
                 if (getString(R.string.next) == binding.submitOrNext.text.toString()) {
