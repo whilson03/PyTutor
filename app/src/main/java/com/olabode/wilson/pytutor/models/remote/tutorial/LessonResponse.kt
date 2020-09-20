@@ -9,7 +9,7 @@ import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 
 
 data class LessonResponse(
-        val topicId: String = "",
+        var topicId: String = "",
         val page: Int,
         val lessons: Map<String, Tutorial>? = null,
         val question: Map<String, Question>? = null,

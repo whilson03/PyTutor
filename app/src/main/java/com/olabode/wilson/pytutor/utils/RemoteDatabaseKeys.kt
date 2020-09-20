@@ -7,7 +7,7 @@ object RemoteDatabaseKeys {
 
     // Tutorial
     const val NODE_TUTORIALS = "TUTORIALS"
-    const val DOC_LESSONS = "LESSONS"
+    const val NODE_LESSONS = "LESSONS"
     const val DOC_TOPICS = "TOPICS"
     const val ALL_TOPICS = "ALL_TOPICS"
 
