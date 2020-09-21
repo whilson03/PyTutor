@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.data
+package com.olabode.wilson.pytutor.data.tutorial
 
 import androidx.room.Dao
 import androidx.room.Insert
