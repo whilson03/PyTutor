@@ -4,7 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import com.olabode.wilson.pytutor.models.User
+import com.olabode.wilson.pytutor.models.RemoteUser
 import com.olabode.wilson.pytutor.utils.AuthResult
 import com.olabode.wilson.pytutor.utils.Constants
 import com.olabode.wilson.pytutor.utils.Messages
@@ -70,7 +70,11 @@ class AuthRepositoryImpl @Inject constructor(
 
         val registerUser = auth.createUserWithEmailAndPassword(email, password).await()
         val firebaseUser = registerUser.user!!
-        val user = User(fullName = fullName, email = email, userId = firebaseUser.uid)
+        val user = RemoteUser(
+                fullName = fullName,
+                email = email,
+                userId = firebaseUser.uid
+        )
         remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS).document(firebaseUser.uid)
                 .set(user).await()
         sendEmailVerificationLink(firebaseUser)

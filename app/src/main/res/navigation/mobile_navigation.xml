@@ -3,17 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation.xml"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/splashScreenFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.olabode.wilson.pytutor.ui.home.HomeFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment_to_auth_navigation"
-            app:destination="@id/auth_navigation"
-            app:popUpTo="@id/mobile_navigation.xml"
-            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homeFragment_to_tutorialTopicsFragment"
             app:destination="@id/tutorialTopicsFragment"
@@ -37,6 +32,11 @@
             android:name="com.olabode.wilson.pytutor.ui.auth.signup.SignUpFragment"
             android:label="fragment_sign_up"
             tools:layout="@layout/fragment_sign_up" />
+        <action
+            android:id="@+id/action_global_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
     </navigation>
     <fragment
         android:id="@+id/profileFragment"
@@ -91,4 +91,19 @@
                 app:popUpTo="@id/tutorialTopicsFragment" />
         </fragment>
     </navigation>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.olabode.wilson.pytutor.ui.splash.SplashScreenFragment"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_auth_navigation"
+            app:destination="@id/auth_navigation"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

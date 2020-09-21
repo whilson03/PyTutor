@@ -7,7 +7,7 @@ import java.util.*
  *   Created by OLABODE WILSON on 9/6/20.
  */
 
-data class User(
+data class RemoteUser(
         val fullName: String,
         val email: String,
         val level: Int = 0,
@@ -15,7 +15,8 @@ data class User(
         val dateJoined: Date? = null,
         val currentXp: Int = 0,
         val badgesAttained: List<Badge>? = null,
-        val userId: String
+        val userId: String,
+        val imageUrl: String = ""
 
 ) {
 
@@ -25,6 +26,8 @@ data class User(
             0,
             null,
             0,
-            null, ""
+            null,
+            "",
+            ""
     )
 }

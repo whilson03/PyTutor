@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.olabode.wilson.pytutor.repository.auth.AuthRepository
+import com.olabode.wilson.pytutor.repository.main.user.UserRepository
 import com.olabode.wilson.pytutor.utils.AuthResult
 import com.olabode.wilson.pytutor.utils.Event
 
@@ -13,7 +14,8 @@ import com.olabode.wilson.pytutor.utils.Event
  *   Created by OLABODE WILSON on 9/6/20.
  */
 class AuthViewModel @ViewModelInject constructor(
-        private val authRepository: AuthRepository
+        private val authRepository: AuthRepository,
+        private val userRepository: UserRepository
 ) : ViewModel() {
 
     // snack bar event

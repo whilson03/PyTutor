@@ -7,9 +7,9 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import com.olabode.wilson.pytutor.AuthNavigationDirections
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentLoginBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
@@ -52,8 +52,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
     private fun performLogin(email: String, password: String) {
-        val navController = findNavController()
-
         authViewModel.loginUser(email, password).observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is AuthResult.Loading -> {
@@ -71,11 +69,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     binding.signIn.isClickable = true
                     binding.progressBar.isVisible = false
                     authViewModel.snackBarMessage(result.data)
-                    val startDestination = navController.graph.startDestination
-                    val navOptions = NavOptions.Builder()
-                            .setPopUpTo(R.id.mobile_navigation_xml, true)
-                            .build()
-                    navController.navigate(startDestination, null, navOptions)
+                    findNavController().navigate(AuthNavigationDirections.actionGlobalHomeFragment())
                 }
             }
         })
