@@ -2,9 +2,9 @@ package com.olabode.wilson.pytutor
 
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,7 +13,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.olabode.wilson.pytutor.databinding.ActivityMainBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
-import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -22,14 +21,14 @@ class MainActivity : AppCompatActivity() {
 
     private val binding by viewBinding(ActivityMainBinding::inflate)
     private lateinit var bottomNavigationView: BottomNavigationView
-    private val authViewModel: AuthViewModel by viewModels()
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val toolbar = binding.toolBar
         setSupportActionBar(toolbar)
-        val navController = findNavController(R.id.fragments_container)
+        navController = findNavController(R.id.fragments_container)
 
         bottomNavigationView = binding.bottomNavigationView
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.profileFragment))
@@ -54,7 +53,8 @@ class MainActivity : AppCompatActivity() {
                     toolbar.isVisible = true
                 }
 
-                R.id.loginFragment, R.id.signUpFragment, R.id.lessonCompletionFragment -> {
+                R.id.loginFragment, R.id.signUpFragment, R.id.lessonCompletionFragment,
+                R.id.splashScreenFragment -> {
                     bottomNavigationView.isVisible = false
                     toolbar.isVisible = false
                 }

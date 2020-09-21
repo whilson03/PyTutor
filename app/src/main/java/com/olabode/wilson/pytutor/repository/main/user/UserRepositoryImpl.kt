@@ -4,9 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.olabode.wilson.pytutor.utils.AuthResult
-import com.olabode.wilson.pytutor.utils.FirebaseUserLiveData
-import com.olabode.wilson.pytutor.utils.Messages
+import com.google.firebase.firestore.ktx.toObject
+import com.olabode.wilson.pytutor.data.user.UserDao
+import com.olabode.wilson.pytutor.mappers.user.UserCacheMapper
+import com.olabode.wilson.pytutor.mappers.user.UserNetworkMapper
+import com.olabode.wilson.pytutor.models.RemoteUser
+import com.olabode.wilson.pytutor.models.user.User
+import com.olabode.wilson.pytutor.utils.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -15,8 +22,11 @@ import javax.inject.Singleton
  */
 @Singleton
 class UserRepositoryImpl @Inject constructor(
+        private val userNetworkMapper: UserNetworkMapper,
+        private val userCacheMapper: UserCacheMapper,
         private val auth: FirebaseAuth,
-        private val remoteDatabase: FirebaseFirestore
+        private val remoteDatabase: FirebaseFirestore,
+        private val userDao: UserDao
 ) : UserRepository {
     override fun checkLoginStatus(): LiveData<AuthResult<String>> {
         return FirebaseUserLiveData(
@@ -35,5 +45,23 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
+    override fun getLoggedInUserDetails(userId: String): Flow<DataState<User>> = flow {
+        emit(DataState.Loading)
+
+        val cachedUser = userDao.getUserById(userId)
+        if (cachedUser != null) {
+            emit(DataState.Success(userCacheMapper.mapFromEntity(cachedUser)))
+        } else {
+            val userRef = remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS)
+                    .document(userId).get().await()
+            val remoteUser = userRef.toObject<RemoteUser>()
+            remoteUser?.let {
+                val user = userNetworkMapper.mapFromEntity(it)
+                val userEntity = userCacheMapper.mapToEntity(user)
+                userDao.insertUser(userEntity)
+                emit(DataState.Success(user))
+            } ?: emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+        }
+    }
 
 }

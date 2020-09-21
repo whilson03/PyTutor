@@ -2,8 +2,8 @@ package com.olabode.wilson.pytutor.repository.main.tutorial
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import com.olabode.wilson.pytutor.data.LessonsDao
-import com.olabode.wilson.pytutor.data.TopicsDao
+import com.olabode.wilson.pytutor.data.tutorial.LessonsDao
+import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.mappers.tutorial.LessonCacheMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.LessonNetworkMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicCacheMapper

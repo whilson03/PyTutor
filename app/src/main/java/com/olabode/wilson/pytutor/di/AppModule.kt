@@ -3,16 +3,12 @@ package com.olabode.wilson.pytutor.di
 import android.content.Context
 import androidx.room.Room
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.olabode.wilson.pytutor.data.LessonsDao
 import com.olabode.wilson.pytutor.data.PytutorDatabase
-import com.olabode.wilson.pytutor.data.TopicsDao
-import com.olabode.wilson.pytutor.repository.auth.AuthRepository
-import com.olabode.wilson.pytutor.repository.auth.AuthRepositoryImpl
-import com.olabode.wilson.pytutor.repository.main.user.UserRepository
-import com.olabode.wilson.pytutor.repository.main.user.UserRepositoryImpl
+import com.olabode.wilson.pytutor.data.tutorial.LessonsDao
+import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
+import com.olabode.wilson.pytutor.data.user.UserDao
 import com.olabode.wilson.pytutor.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -37,28 +33,6 @@ object AppModule {
     @Provides
     fun provideFirebaseFireStore() = Firebase.firestore
 
-
-    @Singleton
-    @Provides
-    fun provideAuthRepository(
-            firebaseAuth: FirebaseAuth,
-            firestore: FirebaseFirestore
-    ): AuthRepository = AuthRepositoryImpl(
-            firebaseAuth,
-            firestore
-    )
-
-    @Singleton
-    @Provides
-    fun provideUserRepository(
-            firebaseAuth: FirebaseAuth,
-            firestore: FirebaseFirestore
-    ): UserRepository = UserRepositoryImpl(
-            firebaseAuth,
-            firestore
-    )
-
-
     @Singleton
     @Provides
     fun providePytutorDatabase(
@@ -67,7 +41,8 @@ object AppModule {
     ) = Room.databaseBuilder(
             context, PytutorDatabase::class.java,
             Constants.DATABASE_NAME
-    ).build()
+    ).fallbackToDestructiveMigration()
+            .build()
 
     @Singleton
     @Provides
@@ -81,4 +56,9 @@ object AppModule {
         return database.lessonDao()
     }
 
+    @Singleton
+    @Provides
+    fun provideUserDao(database: PytutorDatabase): UserDao {
+        return database.userDao()
+    }
 }
