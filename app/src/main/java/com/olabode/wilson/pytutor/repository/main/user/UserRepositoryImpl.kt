@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.toObject
 import com.olabode.wilson.pytutor.data.user.UserDao
 import com.olabode.wilson.pytutor.mappers.user.UserCacheMapper
@@ -70,5 +71,27 @@ class UserRepositoryImpl @Inject constructor(
         emit(DataState.Error(null, Messages.GENERIC_FAILURE))
         Timber.e(e)
     }.flowOn(Dispatchers.IO)
+
+    override fun updateCourse(topicKey: String, rating: Float): Flow<DataState<String>> = flow {
+        emit(DataState.Loading)
+
+        val completedCourse = mapOf(topicKey to rating)
+
+        remoteDatabase
+                .collection(RemoteDatabaseKeys.NODE_USERS)
+                .document(getUserId())
+                .set(mapOf(RemoteDatabaseKeys.FIELD_COURSES_COMPLETED to completedCourse), SetOptions.merge()).await()
+
+        Timber.d("COURSE COMPLETED")
+
+        emit(DataState.Success(Messages.GENERIC_SUCCESS))
+    }.catch { error ->
+        emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+        Timber.e(error)
+    }.flowOn(Dispatchers.IO)
+
+    override fun getUserId(): String {
+        return auth.currentUser!!.uid
+    }
 
 }

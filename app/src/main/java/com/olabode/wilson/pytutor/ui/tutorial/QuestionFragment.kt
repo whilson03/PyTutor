@@ -22,6 +22,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
     private var isQuizAnswered = false
     private var score = 0
     private var answeredKeys = ArrayList<String>()
+    private var topicId = ""
 
     companion object {
         const val QUESTION_RESPONSE = "QuestionResponse"
@@ -30,12 +31,14 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         const val KEY_COMPLETED_QUIZ = "KEY_COMPLETED_QUIZ"
         const val KEY_SCORE = "SCORE"
         const val LIST_OF_KEYS_ANSWERED = "LIST_OF_KEYS_ANSWERED"
+        const val TOPIC_ID = "TOPIC_ID"
 
         @JvmStatic
-        fun newInstance(lesson: Lesson) =
+        fun newInstance(lesson: Lesson, topicId: String) =
                 QuestionFragment().apply {
                     arguments = Bundle().apply {
                         putParcelable(QUESTION_RESPONSE, lesson)
+                        putString(TOPIC_ID, topicId)
                     }
                 }
     }
@@ -46,6 +49,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         if (savedInstanceState == null) {
             arguments?.let {
                 lessonQuestionResponse = it.getParcelable(QUESTION_RESPONSE)!!
+                topicId = it.getString(TOPIC_ID, "")
             }
         } else {
             lessonQuestionResponse = savedInstanceState.getParcelable(KEY_SAVE_QUESTIONS)!!
@@ -53,6 +57,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
             score = savedInstanceState.getInt(KEY_SCORE)
             isQuizAnswered = savedInstanceState.getBoolean(KEY_COMPLETED_QUIZ)
             answeredKeys = savedInstanceState.getStringArrayList(LIST_OF_KEYS_ANSWERED)!!
+            topicId = savedInstanceState.getString(TOPIC_ID, "")
         }
 
         val questions = lessonQuestionResponse.question!!.values.toList()
@@ -112,7 +117,8 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
     private fun navigateToCompletionScreen(score: Int, noOfQuestion: Int) {
         findNavController().navigate(ViewTutorialsFragmentDirections
                 .actionViewTutorialsFragmentToLessonCompletionFragment(
-                        score = score, numberOfQuestions = noOfQuestion
+                        score = score, numberOfQuestions = noOfQuestion,
+                        topicId = topicId
                 ))
     }
 
@@ -155,6 +161,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         outState.putBoolean(KEY_COMPLETED_QUIZ, isQuizAnswered)
         outState.putInt(KEY_SCORE, score)
         outState.putStringArrayList(LIST_OF_KEYS_ANSWERED, answeredKeys)
+        outState.putString(TOPIC_ID, topicId)
     }
 
     private fun enableOptions() {

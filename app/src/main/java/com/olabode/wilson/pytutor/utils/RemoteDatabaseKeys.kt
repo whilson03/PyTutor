@@ -15,4 +15,6 @@ object RemoteDatabaseKeys {
     //AUTH
     const val NODE_USERS = "USERS"
 
+    const val FIELD_COURSES_COMPLETED = "completedCourses"
+
 }
