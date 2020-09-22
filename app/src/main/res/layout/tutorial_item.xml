@@ -46,6 +46,16 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="01" />
 
+        <ImageView
+            android:id="@+id/lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/topic_count"
+            app:layout_constraintEnd_toEndOf="@+id/topic_count"
+            app:layout_constraintStart_toStartOf="@+id/topic_count"
+            app:layout_constraintTop_toTopOf="@+id/topic_count"
+            app:srcCompat="@drawable/ic_lock" />
+
         <TextView
             android:id="@+id/short_detail"
             style="@style/TextAppearance.MaterialComponents.Caption"

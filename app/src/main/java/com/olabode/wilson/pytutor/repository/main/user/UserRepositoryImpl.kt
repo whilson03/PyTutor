@@ -11,9 +11,13 @@ import com.olabode.wilson.pytutor.mappers.user.UserNetworkMapper
 import com.olabode.wilson.pytutor.models.RemoteUser
 import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.utils.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.tasks.await
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -62,6 +66,9 @@ class UserRepositoryImpl @Inject constructor(
                 emit(DataState.Success(user))
             } ?: emit(DataState.Error(null, Messages.GENERIC_FAILURE))
         }
-    }
+    }.catch { e ->
+        emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+        Timber.e(e)
+    }.flowOn(Dispatchers.IO)
 
 }

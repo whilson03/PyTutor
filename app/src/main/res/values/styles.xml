@@ -50,7 +50,7 @@
 
     <style name="LevelProgressBar">
         <item name="android:indeterminateOnly">false</item>
-        <item name="android:progressDrawable">@drawable/circle</item>
+        <item name="android:progressDrawable">@drawable/progress_background</item>
     </style>
 
 </resources>

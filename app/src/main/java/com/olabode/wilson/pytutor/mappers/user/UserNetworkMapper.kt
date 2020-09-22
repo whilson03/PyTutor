@@ -18,7 +18,8 @@ class UserNetworkMapper @Inject constructor() : EntityMapper<RemoteUser, User> {
                 badges = entity.badgesAttained,
                 level = entity.level,
                 userId = entity.userId,
-                experiencePoint = entity.currentXp
+                experiencePoint = entity.currentXp,
+                completedCourses = entity.completedCourses
         )
     }
 
@@ -31,7 +32,8 @@ class UserNetworkMapper @Inject constructor() : EntityMapper<RemoteUser, User> {
                 badgesAttained = domainModel.badges,
                 dateJoined = null,
                 userId = domainModel.userId,
-                imageUrl = domainModel.imageUrl
+                imageUrl = domainModel.imageUrl,
+                completedCourses = domainModel.completedCourses
         )
     }
 }

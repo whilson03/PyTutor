@@ -10,10 +10,10 @@ import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 
 data class LessonResponse(
         var topicId: String = "",
-        val page: Int,
-        val lessons: Map<String, Tutorial>? = null,
-        val question: Map<String, Question>? = null,
-        val type: Int = LessonResponseType.LESSON.ordinal
+        var page: Int,
+        var lessons: Map<String, Tutorial>? = null,
+        var question: Map<String, Question>? = null,
+        var type: Int = LessonResponseType.LESSON.ordinal
 
 ) {
 

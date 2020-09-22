@@ -2,10 +2,12 @@ package com.olabode.wilson.pytutor.ui.tutorial.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.TutorialItemBinding
 import com.olabode.wilson.pytutor.models.Topic
+import timber.log.Timber
 
 /**
  *   Created by OLABODE WILSON on 9/8/20.
@@ -21,12 +23,18 @@ class TutorialTopicAdapter(private val clickListener: (topic: Topic) -> Unit)
 
         init {
             binding.root.setOnClickListener {
-                item?.let { clickListener.invoke(item!!) }
+                item?.let {
+                    if (!it.isLocked) {
+                        clickListener.invoke(it)
+                    }
+                }
             }
         }
 
         fun bind(item: Topic) {
+            Timber.d(item.toString())
             this.item = item
+            binding.lock.isVisible = item.isLocked
             binding.topicCount.text = getTopicNumber(adapterPosition + 1)
             binding.title.text = item.title
             binding.shortDetail.text = item.description

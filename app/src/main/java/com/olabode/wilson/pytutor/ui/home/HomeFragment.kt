@@ -28,8 +28,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         viewModel.userDetails.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
-                is DataState.Success -> setupUserDetails(result.data)
+                is DataState.Success -> {
+                    binding.nameField.visibility = View.VISIBLE
+                    setupUserDetails(result.data)
+                }
                 is DataState.Error -> {
+                    binding.nameField.visibility = View.INVISIBLE
                     Toast.makeText(requireContext(), "Failed To Retrieve User Details", Toast.LENGTH_SHORT).show()
                 }
             }
