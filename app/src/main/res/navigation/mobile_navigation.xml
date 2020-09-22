@@ -70,6 +70,9 @@
         <argument
             android:name="numberOfQuestions"
             app:argType="integer" />
+        <argument
+            android:name="topicId"
+            app:argType="string" />
     </fragment>
     <navigation
         android:id="@+id/lesson_graph"

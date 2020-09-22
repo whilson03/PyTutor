@@ -10,7 +10,12 @@ import com.olabode.wilson.pytutor.ui.tutorial.TutorialPageFragment
 /**
  *   Created by OLABODE WILSON on 9/9/20.
  */
-class TutorialPageAdapter(fragment: Fragment, private val pages: Int, val list: List<Lesson>) : FragmentStateAdapter(fragment) {
+class TutorialPageAdapter(
+        fragment: Fragment,
+        private val pages: Int,
+        val list: List<Lesson>,
+        val topicId: String
+) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = pages
 
@@ -18,7 +23,7 @@ class TutorialPageAdapter(fragment: Fragment, private val pages: Int, val list: 
         val response = list[position]
         return when (response.type) {
             LessonResponseType.LESSON.ordinal -> TutorialPageFragment.newInstance(response)
-            else -> QuestionFragment.newInstance(response)
+            else -> QuestionFragment.newInstance(response, topicId)
         }
     }
 }
