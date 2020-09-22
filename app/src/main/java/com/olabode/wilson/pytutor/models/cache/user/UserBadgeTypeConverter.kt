@@ -11,16 +11,16 @@ import com.olabode.wilson.pytutor.models.Badge
 class UserBadgeTypeConverter {
 
     @TypeConverter
-    fun fromBadgesList(value: List<Badge>?): String {
+    fun fromBadgesList(value: List<Badge>): String {
         val gson = Gson()
-        val type = object : TypeToken<List<Badge>?>() {}.type
+        val type = object : TypeToken<List<Badge>>() {}.type
         return gson.toJson(value, type)
     }
 
     @TypeConverter
-    fun toBadgesList(value: String): List<Badge>? {
+    fun toBadgesList(value: String): List<Badge> {
         val gson = Gson()
-        val type = object : TypeToken<List<Badge>?>() {}.type
+        val type = object : TypeToken<List<Badge>>() {}.type
         return gson.fromJson(value, type)
     }
 }

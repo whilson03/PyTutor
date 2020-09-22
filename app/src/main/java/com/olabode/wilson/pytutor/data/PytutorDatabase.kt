@@ -12,6 +12,7 @@ import com.olabode.wilson.pytutor.models.cache.tutorial.converters.QuestionMapCo
 import com.olabode.wilson.pytutor.models.cache.tutorial.converters.TutorialMapConverter
 import com.olabode.wilson.pytutor.models.cache.user.UserBadgeTypeConverter
 import com.olabode.wilson.pytutor.models.cache.user.UserCacheEntity
+import com.olabode.wilson.pytutor.models.cache.user.UserCompletedCoursesConverter
 
 /**
  *   Created by OLABODE WILSON on 9/17/20.
@@ -20,7 +21,8 @@ import com.olabode.wilson.pytutor.models.cache.user.UserCacheEntity
 @TypeConverters(
         TutorialMapConverter::class,
         QuestionMapConverter::class,
-        UserBadgeTypeConverter::class
+        UserBadgeTypeConverter::class,
+        UserCompletedCoursesConverter::class
 )
 @Database(
         entities = [
