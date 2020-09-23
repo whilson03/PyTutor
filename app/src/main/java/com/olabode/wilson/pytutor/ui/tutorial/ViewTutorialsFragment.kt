@@ -77,7 +77,7 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
                 this,
                 totalNoOfPages,
                 lessons,
-                topicId = topic.topicId
+                topic = topic
         )
         viewPager = binding.lessonViewPager
         viewPager.adapter = pagesAdapter

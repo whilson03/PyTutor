@@ -8,6 +8,7 @@ import com.olabode.wilson.pytutor.mappers.tutorial.LessonCacheMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.LessonNetworkMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicCacheMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicNetworkMapper
+import com.olabode.wilson.pytutor.models.RemoteUser
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.TopicResponse
@@ -20,10 +21,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityRetainedComponent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import javax.inject.Inject
@@ -45,16 +43,20 @@ class TutorialRepositoryImpl @Inject constructor(
         private val lessonsDao: LessonsDao
 ) : TutorialRepository {
 
-    override fun getAllTopics(): Flow<DataState<List<Topic>>> = flow {
-        val cachedTopics = topicsDao.getTopics()
+    override fun retrieveTopicsFromRemote(userId: String): Flow<DataState<List<Topic>>> = flow {
         emit(DataState.Loading)
+        val cachedTopics = topicsDao.getOneOrNull()
 
-        if (cachedTopics.isNullOrEmpty()) {
+        if (cachedTopics < 1) {
             val topicsCollection = remoteDatabase
                     .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
                     .get().await()
 
             val topicResponse = topicsCollection.documents
+
+            val user = remoteDatabase
+                    .collection(RemoteDatabaseKeys.NODE_USERS)
+                    .document(userId).get().await().toObject<RemoteUser>()
 
             if (!topicResponse.isNullOrEmpty()) {
                 val result = topicResponse.map {
@@ -62,25 +64,39 @@ class TutorialRepositoryImpl @Inject constructor(
                 }
                 val topics = topicNetworkMapper.mapFromEntityList(result)
 
+
                 for (topic in topics) {
+                    user?.let {
+                        if (user.completedCourses.containsKey(topic.topicId)) {
+                            topic.isCompleted = true
+                            topic.isLocked = false
+                        }
+                    }
                     topicsDao.insert(topicCacheMapper.mapToEntity(topic))
                     Timber.d("INSERTING ${topic.topicId}")
                 }
 
-                emit(DataState.Success(topics))
+                emit(DataState.Success(listOf<Topic>()))
 
             } else {
                 emit(DataState.Error(null, "NO TOPICS AVAILABLE"))
             }
 
         } else {
-            val topics = topicCacheMapper.mapFromEntityList(cachedTopics)
-            emit(DataState.Success(topics))
+            emit(DataState.Success(emptyList()))
         }
     }.catch { error ->
         Timber.e(error)
         emit(DataState.Error(null, "ERROR LOADING TOPICS"))
     }.flowOn(Dispatchers.IO)
+
+    override fun getAllCachedTopics(): Flow<List<Topic>> {
+        return topicsDao.getTopics().map {
+            topicCacheMapper.mapFromEntityList(it)
+        }.catch { e ->
+            Timber.e(e)
+        }.flowOn(Dispatchers.IO)
+    }
 
     override fun getLessonsForTopic(topicId: String): Flow<DataState<List<Lesson>>> = flow {
         emit(DataState.Loading)
@@ -119,4 +135,5 @@ class TutorialRepositoryImpl @Inject constructor(
         Timber.e(e)
         emit(DataState.Error(null, Messages.GENERIC_FAILURE))
     }.flowOn(Dispatchers.IO)
+
 }

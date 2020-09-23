@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentQuestionBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +23,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
     private var isQuizAnswered = false
     private var score = 0
     private var answeredKeys = ArrayList<String>()
-    private var topicId = ""
+    private lateinit var topic: Topic
 
     companion object {
         const val QUESTION_RESPONSE = "QuestionResponse"
@@ -31,14 +32,14 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         const val KEY_COMPLETED_QUIZ = "KEY_COMPLETED_QUIZ"
         const val KEY_SCORE = "SCORE"
         const val LIST_OF_KEYS_ANSWERED = "LIST_OF_KEYS_ANSWERED"
-        const val TOPIC_ID = "TOPIC_ID"
+        const val TOPIC = "TOPIC"
 
         @JvmStatic
-        fun newInstance(lesson: Lesson, topicId: String) =
+        fun newInstance(lesson: Lesson, topic: Topic) =
                 QuestionFragment().apply {
                     arguments = Bundle().apply {
                         putParcelable(QUESTION_RESPONSE, lesson)
-                        putString(TOPIC_ID, topicId)
+                        putParcelable(TOPIC, topic)
                     }
                 }
     }
@@ -49,7 +50,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         if (savedInstanceState == null) {
             arguments?.let {
                 lessonQuestionResponse = it.getParcelable(QUESTION_RESPONSE)!!
-                topicId = it.getString(TOPIC_ID, "")
+                topic = it.getParcelable(TOPIC)!!
             }
         } else {
             lessonQuestionResponse = savedInstanceState.getParcelable(KEY_SAVE_QUESTIONS)!!
@@ -57,7 +58,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
             score = savedInstanceState.getInt(KEY_SCORE)
             isQuizAnswered = savedInstanceState.getBoolean(KEY_COMPLETED_QUIZ)
             answeredKeys = savedInstanceState.getStringArrayList(LIST_OF_KEYS_ANSWERED)!!
-            topicId = savedInstanceState.getString(TOPIC_ID, "")
+            topic = savedInstanceState.getParcelable(TOPIC)!!
         }
 
         val questions = lessonQuestionResponse.question!!.values.toList()
@@ -118,7 +119,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         findNavController().navigate(ViewTutorialsFragmentDirections
                 .actionViewTutorialsFragmentToLessonCompletionFragment(
                         score = score, numberOfQuestions = noOfQuestion,
-                        topicId = topicId
+                        topic = topic
                 ))
     }
 
@@ -161,7 +162,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         outState.putBoolean(KEY_COMPLETED_QUIZ, isQuizAnswered)
         outState.putInt(KEY_SCORE, score)
         outState.putStringArrayList(LIST_OF_KEYS_ANSWERED, answeredKeys)
-        outState.putString(TOPIC_ID, topicId)
+        outState.putParcelable(TOPIC, topic)
     }
 
     private fun enableOptions() {

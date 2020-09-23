@@ -70,12 +70,14 @@ object RepositoryModule {
             userCacheMapper: UserCacheMapper,
             firebaseAuth: FirebaseAuth,
             firestore: FirebaseFirestore,
-            userDao: UserDao
+            userDao: UserDao,
+            topicsDao: TopicsDao
     ): UserRepository = UserRepositoryImpl(
             userNetworkMapper,
             userCacheMapper,
             firebaseAuth,
             firestore,
-            userDao
+            userDao,
+            topicsDao
     )
 }
