@@ -6,6 +6,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.toObject
+import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.data.user.UserDao
 import com.olabode.wilson.pytutor.mappers.user.UserCacheMapper
 import com.olabode.wilson.pytutor.mappers.user.UserNetworkMapper
@@ -31,7 +32,8 @@ class UserRepositoryImpl @Inject constructor(
         private val userCacheMapper: UserCacheMapper,
         private val auth: FirebaseAuth,
         private val remoteDatabase: FirebaseFirestore,
-        private val userDao: UserDao
+        private val userDao: UserDao,
+        private val topicsDao: TopicsDao
 ) : UserRepository {
     override fun checkLoginStatus(): LiveData<AuthResult<String>> {
         return FirebaseUserLiveData(
@@ -52,37 +54,38 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun getLoggedInUserDetails(userId: String): Flow<DataState<User>> = flow {
         emit(DataState.Loading)
-
         val cachedUser = userDao.getUserById(userId)
         if (cachedUser != null) {
             emit(DataState.Success(userCacheMapper.mapFromEntity(cachedUser)))
-        } else {
-            val userRef = remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS)
-                    .document(userId).get().await()
-            val remoteUser = userRef.toObject<RemoteUser>()
-            remoteUser?.let {
-                val user = userNetworkMapper.mapFromEntity(it)
-                val userEntity = userCacheMapper.mapToEntity(user)
-                userDao.insertUser(userEntity)
-                emit(DataState.Success(user))
-            } ?: emit(DataState.Error(null, Messages.GENERIC_FAILURE))
         }
+        val userRef = remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS)
+                .document(userId).get().await()
+        val remoteUser = userRef.toObject<RemoteUser>()
+        remoteUser?.let {
+            val user = userNetworkMapper.mapFromEntity(it)
+            val userEntity = userCacheMapper.mapToEntity(user)
+            userDao.insertUser(userEntity)
+            emit(DataState.Success(user))
+        } ?: emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+
     }.catch { e ->
         emit(DataState.Error(null, Messages.GENERIC_FAILURE))
         Timber.e(e)
     }.flowOn(Dispatchers.IO)
 
-    override fun updateCourse(topicKey: String, rating: Float): Flow<DataState<String>> = flow {
+    override fun updateCourse(topicKey: String, rating: Float, orderKey: Int): Flow<DataState<String>> = flow {
         emit(DataState.Loading)
+        val nextCourseKey = orderKey + 1
+        Timber.e(nextCourseKey.toString())
 
         val completedCourse = mapOf(topicKey to rating)
+        topicsDao.updateCompletedCourse(topicKey)
+        topicsDao.unlockNextTopic(nextCourseKey)
 
         remoteDatabase
                 .collection(RemoteDatabaseKeys.NODE_USERS)
                 .document(getUserId())
                 .set(mapOf(RemoteDatabaseKeys.FIELD_COURSES_COMPLETED to completedCourse), SetOptions.merge()).await()
-
-        Timber.d("COURSE COMPLETED")
 
         emit(DataState.Success(Messages.GENERIC_SUCCESS))
     }.catch { error ->

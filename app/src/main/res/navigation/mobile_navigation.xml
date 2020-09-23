@@ -71,8 +71,8 @@
             android:name="numberOfQuestions"
             app:argType="integer" />
         <argument
-            android:name="topicId"
-            app:argType="string" />
+            android:name="topic"
+            app:argType="com.olabode.wilson.pytutor.models.Topic" />
     </fragment>
     <navigation
         android:id="@+id/lesson_graph"

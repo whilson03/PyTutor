@@ -14,7 +14,7 @@ class CompletedLessonViewModel @ViewModelInject constructor(
         private val userRepository: UserRepository
 ) : ViewModel() {
 
-    fun onCourseCompleted(topicId: String, rating: Float): LiveData<DataState<String>> {
-        return userRepository.updateCourse(topicId, rating).asLiveData()
+    fun onCourseCompleted(topicId: String, rating: Float, orderKey: Int): LiveData<DataState<String>> {
+        return userRepository.updateCourse(topicId, rating, orderKey).asLiveData()
     }
 }

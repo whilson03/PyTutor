@@ -33,24 +33,23 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
         requireActivity().windowManager.defaultDisplay.getMetrics(display)
         val score = args.score
         val numberOfQuestions = args.numberOfQuestions
-        val topicId = args.topicId
+        val topic = args.topic
 
         val scoreRating = getRating(score.toFloat(), numberOfQuestions.toFloat())
         setUpRating(scoreRating)
 
-        if (topicId.isNotEmpty()) {
-            viewModel.onCourseCompleted(topicId, scoreRating).observe(viewLifecycleOwner, Observer {
-                when (it) {
-                    is DataState.Success -> {
-                        Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
-                    }
-
-                    is DataState.Error -> {
-                        /* no-op */
-                    }
+        viewModel.onCourseCompleted(topic.topicId, scoreRating, topic.orderKey).observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is DataState.Success -> {
+                    Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
                 }
-            })
-        }
+
+                is DataState.Error -> {
+                    /* no-op */
+                }
+            }
+        })
+
 
         binding.viewKonfetti.build()
                 .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
