@@ -2,6 +2,7 @@ package com.olabode.wilson.pytutor.repository.main.user
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
+import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -13,11 +14,9 @@ import com.olabode.wilson.pytutor.mappers.user.UserNetworkMapper
 import com.olabode.wilson.pytutor.models.RemoteUser
 import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.utils.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import javax.inject.Inject
@@ -26,6 +25,7 @@ import javax.inject.Singleton
 /**
  *   Created by OLABODE WILSON on 9/6/20.
  */
+@ExperimentalCoroutinesApi
 @Singleton
 class UserRepositoryImpl @Inject constructor(
         private val userNetworkMapper: UserNetworkMapper,
@@ -52,24 +52,37 @@ class UserRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getLoggedInUserDetails(userId: String): Flow<DataState<User>> = flow {
-        emit(DataState.Loading)
+    override fun getLoggedInUserDetails(userId: String): Flow<DataState<User>> = callbackFlow {
+        offer(DataState.Loading)
         val cachedUser = userDao.getUserById(userId)
         if (cachedUser != null) {
-            emit(DataState.Success(userCacheMapper.mapFromEntity(cachedUser)))
+            offer(DataState.Success(userCacheMapper.mapFromEntity(cachedUser)))
         }
         val userRef = remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS)
-                .document(userId).get().await()
-        val remoteUser = userRef.toObject<RemoteUser>()
-        remoteUser?.let {
-            val user = userNetworkMapper.mapFromEntity(it)
-            val userEntity = userCacheMapper.mapToEntity(user)
-            userDao.insertUser(userEntity)
-            emit(DataState.Success(user))
-        } ?: emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+                .document(userId)
 
+        val listener = userRef.addSnapshotListener { snapshot, exception ->
+            if (snapshot != null && snapshot.exists()) {
+                val remoteUser = snapshot.toObject<RemoteUser>()!!
+                val user = userNetworkMapper.mapFromEntity(remoteUser)
+                offer(DataState.Success(user))
+                CoroutineScope(Dispatchers.IO).launch {
+                    userDao.insertUser(userCacheMapper.mapToEntity(user))
+                }
+            }
+
+            // If exception occurs, cancel this scope with exception message.
+            exception?.let {
+                offer(DataState.Error(FirebaseException("Failed to Load Profile"), Messages.GENERIC_FAILURE))
+                cancel()
+            }
+        }
+
+        awaitClose {
+            listener.remove()
+            cancel()
+        }
     }.catch { e ->
-        emit(DataState.Error(null, Messages.GENERIC_FAILURE))
         Timber.e(e)
     }.flowOn(Dispatchers.IO)
 

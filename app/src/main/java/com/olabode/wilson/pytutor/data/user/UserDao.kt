@@ -19,4 +19,8 @@ interface UserDao {
     @Query("SELECT * FROM USER_TABLE WHERE user_id=:userId")
     suspend fun getUserById(userId: String): UserCacheEntity?
 
+    @Query("UPDATE user_table SET level=:progress  WHERE user_id=:userId")
+    suspend fun updateUserProgress(progress: Int, userId: String)
+
+
 }
