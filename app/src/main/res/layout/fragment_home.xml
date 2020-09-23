@@ -40,7 +40,6 @@
             android:id="@+id/name_field"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/placeholder_name"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/profile_icon"
             app:layout_constraintEnd_toEndOf="@+id/greeting"
@@ -97,12 +96,12 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginEnd="16dp"
-                android:progress="70"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/percent_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/catamaran_thin"

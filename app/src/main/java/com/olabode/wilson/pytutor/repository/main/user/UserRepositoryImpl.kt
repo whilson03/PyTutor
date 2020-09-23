@@ -44,7 +44,7 @@ class UserRepositoryImpl @Inject constructor(
 
             } else if (user != null && !user.isEmailVerified) {
                 auth.signOut()
-                AuthResult.Failed(Messages.LOGIN_FAILED)
+                AuthResult.Failed(Messages.VERIFY_EMAIL)
 
             } else {
                 AuthResult.Failed(Messages.LOGIN_FAILED)

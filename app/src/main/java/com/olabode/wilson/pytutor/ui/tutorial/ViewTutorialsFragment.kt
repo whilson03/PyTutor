@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.core.view.isVisible
@@ -14,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navGraphViewModels
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentViewTutorialsBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
@@ -52,21 +52,30 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
                 is LoadingState.LoadingComplete -> binding.progressBar.isVisible = false
             }
         })
+        setupUI(topic, totalNoOfPages)
 
 
+    }
+
+    private fun setupUI(topic: Topic, totalNoOfPages: Int) {
         viewModel.getLessons(topic.topicId).observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is DataState.Loading -> {
-                    viewModel.updateProgressBar(LoadingState.Loading)
+                    binding.progressBar.isVisible = true
+                    binding.noInternetState.root.isVisible = false
                 }
 
                 is DataState.Success -> {
-                    viewModel.updateProgressBar(LoadingState.LoadingComplete)
+                    binding.noInternetState.root.isVisible = false
+                    binding.progressBar.isVisible = false
                     doOnSuccess(totalNoOfPages, result.data.sortedBy { it.page }, topic)
                 }
                 is DataState.Error -> {
-                    viewModel.updateProgressBar(LoadingState.LoadingComplete)
-                    Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
+                    binding.noInternetState.root.isVisible = true
+                    binding.progressBar.isVisible = false
+                    showPersistentSnackBar(result.message) {
+                        setupUI(topic, totalNoOfPages)
+                    }
                 }
             }
         })
@@ -157,6 +166,15 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
             }
 
         }
+    }
+
+
+    private fun showPersistentSnackBar(message: String, action: () -> Unit) {
+        Snackbar.make(binding.coordinatorLayout, message, Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.retry)) {
+                    action.invoke()
+                }.show()
+
     }
 
     companion object {
