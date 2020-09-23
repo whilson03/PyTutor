@@ -47,7 +47,8 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_profile_placeholder" />
+                                app:srcCompat="@drawable/ic_profile_placeholder"
+                                />
 
                             <TextView
                                 android:id="@+id/username"
@@ -60,7 +61,7 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/profile_icon"
-                                android:text="Rhodeon" />
+                                tools:text="Username" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
