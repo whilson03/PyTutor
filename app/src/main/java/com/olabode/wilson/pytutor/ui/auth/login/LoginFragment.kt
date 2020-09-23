@@ -48,6 +48,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 authViewModel.snackBarMessage(Messages.ALERT_BLANK_FIELDS)
             }
         }
+
+        binding.forgotPassword.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment())
+        }
     }
 
 
@@ -70,6 +74,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     binding.progressBar.isVisible = false
                     authViewModel.snackBarMessage(result.data)
                     findNavController().navigate(AuthNavigationDirections.actionGlobalHomeFragment())
+                }
+
+                is AuthResult.UnAuthenticated -> {
+                    findNavController()
+                            .navigate(LoginFragmentDirections
+                                    .actionLoginFragmentToVerifyPasswordFragment())
                 }
             }
         })

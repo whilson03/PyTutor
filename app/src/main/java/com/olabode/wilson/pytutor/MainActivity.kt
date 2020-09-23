@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.loginFragment, R.id.signUpFragment, R.id.lessonCompletionFragment,
-                R.id.splashScreenFragment -> {
+                R.id.splashScreenFragment, R.id.resetPasswordFragment, R.id.verifyPasswordFragment -> {
                     bottomNavigationView.isVisible = false
                     toolbar.isVisible = false
                 }

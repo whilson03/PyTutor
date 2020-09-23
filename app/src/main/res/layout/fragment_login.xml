@@ -86,6 +86,8 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:textColor="@color/primaryColor"
+                android:textStyle="bold"
                 android:id="@+id/forgot_password"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
