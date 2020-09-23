@@ -2,20 +2,20 @@ package com.olabode.wilson.pytutor.ui.tutorial
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentTutorialTopicsBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialTopicAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialTopicViewModel
 import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
@@ -28,27 +28,51 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = TutorialTopicAdapter { topic ->
-            findNavController().navigate(TutorialTopicsFragmentDirections
-                    .actionTutorialTopicsFragmentToViewTutorialsFragment(title = topic.title, topic = topic))
+        adapter = TutorialTopicAdapter { topic, message ->
+            topic?.let {
+                findNavController().navigate(TutorialTopicsFragmentDirections
+                        .actionTutorialTopicsFragmentToViewTutorialsFragment(title = topic.title, topic = topic))
+            }
+
+            message?.let {
+                viewModel.showSnackBar(it)
+            }
+
         }
         binding.topicsRecycler.adapter = adapter
 
-        viewModel.topics.observe(viewLifecycleOwner, Observer { topics ->
-            topics?.let {
-                adapter.submitList(topics.sortedBy { it.orderKey })
-            }
-        })
+        initTopics()
 
-        viewModel.retrievedTopics.observe(viewLifecycleOwner, Observer { result ->
+        viewModel.showSnackBar.observe(viewLifecycleOwner, EventObserver {
+            showSnackBar(it)
+        })
+    }
+
+
+    private fun showSnackBar(message: String) {
+        Snackbar.make(binding.coordinatorLayout, message, Snackbar.LENGTH_SHORT).show()
+    }
+
+
+    private fun showPersisentSnackBar(message: String, action: () -> Unit) {
+        Snackbar.make(binding.coordinatorLayout, message, Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.retry)) {
+                    action.invoke()
+                }.show()
+
+    }
+
+    private fun initTopics() {
+        viewModel.fetchTopics().observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is DataState.Success -> {
                     binding.progressBar.isVisible = false
                 }
                 is DataState.Error -> {
                     binding.progressBar.isVisible = false
-                    Timber.d(result.message)
-                    Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
+                    showPersisentSnackBar(result.message) {
+                        initTopics()
+                    }
                 }
 
                 is DataState.Loading -> {
@@ -56,5 +80,13 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
                 }
             }
         })
+
+        viewModel.topics.observe(viewLifecycleOwner, Observer { topics ->
+            topics?.let {
+                adapter.submitList(topics.sortedBy { it.orderKey })
+            }
+        })
+
     }
+
 }

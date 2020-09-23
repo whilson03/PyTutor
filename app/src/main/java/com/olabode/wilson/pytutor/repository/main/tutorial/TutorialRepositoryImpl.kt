@@ -16,22 +16,19 @@ import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.utils.DataState
 import com.olabode.wilson.pytutor.utils.Messages
 import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityRetainedComponent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  *   Created by OLABODE WILSON on 9/9/20.
  */
 
-@Module
-@InstallIn(ActivityRetainedComponent::class)
+@Singleton
 @ExperimentalCoroutinesApi
 class TutorialRepositoryImpl @Inject constructor(
         private val remoteDatabase: FirebaseFirestore,
@@ -79,7 +76,7 @@ class TutorialRepositoryImpl @Inject constructor(
                 emit(DataState.Success(listOf<Topic>()))
 
             } else {
-                emit(DataState.Error(null, "NO TOPICS AVAILABLE"))
+                emit(DataState.Error(null, Messages.FAILED_TO_LOAD_TOPICS))
             }
 
         } else {
@@ -91,7 +88,7 @@ class TutorialRepositoryImpl @Inject constructor(
     }.flowOn(Dispatchers.IO)
 
     override fun getAllCachedTopics(): Flow<List<Topic>> {
-        return topicsDao.getTopics().map {
+        return topicsDao.getTopics().distinctUntilChanged().map {
             topicCacheMapper.mapFromEntityList(it)
         }.catch { e ->
             Timber.e(e)

@@ -7,17 +7,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.TutorialItemBinding
 import com.olabode.wilson.pytutor.models.Topic
-import timber.log.Timber
+import com.olabode.wilson.pytutor.utils.Messages
 
 /**
  *   Created by OLABODE WILSON on 9/8/20.
  */
-class TutorialTopicAdapter(private val clickListener: (topic: Topic) -> Unit)
+class TutorialTopicAdapter(private val clickListener: (topic: Topic?, message: String?) -> Unit)
     : ListAdapter<Topic, TutorialTopicAdapter.ViewHolder>(Topic.DIFF_CALLBACK) {
 
     class ViewHolder(
             private val binding: TutorialItemBinding,
-            private val clickListener: (topic: Topic) -> Unit
+            private val clickListener: (topic: Topic?, message: String?) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         private var item: Topic? = null
 
@@ -25,14 +25,15 @@ class TutorialTopicAdapter(private val clickListener: (topic: Topic) -> Unit)
             binding.root.setOnClickListener {
                 item?.let {
                     if (!it.isLocked) {
-                        clickListener.invoke(it)
+                        clickListener.invoke(it, null)
+                    } else {
+                        clickListener.invoke(null, Messages.LOCKED_TOPIC)
                     }
                 }
             }
         }
 
         fun bind(item: Topic) {
-            Timber.d(item.toString())
             this.item = item
             binding.lock.isVisible = item.isLocked
             binding.topicCount.text = getTopicNumber(adapterPosition + 1)

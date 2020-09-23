@@ -38,6 +38,7 @@
     <string name="challenges">Challenges</string>
     <string name="explore">Explore</string>
     <string name="default_progress">0%</string>
+    <string name="retry">Retry</string>
 
 
 </resources>
