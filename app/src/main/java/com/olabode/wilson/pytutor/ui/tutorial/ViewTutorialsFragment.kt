@@ -17,6 +17,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentViewTutorialsBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialPageAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialLessonViewModel
@@ -61,7 +62,7 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
                 is DataState.Success -> {
                     viewModel.updateProgressBar(LoadingState.LoadingComplete)
-                    doOnSuccess(totalNoOfPages, result.data.sortedBy { it.page })
+                    doOnSuccess(totalNoOfPages, result.data.sortedBy { it.page }, topic)
                 }
                 is DataState.Error -> {
                     viewModel.updateProgressBar(LoadingState.LoadingComplete)
@@ -71,8 +72,13 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
         })
     }
 
-    private fun doOnSuccess(totalNoOfPages: Int, lessons: List<Lesson>) {
-        pagesAdapter = TutorialPageAdapter(this, totalNoOfPages, lessons)
+    private fun doOnSuccess(totalNoOfPages: Int, lessons: List<Lesson>, topic: Topic) {
+        pagesAdapter = TutorialPageAdapter(
+                this,
+                totalNoOfPages,
+                lessons,
+                topic = topic
+        )
         viewPager = binding.lessonViewPager
         viewPager.adapter = pagesAdapter
 

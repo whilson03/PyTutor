@@ -48,4 +48,9 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="LevelProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progress_background</item>
+    </style>
+
 </resources>

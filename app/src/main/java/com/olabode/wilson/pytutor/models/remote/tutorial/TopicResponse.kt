@@ -1,29 +1,26 @@
 package com.olabode.wilson.pytutor.models.remote.tutorial
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
-
 /**
  *   Created by OLABODE WILSON on 9/8/20.
  */
 
-@Parcelize
+
 data class TopicResponse(
 
-        val orderKey: Int,
+        var orderKey: Int,
 
-        val title: String,
+        var title: String,
 
-        val description: String,
+        var description: String,
 
         var noOfPages: Int,
 
         var topicId: String,
 
-        val isLocked: Boolean,
+        var isLocked: Boolean,
 
-        val isCompleted: Boolean
-) : Parcelable {
+        var isCompleted: Boolean
+) {
 
     constructor() : this(
             0, "", "", 0, "", true, true
