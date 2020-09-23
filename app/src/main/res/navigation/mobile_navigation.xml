@@ -26,6 +26,14 @@
             <action
                 android:id="@+id/action_loginFragment_to_signUpFragment2"
                 app:destination="@id/signUpFragment" />
+            <action
+                android:id="@+id/action_loginFragment_to_verifyPasswordFragment"
+                app:destination="@id/verifyPasswordFragment"
+                app:popUpTo="@id/loginFragment" />
+            <action
+                android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+                app:destination="@id/resetPasswordFragment"
+                app:popUpTo="@id/loginFragment" />
         </fragment>
         <fragment
             android:id="@+id/signUpFragment"
@@ -37,6 +45,16 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
+        <fragment
+            android:id="@+id/verifyPasswordFragment"
+            android:name="com.olabode.wilson.pytutor.ui.auth.verification.VerifyPasswordFragment"
+            android:label="fragment_verify_password"
+            tools:layout="@layout/fragment_verify_password" />
+        <fragment
+            android:id="@+id/resetPasswordFragment"
+            android:name="com.olabode.wilson.pytutor.ui.auth.resetpassword.ResetPasswordFragment"
+            android:label="fragment_reset_password"
+            tools:layout="@layout/fragment_reset_password" />
     </navigation>
     <fragment
         android:id="@+id/profileFragment"

@@ -1,14 +1,10 @@
 package com.olabode.wilson.pytutor.repository.auth
 
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.olabode.wilson.pytutor.models.RemoteUser
+import com.olabode.wilson.pytutor.utils.*
 import com.olabode.wilson.pytutor.utils.AuthResult
-import com.olabode.wilson.pytutor.utils.Constants
-import com.olabode.wilson.pytutor.utils.Messages
-import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -41,7 +37,7 @@ class AuthRepositoryImpl @Inject constructor(
         if (user.isEmailVerified) {
             emit(AuthResult.Success(Messages.GENERIC_SUCCESS))
         } else {
-            emit(AuthResult.Failed(Messages.VERIFY_EMAIL))
+            emit(AuthResult.UnAuthenticated)
             logOut()
             return@flow
         }
@@ -102,7 +98,30 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
+    override fun sendEmailVerificationLink(email: String, password: String):
+            Flow<DataState<String>> = flow {
+        emit(DataState.Loading)
+        val credential: AuthCredential = EmailAuthProvider.getCredential(email, password)
+        auth.signInWithCredential(credential).await()
+        auth.currentUser?.let { user ->
+            user.sendEmailVerification().await()
+            auth.signOut()
+            emit(DataState.Success(Messages.VERIFICATION_LINK_SUCCESS))
+        }
+    }.catch {
+        auth.signOut()
+        emit(DataState.Error(null, Messages.VERIFICATION_LINK_FAILURE))
+    }.flowOn(Dispatchers.IO)
+
     override fun currentUserId(): String {
         return auth.currentUser!!.uid
     }
+
+    override fun sendPasswordResetLink(email: String): Flow<DataState<String>> = flow {
+        emit(DataState.Loading)
+        auth.sendPasswordResetEmail(email).await()
+        emit(DataState.Success(Messages.PASSWORD_LINK_SUCCESS))
+    }.catch {
+        emit(DataState.Error(null, Messages.PASSWORD_RESET_LINK_FAILURE))
+    }.flowOn(Dispatchers.IO)
 }

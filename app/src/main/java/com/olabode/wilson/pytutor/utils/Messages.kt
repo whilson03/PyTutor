@@ -17,4 +17,8 @@ object Messages {
     const val ACCOUNT_IN_USE_FAILURE = "Email already in use, Login."
     const val EXCEPTION_MESSAGE = "ERROR OCCURRED"
     const val FAILED_TO_LOAD_TOPICS = "ERROR: FAILED TO LOAD TOPICS"
+    const val VERIFICATION_LINK_SUCCESS = "Link sent to your email."
+    const val VERIFICATION_LINK_FAILURE = "Failed to send verification link."
+    const val PASSWORD_RESET_LINK_FAILURE = "Failed to send password reset link."
+    const val PASSWORD_LINK_SUCCESS = "Link sent to your email."
 }
