@@ -1,5 +1,6 @@
 package com.olabode.wilson.pytutor.ui.home
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -50,12 +51,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
+
     private fun setupUserDetails(user: User) {
         binding.nameField.text = user.fullName
         binding.profileIcon.load(user.imageUrl) {
             crossfade(true)
             placeholder(R.drawable.ic_profile_placeholder)
             transformations(CircleCropTransformation())
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            binding.progressBar.setProgress(user.level, true)
+        } else {
+            binding.progressBar.progress = user.level
         }
     }
 }
