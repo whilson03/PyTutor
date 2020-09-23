@@ -16,4 +16,9 @@ interface UserRepository {
     fun checkLoginStatus(): LiveData<AuthResult<String>>
 
     fun getLoggedInUserDetails(userId: String): Flow<DataState<User>>
+
+    fun updateCourse(topicKey: String, rating: Float, orderKey: Int): Flow<DataState<String>>
+
+    fun getUserId(): String
+
 }

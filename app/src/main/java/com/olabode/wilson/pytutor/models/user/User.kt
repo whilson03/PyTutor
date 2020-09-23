@@ -12,6 +12,7 @@ data class User(
         val level: Int = 0,
         val experiencePoint: Int = 0,
         val imageUrl: String,
-        val badges: List<Badge>? = null,
-        val userId: String
+        val badges: List<Badge>,
+        val userId: String,
+        val completedCourses: Map<String, Float>
 )

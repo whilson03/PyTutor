@@ -22,8 +22,9 @@ data class UserCacheEntity(
         @ColumnInfo(name = "image_url")
         val imageUrl: String,
         @ColumnInfo(name = "badges")
-        val badges: List<Badge>? = null,
+        val badges: List<Badge>,
         @PrimaryKey(autoGenerate = false)
         @ColumnInfo(name = "user_id")
-        val userId: String
+        val userId: String,
+        val completedCourses: Map<String, Float>
 )

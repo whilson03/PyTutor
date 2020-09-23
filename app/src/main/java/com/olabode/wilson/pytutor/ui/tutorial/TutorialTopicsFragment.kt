@@ -34,11 +34,16 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         }
         binding.topicsRecycler.adapter = adapter
 
-        viewModel.topics.observe(viewLifecycleOwner, Observer { result ->
+        viewModel.topics.observe(viewLifecycleOwner, Observer { topics ->
+            topics?.let {
+                adapter.submitList(topics.sortedBy { it.orderKey })
+            }
+        })
+
+        viewModel.retrievedTopics.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is DataState.Success -> {
                     binding.progressBar.isVisible = false
-                    adapter.submitList(result.data.sortedBy { it.orderKey })
                 }
                 is DataState.Error -> {
                     binding.progressBar.isVisible = false

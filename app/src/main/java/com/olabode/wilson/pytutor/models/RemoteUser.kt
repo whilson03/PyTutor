@@ -8,15 +8,17 @@ import java.util.*
  */
 
 data class RemoteUser(
-        val fullName: String,
-        val email: String,
-        val level: Int = 0,
+        var fullName: String,
+        var email: String,
+        var level: Int = 0,
         @ServerTimestamp
-        val dateJoined: Date? = null,
-        val currentXp: Int = 0,
-        val badgesAttained: List<Badge>? = null,
-        val userId: String,
-        val imageUrl: String = ""
+        var dateJoined: Date? = null,
+        var currentXp: Int = 0,
+        var badgesAttained: List<Badge> = emptyList(),
+        var userId: String,
+        var imageUrl: String = "",
+        var completedCourses: Map<String, Float> = mapOf()
+
 
 ) {
 
@@ -26,8 +28,9 @@ data class RemoteUser(
             0,
             null,
             0,
-            null,
+            emptyList(),
             "",
-            ""
+            "",
+            mapOf()
     )
 }

@@ -17,7 +17,8 @@ class UserCacheMapper @Inject constructor() : EntityMapper<UserCacheEntity, User
                 badges = entity.badges,
                 level = entity.level,
                 userId = entity.userId,
-                experiencePoint = entity.experiencePoint
+                experiencePoint = entity.experiencePoint,
+                completedCourses = entity.completedCourses
         )
     }
 
@@ -29,7 +30,8 @@ class UserCacheMapper @Inject constructor() : EntityMapper<UserCacheEntity, User
                 experiencePoint = domainModel.experiencePoint,
                 badges = domainModel.badges,
                 userId = domainModel.userId,
-                imageUrl = domainModel.imageUrl
+                imageUrl = domainModel.imageUrl,
+                completedCourses = domainModel.completedCourses
         )
     }
 }

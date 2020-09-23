@@ -10,7 +10,9 @@ import kotlinx.coroutines.flow.Flow
  */
 interface TutorialRepository {
 
-    fun getAllTopics(): Flow<DataState<List<Topic>>>
+    fun retrieveTopicsFromRemote(userId: String): Flow<DataState<List<Topic>>>
+
+    fun getAllCachedTopics(): Flow<List<Topic>>
 
     fun getLessonsForTopic(topicId: String): Flow<DataState<List<Lesson>>>
 
