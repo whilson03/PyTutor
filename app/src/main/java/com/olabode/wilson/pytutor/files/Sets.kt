@@ -280,26 +280,8 @@ val sets = listOf(
                                 ),
                                 answerKey = "1"
                         ),
-                        "3" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = "1"
-                        ),
 
-                        "4" to Question(
-                                question = "",
-                                options = mapOf(
-                                        "1" to "",
-                                        "2" to "",
-                                        "3" to ""
-                                ),
-                                answerKey = "2"
-                        ),
-                        "5" to Question(
+                        "3" to Question(
                                 question = "What methods returns the combination of two sets?",
                                 options = mapOf(
                                         "1" to "intersection",

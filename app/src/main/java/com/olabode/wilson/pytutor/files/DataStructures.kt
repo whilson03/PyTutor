@@ -123,7 +123,7 @@ val dataStructures = listOf(
                                         "2" to "Loop",
                                         "3" to "Set"
                                 ),
-                                answerKey = ""
+                                answerKey = "2"
                         ),
 
                         "2" to Question(
@@ -133,7 +133,17 @@ val dataStructures = listOf(
                                         "2" to "Lack of organization",
                                         "3" to "Reusability"
                                 ),
-                                answerKey = ""
+                                answerKey = "3"
+                        ),
+
+                        "3" to Question(
+                                question = "Which of these is a data structure?",
+                                options = mapOf(
+                                        "1" to "bubble",
+                                        "2" to "heap",
+                                        "3" to "thread"
+                                ),
+                                answerKey = "2"
                         )
                 ),
                 type = LessonResponseType.QUESTION.ordinal
