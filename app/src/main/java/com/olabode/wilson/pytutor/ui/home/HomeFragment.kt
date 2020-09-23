@@ -58,7 +58,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             crossfade(true)
             placeholder(R.drawable.ic_profile_placeholder)
             transformations(CircleCropTransformation())
+            error(R.drawable.ic_profile_placeholder)
         }
+        binding.percentText.text = "${user.level}%"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             binding.progressBar.setProgress(user.level, true)
         } else {
