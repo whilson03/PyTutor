@@ -45,6 +45,7 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="reset_your_password">Reset your password!</string>
     <string name="set_password_reset_link">Set Password reset link</string>
+    <string name="progress_level">%1$d%2$s</string>
 
 
 </resources>
