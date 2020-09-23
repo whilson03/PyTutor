@@ -66,8 +66,6 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
         binding.home.setOnClickListener {
             findNavController().popBackStack()
         }
-
-
     }
 
     private fun setUpRating(value: Float) {

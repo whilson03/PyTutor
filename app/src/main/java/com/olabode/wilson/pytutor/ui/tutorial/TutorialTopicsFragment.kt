@@ -66,10 +66,14 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         viewModel.fetchTopics().observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is DataState.Success -> {
+                    binding.mainPage.isVisible = true
+                    binding.noInternetState.root.isVisible = false
                     binding.progressBar.isVisible = false
                 }
                 is DataState.Error -> {
+                    binding.mainPage.isVisible = false
                     binding.progressBar.isVisible = false
+                    binding.noInternetState.root.isVisible = true
                     showPersisentSnackBar(result.message) {
                         initTopics()
                     }

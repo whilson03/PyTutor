@@ -40,7 +40,6 @@
             android:id="@+id/name_field"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="@string/placeholder_name"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/profile_icon"
             app:layout_constraintEnd_toEndOf="@+id/greeting"
