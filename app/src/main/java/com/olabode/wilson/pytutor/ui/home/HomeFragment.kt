@@ -62,7 +62,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         val userProgress = getUserProgress(user).toInt()
-        binding.percentText.text = userProgress.toString()
+        binding.percentText.text = getString(R.string.progress_level, userProgress, "%")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             binding.progressBar.setProgress(userProgress, true)
         } else {
@@ -70,9 +70,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 
-    private fun getUserProgress(user: User) : Float{
+    private fun getUserProgress(user: User): Float {
         // Convert completed lessons to percentage
-        return 100/18f * user.completedCourses.size
+        return 100 / 18f * user.completedCourses.size
     }
 }
 
