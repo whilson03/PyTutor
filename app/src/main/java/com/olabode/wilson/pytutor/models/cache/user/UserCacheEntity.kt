@@ -26,5 +26,6 @@ data class UserCacheEntity(
         @PrimaryKey(autoGenerate = false)
         @ColumnInfo(name = "user_id")
         val userId: String,
+        @ColumnInfo(name = "completed_courses")
         val completedCourses: Map<String, Float>
 )
