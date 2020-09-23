@@ -54,7 +54,7 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
     }
 
 
-    private fun showPersisentSnackBar(message: String, action: () -> Unit) {
+    private fun showPersistentSnackBar(message: String, action: () -> Unit) {
         Snackbar.make(binding.coordinatorLayout, message, Snackbar.LENGTH_INDEFINITE)
                 .setAction(getString(R.string.retry)) {
                     action.invoke()
@@ -74,12 +74,13 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
                     binding.mainPage.isVisible = false
                     binding.progressBar.isVisible = false
                     binding.noInternetState.root.isVisible = true
-                    showPersisentSnackBar(result.message) {
+                    showPersistentSnackBar(result.message) {
                         initTopics()
                     }
                 }
 
                 is DataState.Loading -> {
+                    binding.noInternetState.root.isVisible = false
                     binding.progressBar.isVisible = true
                 }
             }

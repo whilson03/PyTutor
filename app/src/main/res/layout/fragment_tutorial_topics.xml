@@ -6,10 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/no_internet_state"
-        layout="@layout/item_no_internet"
-        android:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_page"
@@ -17,17 +13,6 @@
         android:layout_height="match_parent"
         android:background="@color/off_white"
         tools:context=".ui.tutorial.TutorialTopicsFragment">
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/topics_recycler"
@@ -41,5 +26,18 @@
             tools:listitem="@layout/tutorial_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/no_internet_state"
+        layout="@layout/item_no_internet"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
