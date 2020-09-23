@@ -60,12 +60,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             transformations(CircleCropTransformation())
             error(R.drawable.ic_profile_placeholder)
         }
-        binding.percentText.text = "${user.level}%"
+
+        val userProgress = getUserProgress(user).toInt()
+        binding.percentText.text = userProgress.toString()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            binding.progressBar.setProgress(user.level, true)
+            binding.progressBar.setProgress(userProgress, true)
         } else {
-            binding.progressBar.progress = user.level
+            binding.progressBar.progress = userProgress
         }
+    }
+
+    private fun getUserProgress(user: User) : Float{
+        // Convert completed lessons to percentage
+        return 100/18f * user.completedCourses.size
     }
 }
 
