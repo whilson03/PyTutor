@@ -16,7 +16,8 @@ data class Topic(
         val noOfPages: Int,
         var topicId: String,
         var isLocked: Boolean,
-        var isCompleted: Boolean
+        var isCompleted: Boolean,
+        var numOfStars: Float = 0f
 ) : Parcelable {
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Topic>() {

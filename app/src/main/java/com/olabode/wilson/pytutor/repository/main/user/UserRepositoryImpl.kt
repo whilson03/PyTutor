@@ -11,7 +11,7 @@ import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.data.user.UserDao
 import com.olabode.wilson.pytutor.mappers.user.UserCacheMapper
 import com.olabode.wilson.pytutor.mappers.user.UserNetworkMapper
-import com.olabode.wilson.pytutor.models.RemoteUser
+import com.olabode.wilson.pytutor.models.remote.user.RemoteUser
 import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.utils.*
 import kotlinx.coroutines.*
@@ -92,7 +92,7 @@ class UserRepositoryImpl @Inject constructor(
         Timber.e(nextCourseKey.toString())
 
         val completedCourse = mapOf(topicKey to rating)
-        topicsDao.updateCompletedCourse(topicKey)
+        topicsDao.updateCompletedCourse(topicKey, rating)
         topicsDao.unlockNextTopic(nextCourseKey)
 
         remoteDatabase

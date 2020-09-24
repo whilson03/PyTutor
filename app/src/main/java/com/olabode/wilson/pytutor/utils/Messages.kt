@@ -21,4 +21,5 @@ object Messages {
     const val VERIFICATION_LINK_FAILURE = "Failed to send verification link."
     const val PASSWORD_RESET_LINK_FAILURE = "Failed to send password reset link."
     const val PASSWORD_LINK_SUCCESS = "Link sent to your email."
+    const val FAILED_TO_LOAD_LESSONS = "ERROR: FAILED TO LOAD LESSONS"
 }

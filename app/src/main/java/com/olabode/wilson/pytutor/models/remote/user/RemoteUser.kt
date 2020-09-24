@@ -1,6 +1,7 @@
-package com.olabode.wilson.pytutor.models
+package com.olabode.wilson.pytutor.models.remote.user
 
 import com.google.firebase.firestore.ServerTimestamp
+import com.olabode.wilson.pytutor.models.Badge
 import java.util.*
 
 /**

@@ -14,8 +14,9 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Get an overview of Python and what it entails.",
                     noOfPages = 3,
                     topicId = "introduction",
-                    isLocked = true,
-                    isCompleted = false
+                    isLocked = false,
+                    isCompleted = false,
+                    stars = 0f
             ),
 
             TopicResponse(
@@ -25,7 +26,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 3,
@@ -34,7 +36,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "variables",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
 
             TopicResponse(
@@ -44,7 +47,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "strings",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
 
             TopicResponse(
@@ -54,7 +58,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "numbers",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 6,
@@ -63,7 +68,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "input_output",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 7,
@@ -72,7 +78,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "data_structures",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 8,
@@ -81,7 +88,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "lists",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 9,
@@ -90,7 +98,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "tuples",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 10,
@@ -99,7 +108,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "dictionaries",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 11,
@@ -108,7 +118,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "sets",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
 
             TopicResponse(
@@ -118,7 +129,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "operators",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
 
             TopicResponse(
@@ -128,7 +140,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "if_else_statements",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 14,
@@ -137,7 +150,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "for_loops",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 15,
@@ -146,7 +160,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "while_loops",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 16,
@@ -155,7 +170,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "break_continue",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 17,
@@ -164,7 +180,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "functions",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             ),
             TopicResponse(
                     orderKey = 18,
@@ -173,7 +190,8 @@ fun genTopicResponse(): List<TopicResponse> {
                     noOfPages = 3,
                     topicId = "exception_handling",
                     isLocked = true,
-                    isCompleted = false
+                    isCompleted = false,
+                    stars = 0f
             )
     )
 }

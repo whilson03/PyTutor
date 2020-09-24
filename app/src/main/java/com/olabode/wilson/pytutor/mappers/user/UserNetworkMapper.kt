@@ -1,6 +1,6 @@
 package com.olabode.wilson.pytutor.mappers.user
 
-import com.olabode.wilson.pytutor.models.RemoteUser
+import com.olabode.wilson.pytutor.models.remote.user.RemoteUser
 import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.utils.EntityMapper
 import javax.inject.Inject

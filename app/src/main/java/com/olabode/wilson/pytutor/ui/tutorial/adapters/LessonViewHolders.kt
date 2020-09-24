@@ -2,26 +2,14 @@ package com.olabode.wilson.pytutor.ui.tutorial.adapters
 
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
 import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialBodyBinding
-import com.olabode.wilson.pytutor.databinding.ItemTutorialImageBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialSnippetBinding
 import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 
 /**
  *   Created by OLABODE WILSON on 9/9/20.
  */
-class ImageViewHolder(val binding: ItemTutorialImageBinding)
-    : RecyclerView.ViewHolder(binding.root) {
-
-    fun bind(item: Tutorial) {
-        if (item.imageUrl.isNotEmpty()) {
-            binding.tutorialImage.load(item.imageUrl)
-        }
-    }
-}
-
 
 class CodeViewHolder(val binding: ItemTutorialSnippetBinding)
     : RecyclerView.ViewHolder(binding.root) {

@@ -19,11 +19,20 @@ data class TopicResponse(
 
         var isLocked: Boolean,
 
-        var isCompleted: Boolean
+        var isCompleted: Boolean,
+
+        var stars: Float
 ) {
 
     constructor() : this(
-            0, "", "", 0, "", true, true
+            0,
+            "",
+            "",
+            0,
+            "",
+            true,
+            true,
+            0f
     )
 
 }

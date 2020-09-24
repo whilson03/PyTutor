@@ -35,6 +35,7 @@ class TutorialTopicAdapter(private val clickListener: (topic: Topic?, message: S
 
         fun bind(item: Topic) {
             this.item = item
+            binding.ratingBar.rating = item.numOfStars
             binding.lock.isVisible = item.isLocked
             binding.topicCount.text = getTopicNumber(adapterPosition + 1)
             binding.title.text = item.title
