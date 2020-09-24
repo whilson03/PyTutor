@@ -12,6 +12,10 @@
         <action
             android:id="@+id/action_homeFragment_to_tutorialTopicsFragment"
             app:destination="@id/tutorialTopicsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/homeFragment" />
     </fragment>
 
@@ -25,14 +29,26 @@
             android:label="LoginFragment">
             <action
                 android:id="@+id/action_loginFragment_to_signUpFragment2"
-                app:destination="@id/signUpFragment" />
+                app:destination="@id/signUpFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
             <action
                 android:id="@+id/action_loginFragment_to_verifyPasswordFragment"
                 app:destination="@id/verifyPasswordFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
                 app:popUpTo="@id/loginFragment" />
             <action
                 android:id="@+id/action_loginFragment_to_resetPasswordFragment"
                 app:destination="@id/resetPasswordFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
                 app:popUpTo="@id/loginFragment" />
         </fragment>
         <fragment
@@ -43,6 +59,10 @@
         <action
             android:id="@+id/action_global_homeFragment"
             app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
         <fragment
@@ -69,7 +89,11 @@
 
         <action
             android:id="@+id/action_tutorialTopicsFragment_to_viewTutorialsFragment"
-            app:destination="@id/lesson_graph">
+            app:destination="@id/lesson_graph"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
             <argument
                 android:name="title"
                 app:argType="string" />
@@ -109,6 +133,10 @@
             <action
                 android:id="@+id/action_viewTutorialsFragment_to_lessonCompletionFragment"
                 app:destination="@id/lessonCompletionFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
                 app:popUpTo="@id/tutorialTopicsFragment" />
         </fragment>
     </navigation>
@@ -119,11 +147,19 @@
         <action
             android:id="@+id/action_splashScreenFragment_to_homeFragment"
             app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashScreenFragment_to_auth_navigation"
             app:destination="@id/auth_navigation"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
     </fragment>
