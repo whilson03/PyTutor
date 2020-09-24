@@ -358,7 +358,7 @@ val dictionaries = listOf(
         ),
 
         LessonResponse("",
-                4,
+                6,
                 lessons = null,
                 question = mapOf(
                         "1" to Question(
