@@ -2,7 +2,7 @@ package com.olabode.wilson.pytutor.repository.auth
 
 import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
-import com.olabode.wilson.pytutor.models.RemoteUser
+import com.olabode.wilson.pytutor.models.remote.user.RemoteUser
 import com.olabode.wilson.pytutor.utils.*
 import com.olabode.wilson.pytutor.utils.AuthResult
 import kotlinx.coroutines.Dispatchers

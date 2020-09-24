@@ -25,7 +25,8 @@ class TopicNetworkMapper @Inject constructor() :
                 description = entity.description,
                 isCompleted = entity.isCompleted,
                 isLocked = entity.isLocked,
-                noOfPages = entity.noOfPages
+                noOfPages = entity.noOfPages,
+                numOfStars = entity.stars
         )
     }
 
@@ -37,7 +38,8 @@ class TopicNetworkMapper @Inject constructor() :
                 description = domainModel.description,
                 isCompleted = domainModel.isCompleted,
                 isLocked = domainModel.isLocked,
-                noOfPages = domainModel.noOfPages
+                noOfPages = domainModel.noOfPages,
+                stars = domainModel.numOfStars
         )
     }
 }

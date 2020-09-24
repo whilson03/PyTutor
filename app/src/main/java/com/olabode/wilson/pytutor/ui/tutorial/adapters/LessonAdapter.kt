@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialBodyBinding
-import com.olabode.wilson.pytutor.databinding.ItemTutorialImageBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialSnippetBinding
 import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 
@@ -18,15 +17,6 @@ class LessonAdapter : ListAdapter<Tutorial, RecyclerView.ViewHolder>(LessonDiffC
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            LessonTypes.IMAGE.ordinal -> {
-                val binding = ItemTutorialImageBinding.inflate(
-                        LayoutInflater.from(parent.context),
-                        parent,
-                        false
-                )
-                ImageViewHolder(binding)
-            }
-
             LessonTypes.TEXT.ordinal -> {
                 val binding = ItemTutorialBodyBinding.inflate(
                         LayoutInflater.from(parent.context),
@@ -60,7 +50,6 @@ class LessonAdapter : ListAdapter<Tutorial, RecyclerView.ViewHolder>(LessonDiffC
         val lesson = getItem(position)
         when (lesson.type) {
             LessonTypes.CODE.ordinal -> (holder as CodeViewHolder).bind(lesson)
-            LessonTypes.IMAGE.ordinal -> (holder as ImageViewHolder).bind(lesson)
             LessonTypes.TEXT.ordinal -> (holder as TextViewHolder).bind(lesson)
             LessonTypes.BULLET.ordinal -> (holder as BulletViewHolder).bind(lesson)
         }

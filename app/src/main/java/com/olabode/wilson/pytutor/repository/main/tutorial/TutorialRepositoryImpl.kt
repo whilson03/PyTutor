@@ -8,10 +8,10 @@ import com.olabode.wilson.pytutor.mappers.tutorial.LessonCacheMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.LessonNetworkMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicCacheMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicNetworkMapper
-import com.olabode.wilson.pytutor.models.RemoteUser
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.TopicResponse
+import com.olabode.wilson.pytutor.models.remote.user.RemoteUser
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.utils.DataState
 import com.olabode.wilson.pytutor.utils.Messages
@@ -67,10 +67,10 @@ class TutorialRepositoryImpl @Inject constructor(
                         if (user.completedCourses.containsKey(topic.topicId)) {
                             topic.isCompleted = true
                             topic.isLocked = false
+                            topic.numOfStars = user.completedCourses[topic.topicId] ?: 0f
                         }
                     }
                     topicsDao.insert(topicCacheMapper.mapToEntity(topic))
-                    Timber.d("INSERTING ${topic.topicId}")
                 }
 
                 emit(DataState.Success(listOf<Topic>()))
@@ -84,7 +84,7 @@ class TutorialRepositoryImpl @Inject constructor(
         }
     }.catch { error ->
         Timber.e(error)
-        emit(DataState.Error(null, "ERROR LOADING TOPICS"))
+        emit(DataState.Error(null, Messages.FAILED_TO_LOAD_TOPICS))
     }.flowOn(Dispatchers.IO)
 
     override fun getAllCachedTopics(): Flow<List<Topic>> {
@@ -117,12 +117,11 @@ class TutorialRepositoryImpl @Inject constructor(
 
                 for (lesson in lessons) {
                     lessonsDao.insert(lessonsCacheMapper.mapToEntity(lesson))
-                    Timber.d("INSERTING ${lesson.topicId}")
                 }
 
                 emit(DataState.Success(lessons))
             } else {
-                emit(DataState.Error(null, "NO LESSONS AVAILABLE"))
+                emit(DataState.Error(null, Messages.FAILED_TO_LOAD_LESSONS))
             }
         } else {
             val lessons = lessonsCacheMapper.mapFromEntityList(cachedLessons)
@@ -130,7 +129,7 @@ class TutorialRepositoryImpl @Inject constructor(
         }
     }.catch { e ->
         Timber.e(e)
-        emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+        emit(DataState.Error(null, Messages.FAILED_TO_LOAD_LESSONS))
     }.flowOn(Dispatchers.IO)
 
 }

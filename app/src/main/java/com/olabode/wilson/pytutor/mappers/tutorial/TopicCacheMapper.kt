@@ -18,7 +18,8 @@ class TopicCacheMapper @Inject constructor() : EntityMapper<TopicCacheEntity, To
                 description = entity.description,
                 isCompleted = entity.isCompleted,
                 isLocked = entity.isLocked,
-                noOfPages = entity.noOfPages
+                noOfPages = entity.noOfPages,
+                numOfStars = entity.numOfStars
         )
     }
 
@@ -30,7 +31,8 @@ class TopicCacheMapper @Inject constructor() : EntityMapper<TopicCacheEntity, To
                 description = domainModel.description,
                 isCompleted = domainModel.isCompleted,
                 isLocked = domainModel.isLocked,
-                noOfPages = domainModel.noOfPages
+                noOfPages = domainModel.noOfPages,
+                numOfStars = domainModel.numOfStars
         )
     }
 

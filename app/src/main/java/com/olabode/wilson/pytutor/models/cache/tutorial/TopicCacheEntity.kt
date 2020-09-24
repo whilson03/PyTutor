@@ -29,5 +29,8 @@ data class TopicCacheEntity(
         val isLocked: Boolean,
 
         @ColumnInfo(name = "is_completed")
-        val isCompleted: Boolean
+        val isCompleted: Boolean,
+
+        @ColumnInfo(name = "stars")
+        val numOfStars: Float = 0f
 )

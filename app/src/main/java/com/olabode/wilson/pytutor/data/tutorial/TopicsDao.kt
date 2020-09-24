@@ -26,8 +26,8 @@ interface TopicsDao {
     @Query("DELETE FROM topics_table")
     suspend fun clearTopics()
 
-    @Query("UPDATE topics_table SET  is_completed = 1 WHERE topicId =:topicId")
-    suspend fun updateCompletedCourse(topicId: String)
+    @Query("UPDATE topics_table SET  is_completed = 1 , stars=:stars WHERE topicId =:topicId")
+    suspend fun updateCompletedCourse(topicId: String, stars: Float)
 
     @Query("UPDATE topics_table SET is_locked = 0 WHERE order_key =:orderKey")
     suspend fun unlockNextTopic(orderKey: Int)
