@@ -57,4 +57,11 @@
         <item name="background">@color/white</item>
     </style>
 
+    <style name="profileCardItem">
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
 </resources>
