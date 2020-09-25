@@ -5,10 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.olabode.wilson.pytutor.databinding.ActivityMainBinding
@@ -26,14 +23,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val toolbar = binding.toolBar
-        setSupportActionBar(toolbar)
         navController = findNavController(R.id.fragments_container)
 
         bottomNavigationView = binding.bottomNavigationView
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.profileFragment))
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
 
         bottomNavigationView.setOnNavigationItemReselectedListener {
@@ -44,33 +36,24 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment -> {
-                    toolbar.isVisible = false
                     bottomNavigationView.isVisible = true
                 }
 
                 R.id.tutorialTopicsFragment, R.id.viewTutorialsFragment -> {
                     bottomNavigationView.isVisible = false
-                    toolbar.isVisible = true
                 }
 
                 R.id.loginFragment, R.id.signUpFragment, R.id.lessonCompletionFragment,
                 R.id.splashScreenFragment, R.id.resetPasswordFragment, R.id.verifyPasswordFragment -> {
                     bottomNavigationView.isVisible = false
-                    toolbar.isVisible = false
                 }
                 else -> {
                     bottomNavigationView.isVisible = true
-                    toolbar.isVisible = true
                 }
             }
         }
 
 
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return (Navigation.findNavController(this, R.id.fragments_container).navigateUp()
-                || super.onSupportNavigateUp())
     }
 
 }
