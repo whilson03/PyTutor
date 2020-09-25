@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.ui.profile
+package com.olabode.wilson.pytutor.ui.achievement
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

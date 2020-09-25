@@ -84,6 +84,9 @@
             app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/tutorialTopicsFragment"
@@ -165,4 +168,9 @@
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.olabode.wilson.pytutor.ui.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>
