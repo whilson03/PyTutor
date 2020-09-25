@@ -20,6 +20,7 @@ class ProfileViewModel @ViewModelInject constructor(
             .getLoggedInUserDetails(userRepository.getUserId())
             .asLiveData()
 
+    val authState = userRepository.checkLoginStatus()
 
     fun signOut(): LiveData<AuthResult<String>> {
         return authRepository.logOut().asLiveData()

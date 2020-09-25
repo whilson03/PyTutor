@@ -2,6 +2,7 @@ package com.olabode.wilson.pytutor
 
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
@@ -10,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.olabode.wilson.pytutor.databinding.ActivityMainBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.ui.profile.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -19,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private val binding by viewBinding(ActivityMainBinding::inflate)
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navController: NavController
+    private val viewModel: ProfileViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +58,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 }
