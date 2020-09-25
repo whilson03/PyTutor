@@ -50,7 +50,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
 
         binding.achievement.setOnClickListener {
-
+            val action = ProfileFragmentDirections.actionProfileFragmentToAchievementsFragment()
+            findNavController().navigate(action)
         }
 
         binding.editProfile.setOnClickListener {

@@ -87,6 +87,9 @@
         <action
             android:id="@+id/action_profileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_achievementsFragment"
+            app:destination="@id/achievementsFragment" />
     </fragment>
     <fragment
         android:id="@+id/tutorialTopicsFragment"
@@ -173,4 +176,9 @@
         android:name="com.olabode.wilson.pytutor.ui.profile.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.olabode.wilson.pytutor.ui.achievement.AchievementsFragment"
+        android:label="AchievementsFragment"
+        tools:layout="@layout/fragment_achievements"/>
 </navigation>
