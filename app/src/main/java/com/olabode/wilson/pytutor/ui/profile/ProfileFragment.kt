@@ -9,13 +9,13 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import coil.api.load
 import coil.transform.CircleCropTransformation
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentProfileBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.user.User
-import com.olabode.wilson.pytutor.utils.AuthResult
 import com.olabode.wilson.pytutor.utils.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,7 +38,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
 
         binding.signOut.setOnClickListener {
-            //  logOut()
+            logOut()
         }
 
         binding.navigateToRate.setOnClickListener {
@@ -75,22 +75,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
 
     private fun logOut() {
-        viewModel.signOut().observe(viewLifecycleOwner, Observer { result ->
-            when (result) {
-                is AuthResult.Success -> {
-
-                }
-
-                is AuthResult.Failed -> {
-
-                }
-
-                is AuthResult.Loading -> {
-
-                }
-            }
-
-        })
+        viewModel.signOut()
+        findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToAuthNavigation())
     }
 
 

@@ -86,11 +86,9 @@ class AuthRepositoryImpl @Inject constructor(
     }.flowOn(Dispatchers.IO)
 
 
-    override fun logOut(): Flow<AuthResult<String>> = flow {
-        emit(AuthResult.Loading)
+    override fun logOut() {
         auth.signOut()
-        emit(AuthResult.Success(Messages.GENERIC_SUCCESS))
-    }.flowOn(Dispatchers.IO)
+    }
 
     override suspend fun sendEmailVerificationLink(firebaseUser: FirebaseUser) {
         withContext(Dispatchers.IO) {

@@ -39,10 +39,12 @@ class UserRepositoryImpl @Inject constructor(
         return FirebaseUserLiveData(
                 auth
         ).map { user ->
-            if (user != null && user.isEmailVerified) {
+            if (user == null) {
+                AuthResult.Failed(Messages.VERIFY_EMAIL)
+            } else if (user.isEmailVerified) {
                 AuthResult.Success(Messages.GENERIC_SUCCESS)
 
-            } else if (user != null && !user.isEmailVerified) {
+            } else if (!user.isEmailVerified) {
                 auth.signOut()
                 AuthResult.Failed(Messages.VERIFY_EMAIL)
 
