@@ -6,13 +6,11 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardBackgroundColor="#F8F6F6"
-    app:cardCornerRadius="32dp">
-
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
 
         <ImageView
             android:id="@+id/badge_icon"
@@ -36,6 +34,7 @@
             app:layout_constraintBottom_toTopOf="@+id/achiement_detail"
             app:layout_constraintStart_toEndOf="@+id/badge_icon"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="Baby Steps" />
 
         <TextView
@@ -50,6 +49,4 @@
             tools:text="Completed your first lesson" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </com.google.android.material.card.MaterialCardView>
