@@ -46,6 +46,8 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         viewModel.showSnackBar.observe(viewLifecycleOwner, EventObserver {
             showSnackBar(it)
         })
+
+        binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
     }
 
 

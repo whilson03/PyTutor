@@ -4,7 +4,6 @@
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorPrimaryVariant">@color/primaryLightColor</item>
-
         <item name="colorOnPrimary">@color/primaryTextColor</item>
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
@@ -51,6 +50,11 @@
     <style name="LevelProgressBar">
         <item name="android:indeterminateOnly">false</item>
         <item name="android:progressDrawable">@drawable/progress_background</item>
+    </style>
+
+    <style name="toolBarAppearance">
+        <item name="fontFamily">@font/catamaran_medium</item>
+        <item name="background">@color/white</item>
     </style>
 
 </resources>

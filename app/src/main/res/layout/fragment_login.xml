@@ -86,8 +86,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:textColor="@color/primaryColor"
-                android:textStyle="bold"
                 android:id="@+id/forgot_password"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -95,6 +93,8 @@
                 android:padding="8dp"
                 android:text="@string/forgot_password"
                 android:textAllCaps="false"
+                android:textColor="@color/primaryColor"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/password_layout"
                 app:layout_constraintTop_toBottomOf="@+id/password_layout" />
 

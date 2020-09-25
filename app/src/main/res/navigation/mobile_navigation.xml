@@ -7,15 +7,14 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.olabode.wilson.pytutor.ui.home.HomeFragment"
-        android:label="@string/home"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_tutorialTopicsFragment"
             app:destination="@id/tutorialTopicsFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down"
             app:popUpTo="@id/homeFragment" />
     </fragment>
 
@@ -25,8 +24,7 @@
         app:startDestination="@id/loginFragment">
         <fragment
             android:id="@+id/loginFragment"
-            android:name="com.olabode.wilson.pytutor.ui.auth.login.LoginFragment"
-            android:label="LoginFragment">
+            android:name="com.olabode.wilson.pytutor.ui.auth.login.LoginFragment">
             <action
                 android:id="@+id/action_loginFragment_to_signUpFragment2"
                 app:destination="@id/signUpFragment"
@@ -54,7 +52,6 @@
         <fragment
             android:id="@+id/signUpFragment"
             android:name="com.olabode.wilson.pytutor.ui.auth.signup.SignUpFragment"
-            android:label="fragment_sign_up"
             tools:layout="@layout/fragment_sign_up" />
         <action
             android:id="@+id/action_global_homeFragment"
@@ -68,18 +65,15 @@
         <fragment
             android:id="@+id/verifyPasswordFragment"
             android:name="com.olabode.wilson.pytutor.ui.auth.verification.VerifyPasswordFragment"
-            android:label="fragment_verify_password"
             tools:layout="@layout/fragment_verify_password" />
         <fragment
             android:id="@+id/resetPasswordFragment"
             android:name="com.olabode.wilson.pytutor.ui.auth.resetpassword.ResetPasswordFragment"
-            android:label="fragment_reset_password"
             tools:layout="@layout/fragment_reset_password" />
     </navigation>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.olabode.wilson.pytutor.ui.profile.ProfileFragment"
-        android:label="@string/profile"
         tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
@@ -88,7 +82,6 @@
     <fragment
         android:id="@+id/tutorialTopicsFragment"
         android:name="com.olabode.wilson.pytutor.ui.tutorial.TutorialTopicsFragment"
-        android:label="@string/tutorial"
         tools:layout="@layout/fragment_tutorial_topics">
 
         <action
@@ -126,7 +119,6 @@
         <fragment
             android:id="@+id/viewTutorialsFragment"
             android:name="com.olabode.wilson.pytutor.ui.tutorial.ViewTutorialsFragment"
-            android:label="{title}"
             tools:layout="@layout/fragment_view_tutorials">
             <argument
                 android:name="title"

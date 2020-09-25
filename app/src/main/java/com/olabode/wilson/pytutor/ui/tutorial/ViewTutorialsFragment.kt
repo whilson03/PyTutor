@@ -10,6 +10,7 @@ import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navGraphViewModels
 import androidx.viewpager2.widget.ViewPager2
@@ -42,9 +43,12 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val topic = arg.topic
+        val title = arg.title
         val totalNoOfPages = topic.noOfPages
         setUpPageCounter(totalNoOfPages)
+        binding.toolbar.title = title
 
+        binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
 
         viewModel.showProgressBar.observe(viewLifecycleOwner, EventObserver { state ->
             when (state) {
