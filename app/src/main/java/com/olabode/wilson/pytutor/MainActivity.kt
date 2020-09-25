@@ -48,6 +48,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.splashScreenFragment, R.id.resetPasswordFragment, R.id.verifyPasswordFragment -> {
                     bottomNavigationView.isVisible = false
                 }
+
+                R.id.achievementsFragment -> {
+                    bottomNavigationView.isVisible = false
+                }
+
                 else -> {
                     bottomNavigationView.isVisible = true
                 }
