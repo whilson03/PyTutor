@@ -67,6 +67,8 @@
     <string name="feedback">Send Feedback</string>
     <string name="terms_policy"><![CDATA[Terms & Privacy Policy]]></string>
     <string name="logout">Logout</string>
+    <string name="subject_email">Feedback from pytutor</string>
+    <string name="hi_wilsonTech">Hi WilsonTech</string>
 
 
 </resources>

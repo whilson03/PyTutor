@@ -16,10 +16,12 @@ class AuthViewModel @ViewModelInject constructor(
         private val authRepository: AuthRepository
 ) : ViewModel() {
 
+
     // snack bar event
     private val _showSnackBar = MutableLiveData<Event<String>>()
     val showSnackBar: LiveData<Event<String>>
         get() = _showSnackBar
+
 
     fun snackBarMessage(message: String) {
         _showSnackBar.value =
@@ -42,4 +44,5 @@ class AuthViewModel @ViewModelInject constructor(
     ): LiveData<AuthResult<String>> {
         return authRepository.registerNewUser(fullName, email, password, confirmPassword).asLiveData()
     }
+
 }
