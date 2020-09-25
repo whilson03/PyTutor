@@ -22,7 +22,7 @@ interface AuthRepository {
             confirmPassword: String
     ): Flow<AuthResult<String>>
 
-    fun logOut(): Flow<AuthResult<String>>
+    fun logOut()
 
     suspend fun sendEmailVerificationLink(firebaseUser: FirebaseUser)
 

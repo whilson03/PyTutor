@@ -30,11 +30,9 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView = binding.bottomNavigationView
         bottomNavigationView.setupWithNavController(navController)
-
         bottomNavigationView.setOnNavigationItemReselectedListener {
             /** NO OPERATION **/
         }
-
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
