@@ -180,5 +180,14 @@
         android:id="@+id/achievementsFragment"
         android:name="com.olabode.wilson.pytutor.ui.achievement.AchievementsFragment"
         android:label="AchievementsFragment"
-        tools:layout="@layout/fragment_achievements"/>
+        tools:layout="@layout/fragment_achievements" />
+    <action
+        android:id="@+id/action_global_auth_navigation"
+        app:destination="@id/auth_navigation"
+        app:enterAnim="@anim/slide_up"
+        app:exitAnim="@anim/slide_down"
+        app:popEnterAnim="@anim/slide_up"
+        app:popExitAnim="@anim/slide_down"
+        app:popUpTo="@id/auth_navigation"
+        app:popUpToInclusive="true" />
 </navigation>
