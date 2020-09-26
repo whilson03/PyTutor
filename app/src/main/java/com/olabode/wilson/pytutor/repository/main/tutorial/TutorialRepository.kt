@@ -16,4 +16,6 @@ interface TutorialRepository {
 
     fun getLessonsForTopic(topicId: String): Flow<DataState<List<Lesson>>>
 
+    suspend fun clearTopics()
+
 }
