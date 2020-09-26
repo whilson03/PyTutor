@@ -1,5 +1,6 @@
 package com.olabode.wilson.pytutor.ui.auth.signup
 
+import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
+import com.olabode.wilson.pytutor.UICommunicator
 import com.olabode.wilson.pytutor.databinding.FragmentSignUpBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
@@ -23,10 +25,22 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
     private val authViewModel: AuthViewModel by activityViewModels()
     private val binding by viewBinding(FragmentSignUpBinding::bind)
+    private lateinit var uiCommunicator: UICommunicator
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is UICommunicator) {
+            uiCommunicator = context
+        } else {
+            throw RuntimeException("$context must implement UICommunicator")
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.signIn.setOnClickListener {
+            uiCommunicator.hideSoftKeyBoard()
             if (validateDetails()) {
                 performRegistration(
                         binding.nameField.text.toString().trim(),
@@ -40,6 +54,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         }
 
         binding.backToLogin.setOnClickListener {
+            uiCommunicator.hideSoftKeyBoard()
             findNavController().navigateUp()
         }
 
