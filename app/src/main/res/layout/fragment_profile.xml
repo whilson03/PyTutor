@@ -50,6 +50,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
+                app:cardCornerRadius="8dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +78,7 @@
                             android:id="@+id/edit_profile_text"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="16dp"
                             android:layout_marginEnd="8dp"
                             android:fontFamily="@font/catamaran_medium"
                             android:gravity="center_vertical"
@@ -102,9 +103,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@color/gray" />
+                        android:background="@color/dividerColor" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/achievement"
@@ -124,7 +123,7 @@
                             android:id="@+id/ahievement_text"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="16dp"
                             android:layout_marginEnd="8dp"
                             android:fontFamily="@font/catamaran_medium"
                             android:gravity="center_vertical"
@@ -164,6 +163,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -184,13 +184,13 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_person" />
+                            app:srcCompat="@drawable/ic_policy" />
 
                         <TextView
                             android:id="@+id/privacy_text"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="16dp"
                             android:layout_marginEnd="8dp"
                             android:fontFamily="@font/catamaran_medium"
                             android:gravity="center_vertical"
@@ -213,9 +213,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@color/gray" />
+                        android:background="@color/dividerColor" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/navigate_to_rate"
@@ -228,13 +226,13 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_person" />
+                            app:srcCompat="@drawable/ic_star" />
 
                         <TextView
                             android:id="@+id/rate_text"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="16dp"
                             android:layout_marginEnd="8dp"
                             android:fontFamily="@font/catamaran_medium"
                             android:gravity="center_vertical"
@@ -257,9 +255,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:background="@color/gray" />
+                        android:background="@color/dividerColor" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/navigate_to_feedback"
@@ -272,13 +268,13 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_person" />
+                            app:srcCompat="@drawable/ic_feedback" />
 
                         <TextView
                             android:id="@+id/feedback_text"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="16dp"
                             android:layout_marginEnd="8dp"
                             android:fontFamily="@font/catamaran_medium"
                             android:gravity="center_vertical"
@@ -309,6 +305,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -331,7 +328,7 @@
                     android:id="@+id/sign_out_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/catamaran_medium"
                     android:gravity="center_vertical"
