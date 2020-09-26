@@ -20,6 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -131,5 +132,12 @@ class TutorialRepositoryImpl @Inject constructor(
         Timber.e(e)
         emit(DataState.Error(null, Messages.FAILED_TO_LOAD_LESSONS))
     }.flowOn(Dispatchers.IO)
+
+    override suspend fun clearTopics() {
+        withContext(Dispatchers.IO) {
+            topicsDao.clearTopics()
+            lessonsDao.clearLessons()
+        }
+    }
 
 }
