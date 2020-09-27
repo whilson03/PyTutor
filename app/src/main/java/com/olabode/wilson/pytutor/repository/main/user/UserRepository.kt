@@ -5,6 +5,7 @@ import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.utils.AuthResult
 import com.olabode.wilson.pytutor.utils.DataState
 import kotlinx.coroutines.flow.Flow
+import java.io.File
 
 
 /**
@@ -21,4 +22,5 @@ interface UserRepository {
 
     fun getUserId(): String
 
+    fun updateProfileImage(file: File, userId: String): Flow<DataState<String>>
 }

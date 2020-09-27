@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import com.olabode.wilson.pytutor.data.PytutorDatabase
 import com.olabode.wilson.pytutor.data.tutorial.LessonsDao
 import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
@@ -32,6 +33,10 @@ object AppModule {
     @Singleton
     @Provides
     fun provideFirebaseFireStore() = Firebase.firestore
+
+    @Singleton
+    @Provides
+    fun provideFirebaseStorage() = Firebase.storage
 
     @Singleton
     @Provides
