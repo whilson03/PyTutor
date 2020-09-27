@@ -25,6 +25,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private val binding by viewBinding(FragmentProfileBinding::bind)
     private val viewModel: ProfileViewModel by activityViewModels()
 
+    companion object {
+        const val UPLOAD_IMAGE_DIALOG_TAG = "UPLOAD_IMAGE_DIALOG"
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -36,32 +40,39 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             }
         })
 
+        binding.signOut.setOnClickListener { logOut() }
 
-        binding.signOut.setOnClickListener {
-            logOut()
-        }
+        binding.navigateToRate.setOnClickListener { rate(requireContext()) }
 
-        binding.navigateToRate.setOnClickListener {
-            rate(requireContext())
-        }
-
-        binding.navigatePrivacy.setOnClickListener {
-            privacy()
-        }
+        binding.navigatePrivacy.setOnClickListener { privacy() }
 
         binding.achievement.setOnClickListener {
             val action = ProfileFragmentDirections.actionProfileFragmentToAchievementsFragment()
             findNavController().navigate(action)
         }
 
-        binding.editProfile.setOnClickListener {
+        binding.imageFrame.setOnClickListener { showUploadImageDialog() }
 
+        binding.navigateToFeedback.setOnClickListener { sendFeedback() }
+
+    }
+
+
+    private fun showUploadImageDialog() {
+        val dialog = UploadProfileImageDialog { method ->
+            when (method) {
+                is ImageUploadMethod.Gallery -> {
+
+                }
+
+                is ImageUploadMethod.Camera -> {
+
+                }
+            }
         }
-
-        binding.navigateToFeedback.setOnClickListener {
-            sendFeedback()
+        parentFragmentManager.let {
+            dialog.show(it, UPLOAD_IMAGE_DIALOG_TAG)
         }
-
     }
 
     private fun setUpProfile(user: User) {
@@ -74,12 +85,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
     }
 
-
     private fun logOut() {
         viewModel.signOut()
         findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToAuthNavigation())
     }
-
 
     private fun rate(context: Context) {
         val uri: Uri = Uri.parse("market://details?id=" + context.packageName)

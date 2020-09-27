@@ -69,6 +69,7 @@
     <string name="logout">Logout</string>
     <string name="subject_email">Feedback from pytutor</string>
     <string name="hi_wilsonTech">Hi WilsonTech</string>
+    <string name="image_upload_dialog_title">upload from</string>
 
 
 </resources>

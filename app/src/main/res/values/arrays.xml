@@ -1,3 +1,8 @@
 <resources>
-
+    <string-array name="upload_image_source">
+        <item>@string/camera</item>
+        <item>@string/gallery</item>
+    </string-array>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 </resources>

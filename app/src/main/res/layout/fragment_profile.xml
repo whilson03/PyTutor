@@ -12,16 +12,37 @@
         android:layout_height="wrap_content"
         android:background="@drawable/splash_background">
 
-        <ImageView
-            android:id="@+id/profile_icon"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+        <FrameLayout
+            android:id="@+id/image_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/profile_icon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_profile_placeholder" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="4dp"
+                android:src="@drawable/ic_add_profile_pic" />
+
+            <ProgressBar
+                android:id="@+id/profile_image_progress"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+
 
         <TextView
             android:id="@+id/username"
@@ -32,9 +53,9 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/profile_icon"
-            app:layout_constraintStart_toStartOf="@+id/profile_icon"
-            app:layout_constraintTop_toBottomOf="@+id/profile_icon"
+            app:layout_constraintEnd_toEndOf="@+id/image_frame"
+            app:layout_constraintStart_toStartOf="@+id/image_frame"
+            app:layout_constraintTop_toBottomOf="@id/image_frame"
             tools:text="@string/placeholder_name" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,8 +71,8 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="8dp"
                 android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -305,8 +326,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:cardCornerRadius="8dp"
             android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
