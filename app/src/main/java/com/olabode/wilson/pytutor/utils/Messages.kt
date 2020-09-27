@@ -6,7 +6,7 @@ package com.olabode.wilson.pytutor.utils
 object Messages {
     const val UPLOAD_SUCCESS = "Upload Successful"
     const val UPLOAD_FAILED = "Upload Failed."
-    val LOCKED_TOPIC = "This Topics is Locked.Complete unlocked topics first."
+    const val LOCKED_TOPIC = "This Topics is Locked.Complete unlocked topics first."
     const val GENERIC_FAILURE = "Ooops something went wrong"
     const val MISMATCH_PASSWORD = "Passwords Do Not Match!"
     const val SHORT_PASSWORD = "Passwords Too Short!"

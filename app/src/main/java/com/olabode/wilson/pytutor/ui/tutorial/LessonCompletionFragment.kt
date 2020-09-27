@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -19,6 +18,7 @@ import com.olabode.wilson.pytutor.utils.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import nl.dionsegijn.konfetti.models.Shape
 import nl.dionsegijn.konfetti.models.Size
+import timber.log.Timber
 
 @AndroidEntryPoint
 class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
@@ -41,7 +41,7 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
         viewModel.onCourseCompleted(topic.topicId, scoreRating, topic.orderKey).observe(viewLifecycleOwner, Observer {
             when (it) {
                 is DataState.Success -> {
-                    Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
+                    Timber.d("SUCCESS")
                 }
 
                 is DataState.Error -> {
