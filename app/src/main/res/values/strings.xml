@@ -70,6 +70,10 @@
     <string name="subject_email">Feedback from pytutor</string>
     <string name="hi_wilsonTech">Hi WilsonTech</string>
     <string name="image_upload_dialog_title">upload from</string>
+    <string name="cancel">Cancel</string>
+    <string name="app_setting">App Settings</string>
+    <string name="camera_rationale_message">Permission is denied, Please allow permissions from App Settings.</string>
+    <string name="permission_denied">Permission Denied</string>
 
 
 </resources>

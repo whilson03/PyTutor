@@ -98,4 +98,7 @@ dependencies {
 
     // CoordinatorLayout
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
+
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+    implementation 'id.zelory:compressor:3.0.0'
 }
