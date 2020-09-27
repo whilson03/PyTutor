@@ -2,6 +2,7 @@ package com.olabode.wilson.pytutor.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.olabode.wilson.pytutor.data.tutorial.LessonsDao
 import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.data.user.UserDao
@@ -71,13 +72,15 @@ object RepositoryModule {
             firebaseAuth: FirebaseAuth,
             firestore: FirebaseFirestore,
             userDao: UserDao,
-            topicsDao: TopicsDao
+            topicsDao: TopicsDao,
+            storage: FirebaseStorage
     ): UserRepository = UserRepositoryImpl(
             userNetworkMapper,
             userCacheMapper,
             firebaseAuth,
             firestore,
             userDao,
-            topicsDao
+            topicsDao,
+            storage
     )
 }

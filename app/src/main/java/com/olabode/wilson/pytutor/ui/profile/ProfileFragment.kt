@@ -11,11 +11,13 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
 import android.view.View
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import coil.api.load
 import coil.transform.CircleCropTransformation
@@ -30,6 +32,11 @@ import com.olabode.wilson.pytutor.utils.Utils
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import dagger.hilt.android.AndroidEntryPoint
+import id.zelory.compressor.Compressor
+import id.zelory.compressor.constraint.size
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 import java.io.File
 import java.io.IOException
@@ -219,8 +226,19 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE -> {
                 val result = CropImage.getActivityResult(data)
                 if (resultCode == Activity.RESULT_OK) {
-                    result.uri?.let {
-
+                    result.uri?.let { uri ->
+                        lifecycleScope.launch {
+                            val compressedImageFile = Compressor.compress(requireContext(),
+                                    File(uri.path.toString()), Dispatchers.IO) {
+                                size(Constants.MB_THRESHOLD)
+                            }
+                            withContext(Dispatchers.Main) {
+                                viewModel.updateUserProfileImage(compressedImageFile)
+                                        .observe(viewLifecycleOwner, Observer { s ->
+                                            setUpProgressImageUploadProgress(s)
+                                        })
+                            }
+                        }
                     }
 
 
@@ -283,5 +301,23 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 }
                 .setNegativeButton(getString(R.string.cancel), null)
                 .show()
+    }
+
+
+    private fun setUpProgressImageUploadProgress(it: DataState<String>) {
+        when (it) {
+            is DataState.Success -> {
+                binding.profileImageProgress.visibility = View.GONE
+                Toast.makeText(context, it.data, Toast.LENGTH_SHORT).show()
+            }
+            is DataState.Loading -> {
+                binding.profileImageProgress.visibility = View.VISIBLE
+                Toast.makeText(context, "Updating", Toast.LENGTH_SHORT).show()
+            }
+            is DataState.Error -> {
+                binding.profileImageProgress.visibility = View.GONE
+                Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
