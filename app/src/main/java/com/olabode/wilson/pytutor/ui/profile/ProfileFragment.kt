@@ -73,14 +73,14 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         binding.navigatePrivacy.setOnClickListener { privacy() }
 
         binding.achievement.setOnClickListener {
-            val action = ProfileFragmentDirections.actionProfileFragmentToAchievementsFragment()
+            val action = ProfileFragmentDirections
+                    .actionProfileFragmentToAchievementsFragment()
             findNavController().navigate(action)
         }
 
         binding.imageFrame.setOnClickListener { showUploadImageDialog() }
 
         binding.navigateToFeedback.setOnClickListener { sendFeedback() }
-
     }
 
 
