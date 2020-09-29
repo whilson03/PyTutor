@@ -3,15 +3,15 @@ package com.olabode.wilson.pytutor.ui.tutorial.adapters
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
+import com.olabode.wilson.pytutor.databinding.ItemCodeSnippetBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialBodyBinding
-import com.olabode.wilson.pytutor.databinding.ItemTutorialSnippetBinding
 import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 
 /**
  *   Created by OLABODE WILSON on 9/9/20.
  */
 
-class CodeViewHolder(val binding: ItemTutorialSnippetBinding)
+class CodeViewHolder(val binding: ItemCodeSnippetBinding)
     : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Tutorial) {

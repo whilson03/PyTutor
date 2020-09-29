@@ -3,9 +3,11 @@ package com.olabode.wilson.pytutor.data
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.olabode.wilson.pytutor.data.algorithm.AlgorithmDao
 import com.olabode.wilson.pytutor.data.tutorial.LessonsDao
 import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.data.user.UserDao
+import com.olabode.wilson.pytutor.models.cache.algorithm.AlgorithmEntity
 import com.olabode.wilson.pytutor.models.cache.tutorial.LessonCacheEntity
 import com.olabode.wilson.pytutor.models.cache.tutorial.TopicCacheEntity
 import com.olabode.wilson.pytutor.models.cache.tutorial.converters.QuestionMapConverter
@@ -28,7 +30,8 @@ import com.olabode.wilson.pytutor.models.cache.user.UserCompletedCoursesConverte
         entities = [
             TopicCacheEntity::class,
             LessonCacheEntity::class,
-            UserCacheEntity::class
+            UserCacheEntity::class,
+            AlgorithmEntity::class
         ],
         version = 1,
         exportSchema = false
@@ -39,4 +42,6 @@ abstract class PytutorDatabase : RoomDatabase() {
     abstract fun lessonDao(): LessonsDao
 
     abstract fun userDao(): UserDao
+
+    abstract fun algorithmDao(): AlgorithmDao
 }
