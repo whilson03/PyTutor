@@ -4,6 +4,7 @@ package com.olabode.wilson.pytutor.utils
  *   Created by OLABODE WILSON on 9/6/20.
  */
 object RemoteDatabaseKeys {
+    const val NODE_ALGORITHMS = "ALGORITHMS"
     const val NODE_TUTORIALS = "TUTORIALS"
     const val NODE_LESSONS = "LESSONS"
     const val DOC_TOPICS = "TOPICS"

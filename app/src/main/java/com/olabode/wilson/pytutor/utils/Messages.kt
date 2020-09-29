@@ -4,6 +4,7 @@ package com.olabode.wilson.pytutor.utils
  *   Created by OLABODE WILSON on 9/6/20.
  */
 object Messages {
+    const val FAILED_TO_LOAD = "Failed to load."
     const val UPLOAD_SUCCESS = "Upload Successful"
     const val UPLOAD_FAILED = "Upload Failed."
     const val LOCKED_TOPIC = "This Topics is Locked.Complete unlocked topics first."

@@ -16,6 +16,9 @@
             app:popEnterAnim="@anim/slide_up"
             app:popExitAnim="@anim/slide_down"
             app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_listAlgosFragment"
+            app:destination="@id/listAlgosFragment" />
     </fragment>
 
 
@@ -194,10 +197,13 @@
     <fragment
         android:id="@+id/algorithmFragment"
         android:name="com.olabode.wilson.pytutor.ui.algos.AlgorithmFragment"
-        android:label="fragment_algorithm"
+        android:label="{title}"
         tools:layout="@layout/fragment_algorithm">
         <argument
             android:name="algorithm"
             app:argType="com.olabode.wilson.pytutor.models.Algorithm" />
+        <argument
+            android:name="title"
+            app:argType="string" />
     </fragment>
 </navigation>

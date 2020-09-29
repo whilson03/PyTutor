@@ -48,7 +48,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         binding.cardTwo.setOnClickListener {
-
+            findNavController().navigate(HomeFragmentDirections
+                    .actionHomeFragmentToListAlgosFragment())
         }
     }
 
