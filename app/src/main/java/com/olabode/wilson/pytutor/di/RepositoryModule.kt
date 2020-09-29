@@ -3,6 +3,7 @@ package com.olabode.wilson.pytutor.di
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import com.olabode.wilson.pytutor.data.algorithm.AlgorithmDao
 import com.olabode.wilson.pytutor.data.tutorial.LessonsDao
 import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.data.user.UserDao
@@ -14,6 +15,8 @@ import com.olabode.wilson.pytutor.mappers.user.UserCacheMapper
 import com.olabode.wilson.pytutor.mappers.user.UserNetworkMapper
 import com.olabode.wilson.pytutor.repository.auth.AuthRepository
 import com.olabode.wilson.pytutor.repository.auth.AuthRepositoryImpl
+import com.olabode.wilson.pytutor.repository.main.algo.AlgorithmRepository
+import com.olabode.wilson.pytutor.repository.main.algo.AlgorithmRepositoryImpl
 import com.olabode.wilson.pytutor.repository.main.tutorial.TutorialRepository
 import com.olabode.wilson.pytutor.repository.main.tutorial.TutorialRepositoryImpl
 import com.olabode.wilson.pytutor.repository.main.user.UserRepository
@@ -64,6 +67,7 @@ object RepositoryModule {
             firestore
     )
 
+    @ExperimentalCoroutinesApi
     @Singleton
     @Provides
     fun provideUserRepository(
@@ -83,4 +87,16 @@ object RepositoryModule {
             topicsDao,
             storage
     )
+
+    @Singleton
+    @Provides
+    fun provideAlgorithmRepository(
+            remoteDatabase: FirebaseFirestore,
+            algorithmDao: AlgorithmDao
+    ): AlgorithmRepository {
+        return AlgorithmRepositoryImpl(
+                remoteDatabase,
+                algorithmDao
+        )
+    }
 }
