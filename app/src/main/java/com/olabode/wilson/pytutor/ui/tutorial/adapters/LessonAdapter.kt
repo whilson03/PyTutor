@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
+import com.olabode.wilson.pytutor.databinding.ItemCodeSnippetBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialBodyBinding
-import com.olabode.wilson.pytutor.databinding.ItemTutorialSnippetBinding
+
 import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 
 /**
@@ -36,7 +37,7 @@ class LessonAdapter : ListAdapter<Tutorial, RecyclerView.ViewHolder>(LessonDiffC
             }
 
             else -> {
-                val binding = ItemTutorialSnippetBinding.inflate(
+                val binding = ItemCodeSnippetBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false

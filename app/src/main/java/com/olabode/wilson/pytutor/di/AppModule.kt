@@ -7,6 +7,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.olabode.wilson.pytutor.data.PytutorDatabase
+import com.olabode.wilson.pytutor.data.algorithm.AlgorithmDao
 import com.olabode.wilson.pytutor.data.tutorial.LessonsDao
 import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.data.user.UserDao
@@ -65,5 +66,11 @@ object AppModule {
     @Provides
     fun provideUserDao(database: PytutorDatabase): UserDao {
         return database.userDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideAlgorithmDao(database: PytutorDatabase): AlgorithmDao {
+        return database.algorithmDao()
     }
 }
