@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.TutorialItemBinding
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.utils.Messages
+import com.olabode.wilson.pytutor.utils.Utils
 
 /**
  *   Created by OLABODE WILSON on 9/8/20.
@@ -37,18 +38,10 @@ class TutorialTopicAdapter(private val clickListener: (topic: Topic?, message: S
             this.item = item
             binding.ratingBar.rating = item.numOfStars
             binding.lock.isVisible = item.isLocked
-            binding.topicCount.text = getTopicNumber(adapterPosition + 1)
+            binding.topicCount.text = Utils.getAdapterNumberLabel(adapterPosition + 1)
             binding.title.text = item.title
             binding.shortDetail.text = item.description
         }
-
-        private fun getTopicNumber(position: Int): String {
-            if (position in 0..9) {
-                return "0$position"
-            }
-            return position.toString()
-        }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

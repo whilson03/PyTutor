@@ -182,4 +182,22 @@
         app:popExitAnim="@anim/slide_down"
         app:popUpTo="@id/auth_navigation"
         app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/listAlgosFragment"
+        android:name="com.olabode.wilson.pytutor.ui.algos.ListAlgosFragment"
+        android:label="fragment_list_algos"
+        tools:layout="@layout/fragment_list_algos">
+        <action
+            android:id="@+id/action_listAlgosFragment_to_algorithmFragment"
+            app:destination="@id/algorithmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/algorithmFragment"
+        android:name="com.olabode.wilson.pytutor.ui.algos.AlgorithmFragment"
+        android:label="fragment_algorithm"
+        tools:layout="@layout/fragment_algorithm">
+        <argument
+            android:name="algorithm"
+            app:argType="com.olabode.wilson.pytutor.models.Algorithm" />
+    </fragment>
 </navigation>
