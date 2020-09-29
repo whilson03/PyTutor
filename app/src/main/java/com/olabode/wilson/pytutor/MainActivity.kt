@@ -43,8 +43,14 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                     bottomNavigationView.isVisible = false
                 }
 
-                R.id.loginFragment, R.id.signUpFragment, R.id.lessonCompletionFragment,
-                R.id.splashScreenFragment, R.id.resetPasswordFragment, R.id.verifyPasswordFragment -> {
+                R.id.loginFragment,
+                R.id.signUpFragment,
+                R.id.lessonCompletionFragment,
+                R.id.splashScreenFragment,
+                R.id.resetPasswordFragment,
+                R.id.verifyPasswordFragment,
+                R.id.algorithmFragment,
+                R.id.listAlgosFragment -> {
                     bottomNavigationView.isVisible = false
                 }
 

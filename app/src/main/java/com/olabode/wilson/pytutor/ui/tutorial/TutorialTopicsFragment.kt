@@ -20,10 +20,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
 
-
     private val binding by viewBinding(FragmentTutorialTopicsBinding::bind)
     private val viewModel: TutorialTopicViewModel by viewModels()
-
     private lateinit var adapter: TutorialTopicAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,9 +32,7 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
                         .actionTutorialTopicsFragmentToViewTutorialsFragment(title = topic.title, topic = topic))
             }
 
-            message?.let {
-                viewModel.showSnackBar(it)
-            }
+            message?.let { viewModel.showSnackBar(it) }
 
         }
         binding.topicsRecycler.adapter = adapter

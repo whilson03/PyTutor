@@ -7,6 +7,8 @@ import com.olabode.wilson.pytutor.data.algorithm.AlgorithmDao
 import com.olabode.wilson.pytutor.data.tutorial.LessonsDao
 import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.data.user.UserDao
+import com.olabode.wilson.pytutor.mappers.algorithm.AlgorithmCacheMapper
+import com.olabode.wilson.pytutor.mappers.algorithm.AlgorithmNetworkMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.LessonCacheMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.LessonNetworkMapper
 import com.olabode.wilson.pytutor.mappers.tutorial.TopicCacheMapper
@@ -92,11 +94,15 @@ object RepositoryModule {
     @Provides
     fun provideAlgorithmRepository(
             remoteDatabase: FirebaseFirestore,
-            algorithmDao: AlgorithmDao
+            algorithmDao: AlgorithmDao,
+            algorithmNetworkMapper: AlgorithmNetworkMapper,
+            algorithmCacheMapper: AlgorithmCacheMapper
     ): AlgorithmRepository {
         return AlgorithmRepositoryImpl(
                 remoteDatabase,
-                algorithmDao
+                algorithmDao,
+                algorithmNetworkMapper,
+                algorithmCacheMapper
         )
     }
 }

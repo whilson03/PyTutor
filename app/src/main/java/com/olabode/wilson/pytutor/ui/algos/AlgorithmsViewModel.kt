@@ -2,6 +2,7 @@ package com.olabode.wilson.pytutor.ui.algos
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.olabode.wilson.pytutor.repository.main.algo.AlgorithmRepository
 
 /**
@@ -9,4 +10,9 @@ import com.olabode.wilson.pytutor.repository.main.algo.AlgorithmRepository
  */
 class AlgorithmsViewModel @ViewModelInject constructor(
         private val algorithmRepository: AlgorithmRepository
-) : ViewModel()
+) : ViewModel() {
+
+    val algorithms = algorithmRepository
+            .fectchAllAlgorithms()
+            .asLiveData()
+}
