@@ -25,4 +25,12 @@ object Utils {
         return image
     }
 
+    fun getAdapterNumberLabel(position: Int): String {
+        if (position in 0..9) {
+            return "0$position"
+        }
+        return position.toString()
+    }
+
+
 }
