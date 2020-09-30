@@ -142,4 +142,18 @@ class TutorialRepositoryImpl @Inject constructor(
             lessonsDao.clearLessons()
         }
     }
+
+    override fun getNextTopic(orderKey: Int): Flow<DataState<Topic>> = flow {
+        emit(DataState.Loading)
+
+        val nextTopic = topicsDao.getTopic(orderKey)
+
+        if (nextTopic != null) {
+            emit(DataState.Success(topicCacheMapper.mapFromEntity(nextTopic)))
+        } else {
+            emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+        }
+    }.catch {
+        emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+    }.flowOn(Dispatchers.IO)
 }
