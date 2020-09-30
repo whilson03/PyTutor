@@ -15,6 +15,11 @@ class AlgorithmFragment : Fragment(R.layout.fragment_algorithm) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.codeView.setCode(args.algorithm.body, "py")
+        val code = args.algorithm.body
+        binding.codeView.setCode(
+            formattedSourceCode = code,
+            language = "py",
+            showLineNumbers = true
+        )
     }
 }
