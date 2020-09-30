@@ -21,6 +21,4 @@ interface UserDao {
 
     @Query("UPDATE user_table SET level=:progress  WHERE user_id=:userId")
     suspend fun updateUserProgress(progress: Int, userId: String)
-
-
 }

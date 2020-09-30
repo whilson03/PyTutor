@@ -29,7 +29,6 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
         }, 2500)
     }
 
-
     private fun observeAuthState() {
         viewModel.userStatus.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
@@ -43,5 +42,4 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
             }
         })
     }
-
 }

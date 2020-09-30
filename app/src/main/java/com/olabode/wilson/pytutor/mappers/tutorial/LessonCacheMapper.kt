@@ -10,26 +10,26 @@ import javax.inject.Inject
  */
 
 class LessonCacheMapper @Inject constructor() :
-        EntityMapper<LessonCacheEntity, Lesson> {
+    EntityMapper<LessonCacheEntity, Lesson> {
 
     override fun mapFromEntity(entity: LessonCacheEntity): Lesson {
         return Lesson(
-                topicId = entity.topicId,
-                page = entity.page,
-                lessons = entity.lessons,
-                question = entity.question,
-                type = entity.type
+            topicId = entity.topicId,
+            page = entity.page,
+            lessons = entity.lessons,
+            question = entity.question,
+            type = entity.type
         )
     }
 
     override fun mapToEntity(domainModel: Lesson): LessonCacheEntity {
         return LessonCacheEntity(
-                topicId = domainModel.topicId,
-                page = domainModel.page,
-                lessons = domainModel.lessons,
-                question = domainModel.question,
-                type = domainModel.type,
-                lessonId = 0
+            topicId = domainModel.topicId,
+            page = domainModel.page,
+            lessons = domainModel.lessons,
+            question = domainModel.question,
+            type = domainModel.type,
+            lessonId = 0
         )
     }
 

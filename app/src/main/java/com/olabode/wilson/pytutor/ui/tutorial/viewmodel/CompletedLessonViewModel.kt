@@ -11,10 +11,14 @@ import com.olabode.wilson.pytutor.utils.DataState
  *   Created by OLABODE WILSON on 9/22/20.
  */
 class CompletedLessonViewModel @ViewModelInject constructor(
-        private val userRepository: UserRepository
+    private val userRepository: UserRepository
 ) : ViewModel() {
 
-    fun onCourseCompleted(topicId: String, rating: Float, orderKey: Int): LiveData<DataState<String>> {
+    fun onCourseCompleted(
+        topicId: String,
+        rating: Float,
+        orderKey: Int
+    ): LiveData<DataState<String>> {
         return userRepository.updateCourse(topicId, rating, orderKey).asLiveData()
     }
 }

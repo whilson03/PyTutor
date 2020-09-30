@@ -11,7 +11,6 @@ import com.olabode.wilson.pytutor.models.tutorial.Question
 
 class QuestionMapConverter {
 
-
     @TypeConverter
     fun fromString(value: String): Map<String, Question>? {
         val mapType = object : TypeToken<Map<String, Question>?>() {}.type
@@ -23,5 +22,4 @@ class QuestionMapConverter {
         val gson = Gson()
         return gson.toJson(map)
     }
-
 }

@@ -13,7 +13,7 @@ import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
+import java.util.ArrayList
 
 @AndroidEntryPoint
 class QuestionFragment : Fragment(R.layout.fragment_question) {
@@ -36,12 +36,12 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
 
         @JvmStatic
         fun newInstance(lesson: Lesson, topic: Topic) =
-                QuestionFragment().apply {
-                    arguments = Bundle().apply {
-                        putParcelable(QUESTION_RESPONSE, lesson)
-                        putParcelable(TOPIC, topic)
-                    }
+            QuestionFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelable(QUESTION_RESPONSE, lesson)
+                    putParcelable(TOPIC, topic)
                 }
+            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -86,12 +86,14 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
                     binding.submitOrNext.text = getString(R.string.submit)
                 } else {
                     if (binding.option1.isChecked || binding.option2.isChecked
-                            || binding.option3.isChecked) {
+                        || binding.option3.isChecked
+                    ) {
 
                         val selectedAnswer =
-                                getTextFromCheckedId(binding.optionsGroup.checkedRadioButtonId)
-                        validateAnswer(selectedAnswer,
-                                questions[currentQuestionIndex]
+                            getTextFromCheckedId(binding.optionsGroup.checkedRadioButtonId)
+                        validateAnswer(
+                            selectedAnswer,
+                            questions[currentQuestionIndex]
                         )
                         answeredKeys.add(questions[currentQuestionIndex].question)
 
@@ -103,9 +105,9 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
                         disableOptions()
                     } else {
                         Toast.makeText(
-                                requireContext(),
-                                getString(R.string.pick_option_prompt),
-                                Toast.LENGTH_SHORT
+                            requireContext(),
+                            getString(R.string.pick_option_prompt),
+                            Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
@@ -116,13 +118,14 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
     }
 
     private fun navigateToCompletionScreen(score: Int, noOfQuestion: Int) {
-        findNavController().navigate(ViewTutorialsFragmentDirections
+        findNavController().navigate(
+            ViewTutorialsFragmentDirections
                 .actionViewTutorialsFragmentToLessonCompletionFragment(
-                        score = score, numberOfQuestions = noOfQuestion,
-                        topic = topic
-                ))
+                    score = score, numberOfQuestions = noOfQuestion,
+                    topic = topic
+                )
+        )
     }
-
 
     private fun setUpQuestion(question: Question) {
         val options = question.options.values.toList()

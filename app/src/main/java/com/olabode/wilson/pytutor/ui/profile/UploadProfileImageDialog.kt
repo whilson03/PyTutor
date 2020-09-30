@@ -10,7 +10,7 @@ import com.olabode.wilson.pytutor.R
  *   Created by OLABODE WILSON on 9/27/20.
  */
 class UploadProfileImageDialog(
-        private val onItemClicked: (method: ImageUploadMethod) -> Unit
+    private val onItemClicked: (method: ImageUploadMethod) -> Unit
 ) : AppCompatDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -20,10 +20,10 @@ class UploadProfileImageDialog(
             // Use the Builder class for convenient dialog construction
             val builder = MaterialAlertDialogBuilder(it)
             builder.setTitle(getString(R.string.image_upload_dialog_title))
-                    .setItems(R.array.upload_image_source) { _, which ->
-                        onItemClicked.invoke(getAction(which))
-                        dismiss()
-                    }
+                .setItems(R.array.upload_image_source) { _, which ->
+                    onItemClicked.invoke(getAction(which))
+                    dismiss()
+                }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }
@@ -33,7 +33,6 @@ class UploadProfileImageDialog(
         else -> ImageUploadMethod.Gallery
     }
 }
-
 
 sealed class ImageUploadMethod {
     object Camera : ImageUploadMethod()

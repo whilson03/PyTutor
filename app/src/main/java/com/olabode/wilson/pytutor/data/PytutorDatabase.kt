@@ -21,20 +21,20 @@ import com.olabode.wilson.pytutor.models.cache.user.UserCompletedCoursesConverte
  */
 
 @TypeConverters(
-        TutorialMapConverter::class,
-        QuestionMapConverter::class,
-        UserBadgeTypeConverter::class,
-        UserCompletedCoursesConverter::class
+    TutorialMapConverter::class,
+    QuestionMapConverter::class,
+    UserBadgeTypeConverter::class,
+    UserCompletedCoursesConverter::class
 )
 @Database(
-        entities = [
-            TopicCacheEntity::class,
-            LessonCacheEntity::class,
-            UserCacheEntity::class,
-            AlgorithmEntity::class
-        ],
-        version = 1,
-        exportSchema = false
+    entities = [
+        TopicCacheEntity::class,
+        LessonCacheEntity::class,
+        UserCacheEntity::class,
+        AlgorithmEntity::class
+    ],
+    version = 1,
+    exportSchema = false
 )
 abstract class PytutorDatabase : RoomDatabase() {
     abstract fun topicDao(): TopicsDao

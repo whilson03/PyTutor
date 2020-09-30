@@ -42,13 +42,13 @@ object AppModule {
     @Singleton
     @Provides
     fun providePytutorDatabase(
-            @ApplicationContext
-            context: Context
+        @ApplicationContext
+        context: Context
     ) = Room.databaseBuilder(
-            context, PytutorDatabase::class.java,
-            Constants.DATABASE_NAME
+        context, PytutorDatabase::class.java,
+        Constants.DATABASE_NAME
     ).fallbackToDestructiveMigration()
-            .build()
+        .build()
 
     @Singleton
     @Provides

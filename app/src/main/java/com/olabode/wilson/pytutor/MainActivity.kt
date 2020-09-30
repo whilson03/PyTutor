@@ -1,6 +1,5 @@
 package com.olabode.wilson.pytutor
 
-
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
@@ -13,14 +12,12 @@ import com.olabode.wilson.pytutor.databinding.ActivityMainBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), UICommunicator {
 
     private val binding by viewBinding(ActivityMainBinding::inflate)
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navController: NavController
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,13 +60,12 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 }
             }
         }
-
     }
 
     override fun hideSoftKeyBoard() {
         currentFocus?.let {
             val inputMethodManager =
-                    getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             try {
                 inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
             } catch (e: NullPointerException) {

@@ -10,27 +10,27 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "Topics_table")
 data class TopicCacheEntity(
 
-        @ColumnInfo(name = "order_key")
-        val orderKey: Int,
+    @ColumnInfo(name = "order_key")
+    val orderKey: Int,
 
-        @ColumnInfo(name = "title")
-        val title: String,
+    @ColumnInfo(name = "title")
+    val title: String,
 
-        @ColumnInfo(name = "description")
-        val description: String,
+    @ColumnInfo(name = "description")
+    val description: String,
 
-        @ColumnInfo(name = "pages_count")
-        val noOfPages: Int,
+    @ColumnInfo(name = "pages_count")
+    val noOfPages: Int,
 
-        @PrimaryKey(autoGenerate = false)
-        var topicId: String,
+    @PrimaryKey(autoGenerate = false)
+    var topicId: String,
 
-        @ColumnInfo(name = "is_locked")
-        val isLocked: Boolean,
+    @ColumnInfo(name = "is_locked")
+    val isLocked: Boolean,
 
-        @ColumnInfo(name = "is_completed")
-        val isCompleted: Boolean,
+    @ColumnInfo(name = "is_completed")
+    val isCompleted: Boolean,
 
-        @ColumnInfo(name = "stars")
-        val numOfStars: Float = 0f
+    @ColumnInfo(name = "stars")
+    val numOfStars: Float = 0f
 )

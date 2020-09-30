@@ -12,30 +12,29 @@ class TopicCacheMapper @Inject constructor() : EntityMapper<TopicCacheEntity, To
 
     override fun mapFromEntity(entity: TopicCacheEntity): Topic {
         return Topic(
-                orderKey = entity.orderKey,
-                topicId = entity.topicId,
-                title = entity.title,
-                description = entity.description,
-                isCompleted = entity.isCompleted,
-                isLocked = entity.isLocked,
-                noOfPages = entity.noOfPages,
-                numOfStars = entity.numOfStars
+            orderKey = entity.orderKey,
+            topicId = entity.topicId,
+            title = entity.title,
+            description = entity.description,
+            isCompleted = entity.isCompleted,
+            isLocked = entity.isLocked,
+            noOfPages = entity.noOfPages,
+            numOfStars = entity.numOfStars
         )
     }
 
     override fun mapToEntity(domainModel: Topic): TopicCacheEntity {
         return TopicCacheEntity(
-                orderKey = domainModel.orderKey,
-                topicId = domainModel.topicId,
-                title = domainModel.title,
-                description = domainModel.description,
-                isCompleted = domainModel.isCompleted,
-                isLocked = domainModel.isLocked,
-                noOfPages = domainModel.noOfPages,
-                numOfStars = domainModel.numOfStars
+            orderKey = domainModel.orderKey,
+            topicId = domainModel.topicId,
+            title = domainModel.title,
+            description = domainModel.description,
+            isCompleted = domainModel.isCompleted,
+            isLocked = domainModel.isLocked,
+            noOfPages = domainModel.noOfPages,
+            numOfStars = domainModel.numOfStars
         )
     }
-
 
     fun mapFromEntityList(entities: List<TopicCacheEntity>): List<Topic> {
         return entities.map {

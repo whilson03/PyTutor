@@ -23,7 +23,8 @@ class ListAlgosFragment : Fragment(R.layout.fragment_list_algos) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = AlgorithmListAdapter { algorithm ->
-            findNavController().navigate(ListAlgosFragmentDirections
+            findNavController().navigate(
+                ListAlgosFragmentDirections
                     .actionListAlgosFragmentToAlgorithmFragment(algorithm, algorithm.title)
             )
         }
@@ -32,7 +33,6 @@ class ListAlgosFragment : Fragment(R.layout.fragment_list_algos) {
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         setupObserver()
     }
-
 
     private fun setupObserver() {
         viewModel.algorithms.observe(viewLifecycleOwner, Observer { result ->
@@ -57,5 +57,4 @@ class ListAlgosFragment : Fragment(R.layout.fragment_list_algos) {
             }
         })
     }
-
 }

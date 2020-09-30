@@ -13,12 +13,12 @@ import com.olabode.wilson.pytutor.utils.Utils
 /**
  *   Created by OLABODE WILSON on 9/8/20.
  */
-class TutorialTopicAdapter(private val clickListener: (topic: Topic?, message: String?) -> Unit)
-    : ListAdapter<Topic, TutorialTopicAdapter.ViewHolder>(Topic.DIFF_CALLBACK) {
+class TutorialTopicAdapter(private val clickListener: (topic: Topic?, message: String?) -> Unit) :
+    ListAdapter<Topic, TutorialTopicAdapter.ViewHolder>(Topic.DIFF_CALLBACK) {
 
     class ViewHolder(
-            private val binding: TutorialItemBinding,
-            private val clickListener: (topic: Topic?, message: String?) -> Unit
+        private val binding: TutorialItemBinding,
+        private val clickListener: (topic: Topic?, message: String?) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         private var item: Topic? = null
 
@@ -46,9 +46,9 @@ class TutorialTopicAdapter(private val clickListener: (topic: Topic?, message: S
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = TutorialItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
         return ViewHolder(binding, clickListener)
     }
@@ -56,5 +56,4 @@ class TutorialTopicAdapter(private val clickListener: (topic: Topic?, message: S
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-
 }

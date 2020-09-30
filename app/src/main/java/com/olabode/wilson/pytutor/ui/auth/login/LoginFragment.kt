@@ -45,16 +45,18 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         })
 
         binding.createAccount.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections
-                    .actionLoginFragmentToSignUpFragment2())
+            findNavController().navigate(
+                LoginFragmentDirections
+                    .actionLoginFragmentToSignUpFragment2()
+            )
         }
 
         binding.signIn.setOnClickListener {
             uiCommunicator.hideSoftKeyBoard()
             if (validateDetails()) {
                 performLogin(
-                        binding.emailField.text.toString().trim(),
-                        binding.passwordField.text.toString().trim()
+                    binding.emailField.text.toString().trim(),
+                    binding.passwordField.text.toString().trim()
                 )
             } else {
                 authViewModel.snackBarMessage(Messages.ALERT_BLANK_FIELDS)
@@ -65,7 +67,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment())
         }
     }
-
 
     private fun performLogin(email: String, password: String) {
         authViewModel.loginUser(email, password).observe(viewLifecycleOwner, Observer { result ->
@@ -90,17 +91,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                 is AuthResult.UnAuthenticated -> {
                     findNavController()
-                            .navigate(LoginFragmentDirections
-                                    .actionLoginFragmentToVerifyPasswordFragment())
+                        .navigate(
+                            LoginFragmentDirections
+                                .actionLoginFragmentToVerifyPasswordFragment()
+                        )
                 }
             }
         })
     }
 
-
     private fun validateDetails(): Boolean {
         return !(TextUtils.isEmpty(binding.passwordField.text.toString().trim())
-                || TextUtils.isEmpty(binding.emailField.text.toString().trim()))
+            || TextUtils.isEmpty(binding.emailField.text.toString().trim()))
     }
-
 }

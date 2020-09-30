@@ -22,10 +22,10 @@ import javax.inject.Inject
  *   Created by OLABODE WILSON on 9/29/20.
  */
 class AlgorithmRepositoryImpl @Inject constructor(
-        private val remoteDatabase: FirebaseFirestore,
-        private val algorithmDao: AlgorithmDao,
-        private val algorithmNetworkMapper: AlgorithmNetworkMapper,
-        private val algorithmCacheMapper: AlgorithmCacheMapper
+    private val remoteDatabase: FirebaseFirestore,
+    private val algorithmDao: AlgorithmDao,
+    private val algorithmNetworkMapper: AlgorithmNetworkMapper,
+    private val algorithmCacheMapper: AlgorithmCacheMapper
 ) : AlgorithmRepository {
 
     override fun fectchAllAlgorithms(): Flow<DataState<List<Algorithm>>> = flow {
@@ -35,8 +35,8 @@ class AlgorithmRepositoryImpl @Inject constructor(
 
         if (cachedAlgorithm.isNullOrEmpty()) {
             val response = remoteDatabase
-                    .collection(RemoteDatabaseKeys.NODE_ALGORITHMS)
-                    .get().await()
+                .collection(RemoteDatabaseKeys.NODE_ALGORITHMS)
+                .get().await()
             val algorithmResponse = response.documents
 
             if (!algorithmResponse.isNullOrEmpty()) {
@@ -62,5 +62,4 @@ class AlgorithmRepositoryImpl @Inject constructor(
     }.catch {
         emit(DataState.Error(null, Messages.FAILED_TO_LOAD))
     }.flowOn(Dispatchers.IO)
-
 }

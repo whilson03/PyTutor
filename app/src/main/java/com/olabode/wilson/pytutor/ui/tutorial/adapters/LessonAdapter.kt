@@ -20,27 +20,27 @@ class LessonAdapter : ListAdapter<Tutorial, RecyclerView.ViewHolder>(LessonDiffC
         return when (viewType) {
             LessonTypes.TEXT.ordinal -> {
                 val binding = ItemTutorialBodyBinding.inflate(
-                        LayoutInflater.from(parent.context),
-                        parent,
-                        false
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
                 )
                 TextViewHolder(binding)
             }
 
             LessonTypes.BULLET.ordinal -> {
                 val binding = ItemBulletTextBinding.inflate(
-                        LayoutInflater.from(parent.context),
-                        parent,
-                        false
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
                 )
                 BulletViewHolder(binding)
             }
 
             else -> {
                 val binding = ItemCodeSnippetBinding.inflate(
-                        LayoutInflater.from(parent.context),
-                        parent,
-                        false
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
                 )
                 CodeViewHolder(binding)
             }
@@ -69,5 +69,4 @@ class LessonDiffCallback : DiffUtil.ItemCallback<Tutorial>() {
     override fun areContentsTheSame(oldItem: Tutorial, newItem: Tutorial): Boolean {
         return oldItem == newItem
     }
-
 }

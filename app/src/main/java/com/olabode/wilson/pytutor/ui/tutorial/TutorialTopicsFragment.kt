@@ -28,8 +28,13 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         super.onViewCreated(view, savedInstanceState)
         adapter = TutorialTopicAdapter { topic, message ->
             topic?.let {
-                findNavController().navigate(TutorialTopicsFragmentDirections
-                        .actionTutorialTopicsFragmentToViewTutorialsFragment(title = topic.title, topic = topic))
+                findNavController().navigate(
+                    TutorialTopicsFragmentDirections
+                        .actionTutorialTopicsFragmentToViewTutorialsFragment(
+                            title = topic.title,
+                            topic = topic
+                        )
+                )
             }
 
             message?.let { viewModel.showSnackBar(it) }
@@ -46,18 +51,15 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
     }
 
-
     private fun showSnackBar(message: String) {
         Snackbar.make(binding.coordinatorLayout, message, Snackbar.LENGTH_SHORT).show()
     }
 
-
     private fun showPersistentSnackBar(message: String, action: () -> Unit) {
         Snackbar.make(binding.coordinatorLayout, message, Snackbar.LENGTH_INDEFINITE)
-                .setAction(getString(R.string.retry)) {
-                    action.invoke()
-                }.show()
-
+            .setAction(getString(R.string.retry)) {
+                action.invoke()
+            }.show()
     }
 
     private fun initTopics() {
@@ -89,7 +91,5 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
                 adapter.submitList(topics.sortedBy { it.orderKey })
             }
         })
-
     }
-
 }

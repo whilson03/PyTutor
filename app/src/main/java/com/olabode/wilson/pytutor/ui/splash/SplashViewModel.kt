@@ -10,8 +10,8 @@ import com.olabode.wilson.pytutor.repository.main.user.UserRepository
  */
 
 class SplashViewModel @ViewModelInject constructor(
-        private val authRepository: AuthRepository,
-        private val userRepository: UserRepository
+    private val authRepository: AuthRepository,
+    private val userRepository: UserRepository
 ) : ViewModel() {
 
     val userStatus = userRepository.checkLoginStatus()

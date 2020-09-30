@@ -11,7 +11,7 @@ import com.olabode.wilson.pytutor.utils.DataState
  *   Created by OLABODE WILSON on 9/23/20.
  */
 class EmailVerificationViewModel @ViewModelInject constructor(
-        private val authRepository: AuthRepository
+    private val authRepository: AuthRepository
 ) : ViewModel() {
 
     fun resendVerificationLink(email: String, password: String): LiveData<DataState<String>> {

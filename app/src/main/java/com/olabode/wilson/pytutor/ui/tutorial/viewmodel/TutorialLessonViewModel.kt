@@ -16,18 +16,16 @@ import timber.log.Timber
  *   Created by OLABODE WILSON on 9/10/20.
  */
 class TutorialLessonViewModel @ViewModelInject constructor(
-        private val tutorialRepository: TutorialRepository
+    private val tutorialRepository: TutorialRepository
 ) : ViewModel() {
 
     init {
         Timber.d("TUTORIAL VIEWMODEL CREATED")
     }
 
-
     private val _showProgressBar = MutableLiveData<Event<LoadingState>>()
     val showProgressBar: LiveData<Event<LoadingState>>
         get() = _showProgressBar
-
 
     private val _showPopUpWithMessage = MutableLiveData<Event<String>>()
     val showPopUpWithMessage: LiveData<Event<String>>
@@ -41,11 +39,9 @@ class TutorialLessonViewModel @ViewModelInject constructor(
         _showProgressBar.value = Event(state)
     }
 
-
     fun getLessons(topicId: String): LiveData<DataState<List<Lesson>>> {
         return tutorialRepository.getLessonsForTopic(topicId).asLiveData()
     }
-
 
     override fun onCleared() {
         super.onCleared()

@@ -14,7 +14,7 @@ import kotlinx.coroutines.tasks.await
  */
 
 val ref = FirebaseFirestore.getInstance()
-        .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
+    .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
 
 fun uploadCoursesAndLesson(map: Map<TopicResponse, List<LessonResponse>>) {
     CoroutineScope(Dispatchers.IO).launch {
@@ -35,27 +35,26 @@ fun uploadCoursesAndLesson(map: Map<TopicResponse, List<LessonResponse>>) {
     }
 }
 
-
 fun dataSet(): Map<TopicResponse, List<LessonResponse>> {
     return mapOf(
-            genTopicResponse()[0] to introduction,
-            genTopicResponse()[1] to syntax,
-            genTopicResponse()[2] to variables,
-            genTopicResponse()[3] to strings,
-            genTopicResponse()[4] to numbers,
-            genTopicResponse()[5] to io,
-            genTopicResponse()[6] to dataStructures,
-            genTopicResponse()[7] to lists,
-            genTopicResponse()[8] to tuples,
-            genTopicResponse()[9] to dictionaries,
-            genTopicResponse()[10] to sets,
-            genTopicResponse()[11] to operators,
-            genTopicResponse()[12] to conditions,
-            genTopicResponse()[13] to for_loop,
-            genTopicResponse()[14] to while_loop,
-            genTopicResponse()[15] to loop_keywords,
-            genTopicResponse()[16] to functions,
-            genTopicResponse()[17] to exception_handling
+        genTopicResponse()[0] to introduction,
+        genTopicResponse()[1] to syntax,
+        genTopicResponse()[2] to variables,
+        genTopicResponse()[3] to strings,
+        genTopicResponse()[4] to numbers,
+        genTopicResponse()[5] to io,
+        genTopicResponse()[6] to dataStructures,
+        genTopicResponse()[7] to lists,
+        genTopicResponse()[8] to tuples,
+        genTopicResponse()[9] to dictionaries,
+        genTopicResponse()[10] to sets,
+        genTopicResponse()[11] to operators,
+        genTopicResponse()[12] to conditions,
+        genTopicResponse()[13] to for_loop,
+        genTopicResponse()[14] to while_loop,
+        genTopicResponse()[15] to loop_keywords,
+        genTopicResponse()[16] to functions,
+        genTopicResponse()[17] to exception_handling
 
     )
 }

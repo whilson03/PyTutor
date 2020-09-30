@@ -5,7 +5,7 @@ import android.os.Environment
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
 
 /**
  *   Created by OLABODE WILSON on 9/27/20.
@@ -18,9 +18,9 @@ object Utils {
         val imageFileName = "JPEG_" + timeStamp + "_"
         val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         val image: File = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",  /* suffix */
-                storageDir /* directory */
+            imageFileName,  /* prefix */
+            ".jpg",  /* suffix */
+            storageDir /* directory */
         )
         return image
     }
@@ -31,6 +31,4 @@ object Utils {
         }
         return position.toString()
     }
-
-
 }

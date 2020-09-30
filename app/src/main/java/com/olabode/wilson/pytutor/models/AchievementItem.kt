@@ -5,7 +5,7 @@ package com.olabode.wilson.pytutor.models
  */
 
 data class AchievementItem(
-        val badgeIconRes: Int,
-        val achievementTitle: String,
-        val achievementDetails: String
+    val badgeIconRes: Int,
+    val achievementTitle: String,
+    val achievementDetails: String
 )

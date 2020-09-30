@@ -7,12 +7,12 @@ import com.olabode.wilson.pytutor.models.Badge
  */
 
 data class User(
-        val fullName: String,
-        val email: String,
-        val level: Int = 0,
-        val experiencePoint: Int = 0,
-        val imageUrl: String,
-        val badges: List<Badge>,
-        val userId: String,
-        val completedCourses: Map<String, Float>
+    val fullName: String,
+    val email: String,
+    val level: Int = 0,
+    val experiencePoint: Int = 0,
+    val imageUrl: String,
+    val badges: List<Badge>,
+    val userId: String,
+    val completedCourses: Map<String, Float>
 )

@@ -9,10 +9,10 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 data class Algorithm(
-        val id: String,
-        val title: String,
-        val description: String,
-        val body: String
+    val id: String,
+    val title: String,
+    val description: String,
+    val body: String
 ) : Parcelable {
 
     companion object {
@@ -24,7 +24,6 @@ data class Algorithm(
             override fun areContentsTheSame(oldItem: Algorithm, newItem: Algorithm): Boolean {
                 return oldItem == newItem
             }
-
         }
     }
 }

@@ -18,7 +18,12 @@ import com.olabode.wilson.pytutor.utils.Messages
 import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -32,13 +37,13 @@ import javax.inject.Singleton
 @Singleton
 @ExperimentalCoroutinesApi
 class TutorialRepositoryImpl @Inject constructor(
-        private val remoteDatabase: FirebaseFirestore,
-        private val topicNetworkMapper: TopicNetworkMapper,
-        private val topicCacheMapper: TopicCacheMapper,
-        private val lessonNetworkMapper: LessonNetworkMapper,
-        private val lessonsCacheMapper: LessonCacheMapper,
-        private val topicsDao: TopicsDao,
-        private val lessonsDao: LessonsDao
+    private val remoteDatabase: FirebaseFirestore,
+    private val topicNetworkMapper: TopicNetworkMapper,
+    private val topicCacheMapper: TopicCacheMapper,
+    private val lessonNetworkMapper: LessonNetworkMapper,
+    private val lessonsCacheMapper: LessonCacheMapper,
+    private val topicsDao: TopicsDao,
+    private val lessonsDao: LessonsDao
 ) : TutorialRepository {
 
     override fun retrieveTopicsFromRemote(userId: String): Flow<DataState<List<Topic>>> = flow {
@@ -47,14 +52,14 @@ class TutorialRepositoryImpl @Inject constructor(
 
         if (cachedTopics < 1) {
             val topicsCollection = remoteDatabase
-                    .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
-                    .get().await()
+                .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
+                .get().await()
 
             val topicResponse = topicsCollection.documents
 
             val user = remoteDatabase
-                    .collection(RemoteDatabaseKeys.NODE_USERS)
-                    .document(userId).get().await().toObject<RemoteUser>()
+                .collection(RemoteDatabaseKeys.NODE_USERS)
+                .document(userId).get().await().toObject<RemoteUser>()
 
             if (!topicResponse.isNullOrEmpty()) {
                 val result = topicResponse.map {
@@ -75,11 +80,9 @@ class TutorialRepositoryImpl @Inject constructor(
                 }
 
                 emit(DataState.Success(listOf<Topic>()))
-
             } else {
                 emit(DataState.Error(null, Messages.FAILED_TO_LOAD_TOPICS))
             }
-
         } else {
             emit(DataState.Success(emptyList()))
         }
@@ -103,10 +106,10 @@ class TutorialRepositoryImpl @Inject constructor(
 
         if (cachedLessons.isNullOrEmpty()) {
             val response = remoteDatabase
-                    .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
-                    .document(topicId)
-                    .collection(RemoteDatabaseKeys.NODE_LESSONS)
-                    .get().await()
+                .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
+                .document(topicId)
+                .collection(RemoteDatabaseKeys.NODE_LESSONS)
+                .get().await()
             val lessonResponse = response.documents
 
             if (!lessonResponse.isNullOrEmpty()) {
@@ -139,5 +142,4 @@ class TutorialRepositoryImpl @Inject constructor(
             lessonsDao.clearLessons()
         }
     }
-
 }

@@ -12,19 +12,19 @@ class AlgorithmNetworkMapper @Inject constructor() : EntityMapper<AlgorithmRespo
 
     override fun mapFromEntity(entity: AlgorithmResponse): Algorithm {
         return Algorithm(
-                id = entity.id,
-                title = entity.title,
-                description = entity.description,
-                body = entity.body
+            id = entity.id,
+            title = entity.title,
+            description = entity.description,
+            body = entity.body
         )
     }
 
     override fun mapToEntity(domainModel: Algorithm): AlgorithmResponse {
         return AlgorithmResponse(
-                id = domainModel.id,
-                title = domainModel.title,
-                description = domainModel.description,
-                body = domainModel.body
+            id = domainModel.id,
+            title = domainModel.title,
+            description = domainModel.description,
+            body = domainModel.body
         )
     }
 

@@ -9,7 +9,6 @@ sealed class DataState<out R> {
     data class Error(val exception: Exception?, val message: String) : DataState<Nothing>()
     object Loading : DataState<Nothing>()
 
-
     override fun toString(): String {
         return when (this) {
             is Success<*> -> "Success[data=$data]"
