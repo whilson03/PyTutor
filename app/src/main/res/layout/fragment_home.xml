@@ -24,7 +24,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/catamaran_thin"
-                android:text="@string/greeting_hello"
+                android:text="@string/welcome"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/profile_icon"
@@ -41,10 +41,10 @@
                 app:srcCompat="@drawable/ic_profile_placeholder" />
 
             <TextView
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:id="@+id/name_field"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:fontFamily="@font/catamaran_medium"
                 android:maxLines="1"
                 android:textSize="20sp"
@@ -56,14 +56,22 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/home_item_bg_gold"
+                android:background="@drawable/dashboard_item1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name_field">
+
+                <View
+                    android:layout_width="80dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/end_view_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView"
@@ -136,16 +144,25 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/home_item_bg_yellow">
+                    android:background="@drawable/dashboard_item1">
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/end_view_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="8dp"
                         app:layout_constraintBottom_toTopOf="@+id/textView4"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_home" />
+                        app:srcCompat="@drawable/ic_tutorial" />
 
                     <TextView
                         android:id="@+id/textView4"
@@ -166,6 +183,7 @@
                 android:layout_height="100dp"
                 android:layout_marginStart="8dp"
                 app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/card_one"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/card_one"
@@ -174,16 +192,25 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/home_item_bg_orange">
+                    android:background="@drawable/dashboard_item2">
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/end_view_background"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="8dp"
                         app:layout_constraintBottom_toTopOf="@+id/challenges"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_home" />
+                        app:srcCompat="@drawable/ic_algo" />
 
                     <TextView
                         android:id="@+id/challenges"

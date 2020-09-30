@@ -10,26 +10,28 @@
     <color name="secondaryTextColor">#000000</color>
 
     <color name="dividerColor">#BDBDBD</color>
-
-    <!-- Palette Greens -->
-    <color name="green_lightest">#e2ffc7</color>
-    <color name="green_light">#7eb0ad</color>
-    <color name="green">#16cc3e</color>
-    <color name="green_dark">#19887a</color>
-    <color name="green_darker">#0e5e55</color>
-    <color name="green_darkest">#00574B</color>
-
-    <!-- White & Gray -->
-
-    <color name="white">#FFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="off_white">#e0e0e0</color>
     <color name="gray">#88898b</color>
-
     <color name="lesson_card_bg_color">#F4F0F0</color>
     <color name="code_background">#5A5858</color>
-
-
     <color name="duskYellow">#ffc922</color>
     <color name="lightGrey">#D3D3D3</color>
     <color name="main_page_background">#EFF2F4</color>
+    <color name="green">#16cc3e</color>
+
+    <color name="item1Start">#FEBD1B</color>
+    <color name="item1End">#E4A401</color>
+
+    <color name="item2Start">#4D79FF</color>
+    <color name="item2End">#0039E6</color>
+
+    <color name="item3Start">#993399</color>
+    <color name="item3End">#602060</color>
+
+    <color name="item4Start">#00B33C</color>
+    <color name="item4End">#006622</color>
+
+    <color name="colorEndBackground">#50FFFFFF</color>
+    <color name="colorLightText">#ECECEC</color>
 </resources>
