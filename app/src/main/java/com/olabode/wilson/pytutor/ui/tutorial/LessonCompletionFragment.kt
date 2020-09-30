@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -13,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentLessonCompletionBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.CompletedLessonViewModel
 import com.olabode.wilson.pytutor.utils.DataState
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,6 +28,7 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
 
     private val args: LessonCompletionFragmentArgs by navArgs()
     private val viewModel: CompletedLessonViewModel by viewModels()
+    private lateinit var nextTopic: Topic
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,6 +54,25 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
                 }
             })
 
+        viewModel.getNextTopic(topic.orderKey).observe(viewLifecycleOwner, Observer { result ->
+            when (result) {
+                is DataState.Success -> {
+                    binding.nextLesson.isVisible = true
+                    nextTopic = result.data
+                }
+
+                is DataState.Loading, is DataState.Error -> {
+                    binding.nextLesson.isVisible = false
+                }
+            }
+        })
+
+        binding.nextLesson.setOnClickListener {
+            findNavController().navigate(
+                LessonCompletionFragmentDirections
+                    .actionLessonCompletionFragmentToLessonGraph(nextTopic.title, nextTopic)
+            )
+        }
 
         binding.viewKonfetti.build()
             .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)

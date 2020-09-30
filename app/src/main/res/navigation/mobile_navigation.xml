@@ -124,6 +124,19 @@
         <argument
             android:name="topic"
             app:argType="com.olabode.wilson.pytutor.models.Topic" />
+        <action
+
+            android:id="@+id/action_lessonCompletionFragment_to_lesson_graph"
+            app:destination="@id/lesson_graph"
+            app:enterAnim="@anim/slide_in_right"
+            app:popUpTo="@id/tutorialTopicsFragment">
+            <argument
+                android:name="title"
+                app:argType="string" />
+            <argument
+                android:name="topic"
+                app:argType="com.olabode.wilson.pytutor.models.Topic" />
+        </action>
     </fragment>
     <navigation
         android:id="@+id/lesson_graph"
