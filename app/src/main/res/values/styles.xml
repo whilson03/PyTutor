@@ -41,6 +41,7 @@
     </style>
 
     <style name="home_item_style">
+        <item name="fontFamily">@font/catamaran_medium</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:gravity">center</item>

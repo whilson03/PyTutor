@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_item_bg_gold"
+    android:background="@drawable/dashboard_item1"
     tools:context=".ui.tutorial.LessonCompletionFragment">
 
 
