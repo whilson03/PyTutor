@@ -32,14 +32,13 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
     private val binding by viewBinding(FragmentViewTutorialsBinding::bind)
     private val viewModel: TutorialLessonViewModel
-            by navGraphViewModels(R.id.lesson_graph) { defaultViewModelProviderFactory }
+        by navGraphViewModels(R.id.lesson_graph) { defaultViewModelProviderFactory }
 
     private val arg: ViewTutorialsFragmentArgs by navArgs()
 
     private lateinit var pagesAdapter: TutorialPageAdapter
     private lateinit var viewPager: ViewPager2
     var currentPosition: Int = DEFAULT_PAGE_POSITION
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val topic = arg.topic
@@ -57,8 +56,6 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
             }
         })
         setupUI(topic, totalNoOfPages)
-
-
     }
 
     private fun setupUI(topic: Topic, totalNoOfPages: Int) {
@@ -87,10 +84,10 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
     private fun doOnSuccess(totalNoOfPages: Int, lessons: List<Lesson>, topic: Topic) {
         pagesAdapter = TutorialPageAdapter(
-                this,
-                totalNoOfPages,
-                lessons,
-                topic = topic
+            this,
+            totalNoOfPages,
+            lessons,
+            topic = topic
         )
         viewPager = binding.lessonViewPager
         viewPager.adapter = pagesAdapter
@@ -130,17 +127,17 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
     private fun setUpPageCounter(noOfPages: Int) {
         val indicators = arrayOfNulls<ImageView>(noOfPages)
         val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
         )
         layoutParams.setMargins(4, 0, 4, 0)
         for (i in indicators.indices) {
             indicators[i] = ImageView(requireContext())
             indicators[i].apply {
                 this?.setImageDrawable(
-                        ContextCompat.getDrawable(
-                                requireContext(),
-                                R.drawable.unread_pages_indicator
-                        )
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.unread_pages_indicator
+                    )
                 )
 
                 this?.layoutParams = layoutParams
@@ -155,30 +152,27 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
             val imageView = binding.indicatorLayout[i] as ImageView
             if (i <= index) {
                 imageView.setImageDrawable(
-                        ContextCompat.getDrawable(
-                                requireContext(),
-                                R.drawable.viewed_page_indicator
-                        )
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.viewed_page_indicator
+                    )
                 )
             } else {
                 imageView.setImageDrawable(
-                        ContextCompat.getDrawable(
-                                requireContext(),
-                                R.drawable.unread_pages_indicator
-                        )
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.unread_pages_indicator
+                    )
                 )
             }
-
         }
     }
 
-
     private fun showPersistentSnackBar(message: String, action: () -> Unit) {
         Snackbar.make(binding.coordinatorLayout, message, Snackbar.LENGTH_INDEFINITE)
-                .setAction(getString(R.string.retry)) {
-                    action.invoke()
-                }.show()
-
+            .setAction(getString(R.string.retry)) {
+                action.invoke()
+            }.show()
     }
 
     companion object {

@@ -24,7 +24,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding by viewBinding(FragmentHomeBinding::bind)
     private val viewModel: ProfileViewModel by activityViewModels()
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -36,15 +35,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
                 is DataState.Error -> {
                     binding.nameField.visibility = View.INVISIBLE
-                    Toast.makeText(requireContext(), "Failed To Retrieve User Details", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Failed To Retrieve User Details",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
         })
 
         binding.cardOne.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections
-                    .actionHomeFragmentToTutorialTopicsFragment())
+            findNavController().navigate(
+                HomeFragmentDirections
+                    .actionHomeFragmentToTutorialTopicsFragment()
+            )
         }
 
         binding.cardTwo.setOnClickListener {
@@ -54,7 +59,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             )
         }
     }
-
 
     private fun setupUserDetails(user: User) {
         binding.nameField.text = user.fullName

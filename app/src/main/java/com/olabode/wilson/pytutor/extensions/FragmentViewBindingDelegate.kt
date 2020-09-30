@@ -15,8 +15,8 @@ import kotlin.reflect.KProperty
  */
 
 class FragmentViewBindingDelegate<T : ViewBinding>(
-        val fragment: Fragment,
-        val viewBindingFactory: (View) -> T
+    val fragment: Fragment,
+    val viewBindingFactory: (View) -> T
 ) : ReadOnlyProperty<Fragment, T> {
     private var binding: T? = null
 
@@ -50,4 +50,4 @@ class FragmentViewBindingDelegate<T : ViewBinding>(
 }
 
 fun <T : ViewBinding> Fragment.viewBinding(viewBindingFactory: (View) -> T) =
-        FragmentViewBindingDelegate(this, viewBindingFactory)
+    FragmentViewBindingDelegate(this, viewBindingFactory)

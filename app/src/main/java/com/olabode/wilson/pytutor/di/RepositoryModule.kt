@@ -41,68 +41,67 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun provideTutorialRepository(
-            fireStore: FirebaseFirestore,
-            topicsDao: TopicsDao,
-            topicNetworkMapper: TopicNetworkMapper,
-            topicCacheMapper: TopicCacheMapper,
-            lessonNetworkMapper: LessonNetworkMapper,
-            lessonCacheMapper: LessonCacheMapper,
-            lessonsDao: LessonsDao
+        fireStore: FirebaseFirestore,
+        topicsDao: TopicsDao,
+        topicNetworkMapper: TopicNetworkMapper,
+        topicCacheMapper: TopicCacheMapper,
+        lessonNetworkMapper: LessonNetworkMapper,
+        lessonCacheMapper: LessonCacheMapper,
+        lessonsDao: LessonsDao
     ): TutorialRepository = TutorialRepositoryImpl(
-            remoteDatabase = fireStore,
-            topicNetworkMapper = topicNetworkMapper,
-            topicCacheMapper = topicCacheMapper,
-            topicsDao = topicsDao,
-            lessonNetworkMapper = lessonNetworkMapper,
-            lessonsCacheMapper = lessonCacheMapper,
-            lessonsDao = lessonsDao
+        remoteDatabase = fireStore,
+        topicNetworkMapper = topicNetworkMapper,
+        topicCacheMapper = topicCacheMapper,
+        topicsDao = topicsDao,
+        lessonNetworkMapper = lessonNetworkMapper,
+        lessonsCacheMapper = lessonCacheMapper,
+        lessonsDao = lessonsDao
     )
-
 
     @Singleton
     @Provides
     fun provideAuthRepository(
-            firebaseAuth: FirebaseAuth,
-            firestore: FirebaseFirestore
+        firebaseAuth: FirebaseAuth,
+        firestore: FirebaseFirestore
     ): AuthRepository = AuthRepositoryImpl(
-            firebaseAuth,
-            firestore
+        firebaseAuth,
+        firestore
     )
 
     @ExperimentalCoroutinesApi
     @Singleton
     @Provides
     fun provideUserRepository(
-            userNetworkMapper: UserNetworkMapper,
-            userCacheMapper: UserCacheMapper,
-            firebaseAuth: FirebaseAuth,
-            firestore: FirebaseFirestore,
-            userDao: UserDao,
-            topicsDao: TopicsDao,
-            storage: FirebaseStorage
+        userNetworkMapper: UserNetworkMapper,
+        userCacheMapper: UserCacheMapper,
+        firebaseAuth: FirebaseAuth,
+        firestore: FirebaseFirestore,
+        userDao: UserDao,
+        topicsDao: TopicsDao,
+        storage: FirebaseStorage
     ): UserRepository = UserRepositoryImpl(
-            userNetworkMapper,
-            userCacheMapper,
-            firebaseAuth,
-            firestore,
-            userDao,
-            topicsDao,
-            storage
+        userNetworkMapper,
+        userCacheMapper,
+        firebaseAuth,
+        firestore,
+        userDao,
+        topicsDao,
+        storage
     )
 
     @Singleton
     @Provides
     fun provideAlgorithmRepository(
-            remoteDatabase: FirebaseFirestore,
-            algorithmDao: AlgorithmDao,
-            algorithmNetworkMapper: AlgorithmNetworkMapper,
-            algorithmCacheMapper: AlgorithmCacheMapper
+        remoteDatabase: FirebaseFirestore,
+        algorithmDao: AlgorithmDao,
+        algorithmNetworkMapper: AlgorithmNetworkMapper,
+        algorithmCacheMapper: AlgorithmCacheMapper
     ): AlgorithmRepository {
         return AlgorithmRepositoryImpl(
-                remoteDatabase,
-                algorithmDao,
-                algorithmNetworkMapper,
-                algorithmCacheMapper
+            remoteDatabase,
+            algorithmDao,
+            algorithmNetworkMapper,
+            algorithmCacheMapper
         )
     }
 }

@@ -6,13 +6,14 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Tutorial(
-        val orderKey: Int,
-        val imageUrl: String = "",
-        val body: String = "",
-        val codeSnippet: CodeSnippet?,
-        val type: Int
+    val orderKey: Int,
+    val imageUrl: String = "",
+    val body: String = "",
+    val codeSnippet: CodeSnippet?,
+    val type: Int
 ) : Parcelable {
 
     constructor() : this(
-            0, "", "", null, LessonTypes.TEXT.ordinal)
+        0, "", "", null, LessonTypes.TEXT.ordinal
+    )
 }

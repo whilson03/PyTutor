@@ -17,5 +17,4 @@ class AlgorithmFragment : Fragment(R.layout.fragment_algorithm) {
         super.onViewCreated(view, savedInstanceState)
         binding.codeView.setCode(args.algorithm.body, "py")
     }
-
 }

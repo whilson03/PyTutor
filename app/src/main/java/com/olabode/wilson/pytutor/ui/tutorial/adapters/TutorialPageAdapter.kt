@@ -12,10 +12,10 @@ import com.olabode.wilson.pytutor.ui.tutorial.TutorialPageFragment
  *   Created by OLABODE WILSON on 9/9/20.
  */
 class TutorialPageAdapter(
-        fragment: Fragment,
-        private val pages: Int,
-        val list: List<Lesson>,
-        val topic: Topic
+    fragment: Fragment,
+    private val pages: Int,
+    val list: List<Lesson>,
+    val topic: Topic
 ) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = pages

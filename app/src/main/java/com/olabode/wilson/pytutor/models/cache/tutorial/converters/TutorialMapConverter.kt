@@ -10,7 +10,6 @@ import com.olabode.wilson.pytutor.models.tutorial.Tutorial
  */
 class TutorialMapConverter {
 
-
     @TypeConverter
     fun fromString(value: String): Map<String, Tutorial>? {
         val mapType = object : TypeToken<Map<String, Tutorial>?>() {}.type
@@ -22,5 +21,4 @@ class TutorialMapConverter {
         val gson = Gson()
         return gson.toJson(map)
     }
-
 }

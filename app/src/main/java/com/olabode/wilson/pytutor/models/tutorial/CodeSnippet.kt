@@ -5,12 +5,12 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class CodeSnippet(
-        val header: String,
-        val code: String,
-        val footer: String
+    val header: String,
+    val code: String,
+    val footer: String
 ) : Parcelable {
 
     constructor() : this(
-            "", "", ""
+        "", "", ""
     )
 }

@@ -7,10 +7,10 @@ import com.olabode.wilson.pytutor.models.remote.algorithm.AlgorithmResponse
  */
 
 fun listOfAlgorithms() = listOf(
-        AlgorithmResponse(
-                id = "",
-                title = "",
-                description = "",
-                body = ""
-        )
+    AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    )
 )

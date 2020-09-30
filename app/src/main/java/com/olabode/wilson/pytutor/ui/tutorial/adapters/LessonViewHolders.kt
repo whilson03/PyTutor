@@ -11,8 +11,7 @@ import com.olabode.wilson.pytutor.models.tutorial.Tutorial
  *   Created by OLABODE WILSON on 9/9/20.
  */
 
-class CodeViewHolder(val binding: ItemCodeSnippetBinding)
-    : RecyclerView.ViewHolder(binding.root) {
+class CodeViewHolder(val binding: ItemCodeSnippetBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Tutorial) {
         item.codeSnippet?.let { code ->
@@ -34,9 +33,7 @@ class CodeViewHolder(val binding: ItemCodeSnippetBinding)
     }
 }
 
-
-class TextViewHolder(val binding: ItemTutorialBodyBinding)
-    : RecyclerView.ViewHolder(binding.root) {
+class TextViewHolder(val binding: ItemTutorialBodyBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: Tutorial) {
         item.body.let {
@@ -44,7 +41,6 @@ class TextViewHolder(val binding: ItemTutorialBodyBinding)
         }
     }
 }
-
 
 class BulletViewHolder(val binding: ItemBulletTextBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -54,7 +50,6 @@ class BulletViewHolder(val binding: ItemBulletTextBinding) : RecyclerView.ViewHo
         }
     }
 }
-
 
 enum class LessonTypes {
     CODE, TEXT, IMAGE, BULLET

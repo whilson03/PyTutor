@@ -11,12 +11,12 @@ import com.olabode.wilson.pytutor.utils.Utils
 /**
  *   Created by OLABODE WILSON on 9/29/20.
  */
-class AlgorithmListAdapter(private val clickListener: (algorithm: Algorithm) -> Unit)
-    : ListAdapter<Algorithm, AlgorithmListAdapter.ViewHolder>(Algorithm.DIFF_CALLBACK) {
+class AlgorithmListAdapter(private val clickListener: (algorithm: Algorithm) -> Unit) :
+    ListAdapter<Algorithm, AlgorithmListAdapter.ViewHolder>(Algorithm.DIFF_CALLBACK) {
 
     class ViewHolder(
-            private val binding: ItemAlgorithmsBinding,
-            private val clickListener: (algorithm: Algorithm) -> Unit
+        private val binding: ItemAlgorithmsBinding,
+        private val clickListener: (algorithm: Algorithm) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         private var item: Algorithm? = null
 
@@ -38,9 +38,9 @@ class AlgorithmListAdapter(private val clickListener: (algorithm: Algorithm) -> 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemAlgorithmsBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
         return ViewHolder(binding, clickListener)
     }

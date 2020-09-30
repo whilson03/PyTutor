@@ -28,5 +28,11 @@ class AchievementsFragment : Fragment(R.layout.fragment_achievements) {
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
     }
 
-    private fun getDummyList(): List<AchievementItem> = List(16) { AchievementItem(R.drawable.ic_round_stars_24, "Baby Steps", "Completed your first lesson") }
+    private fun getDummyList(): List<AchievementItem> = List(16) {
+        AchievementItem(
+            R.drawable.ic_round_stars_24,
+            "Baby Steps",
+            "Completed your first lesson"
+        )
+    }
 }

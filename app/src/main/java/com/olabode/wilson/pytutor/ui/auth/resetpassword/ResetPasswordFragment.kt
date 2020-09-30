@@ -68,7 +68,6 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
 
             }
         })
-
     }
 
     private fun showSnackBar(message: String) {

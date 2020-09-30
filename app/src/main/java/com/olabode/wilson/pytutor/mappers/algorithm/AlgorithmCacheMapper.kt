@@ -11,19 +11,19 @@ import javax.inject.Inject
 class AlgorithmCacheMapper @Inject constructor() : EntityMapper<AlgorithmEntity, Algorithm> {
     override fun mapFromEntity(entity: AlgorithmEntity): Algorithm {
         return Algorithm(
-                id = entity.id,
-                title = entity.title,
-                description = entity.description,
-                body = entity.body
+            id = entity.id,
+            title = entity.title,
+            description = entity.description,
+            body = entity.body
         )
     }
 
     override fun mapToEntity(domainModel: Algorithm): AlgorithmEntity {
         return AlgorithmEntity(
-                id = domainModel.id,
-                title = domainModel.title,
-                description = domainModel.description,
-                body = domainModel.body
+            id = domainModel.id,
+            title = domainModel.title,
+            description = domainModel.description,
+            body = domainModel.body
         )
     }
 

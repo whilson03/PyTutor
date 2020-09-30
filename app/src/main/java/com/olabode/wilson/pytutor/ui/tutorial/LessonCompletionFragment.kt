@@ -38,29 +38,30 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
         val scoreRating = getRating(score.toFloat(), numberOfQuestions.toFloat())
         setUpRating(scoreRating)
 
-        viewModel.onCourseCompleted(topic.topicId, scoreRating, topic.orderKey).observe(viewLifecycleOwner, Observer {
-            when (it) {
-                is DataState.Success -> {
-                    Timber.d("SUCCESS")
-                }
+        viewModel.onCourseCompleted(topic.topicId, scoreRating, topic.orderKey)
+            .observe(viewLifecycleOwner, Observer {
+                when (it) {
+                    is DataState.Success -> {
+                        Timber.d("SUCCESS")
+                    }
 
-                is DataState.Error -> {
-                    /* no-op */
+                    is DataState.Error -> {
+                        /* no-op */
+                    }
                 }
-            }
-        })
+            })
 
 
         binding.viewKonfetti.build()
-                .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
-                .setDirection(0.0, 359.0)
-                .setSpeed(1f, 5f)
-                .setFadeOutEnabled(true)
-                .setTimeToLive(2000L)
-                .addShapes(Shape.Square, Shape.Circle)
-                .addSizes(Size(12))
-                .setPosition(-50f, display.widthPixels + 50f, -50f, -50f)
-                .streamFor(300, 5000L)
+            .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
+            .setDirection(0.0, 359.0)
+            .setSpeed(1f, 5f)
+            .setFadeOutEnabled(true)
+            .setTimeToLive(2000L)
+            .addShapes(Shape.Square, Shape.Circle)
+            .addSizes(Size(12))
+            .setPosition(-50f, display.widthPixels + 50f, -50f, -50f)
+            .streamFor(300, 5000L)
 
 
         binding.home.setOnClickListener {

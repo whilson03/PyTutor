@@ -17,14 +17,13 @@ import java.io.File
  */
 
 class ProfileViewModel @ViewModelInject constructor(
-        private val userRepository: UserRepository,
-        private val authRepository: AuthRepository,
-        private val tutorialRepository: TutorialRepository
+    private val userRepository: UserRepository,
+    private val authRepository: AuthRepository,
+    private val tutorialRepository: TutorialRepository
 ) : ViewModel() {
     val userDetails = userRepository
-            .getLoggedInUserDetails(userRepository.getUserId())
-            .asLiveData()
-
+        .getLoggedInUserDetails(userRepository.getUserId())
+        .asLiveData()
 
     fun signOut() {
         viewModelScope.launch { tutorialRepository.clearTopics() }

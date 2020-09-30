@@ -15,10 +15,9 @@ import com.olabode.wilson.pytutor.utils.Event
  *   Created by OLABODE WILSON on 9/10/20.
  */
 class TutorialTopicViewModel @ViewModelInject constructor(
-        private val tutorialRepository: TutorialRepository,
-        private val userRepository: UserRepository
+    private val tutorialRepository: TutorialRepository,
+    private val userRepository: UserRepository
 ) : ViewModel() {
-
 
     val topics = tutorialRepository.getAllCachedTopics().asLiveData()
 
@@ -26,7 +25,6 @@ class TutorialTopicViewModel @ViewModelInject constructor(
     private val _showSnackBar = MutableLiveData<Event<String>>()
     val showSnackBar: LiveData<Event<String>>
         get() = _showSnackBar
-
 
     fun showSnackBar(message: String) {
         _showSnackBar.value = Event(message)

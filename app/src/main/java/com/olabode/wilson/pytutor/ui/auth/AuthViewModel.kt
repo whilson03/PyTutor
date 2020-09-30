@@ -13,36 +13,33 @@ import com.olabode.wilson.pytutor.utils.Event
  *   Created by OLABODE WILSON on 9/6/20.
  */
 class AuthViewModel @ViewModelInject constructor(
-        private val authRepository: AuthRepository
+    private val authRepository: AuthRepository
 ) : ViewModel() {
-
 
     // snack bar event
     private val _showSnackBar = MutableLiveData<Event<String>>()
     val showSnackBar: LiveData<Event<String>>
         get() = _showSnackBar
 
-
     fun snackBarMessage(message: String) {
         _showSnackBar.value =
-                Event(message)
+            Event(message)
     }
 
-
     fun loginUser(
-            email: String,
-            password: String
+        email: String,
+        password: String
     ): LiveData<AuthResult<String>> {
         return authRepository.loginUser(email, password).asLiveData()
     }
 
     fun registerNewUser(
-            fullName: String,
-            email: String,
-            password: String,
-            confirmPassword: String
+        fullName: String,
+        email: String,
+        password: String,
+        confirmPassword: String
     ): LiveData<AuthResult<String>> {
-        return authRepository.registerNewUser(fullName, email, password, confirmPassword).asLiveData()
+        return authRepository.registerNewUser(fullName, email, password, confirmPassword)
+            .asLiveData()
     }
-
 }

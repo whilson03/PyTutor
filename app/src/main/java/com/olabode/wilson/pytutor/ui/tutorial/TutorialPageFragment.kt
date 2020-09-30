@@ -20,11 +20,11 @@ class TutorialPageFragment : Fragment(R.layout.fragment_tutorial_page) {
 
         @JvmStatic
         fun newInstance(lesson: Lesson) =
-                TutorialPageFragment().apply {
-                    arguments = Bundle().apply {
-                        putParcelable(ARG_RESPONSE, lesson)
-                    }
+            TutorialPageFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelable(ARG_RESPONSE, lesson)
                 }
+            }
     }
 
     private val binding by viewBinding(FragmentTutorialPageBinding::bind)

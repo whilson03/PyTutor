@@ -11,15 +11,15 @@ import kotlinx.coroutines.flow.Flow
 interface AuthRepository {
 
     fun loginUser(
-            email: String,
-            password: String
+        email: String,
+        password: String
     ): Flow<AuthResult<String>>
 
     fun registerNewUser(
-            fullName: String,
-            email: String,
-            password: String,
-            confirmPassword: String
+        fullName: String,
+        email: String,
+        password: String,
+        confirmPassword: String
     ): Flow<AuthResult<String>>
 
     fun logOut()
@@ -31,6 +31,4 @@ interface AuthRepository {
     fun sendPasswordResetLink(email: String): Flow<DataState<String>>
 
     fun sendEmailVerificationLink(email: String, password: String): Flow<DataState<String>>
-
-
 }

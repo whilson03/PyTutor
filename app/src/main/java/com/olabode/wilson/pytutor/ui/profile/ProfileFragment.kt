@@ -74,7 +74,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         binding.achievement.setOnClickListener {
             val action = ProfileFragmentDirections
-                    .actionProfileFragmentToAchievementsFragment()
+                .actionProfileFragmentToAchievementsFragment()
             findNavController().navigate(action)
         }
 
@@ -82,7 +82,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         binding.navigateToFeedback.setOnClickListener { sendFeedback() }
     }
-
 
     private fun showUploadImageDialog() {
         val dialog = UploadProfileImageDialog { method ->
@@ -128,25 +127,25 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         // To count with Play market back stack, After pressing back button,
         // to taken back to our application, we need to add following flags to intent.
         goToMarket.addFlags(
-                Intent.FLAG_ACTIVITY_NO_HISTORY or
-                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
-                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+            Intent.FLAG_ACTIVITY_NO_HISTORY or
+                Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK
         )
         try {
             context.startActivity(goToMarket)
         } catch (e: ActivityNotFoundException) {
             context.startActivity(
-                    Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id=" + context.packageName)
-                    )
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=" + context.packageName)
+                )
             )
         }
     }
 
     private fun sendFeedback() {
         val intent =
-                Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "whilson03@gmail.com"))
+            Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + "whilson03@gmail.com"))
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.subject_email))
         intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.hi_wilsonTech) + "")
         startActivity(Intent.createChooser(intent, getString(R.string.feedback)))
@@ -170,9 +169,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun launchImageCrop(uri: Uri) {
         CropImage.activity(uri).setGuidelines(CropImageView.Guidelines.ON)
-                .setAspectRatio(400, 400)
-                .setCropShape(CropImageView.CropShape.RECTANGLE)
-                .start(requireContext(), this)
+            .setAspectRatio(400, 400)
+            .setCropShape(CropImageView.CropShape.RECTANGLE)
+            .start(requireContext(), this)
     }
 
     private fun dispatchTakePictureIntent() {
@@ -191,9 +190,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 photoFile?.also {
                     currentPhotoPath = it.absolutePath
                     val photoURI: Uri = FileProvider.getUriForFile(
-                            requireContext(),
-                            APP_FILE_PROVIDER_NAME,
-                            it
+                        requireContext(),
+                        APP_FILE_PROVIDER_NAME,
+                        it
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
@@ -228,20 +227,20 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 if (resultCode == Activity.RESULT_OK) {
                     result.uri?.let { uri ->
                         lifecycleScope.launch {
-                            val compressedImageFile = Compressor.compress(requireContext(),
-                                    File(uri.path.toString()), Dispatchers.IO) {
+                            val compressedImageFile = Compressor.compress(
+                                requireContext(),
+                                File(uri.path.toString()), Dispatchers.IO
+                            ) {
                                 size(Constants.MB_THRESHOLD)
                             }
                             withContext(Dispatchers.Main) {
                                 viewModel.updateUserProfileImage(compressedImageFile)
-                                        .observe(viewLifecycleOwner, Observer { s ->
-                                            setUpProgressImageUploadProgress(s)
-                                        })
+                                    .observe(viewLifecycleOwner, Observer { s ->
+                                        setUpProgressImageUploadProgress(s)
+                                    })
                             }
                         }
                     }
-
-
                 } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                     Timber.d("ERROR ${result.error}")
                 }
@@ -250,9 +249,9 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     override fun onRequestPermissionsResult(
-            requestCode: Int,
-            permissions: Array<out String>,
-            grantResults: IntArray
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
@@ -268,14 +267,16 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     private fun hasCameraPermission(): Boolean {
-        val permissionState = ActivityCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.CAMERA)
+        val permissionState = ActivityCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.CAMERA
+        )
         return permissionState == PackageManager.PERMISSION_GRANTED
     }
 
     private fun requestCameraPermission() {
         val shouldProvideRationale = ActivityCompat
-                .shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.CAMERA)
+            .shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.CAMERA)
         val permission = mutableListOf<String>()
         permission.add(Manifest.permission.CAMERA)
 
@@ -284,25 +285,23 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         } else {
             requestPermissions(permission.toTypedArray(), Constants.REQUEST_CAMERA_PERMISSION)
         }
-
     }
 
     private fun showPermissionDeniedDialog() {
         MaterialAlertDialogBuilder(requireContext())
-                .setTitle(getString(R.string.permission_denied))
-                .setMessage(getString(R.string.camera_rationale_message))
-                .setPositiveButton(getString(R.string.app_setting)) { _, _ ->
-                    // send to app settings if permission is denied permanently
-                    val intent = Intent()
-                    intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                    val uri = Uri.fromParts("package", requireContext().packageName, null)
-                    intent.data = uri
-                    startActivity(intent)
-                }
-                .setNegativeButton(getString(R.string.cancel), null)
-                .show()
+            .setTitle(getString(R.string.permission_denied))
+            .setMessage(getString(R.string.camera_rationale_message))
+            .setPositiveButton(getString(R.string.app_setting)) { _, _ ->
+                // send to app settings if permission is denied permanently
+                val intent = Intent()
+                intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                val uri = Uri.fromParts("package", requireContext().packageName, null)
+                intent.data = uri
+                startActivity(intent)
+            }
+            .setNegativeButton(getString(R.string.cancel), null)
+            .show()
     }
-
 
     private fun setUpProgressImageUploadProgress(it: DataState<String>) {
         when (it) {

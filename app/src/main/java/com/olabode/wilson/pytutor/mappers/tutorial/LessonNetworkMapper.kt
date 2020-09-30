@@ -9,25 +9,25 @@ import javax.inject.Inject
  *   Created by OLABODE WILSON on 9/18/20.
  */
 class LessonNetworkMapper @Inject constructor() :
-        EntityMapper<LessonResponse, Lesson> {
+    EntityMapper<LessonResponse, Lesson> {
 
     override fun mapFromEntity(entity: LessonResponse): Lesson {
         return Lesson(
-                topicId = entity.topicId,
-                page = entity.page,
-                lessons = entity.lessons,
-                question = entity.question,
-                type = entity.type
+            topicId = entity.topicId,
+            page = entity.page,
+            lessons = entity.lessons,
+            question = entity.question,
+            type = entity.type
         )
     }
 
     override fun mapToEntity(domainModel: Lesson): LessonResponse {
         return LessonResponse(
-                topicId = domainModel.topicId,
-                page = domainModel.page,
-                lessons = domainModel.lessons,
-                question = domainModel.question,
-                type = domainModel.type
+            topicId = domainModel.topicId,
+            page = domainModel.page,
+            lessons = domainModel.lessons,
+            question = domainModel.question,
+            type = domainModel.type
         )
     }
 

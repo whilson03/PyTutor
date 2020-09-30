@@ -14,21 +14,21 @@ import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 @Entity(tableName = "lesson_table")
 data class LessonCacheEntity(
 
-        @PrimaryKey(autoGenerate = true)
-        val lessonId: Long,
+    @PrimaryKey(autoGenerate = true)
+    val lessonId: Long,
 
-        @ColumnInfo(name = "topic_id")
-        val topicId: String,
+    @ColumnInfo(name = "topic_id")
+    val topicId: String,
 
-        @ColumnInfo(name = "page")
-        val page: Int,
+    @ColumnInfo(name = "page")
+    val page: Int,
 
-        @ColumnInfo(name = "lessons")
-        val lessons: Map<String, Tutorial>? = null,
+    @ColumnInfo(name = "lessons")
+    val lessons: Map<String, Tutorial>? = null,
 
-        @ColumnInfo(name = "questions")
-        val question: Map<String, Question>? = null,
+    @ColumnInfo(name = "questions")
+    val question: Map<String, Question>? = null,
 
-        @ColumnInfo(name = "type")
-        val type: Int = LessonResponseType.LESSON.ordinal
+    @ColumnInfo(name = "type")
+    val type: Int = LessonResponseType.LESSON.ordinal
 )
