@@ -1,8 +1,8 @@
 package com.olabode.wilson.pytutor.repository.auth
 
 import com.google.firebase.auth.FirebaseUser
-import com.olabode.wilson.pytutor.utils.AuthResult
-import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.states.AuthResult
+import com.olabode.wilson.pytutor.utils.states.DataState
 import kotlinx.coroutines.flow.Flow
 
 /**

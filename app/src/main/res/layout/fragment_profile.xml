@@ -26,7 +26,7 @@
                 android:id="@+id/profile_icon"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/ic_profile_placeholder" />
+                app:srcCompat="@drawable/ic_profile_placeholder" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -94,7 +94,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_person" />
+                            app:srcCompat="@drawable/ic_chart" />
 
                         <TextView
                             android:id="@+id/ahievement_text"

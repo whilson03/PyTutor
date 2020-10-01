@@ -7,9 +7,9 @@ import com.olabode.wilson.pytutor.mappers.algorithm.AlgorithmCacheMapper
 import com.olabode.wilson.pytutor.mappers.algorithm.AlgorithmNetworkMapper
 import com.olabode.wilson.pytutor.models.Algorithm
 import com.olabode.wilson.pytutor.models.remote.algorithm.AlgorithmResponse
-import com.olabode.wilson.pytutor.utils.DataState
 import com.olabode.wilson.pytutor.utils.Messages
 import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
+import com.olabode.wilson.pytutor.utils.states.DataState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

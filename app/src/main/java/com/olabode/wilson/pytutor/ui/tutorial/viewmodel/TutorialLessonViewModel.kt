@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.repository.main.tutorial.TutorialRepository
-import com.olabode.wilson.pytutor.utils.DataState
 import com.olabode.wilson.pytutor.utils.Event
 import com.olabode.wilson.pytutor.utils.LoadingState
+import com.olabode.wilson.pytutor.utils.states.DataState
 import timber.log.Timber
 
 /**

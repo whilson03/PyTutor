@@ -2,8 +2,8 @@ package com.olabode.wilson.pytutor.repository.main.user
 
 import androidx.lifecycle.LiveData
 import com.olabode.wilson.pytutor.models.user.User
-import com.olabode.wilson.pytutor.utils.AuthResult
-import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.states.AuthResult
+import com.olabode.wilson.pytutor.utils.states.DataState
 import kotlinx.coroutines.flow.Flow
 import java.io.File
 

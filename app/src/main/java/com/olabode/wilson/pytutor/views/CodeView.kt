@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.utils
+package com.olabode.wilson.pytutor.views
 
 import android.content.Context
 import android.util.AttributeSet

@@ -7,7 +7,7 @@ import androidx.lifecycle.asLiveData
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.repository.main.tutorial.TutorialRepository
 import com.olabode.wilson.pytutor.repository.main.user.UserRepository
-import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.states.DataState
 
 /**
  *   Created by OLABODE WILSON on 9/22/20.

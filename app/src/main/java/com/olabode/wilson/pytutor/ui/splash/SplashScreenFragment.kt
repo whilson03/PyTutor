@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentSplashScreenBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
-import com.olabode.wilson.pytutor.utils.AuthResult
+import com.olabode.wilson.pytutor.utils.states.AuthResult
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

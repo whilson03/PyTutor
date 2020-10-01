@@ -9,13 +9,13 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import coil.api.load
-import coil.transform.CircleCropTransformation
+import coil.transform.RoundedCornersTransformation
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentHomeBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.ui.profile.ProfileViewModel
-import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -65,7 +65,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.profileIcon.load(user.imageUrl) {
             crossfade(true)
             placeholder(R.drawable.ic_profile_placeholder)
-            transformations(CircleCropTransformation())
+            transformations(RoundedCornersTransformation(25f))
             error(R.drawable.ic_profile_placeholder)
         }
 

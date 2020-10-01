@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.olabode.wilson.pytutor.repository.auth.AuthRepository
 import com.olabode.wilson.pytutor.repository.main.tutorial.TutorialRepository
 import com.olabode.wilson.pytutor.repository.main.user.UserRepository
-import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.states.DataState
 import kotlinx.coroutines.launch
 import java.io.File
 

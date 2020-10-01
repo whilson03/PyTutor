@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.olabode.wilson.pytutor.repository.auth.AuthRepository
-import com.olabode.wilson.pytutor.utils.AuthResult
 import com.olabode.wilson.pytutor.utils.Event
+import com.olabode.wilson.pytutor.utils.states.AuthResult
 
 /**
  *   Created by OLABODE WILSON on 9/6/20.
