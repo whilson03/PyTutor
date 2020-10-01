@@ -27,8 +27,8 @@ import com.olabode.wilson.pytutor.databinding.FragmentProfileBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.utils.Constants
-import com.olabode.wilson.pytutor.utils.DataState
 import com.olabode.wilson.pytutor.utils.Utils
+import com.olabode.wilson.pytutor.utils.states.DataState
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import dagger.hilt.android.AndroidEntryPoint

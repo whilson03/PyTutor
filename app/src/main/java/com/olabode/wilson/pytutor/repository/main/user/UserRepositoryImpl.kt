@@ -15,11 +15,11 @@ import com.olabode.wilson.pytutor.mappers.user.UserCacheMapper
 import com.olabode.wilson.pytutor.mappers.user.UserNetworkMapper
 import com.olabode.wilson.pytutor.models.remote.user.RemoteUser
 import com.olabode.wilson.pytutor.models.user.User
-import com.olabode.wilson.pytutor.utils.AuthResult
-import com.olabode.wilson.pytutor.utils.DataState
 import com.olabode.wilson.pytutor.utils.FirebaseUserLiveData
 import com.olabode.wilson.pytutor.utils.Messages
 import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
+import com.olabode.wilson.pytutor.utils.states.AuthResult
+import com.olabode.wilson.pytutor.utils.states.DataState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

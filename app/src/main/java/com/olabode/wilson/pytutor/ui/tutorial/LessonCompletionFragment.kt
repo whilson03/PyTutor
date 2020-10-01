@@ -16,7 +16,7 @@ import com.olabode.wilson.pytutor.databinding.FragmentLessonCompletionBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.CompletedLessonViewModel
-import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import nl.dionsegijn.konfetti.models.Shape
 import nl.dionsegijn.konfetti.models.Size

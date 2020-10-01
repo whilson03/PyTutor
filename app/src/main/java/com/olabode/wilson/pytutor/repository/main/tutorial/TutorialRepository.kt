@@ -2,7 +2,7 @@ package com.olabode.wilson.pytutor.repository.main.tutorial
 
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
-import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.states.DataState
 import kotlinx.coroutines.flow.Flow
 
 /**

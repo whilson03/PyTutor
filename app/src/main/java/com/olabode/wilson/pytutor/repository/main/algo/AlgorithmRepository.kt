@@ -1,7 +1,7 @@
 package com.olabode.wilson.pytutor.repository.main.algo
 
 import com.olabode.wilson.pytutor.models.Algorithm
-import com.olabode.wilson.pytutor.utils.DataState
+import com.olabode.wilson.pytutor.utils.states.DataState
 import kotlinx.coroutines.flow.Flow
 
 /**

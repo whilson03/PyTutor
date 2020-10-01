@@ -12,5 +12,604 @@ fun listOfAlgorithms() = listOf(
         title = "",
         description = "",
         body = ""
+    ),
+
+    AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ),
+    AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ),
+    AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ),
+    AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ),
+    AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ),
+    AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ),
+    AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ),
+    AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
+    ), AlgorithmResponse(
+        id = "",
+        title = "",
+        description = "",
+        body = ""
     )
 )

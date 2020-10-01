@@ -15,9 +15,9 @@ import com.olabode.wilson.pytutor.UICommunicator
 import com.olabode.wilson.pytutor.databinding.FragmentSignUpBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
-import com.olabode.wilson.pytutor.utils.AuthResult
 import com.olabode.wilson.pytutor.utils.EventObserver
 import com.olabode.wilson.pytutor.utils.Messages
+import com.olabode.wilson.pytutor.utils.states.AuthResult
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

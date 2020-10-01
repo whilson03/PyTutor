@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.utils
+package com.olabode.wilson.pytutor.utils.states
 
 /**
  *   Created by OLABODE WILSON on 9/6/20.

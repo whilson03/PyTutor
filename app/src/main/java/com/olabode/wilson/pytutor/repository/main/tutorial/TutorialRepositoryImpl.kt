@@ -13,9 +13,9 @@ import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.TopicResponse
 import com.olabode.wilson.pytutor.models.remote.user.RemoteUser
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
-import com.olabode.wilson.pytutor.utils.DataState
 import com.olabode.wilson.pytutor.utils.Messages
 import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
+import com.olabode.wilson.pytutor.utils.states.DataState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
