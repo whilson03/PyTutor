@@ -87,9 +87,6 @@
             app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_profileFragment_to_achievementsFragment"
-            app:destination="@id/achievementsFragment" />
     </fragment>
     <fragment
         android:id="@+id/tutorialTopicsFragment"
@@ -184,11 +181,6 @@
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
     </fragment>
-    <fragment
-        android:id="@+id/achievementsFragment"
-        android:name="com.olabode.wilson.pytutor.ui.achievement.AchievementsFragment"
-        android:label="AchievementsFragment"
-        tools:layout="@layout/fragment_achievements" />
     <action
         android:id="@+id/action_global_auth_navigation"
         app:destination="@id/auth_navigation"
