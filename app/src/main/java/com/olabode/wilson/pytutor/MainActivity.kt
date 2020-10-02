@@ -51,10 +51,6 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                     bottomNavigationView.isVisible = false
                 }
 
-                R.id.achievementsFragment -> {
-                    bottomNavigationView.isVisible = false
-                }
-
                 else -> {
                     bottomNavigationView.isVisible = true
                 }
