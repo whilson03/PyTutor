@@ -6,8 +6,4 @@ Selection sort
 Linear Search
 Quick Sort
 Binary Search
-
-Heap Sort
 Bucket Sort
-Breadth-First Search
-Depth-First Search
