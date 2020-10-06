@@ -47,7 +47,8 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 R.id.resetPasswordFragment,
                 R.id.verifyPasswordFragment,
                 R.id.algorithmFragment,
-                R.id.listAlgosFragment -> {
+                R.id.listAlgosFragment
+                -> {
                     bottomNavigationView.isVisible = false
                 }
 

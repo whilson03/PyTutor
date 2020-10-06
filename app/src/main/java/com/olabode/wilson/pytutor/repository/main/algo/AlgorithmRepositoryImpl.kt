@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.tasks.await
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -59,7 +60,8 @@ class AlgorithmRepositoryImpl @Inject constructor(
             emit(DataState.Success(algorithms))
         }
 
-    }.catch {
+    }.catch { e ->
+        Timber.e(e)
         emit(DataState.Error(null, Messages.FAILED_TO_LOAD))
     }.flowOn(Dispatchers.IO)
 }

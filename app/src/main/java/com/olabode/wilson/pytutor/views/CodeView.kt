@@ -21,7 +21,7 @@ class CodeView @JvmOverloads constructor(
     fun setCode(
         formattedSourceCode: String,
         language: String,
-        showLineNumbers: Boolean = false
+        showLineNumbers: Boolean = true
     ) {
         settings.javaScriptEnabled = true
         loadDataWithBaseURL(
@@ -37,7 +37,7 @@ class CodeView @JvmOverloads constructor(
         )
     }
 
-    private fun prismJsHtmlContent(
+    fun prismJsHtmlContent(
         formattedSourceCode: String,
         language: String,
         showLineNumbers: Boolean = true
