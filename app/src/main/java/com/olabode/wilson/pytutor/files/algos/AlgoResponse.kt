@@ -194,8 +194,41 @@ fun listOfAlgorithms() = listOf(
             "    return -1\n"
     ), AlgorithmResponse(
         id = "",
-        title = "",
-        description = "",
-        body = ""
+        title = "Bucket Sort",
+        description = "Also known as bin sort, this sorting algorithm works by distributing the concerned elements into an arbitrary number of buckets or bins, then sorting the content of each bin, either recursively, or with another sorting algorithm. After the sorting is done, all buckets are then concatenated to give the final sorted array. Bucket sort is mainly useful when data is uniformly distributed over a range.",
+        body = "def bucketSort(nums):\n" +
+                "    \"\"\"\n" +
+                "        This example makes use of the built-in Python sort() method to sort the individual buckets.\n" +
+                "        The number of buckets correspond with the number of concerned elements to be sorted. \n" +
+                "    \"\"\"\n" +
+                "\n" +
+                "    bucketList = []    # list to hold the bucketList\n" +
+                "    maxNum = max(nums)  \n" +
+                "    length = len(nums)\n" +
+                "    size = maxNum / length  # the size of each bucket\n" +
+                "\n" +
+                "    # Create buckets\n" +
+                "    for _ in range(length):\n" +
+                "        bucketList.append([])\n" +
+                "\n" +
+                "    # Populate the buckets with the numbers.\n" +
+                "    for i in nums:\n" +
+                "        index = int(i // size)  # the corresponding bucket index for the number\n" +
+                "\n" +
+                "        if index < length:\n" +
+                "            bucketList[index].append(i)     \n" +
+                "        else:\n" +
+                "            bucketList[index - 1].append(i)\n" +
+                "\n" +
+                "    # Sort the individual buckets.\n" +
+                "    for bucket in bucketList:\n" +
+                "        bucket.sort()\n" +
+                "\n" +
+                "    # Concatenate the buckets.\n" +
+                "    result = []\n" +
+                "    for bucket in bucketList:\n" +
+                "        result = result + bucket\n" +
+                "\n" +
+                "    return result\n"
     )
 )

@@ -6,3 +6,4 @@ Selection sort
 Linear Search
 Quick Sort
 Binary Search
+Bucket Sort
