@@ -3,19 +3,16 @@ package com.olabode.wilson.pytutor.data.tutorial.data.tutorial
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.google.common.truth.Truth.assertThat
+import app.cash.turbine.test
 import com.olabode.wilson.pytutor.data.PytutorDatabase
-import com.olabode.wilson.pytutor.data.tutorial.MainCoroutineRule
 import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
-import com.olabode.wilson.pytutor.data.tutorial.runBlocking
 import com.olabode.wilson.pytutor.models.cache.tutorial.TopicCacheEntity
+import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.flow.take
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.time.ExperimentalTime
@@ -30,9 +27,6 @@ class TopicsDaoTest {
 
     private lateinit var database: PytutorDatabase
     private lateinit var dao: TopicsDao
-
-    @get:Rule
-    var mainCoroutineRule = MainCoroutineRule()
 
     @Before
     fun setup() {
@@ -52,15 +46,17 @@ class TopicsDaoTest {
     @ExperimentalCoroutinesApi
     @ExperimentalTime
     @Test
-    fun insertTopicCacheEntity() = mainCoroutineRule.runBlocking {
+    fun insertTopicCacheEntity() = runBlockingTest {
         val topic = TopicCacheEntity(1, "hello", "desc", 5,
             "ry", isLocked = false, isCompleted = false, numOfStars = 0f
 
         )
         dao.insert(topic)
 
-        val topics = dao.getTopics().take(1).toList().flatten()
-        assertThat(topics).contains(topic)
+        dao.getTopics().test {
+            assertEquals(listOf(topic), expectItem())
+            expectComplete()
+        }
 
     }
 }
