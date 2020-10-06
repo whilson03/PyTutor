@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#19B18D</color>
-    <color name="colorPrimaryDark">#10856A</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="primaryColor">#f57800</color>
+    <color name="primaryLightColor">#ffa941</color>
+    <color name="primaryDarkColor">#bb4900</color>
+    <color name="secondaryColor">#e17917</color>
+    <color name="secondaryLightColor">#ffa94b</color>
+    <color name="secondaryDarkColor">#a94b00</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
 
-    <!-- Background color for the numbers category -->
-    <color name="category_list_view_color">#F6F6F6</color>
-    <color name="category_options">#FAFAFA</color>
-    <color name="color_quiz_start_button">#19B18D</color>
+    <color name="dividerColor">#BDBDBD</color>
+    <color name="white">#FFFFFF</color>
+    <color name="off_white">#e0e0e0</color>
+    <color name="gray">#88898b</color>
+    <color name="lesson_card_bg_color">#F4F0F0</color>
+    <color name="code_background">#5A5858</color>
+    <color name="duskYellow">#ffc922</color>
+    <color name="lightGrey">#D3D3D3</color>
+    <color name="main_page_background">#EFF2F4</color>
+    <color name="green">#16cc3e</color>
+
+    <color name="item1Start">#FEBD1B</color>
+    <color name="item1End">#E4A401</color>
+
+    <color name="item2Start">#4D79FF</color>
+    <color name="item2End">#0039E6</color>
+
+    <color name="item3Start">#993399</color>
+    <color name="item3End">#602060</color>
+
+    <color name="item4Start">#00B33C</color>
+    <color name="item4End">#006622</color>
+
+    <color name="colorEndBackground">#50FFFFFF</color>
+    <color name="colorLightText">#ECECEC</color>
 </resources>
