@@ -15,7 +15,11 @@ class CodeViewHolder(val binding: ItemCodeSnippetBinding) : RecyclerView.ViewHol
 
     fun bind(item: Tutorial) {
         item.codeSnippet?.let { code ->
-            binding.codeText.text = code.code
+            binding.codeView.setCode(
+                formattedSourceCode = code.code,
+                language = "py",
+                showLineNumbers = true
+            )
             if (code.header.isNotEmpty()) {
                 binding.header.text = code.header
                 binding.header.isVisible = true
