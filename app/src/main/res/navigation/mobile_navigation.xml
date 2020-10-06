@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@id/splashScreenFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.olabode.wilson.pytutor.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_tutorialTopicsFragment"
+            app:destination="@id/tutorialTopicsFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_listAlgosFragment"
+            app:destination="@id/listAlgosFragment" />
+    </fragment>
+
+
+    <navigation
+        android:id="@+id/auth_navigation"
+        app:startDestination="@id/loginFragment">
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.olabode.wilson.pytutor.ui.auth.login.LoginFragment">
+            <action
+                android:id="@+id/action_loginFragment_to_signUpFragment2"
+                app:destination="@id/signUpFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
+            <action
+                android:id="@+id/action_loginFragment_to_verifyPasswordFragment"
+                app:destination="@id/verifyPasswordFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:popUpTo="@id/loginFragment" />
+            <action
+                android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+                app:destination="@id/resetPasswordFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:popUpTo="@id/loginFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/signUpFragment"
+            android:name="com.olabode.wilson.pytutor.ui.auth.signup.SignUpFragment"
+            tools:layout="@layout/fragment_sign_up" />
+        <action
+            android:id="@+id/action_global_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
+        <fragment
+            android:id="@+id/verifyPasswordFragment"
+            android:name="com.olabode.wilson.pytutor.ui.auth.verification.VerifyPasswordFragment"
+            tools:layout="@layout/fragment_verify_password" />
+        <fragment
+            android:id="@+id/resetPasswordFragment"
+            android:name="com.olabode.wilson.pytutor.ui.auth.resetpassword.ResetPasswordFragment"
+            tools:layout="@layout/fragment_reset_password" />
+    </navigation>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.olabode.wilson.pytutor.ui.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_auth_navigation"
+            app:destination="@id/auth_navigation"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/tutorialTopicsFragment"
+        android:name="com.olabode.wilson.pytutor.ui.tutorial.TutorialTopicsFragment"
+        tools:layout="@layout/fragment_tutorial_topics">
+
+        <action
+            android:id="@+id/action_tutorialTopicsFragment_to_viewTutorialsFragment"
+            app:destination="@id/lesson_graph"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down">
+            <argument
+                android:name="title"
+                app:argType="string" />
+            <argument
+                android:name="topic"
+                app:argType="com.olabode.wilson.pytutor.models.Topic" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/lessonCompletionFragment"
+        android:name="com.olabode.wilson.pytutor.ui.tutorial.LessonCompletionFragment"
+        tools:layout="@layout/fragment_lesson_completion">
+        <argument
+            android:name="score"
+            app:argType="integer" />
+        <argument
+            android:name="numberOfQuestions"
+            app:argType="integer" />
+        <argument
+            android:name="topic"
+            app:argType="com.olabode.wilson.pytutor.models.Topic" />
+        <action
+
+            android:id="@+id/action_lessonCompletionFragment_to_lesson_graph"
+            app:destination="@id/lesson_graph"
+            app:enterAnim="@anim/slide_in_right"
+            app:popUpTo="@id/tutorialTopicsFragment">
+            <argument
+                android:name="title"
+                app:argType="string" />
+            <argument
+                android:name="topic"
+                app:argType="com.olabode.wilson.pytutor.models.Topic" />
+        </action>
+    </fragment>
+    <navigation
+        android:id="@+id/lesson_graph"
+        app:startDestination="@id/viewTutorialsFragment">
+        <fragment
+            android:id="@+id/viewTutorialsFragment"
+            android:name="com.olabode.wilson.pytutor.ui.tutorial.ViewTutorialsFragment"
+            tools:layout="@layout/fragment_view_tutorials">
+            <argument
+                android:name="title"
+                app:argType="string" />
+            <argument
+                android:name="topic"
+                app:argType="com.olabode.wilson.pytutor.models.Topic" />
+            <action
+                android:id="@+id/action_viewTutorialsFragment_to_lessonCompletionFragment"
+                app:destination="@id/lessonCompletionFragment"
+                app:enterAnim="@anim/fade_in"
+                app:exitAnim="@anim/fade_out"
+                app:popEnterAnim="@anim/fade_in"
+                app:popExitAnim="@anim/fade_out"
+                app:popUpTo="@id/tutorialTopicsFragment" />
+        </fragment>
+    </navigation>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.olabode.wilson.pytutor.ui.splash.SplashScreenFragment"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_auth_navigation"
+            app:destination="@id/auth_navigation"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_auth_navigation"
+        app:destination="@id/auth_navigation"
+        app:enterAnim="@anim/slide_up"
+        app:exitAnim="@anim/slide_down"
+        app:popEnterAnim="@anim/slide_up"
+        app:popExitAnim="@anim/slide_down"
+        app:popUpTo="@id/auth_navigation"
+        app:popUpToInclusive="true" />
+    <fragment
+        android:id="@+id/listAlgosFragment"
+        android:name="com.olabode.wilson.pytutor.ui.algos.ListAlgosFragment"
+        android:label="fragment_list_algos"
+        tools:layout="@layout/fragment_list_algos">
+        <action
+            android:id="@+id/action_listAlgosFragment_to_algorithmFragment"
+            app:destination="@id/algorithmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/algorithmFragment"
+        android:name="com.olabode.wilson.pytutor.ui.algos.AlgorithmFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_algorithm">
+        <argument
+            android:name="algorithm"
+            app:argType="com.olabode.wilson.pytutor.models.Algorithm" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+</navigation>
