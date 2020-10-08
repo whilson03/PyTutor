@@ -8,22 +8,34 @@ import org.junit.Test
  */
 class AuthUtilsTest {
 
+    // LOGIN
+
     @Test
-    fun `empty email or password for login returns false`() {
+    fun `empty email or password for login returns error state`() {
         val result = AuthUtils.validateLoginDetails("", "")
 
-        assertThat(result).isFalse()
+        assertThat(result is ValidationStates.Error).isTrue()
     }
 
     @Test
-    fun `password length lesser than six characters for login returns false`() {
+    fun `password length lesser than six characters for login returns error state`() {
         val result = AuthUtils.validateLoginDetails("", "aae")
 
-        assertThat(result).isFalse()
+        assertThat(result is ValidationStates.Error).isTrue()
     }
 
     @Test
-    fun `valid name, email , and correctly repeated passwords for registration returns true`() {
+    fun `correctly filled email and password for login returns success state`() {
+        val result = AuthUtils
+            .validateLoginDetails("whilson@gmail.com", "password")
+
+        assertThat(result is ValidationStates.Success).isTrue()
+    }
+
+    //REGISTER
+
+    @Test
+    fun `valid name, email , and correctly repeated passwords for registration returns success`() {
         val result = AuthUtils.validateRegistrationDetails(
             fullName = "wilson",
             email = "whilson03@gmail.com",
@@ -31,18 +43,28 @@ class AuthUtilsTest {
             confirmPassword = "password"
         )
 
-        assertThat(result).isTrue()
+        assertThat(result is ValidationStates.Success).isTrue()
     }
 
     @Test
-    fun `any empty field for user registration returns false`() {
+    fun `any empty field for user registration returns error state`() {
         val result = AuthUtils.validateRegistrationDetails(
             fullName = "",
             email = "whilson03@gmail.com",
             password = "password",
             confirmPassword = "password"
         )
+        assertThat(result is ValidationStates.Error).isTrue()
+    }
 
-        assertThat(result).isFalse()
+    @Test
+    fun `short password for user registration returns error state`() {
+        val result = AuthUtils.validateRegistrationDetails(
+            fullName = "",
+            email = "whilson03@gmail.com",
+            password = "pass",
+            confirmPassword = "pass"
+        )
+        assertThat(result is ValidationStates.Error).isTrue()
     }
 }
