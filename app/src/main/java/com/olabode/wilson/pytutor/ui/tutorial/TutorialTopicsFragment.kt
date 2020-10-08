@@ -1,7 +1,9 @@
 package com.olabode.wilson.pytutor.ui.tutorial
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -10,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentTutorialTopicsBinding
-import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialTopicAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialTopicViewModel
 import com.olabode.wilson.pytutor.utils.EventObserver
@@ -20,9 +21,25 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
 
-    private val binding by viewBinding(FragmentTutorialTopicsBinding::bind)
+    private var _binding: FragmentTutorialTopicsBinding? = null
+    private val binding get() = _binding!!
     private val viewModel: TutorialTopicViewModel by viewModels()
     private lateinit var adapter: TutorialTopicAdapter
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentTutorialTopicsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.topicsRecycler.adapter = null
+        _binding = null
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,18 +62,18 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         initTopics()
 
         viewModel.showSnackBar.observe(viewLifecycleOwner, EventObserver {
-            showSnackBar(it)
+            showSnackBar(it, binding.coordinatorLayout)
         })
 
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
     }
 
-    private fun showSnackBar(message: String) {
-        Snackbar.make(binding.coordinatorLayout, message, Snackbar.LENGTH_SHORT).show()
+    private fun showSnackBar(message: String, view: View) {
+        Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
     }
 
-    private fun showPersistentSnackBar(message: String, action: () -> Unit) {
-        Snackbar.make(binding.coordinatorLayout, message, Snackbar.LENGTH_INDEFINITE)
+    private fun showPersistentSnackBar(message: String, view: View, action: () -> Unit) {
+        Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE)
             .setAction(getString(R.string.retry)) {
                 action.invoke()
             }.show()
@@ -74,7 +91,7 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
                     binding.mainPage.isVisible = false
                     binding.progressBar.isVisible = false
                     binding.noInternetState.root.isVisible = true
-                    showPersistentSnackBar(result.message) {
+                    showPersistentSnackBar(result.message, binding.coordinatorLayout) {
                         initTopics()
                     }
                 }
