@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -17,7 +17,7 @@ import com.olabode.wilson.pytutor.extensions.hide
 import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.ui.auth.AuthUtils
-import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
+import com.olabode.wilson.pytutor.ui.auth.SignUpViewModel
 import com.olabode.wilson.pytutor.ui.auth.ValidationStates
 import com.olabode.wilson.pytutor.utils.EventObserver
 import com.olabode.wilson.pytutor.utils.states.AuthResult
@@ -26,7 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
-    private val authViewModel: AuthViewModel by activityViewModels()
+    private val signUpViewModel: SignUpViewModel by viewModels()
     private val binding by viewBinding(FragmentSignUpBinding::bind)
     private lateinit var uiCommunicator: UICommunicator
 
@@ -60,7 +60,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                     performRegistration(name, email, password, confirmPassword)
                 }
                 is ValidationStates.Error -> {
-                    authViewModel.snackBarMessage(result.message)
+                    signUpViewModel.snackBarMessage(result.message)
                 }
             }
         }
@@ -70,7 +70,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             findNavController().navigateUp()
         }
 
-        authViewModel.showSnackBar.observe(viewLifecycleOwner, EventObserver {
+        signUpViewModel.showSnackBar.observe(viewLifecycleOwner, EventObserver {
             Snackbar.make(binding.coordinatorLayout, it, Snackbar.LENGTH_LONG).show()
         })
     }
@@ -81,7 +81,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         password: String,
         confirmPassword: String
     ) {
-        authViewModel.registerNewUser(
+        signUpViewModel.registerNewUser(
             fullName,
             email,
             password,
@@ -94,14 +94,14 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                 }
 
                 is AuthResult.Failed -> {
-                    authViewModel.snackBarMessage(result.data)
+                    signUpViewModel.snackBarMessage(result.data)
                     binding.progressBarLayout.root.hide()
                     binding.signIn.enableClick()
                 }
 
                 is AuthResult.Success -> {
                     binding.progressBarLayout.root.hide()
-                    authViewModel.snackBarMessage(result.data)
+                    signUpViewModel.snackBarMessage(result.data)
                 }
             }
         })

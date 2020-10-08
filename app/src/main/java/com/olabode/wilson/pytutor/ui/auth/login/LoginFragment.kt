@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -18,7 +18,6 @@ import com.olabode.wilson.pytutor.extensions.hide
 import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.ui.auth.AuthUtils
-import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
 import com.olabode.wilson.pytutor.ui.auth.ValidationStates
 import com.olabode.wilson.pytutor.utils.EventObserver
 import com.olabode.wilson.pytutor.utils.states.AuthResult
@@ -27,7 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
-    private val authViewModel: AuthViewModel by activityViewModels()
+    private val authViewModel: LoginViewModel by viewModels()
     private val binding by viewBinding(FragmentLoginBinding::bind)
     private lateinit var uiCommunicator: UICommunicator
 
