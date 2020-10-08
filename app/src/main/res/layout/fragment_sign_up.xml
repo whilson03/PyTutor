@@ -151,7 +151,7 @@
     </ScrollView>
 
     <include
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBarLayout"
         layout="@layout/loading_item"
-        android:visibility="visible" />
+        android:visibility="gone" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
