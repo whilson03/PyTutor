@@ -22,3 +22,4 @@ fun View.enableClick() {
 fun View.disableClick() {
     this.isEnabled = false
 }
+
