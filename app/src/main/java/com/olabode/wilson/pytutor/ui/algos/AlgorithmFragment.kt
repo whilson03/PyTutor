@@ -19,11 +19,12 @@ class AlgorithmFragment : Fragment(R.layout.fragment_algorithm) {
         binding.toolbar.title = args.title
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
 
-        val code = args.algorithm.body
+        val algorithm = args.algorithm
         binding.codeView.setCode(
-            formattedSourceCode = code,
+            formattedSourceCode = algorithm.body,
             language = "py",
             showLineNumbers = true
         )
+        binding.desc.text = algorithm.description
     }
 }
