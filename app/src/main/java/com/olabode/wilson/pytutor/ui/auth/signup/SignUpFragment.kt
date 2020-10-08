@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -13,6 +12,10 @@ import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.UICommunicator
 import com.olabode.wilson.pytutor.databinding.FragmentSignUpBinding
+import com.olabode.wilson.pytutor.extensions.disableClick
+import com.olabode.wilson.pytutor.extensions.enableClick
+import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
 import com.olabode.wilson.pytutor.utils.EventObserver
@@ -77,19 +80,18 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         ).observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is AuthResult.Loading -> {
-                    binding.progressBar.isVisible = true
-                    binding.signIn.isClickable = false
+                    binding.progressBar.root.show()
+                    binding.signIn.disableClick()
                 }
 
                 is AuthResult.Failed -> {
                     authViewModel.snackBarMessage(result.data)
-                    binding.progressBar.isVisible = false
-                    binding.signIn.isClickable = true
+                    binding.progressBar.root.hide()
+                    binding.signIn.enableClick()
                 }
 
                 is AuthResult.Success -> {
-                    binding.progressBar.isVisible = false
-                    binding.signIn.isClickable = true
+                    binding.progressBar.root.show()
                     authViewModel.snackBarMessage(result.data)
                 }
             }

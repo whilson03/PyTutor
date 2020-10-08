@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -14,6 +13,10 @@ import com.olabode.wilson.pytutor.AuthNavigationDirections
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.UICommunicator
 import com.olabode.wilson.pytutor.databinding.FragmentLoginBinding
+import com.olabode.wilson.pytutor.extensions.disableClick
+import com.olabode.wilson.pytutor.extensions.enableClick
+import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
 import com.olabode.wilson.pytutor.utils.EventObserver
@@ -72,19 +75,18 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         authViewModel.loginUser(email, password).observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is AuthResult.Loading -> {
-                    binding.signIn.isClickable = false
-                    binding.progressBar.isVisible = true
+                    binding.signIn.disableClick()
+                    binding.progressLayout.root.show()
                 }
 
                 is AuthResult.Failed -> {
                     authViewModel.snackBarMessage(result.data)
-                    binding.signIn.isClickable = true
-                    binding.progressBar.isVisible = false
+                    binding.signIn.enableClick()
+                    binding.progressLayout.root.hide()
                 }
 
                 is AuthResult.Success -> {
-                    binding.signIn.isClickable = true
-                    binding.progressBar.isVisible = false
+                    binding.progressLayout.root.hide()
                     authViewModel.snackBarMessage(result.data)
                     findNavController().navigate(AuthNavigationDirections.actionGlobalHomeFragment())
                 }
