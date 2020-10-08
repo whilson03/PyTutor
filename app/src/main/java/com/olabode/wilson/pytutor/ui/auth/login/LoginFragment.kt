@@ -2,7 +2,6 @@ package com.olabode.wilson.pytutor.ui.auth.login
 
 import android.content.Context
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -18,9 +17,10 @@ import com.olabode.wilson.pytutor.extensions.enableClick
 import com.olabode.wilson.pytutor.extensions.hide
 import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.ui.auth.AuthUtils
 import com.olabode.wilson.pytutor.ui.auth.AuthViewModel
+import com.olabode.wilson.pytutor.ui.auth.ValidationStates
 import com.olabode.wilson.pytutor.utils.EventObserver
-import com.olabode.wilson.pytutor.utils.Messages
 import com.olabode.wilson.pytutor.utils.states.AuthResult
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -56,13 +56,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         binding.signIn.setOnClickListener {
             uiCommunicator.hideSoftKeyBoard()
-            if (validateDetails()) {
-                performLogin(
-                    binding.emailField.text.toString().trim(),
-                    binding.passwordField.text.toString().trim()
-                )
-            } else {
-                authViewModel.snackBarMessage(Messages.ALERT_BLANK_FIELDS)
+            val email = binding.emailField.text.toString().trim()
+            val password = binding.passwordField.text.toString().trim()
+
+            when (val result = AuthUtils.validateLoginDetails(email, password)) {
+                is ValidationStates.Success -> {
+                    performLogin(email, password)
+                }
+                is ValidationStates.Error -> {
+                    authViewModel.snackBarMessage(result.message)
+                }
             }
         }
 
@@ -100,10 +103,5 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 }
             }
         })
-    }
-
-    private fun validateDetails(): Boolean {
-        return !(TextUtils.isEmpty(binding.passwordField.text.toString().trim())
-            || TextUtils.isEmpty(binding.emailField.text.toString().trim()))
     }
 }
