@@ -131,5 +131,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation "org.mockito:mockito-core:2.21.0"
     androidTestImplementation 'app.cash.turbine:turbine:0.2.1'
+
+
+    //Detect memory leaks
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
 }
 
