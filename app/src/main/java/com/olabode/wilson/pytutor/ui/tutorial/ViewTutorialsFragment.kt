@@ -17,6 +17,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentViewTutorialsBinding
+import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
@@ -62,18 +64,18 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
         viewModel.getLessons(topic.topicId).observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is DataState.Loading -> {
-                    binding.progressBar.isVisible = true
-                    binding.noInternetState.root.isVisible = false
+                    binding.progressBar.show()
+                    binding.noInternetState.root.hide()
                 }
 
                 is DataState.Success -> {
-                    binding.noInternetState.root.isVisible = false
-                    binding.progressBar.isVisible = false
+                    binding.noInternetState.root.hide()
+                    binding.progressBar.hide()
                     doOnSuccess(totalNoOfPages, result.data.sortedBy { it.page }, topic)
                 }
                 is DataState.Error -> {
-                    binding.noInternetState.root.isVisible = true
-                    binding.progressBar.isVisible = false
+                    binding.noInternetState.root.show()
+                    binding.progressBar.hide()
                     showPersistentSnackBar(result.message) {
                         setupUI(topic, totalNoOfPages)
                     }
