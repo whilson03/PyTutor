@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -12,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentTutorialTopicsBinding
+import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialTopicAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialTopicViewModel
 import com.olabode.wilson.pytutor.utils.EventObserver
@@ -83,22 +84,22 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         viewModel.fetchTopics().observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is DataState.Success -> {
-                    binding.mainPage.isVisible = true
-                    binding.noInternetState.root.isVisible = false
-                    binding.progressBar.isVisible = false
+                    binding.mainPage.show()
+                    binding.noInternetState.root.hide()
+                    binding.progressBar.hide()
                 }
                 is DataState.Error -> {
-                    binding.mainPage.isVisible = false
-                    binding.progressBar.isVisible = false
-                    binding.noInternetState.root.isVisible = true
+                    binding.mainPage.hide()
+                    binding.progressBar.hide()
+                    binding.noInternetState.root.show()
                     showPersistentSnackBar(result.message, binding.coordinatorLayout) {
                         initTopics()
                     }
                 }
 
                 is DataState.Loading -> {
-                    binding.noInternetState.root.isVisible = false
-                    binding.progressBar.isVisible = true
+                    binding.noInternetState.root.hide()
+                    binding.progressBar.show()
                 }
             }
         })
