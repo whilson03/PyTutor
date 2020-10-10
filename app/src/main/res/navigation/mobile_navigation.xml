@@ -23,6 +23,9 @@
             app:exitAnim="@anim/slide_down"
             app:popEnterAnim="@anim/slide_up"
             app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_homeFragment_to_exerciseFragment"
+            app:destination="@id/exerciseFragment" />
     </fragment>
 
 
@@ -219,4 +222,9 @@
             android:name="title"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.olabode.wilson.pytutor.ui.exercise.ExerciseFragment"
+        android:label="ExerciseFragment"
+        tools:layout="@layout/fragment_exercise_content" />
 </navigation>
