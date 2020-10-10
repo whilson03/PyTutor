@@ -3,12 +3,13 @@ package com.olabode.wilson.pytutor
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.olabode.wilson.pytutor.databinding.ActivityMainBinding
+import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,11 +34,11 @@ class MainActivity : AppCompatActivity(), UICommunicator {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment -> {
-                    bottomNavigationView.isVisible = true
+                    bottomNavigationView.show()
                 }
 
                 R.id.tutorialTopicsFragment, R.id.viewTutorialsFragment -> {
-                    bottomNavigationView.isVisible = false
+                    bottomNavigationView.hide()
                 }
 
                 R.id.loginFragment,
@@ -49,11 +50,11 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 R.id.algorithmFragment,
                 R.id.listAlgosFragment
                 -> {
-                    bottomNavigationView.isVisible = false
+                    bottomNavigationView.hide()
                 }
 
                 else -> {
-                    bottomNavigationView.isVisible = true
+                    bottomNavigationView.show()
                 }
             }
         }
