@@ -18,7 +18,11 @@
             app:popUpTo="@id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_listAlgosFragment"
-            app:destination="@id/listAlgosFragment" />
+            app:destination="@id/listAlgosFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
     </fragment>
 
 
@@ -165,10 +169,10 @@
         <action
             android:id="@+id/action_splashScreenFragment_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
         <action
@@ -197,7 +201,11 @@
         tools:layout="@layout/fragment_list_algos">
         <action
             android:id="@+id/action_listAlgosFragment_to_algorithmFragment"
-            app:destination="@id/algorithmFragment" />
+            app:destination="@id/algorithmFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
     </fragment>
     <fragment
         android:id="@+id/algorithmFragment"

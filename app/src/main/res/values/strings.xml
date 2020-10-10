@@ -13,7 +13,7 @@
     <string name="register_heading">Create Account,</string>
     <string name="register_caption">Sign up to get started!</string>
     <string name="register">Register</string>
-    <string name="full_name">Full Name</string>
+    <string name="full_name">FullName</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="profile">Profile</string>
@@ -32,7 +32,7 @@
     <string name="greeting_hello">Hello,</string>
     <string name="keep_learning">Keep Learning</string>
     <string name="your_progress_is">your progress is:</string>
-    <string name="placeholder_name">Adeyoriju Wilson</string>
+    <string name="placeholder_name"> </string>
     <string name="challenges">Challenges</string>
     <string name="explore">Explore</string>
     <string name="default_progress">0%</string>
@@ -45,20 +45,7 @@
     <string name="reset_your_password">Reset your password!</string>
     <string name="set_password_reset_link">Send Password reset link</string>
     <string name="progress_level">%1$d%2$s</string>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="account">Account</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="others">Others</string>
@@ -66,7 +53,7 @@
     <string name="feedback">Send Feedback</string>
     <string name="terms_policy"><![CDATA[Terms & Privacy Policy]]></string>
     <string name="logout">Logout</string>
-    <string name="subject_email">Feedback from pytutor</string>
+    <string name="subject_email">Feedback from PyTutor</string>
     <string name="hi_wilsonTech">Hi WilsonTech</string>
     <string name="image_upload_dialog_title">upload from</string>
     <string name="cancel">Cancel</string>
@@ -74,6 +61,4 @@
     <string name="camera_rationale_message">Permission is denied, Please allow permissions from App Settings.</string>
     <string name="permission_denied">Permission Denied</string>
     <string name="algorithms">Algorithms</string>
-
-
 </resources>
