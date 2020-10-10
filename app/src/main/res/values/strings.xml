@@ -74,6 +74,7 @@
     <string name="camera_rationale_message">Permission is denied, Please allow permissions from App Settings.</string>
     <string name="permission_denied">Permission Denied</string>
     <string name="algorithms">Algorithms</string>
+    <string name="copy">Copy</string>
 
 
 </resources>
