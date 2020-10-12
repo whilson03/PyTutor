@@ -1,6 +1,7 @@
 package com.olabode.wilson.pytutor.models
 
 import android.os.Parcelable
+import androidx.recyclerview.widget.DiffUtil
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -8,9 +9,23 @@ import kotlinx.android.parcel.Parcelize
  */
 
 @Parcelize
-data class ExerciseFragment (
-        val id: String,
-        val title: String,
-        val question: String,
-        val solution: String
-) : Parcelable
+data class Exercise(
+    val id: String,
+    val title: String,
+    val difficulty: String,
+    val question: String,
+    val solution: String
+) : Parcelable {
+
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Exercise>() {
+            override fun areItemsTheSame(oldItem: Exercise, newItem: Exercise): Boolean {
+                return oldItem === newItem
+            }
+
+            override fun areContentsTheSame(oldItem: Exercise, newItem: Exercise): Boolean {
+                return  oldItem == newItem
+            }
+        }
+    }
+}
