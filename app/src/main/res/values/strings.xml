@@ -63,5 +63,5 @@
     <string name="algorithms">Algorithms</string>
     <string name="exercises">Exercises</string>
     <string name="code_section">Code</string>
-    <string name="show_solution_button"> Show Solution</string>
+    <string name="toggle_solution_button"> Toggle Solution</string>
 </resources>
