@@ -30,7 +30,6 @@ class ExerciseListAdapter(private val clickListener: (exercise: Exercise) -> Uni
         }
 
         fun bind(item: Exercise) {
-            this.item = item
             binding.title.text = item.title
             binding.difficulty.text = item.difficulty
             binding.topicCount.text = Utils.getAdapterNumberLabel(adapterPosition + 1)
