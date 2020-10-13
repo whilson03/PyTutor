@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.olabode.wilson.pytutor.data.algorithm.AlgorithmDao
+import com.olabode.wilson.pytutor.data.exercise.ExerciseDao
 import com.olabode.wilson.pytutor.data.tutorial.LessonsDao
 import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.data.user.UserDao
@@ -44,4 +45,6 @@ abstract class PytutorDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 
     abstract fun algorithmDao(): AlgorithmDao
+
+    abstract fun exerciseDao(): ExerciseDao
 }
