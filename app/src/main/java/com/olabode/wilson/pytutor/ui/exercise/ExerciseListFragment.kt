@@ -27,13 +27,13 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
 
         binding.exerciseListRecycler.adapter = exerciseListAdapter
         binding.exerciseListRecycler.isVisible = true
-        exerciseListAdapter.submitList(getDummyList())
+        exerciseListAdapter.submitList(getDummyList().sorted())
         binding.toolbar.setNavigationOnClickListener {findNavController().navigateUp()}
     }
 
     fun getDummyList() : List<Exercise> {
         return listOf(
-                Exercise("1", "Palindrome check", "Easy", "Write a program which checks if a word is a palindrome.", "def palindrome(word):\n" +
+                Exercise("1", "Palindrome check", "Hard", "Write a program which checks if a word is a palindrome.", "def palindrome(word):\n" +
                         "    left = 0\n" +
                         "    right = len(word) - 1\n" +
                         "\n" +
