@@ -12,11 +12,13 @@ import com.olabode.wilson.pytutor.databinding.FragmentExerciseListBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.Exercise
 import com.olabode.wilson.pytutor.utils.states.DataState
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by Ogheneruona Onobrakpeya on 10/10/20.
  */
 
+@AndroidEntryPoint
 class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
     private val binding by viewBinding(FragmentExerciseListBinding::bind)
     private val viewModel: ExercisesViewModel by viewModels()
@@ -24,7 +26,6 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.progressBar.isVisible = false
 
         adapter = ExerciseListAdapter {exercise ->
             findNavController().
@@ -32,6 +33,7 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
         }
 
         binding.exerciseListRecycler.adapter = adapter
+//        binding.progressBar.isVisible = false
 //        binding.exerciseListRecycler.isVisible = true
 //        adapter.submitList(getDummyList().sorted())
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
