@@ -10,7 +10,7 @@ import com.olabode.wilson.pytutor.repository.main.exercise.ExerciseRepository
  */
 
 class ExercisesViewModel @ViewModelInject constructor(
-    private val exerciseRepository: ExerciseRepository
+    exerciseRepository: ExerciseRepository
 ) : ViewModel() {
 
     val exercises = exerciseRepository
