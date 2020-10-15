@@ -10,12 +10,12 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Exercise(
-    val id: String,
-    val title: String,
-    val difficulty: String,
-    val question: String,
-    val solution: String
-) : Parcelable, Comparable<Exercise> {
+        val id: String,
+        val title: String,
+        val difficulty: Int,
+        val question: String,
+        val solution: String
+) : Parcelable {
 
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Exercise>() {
@@ -24,22 +24,9 @@ data class Exercise(
             }
 
             override fun areContentsTheSame(oldItem: Exercise, newItem: Exercise): Boolean {
-                return  oldItem == newItem
+                return oldItem == newItem
             }
         }
-
-        val difficultyMap: Map<String, Int> = mapOf("Easy" to 1, "Medium" to 2, "Hard" to 3)
-    }
-
-    // Compare by difficulty
-    override fun compareTo(other: Exercise): Int {
-        val thisDifficulty: Int = difficultyMap[this.difficulty] ?: error("")
-        val otherDifficulty: Int = difficultyMap[other.difficulty] ?: error("")
-
-        return if (thisDifficulty != otherDifficulty) {
-            thisDifficulty - otherDifficulty
-        }
-        else 0
     }
 }
 

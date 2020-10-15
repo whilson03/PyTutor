@@ -38,7 +38,7 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
         binding.exerciseListRecycler.adapter = adapter
         binding.progressBar.isVisible = false
         binding.exerciseListRecycler.isVisible = true
-        adapter.submitList(getDummyList().sorted())
+        adapter.submitList(getDummyList())
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
 //        setupObserver()
     }
