@@ -13,21 +13,6 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/catamaran_medium"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/topic_count"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/topic_count"
-            app:layout_constraintTop_toTopOf="@+id/topic_count"
-            tools:text="Introduction" />
-
-        <TextView
             android:id="@+id/topic_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,15 +29,38 @@
             tools:text="01" />
 
         <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/catamaran_medium"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/divider"
+            app:layout_constraintStart_toEndOf="@+id/topic_count"
+            app:layout_constraintTop_toTopOf="@+id/topic_count"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Introduction" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@+id/difficulty"
+            app:layout_constraintEnd_toEndOf="@+id/difficulty"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <TextView
             android:id="@+id/difficulty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
             app:layout_constraintBottom_toBottomOf="@+id/topic_count"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
             tools:text="Easy" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
