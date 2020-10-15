@@ -45,7 +45,7 @@
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:background="@android:color/black"
+            android:background="@color/dividerColor"
             app:layout_constraintBottom_toTopOf="@+id/difficulty"
             app:layout_constraintEnd_toEndOf="@+id/difficulty"
             app:layout_constraintStart_toStartOf="@+id/title"
