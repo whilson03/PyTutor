@@ -9,6 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentExerciseListBinding
+import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.files.exercises.listOfExercises
 import com.olabode.wilson.pytutor.mappers.exercise.ExerciseNetworkMapper
@@ -29,9 +31,8 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ExerciseListAdapter {exercise ->
-            findNavController().
-            navigate(ExerciseListFragmentDirections.actionExerciseListFragmentToExerciseFragment(exercise))
+        adapter = ExerciseListAdapter { exercise ->
+            findNavController().navigate(ExerciseListFragmentDirections.actionExerciseListFragmentToExerciseFragment(exercise))
         }
 
         binding.exerciseListRecycler.adapter = adapter
@@ -42,32 +43,32 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
 //        setupObserver()
     }
 
-//    private fun setupObserver() {
-//        viewModel.exercises.observe(viewLifecycleOwner, Observer { result ->
-//            when (result) {
-//                is DataState.Loading -> {
-//                    binding.progressBar.isVisible = true
-//                    binding.noInternetState.root.isVisible = false
-//                }
-//
-//                is DataState.Success -> {
-//                    binding.progressBar.isVisible = false
-//                    binding.mainPage.isVisible = true
-//                    binding.noInternetState.root.isVisible = false
-//                    adapter.submitList(result.data.sorted())
-//                }
-//
-//                is DataState.Error -> {
-//                    binding.progressBar.isVisible = false
-//                    binding.noInternetState.root.isVisible = true
-//                    binding.mainPage.isVisible = false
-//                }
-//            }
-//        })
-//    }
+    private fun setupObserver() {
+        viewModel.exercises.observe(viewLifecycleOwner, Observer { result ->
+            when (result) {
+                is DataState.Loading -> {
+                    binding.progressBar.show()
+                    binding.noInternetState.root.hide()
+                }
 
-    private fun getDummyList() : List<Exercise> {
+                is DataState.Success -> {
+                    binding.progressBar.hide()
+                    binding.mainPage.show()
+                    binding.noInternetState.root.hide()
+                    adapter.submitList(result.data)
+                }
+
+                is DataState.Error -> {
+                    binding.progressBar.hide()
+                    binding.noInternetState.root.show()
+                    binding.mainPage.hide()
+                }
+            }
+        })
+    }
+
+    private fun getDummyList(): List<Exercise> {
         val exerciseNetworkMapper = ExerciseNetworkMapper()
-        return listOfExercises().map{(exerciseNetworkMapper.mapFromEntity(it))}
+        return listOfExercises().map { (exerciseNetworkMapper.mapFromEntity(it)) }
     }
 }
