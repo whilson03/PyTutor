@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.ItemExercisesBinding
 import com.olabode.wilson.pytutor.models.Exercise
+import com.olabode.wilson.pytutor.models.remote.exercise.DIFFICULTY
 import com.olabode.wilson.pytutor.utils.Utils
 
 /**
@@ -13,18 +14,18 @@ import com.olabode.wilson.pytutor.utils.Utils
  */
 
 class ExerciseListAdapter(private val clickListener: (exercise: Exercise) -> Unit) :
-    ListAdapter<Exercise, ExerciseListAdapter.ViewHolder>(Exercise.DIFF_CALLBACK) {
+        ListAdapter<Exercise, ExerciseListAdapter.ViewHolder>(Exercise.DIFF_CALLBACK) {
 
     class ViewHolder(
-        private val binding: ItemExercisesBinding,
-        private val clickListener: (exercise: Exercise) -> Unit
+            private val binding: ItemExercisesBinding,
+            private val clickListener: (exercise: Exercise) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         private var item: Exercise? = null
 
         init {
             binding.root.setOnClickListener {
                 item?.let {
-                     clickListener.invoke(it)
+                    clickListener.invoke(it)
                 }
             }
         }
@@ -32,8 +33,16 @@ class ExerciseListAdapter(private val clickListener: (exercise: Exercise) -> Uni
         fun bind(item: Exercise) {
             this.item = item
             binding.title.text = item.title
-            binding.difficulty.text = item.difficulty
+            binding.difficulty.text = getDifficulty(item.difficulty)
             binding.topicCount.text = Utils.getAdapterNumberLabel(adapterPosition + 1)
+        }
+
+        private fun getDifficulty(difficulty: Int): String {
+            return when (difficulty) {
+                DIFFICULTY.EASY.ordinal -> "Easy"
+                DIFFICULTY.MEDIUM.ordinal -> "Medium"
+                else -> "Hard"
+            }
         }
     }
 

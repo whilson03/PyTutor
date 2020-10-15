@@ -9,19 +9,19 @@ import androidx.room.PrimaryKey
  */
 @Entity(tableName = "exercise_table")
 data class ExerciseEntity(
-    @ColumnInfo(name = "id")
-    @PrimaryKey
-    val id: String,
+        @ColumnInfo(name = "id")
+        @PrimaryKey
+        val id: String,
 
-    @ColumnInfo(name = "title")
-    val title: String,
+        @ColumnInfo(name = "title")
+        val title: String,
 
-    @ColumnInfo(name = "difficulty")
-    val difficulty: String,
+        @ColumnInfo(name = "difficulty")
+        val difficulty: Int,
 
-    @ColumnInfo(name = "question")
-    val question: String,
+        @ColumnInfo(name = "question")
+        val question: String,
 
-    @ColumnInfo(name = "solution")
-    val solution: String
+        @ColumnInfo(name = "solution")
+        val solution: String
 )
