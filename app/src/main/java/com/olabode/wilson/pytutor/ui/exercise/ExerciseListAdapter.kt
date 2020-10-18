@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.ItemExercisesBinding
 import com.olabode.wilson.pytutor.models.Exercise
-import com.olabode.wilson.pytutor.models.remote.exercise.DIFFICULTY
+import com.olabode.wilson.pytutor.models.remote.exercise.CATEGORY
 import com.olabode.wilson.pytutor.utils.Utils
 
 /**
@@ -39,8 +39,8 @@ class ExerciseListAdapter(private val clickListener: (exercise: Exercise) -> Uni
 
         private fun getDifficulty(difficulty: Int): String {
             return when (difficulty) {
-                DIFFICULTY.EASY.ordinal -> "Easy"
-                DIFFICULTY.MEDIUM.ordinal -> "Medium"
+                CATEGORY.BASICS.ordinal -> "Easy"
+                CATEGORY.FLOW_CONTROL.ordinal -> "Medium"
                 else -> "Hard"
             }
         }
