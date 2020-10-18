@@ -6,13 +6,13 @@ package com.olabode.wilson.pytutor.models.remote.exercise
 data class ExerciseResponse(
         val id: String = "",
         val title: String,
-        val difficulty: Int = DIFFICULTY.EASY.ordinal,
+        val difficulty: Int = CATEGORY.BASICS.ordinal,
         val question: String,
         val solution: String
 ) {
-    constructor() : this("", "", DIFFICULTY.EASY.ordinal, "", "")
+    constructor() : this("", "", CATEGORY.BASICS.ordinal, "", "")
 }
 
-enum class DIFFICULTY {
-    EASY, MEDIUM, CHALLENGING
+enum class CATEGORY {
+    BASICS, FLOW_CONTROL, FUNCTIONS, DATA_STRUCTURES
 }
