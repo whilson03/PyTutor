@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.olabode.wilson.pytutor.databinding.ItemBulletTextBinding
 import com.olabode.wilson.pytutor.databinding.ItemCodeSnippetBinding
 import com.olabode.wilson.pytutor.databinding.ItemTutorialBodyBinding
-
 import com.olabode.wilson.pytutor.models.tutorial.Tutorial
 
 /**
@@ -42,7 +41,7 @@ class LessonAdapter : ListAdapter<Tutorial, RecyclerView.ViewHolder>(LessonDiffC
                     parent,
                     false
                 )
-                CodeViewHolder(binding)
+                CodeViewHolder(binding, parent.context)
             }
         }
     }
