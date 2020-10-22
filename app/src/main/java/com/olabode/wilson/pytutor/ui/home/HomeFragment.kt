@@ -58,6 +58,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     .actionHomeFragmentToListAlgosFragment()
             )
         }
+
+        binding.cardThree.setOnClickListener {
+            findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToExerciseListFragment()
+            )
+        }
     }
 
     private fun setupUserDetails(user: User) {

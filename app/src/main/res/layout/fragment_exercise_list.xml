@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.exercise.ExerciseListFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -12,7 +13,8 @@
         android:layout_height="?actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -20,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
+            app:title="@string/exercises"
             app:navigationIcon="@drawable/ic_back" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -32,10 +35,9 @@
         android:background="@color/off_white"
         tools:context=".ui.tutorial.TutorialTopicsFragment">
 
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/topics_recycler"
-            android:layout_width="match_parent"
+            android:id="@+id/exercise_list_recycler"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layoutAnimation="@anim/layout_animation_slide_right"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -43,8 +45,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/tutorial_item" />
-
+            tools:listitem="@layout/item_exercises" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include
@@ -58,6 +59,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="visible" />
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
