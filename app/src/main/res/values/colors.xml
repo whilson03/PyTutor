@@ -34,4 +34,15 @@
 
     <color name="colorEndBackground">#50FFFFFF</color>
     <color name="colorLightText">#ECECEC</color>
+
+    <!--Monokai Pro Theme Colors-->
+    <color name="monokia_pro_green">#9ccc6b</color>
+    <color name="monokia_pro_black">#2d2a2e</color>
+    <color name="monokia_pro_white">#fcfcfa</color>
+    <color name="monokia_pro_pink">#ff6188</color>
+    <color name="monokia_pro_sky">#78dce8</color>
+    <color name="monokia_pro_orange">#ffd866</color>
+    <color name="monokia_pro_purple">#ab9df2</color>
+    <color name="monokia_pro_grey">#727072</color>
+    <color name="gold">#e6b121</color>
 </resources>

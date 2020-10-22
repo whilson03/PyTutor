@@ -107,6 +107,9 @@ dependencies {
     //Image Cropping
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
 
+    //CodeView
+    implementation 'com.github.AmrDeveloper:CodeView:1.0.0'
+
     //Image Compression
     implementation 'id.zelory:compressor:3.0.0'
 
