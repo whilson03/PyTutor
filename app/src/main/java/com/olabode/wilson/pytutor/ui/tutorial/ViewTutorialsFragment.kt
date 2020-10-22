@@ -86,13 +86,16 @@ class ViewTutorialsFragment : Fragment(R.layout.fragment_view_tutorials) {
 
     private fun doOnSuccess(totalNoOfPages: Int, lessons: List<Lesson>, topic: Topic) {
         pagesAdapter = TutorialPageAdapter(
-            this,
-            totalNoOfPages,
-            lessons,
-            topic = topic
+                this,
+                totalNoOfPages,
+                lessons,
+                topic = topic
         )
         viewPager = binding.lessonViewPager
         viewPager.adapter = pagesAdapter
+        viewPager.isUserInputEnabled = false
+        viewPager.setPageTransformer(DepthPageTransformer())
+
 
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
