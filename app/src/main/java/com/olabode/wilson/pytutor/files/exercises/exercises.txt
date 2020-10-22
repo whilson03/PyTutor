@@ -1,0 +1,3 @@
+// add all titles of exercises in app to avoid duplicates
+
+Find Even

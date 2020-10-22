@@ -48,7 +48,9 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 R.id.resetPasswordFragment,
                 R.id.verifyPasswordFragment,
                 R.id.algorithmFragment,
-                R.id.listAlgosFragment
+                R.id.listAlgosFragment,
+                R.id.exerciseListFragment,
+                R.id.exerciseFragment
                 -> {
                     bottomNavigationView.hide()
                 }
