@@ -61,7 +61,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.cardThree.setOnClickListener {
             findNavController().navigate(
-                    HomeFragmentDirections.actionHomeFragmentToExerciseCategoriesFragment()
+                    HomeFragmentDirections.actionHomeFragmentToExerciseListFragment()
             )
         }
     }

@@ -50,8 +50,7 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 R.id.algorithmFragment,
                 R.id.listAlgosFragment,
                 R.id.exerciseListFragment,
-                R.id.exerciseFragment,
-                R.id.exerciseCategoriesFragment
+                R.id.exerciseFragment
                 -> {
                     bottomNavigationView.hide()
                 }
