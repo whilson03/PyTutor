@@ -36,7 +36,7 @@
             android:layout_height="wrap_content">
 
 
-            <com.olabode.wilson.pytutor.views.CodeView
+            <com.olabode.wilson.pytutor.views.CodeViewer
                 android:id="@+id/codeView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
