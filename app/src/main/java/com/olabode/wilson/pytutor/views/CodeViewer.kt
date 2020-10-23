@@ -8,10 +8,10 @@ import android.webkit.WebView
  *   Created by OLABODE WILSON on 9/30/20.
  */
 
-class CodeView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+class CodeViewer @JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0
 ) : WebView(context, attrs, defStyleAttr) {
     companion object {
         private const val ANDROID_ASSETS_PATH = "file:///android_asset/"
@@ -19,9 +19,9 @@ class CodeView @JvmOverloads constructor(
 
     // Our exposed function to show highlighted syntax
     fun setCode(
-        formattedSourceCode: String,
-        language: String,
-        showLineNumbers: Boolean = true
+            formattedSourceCode: String,
+            language: String,
+            showLineNumbers: Boolean = true
     ) {
         settings.javaScriptEnabled = true
         loadDataWithBaseURL(

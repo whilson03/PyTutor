@@ -54,14 +54,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.cardTwo.setOnClickListener {
             findNavController().navigate(
-                HomeFragmentDirections
-                    .actionHomeFragmentToListAlgosFragment()
+                    HomeFragmentDirections
+                            .actionHomeFragmentToListAlgosFragment()
             )
         }
 
         binding.cardThree.setOnClickListener {
             findNavController().navigate(
                     HomeFragmentDirections.actionHomeFragmentToExerciseListFragment()
+            )
+        }
+
+        binding.cardFour.setOnClickListener {
+            findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToInterpreterFragment()
             )
         }
     }

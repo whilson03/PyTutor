@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 R.id.algorithmFragment,
                 R.id.listAlgosFragment,
                 R.id.exerciseListFragment,
-                R.id.exerciseFragment
+                R.id.exerciseFragment,
+                R.id.interpreterFragment
                 -> {
                     bottomNavigationView.hide()
                 }
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity(), UICommunicator {
     override fun hideSoftKeyBoard() {
         currentFocus?.let {
             val inputMethodManager =
-                getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                    getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             try {
                 inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
             } catch (e: NullPointerException) {
