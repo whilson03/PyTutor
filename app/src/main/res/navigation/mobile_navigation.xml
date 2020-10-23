@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_homeFragment_to_exerciseListFragment"
             app:destination="@id/exerciseListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_interpreterFragment"
+            app:destination="@id/interpreterFragment" />
     </fragment>
 
 
@@ -235,9 +238,14 @@
         android:id="@+id/exerciseListFragment"
         android:name="com.olabode.wilson.pytutor.ui.exercise.ExerciseListFragment"
         android:label="fragment_exercise_list"
-        tools:layout="@layout/fragment_exercise_list" >
+        tools:layout="@layout/fragment_exercise_list">
         <action
             android:id="@+id/action_exerciseListFragment_to_exerciseFragment"
             app:destination="@id/exerciseFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/interpreterFragment"
+        android:name="com.olabode.wilson.pytutor.ui.code.InterpreterFragment"
+        android:label="fragment_interpreter"
+        tools:layout="@layout/fragment_interpreter" />
 </navigation>
