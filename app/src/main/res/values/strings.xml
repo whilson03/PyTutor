@@ -64,4 +64,8 @@
     <string name="exercises">Exercises</string>
     <string name="code_section">Code</string>
     <string name="toggle_solution_button"> Toggle Solution</string>
+    <string name="run">Run</string>
+    <string name="editor">Editor</string>
+    <string name="colon">:</string>
+    <string name="output">Output</string>
 </resources>

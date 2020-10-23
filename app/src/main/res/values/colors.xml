@@ -9,6 +9,8 @@
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#000000</color>
 
+    <color name="orange">#CC7832</color>
+    <color name="darkGrey">#272822</color>
     <color name="dividerColor">#BDBDBD</color>
     <color name="white">#FFFFFF</color>
     <color name="off_white">#e0e0e0</color>
@@ -45,4 +47,5 @@
     <color name="monokia_pro_purple">#ab9df2</color>
     <color name="monokia_pro_grey">#727072</color>
     <color name="gold">#e6b121</color>
+    <color name="black">#000000</color>
 </resources>
