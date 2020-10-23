@@ -25,10 +25,18 @@
             app:popExitAnim="@anim/slide_down" />
         <action
             android:id="@+id/action_homeFragment_to_exerciseListFragment"
-            app:destination="@id/exerciseListFragment" />
+            app:destination="@id/exerciseListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_homeFragment_to_interpreterFragment"
-            app:destination="@id/interpreterFragment" />
+            app:destination="@id/interpreterFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
     </fragment>
 
 
@@ -229,7 +237,7 @@
         android:id="@+id/exerciseFragment"
         android:name="com.olabode.wilson.pytutor.ui.exercise.ExerciseFragment"
         android:label="ExerciseFragment"
-        tools:layout="@layout/fragment_exercise_content" >
+        tools:layout="@layout/fragment_exercise_content">
         <argument
             android:name="exercise"
             app:argType="com.olabode.wilson.pytutor.models.Exercise" />
