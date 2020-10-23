@@ -5,4 +5,47 @@
     </string-array>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
+
+
+    <!--Python Keywords List-->
+    <string-array name="python_keywords">
+        <item>False</item>
+        <item>await</item>
+        <item>else</item>
+        <item>import</item>
+        <item>pass</item>
+        <item>None</item>
+        <item>break</item>
+        <item>except</item>
+        <item>in</item>
+        <item>raise</item>
+        <item>True</item>
+        <item>class</item>
+        <item>finally</item>
+        <item>is</item>
+        <item>return</item>
+        <item>and</item>
+        <item>continue</item>
+        <item>for</item>
+        <item>lambda</item>
+        <item>try</item>
+        <item>as</item>
+        <item>def</item>
+        <item>from</item>
+        <item>nonlocal</item>
+        <item>while</item>
+        <item>assert</item>
+        <item>del</item>
+        <item>global</item>
+        <item>not</item>
+        <item>with</item>
+        <item>async</item>
+        <item>elif</item>
+        <item>if</item>
+        <item>or</item>
+        <item>yield</item>
+        <item>print()</item>
+        <item>range()</item>
+    </string-array>
+
 </resources>

@@ -59,7 +59,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/question_text" />
 
-            <com.olabode.wilson.pytutor.views.CodeView
+            <com.olabode.wilson.pytutor.views.CodeViewer
                 android:id="@+id/solution_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
