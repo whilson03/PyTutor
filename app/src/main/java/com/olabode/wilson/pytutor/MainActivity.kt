@@ -5,7 +5,8 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.olabode.wilson.pytutor.databinding.ActivityMainBinding
 import com.olabode.wilson.pytutor.extensions.hide
@@ -19,17 +20,22 @@ class MainActivity : AppCompatActivity(), UICommunicator {
     private val binding by viewBinding(ActivityMainBinding::inflate)
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         navController = findNavController(R.id.fragments_container)
-
         bottomNavigationView = binding.bottomNavigationView
-        bottomNavigationView.setupWithNavController(navController)
-        bottomNavigationView.setOnNavigationItemReselectedListener {
-            /** NO OPERATION **/
-        }
+
+        appBarConfiguration = AppBarConfiguration(setOf(
+                R.id.homeFragment, R.id.profileFragment))
+
+
+        NavigationUI.setupWithNavController(bottomNavigationView, navController)
+
+
+        bottomNavigationView.setOnNavigationItemReselectedListener { /** NO OPERATION **/ }
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
@@ -73,5 +79,14 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 e.printStackTrace()
             }
         }
+    }
+
+
+    override fun onBackPressed() {
+        if (navController.currentDestination!!.id == R.id.homeFragment) {
+            navController.popBackStack(R.id.mobile_navigation_xml, true)
+        }
+
+        super.onBackPressed()
     }
 }
