@@ -1,6 +1,8 @@
 package com.olabode.wilson.pytutor.di
 
+import android.app.Application
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -43,13 +45,13 @@ object AppModule {
     @Singleton
     @Provides
     fun providePytutorDatabase(
-        @ApplicationContext
-        context: Context
+            @ApplicationContext
+            context: Context
     ) = Room.databaseBuilder(
-        context, PytutorDatabase::class.java,
-        Constants.DATABASE_NAME
+            context, PytutorDatabase::class.java,
+            Constants.DATABASE_NAME
     ).fallbackToDestructiveMigration()
-        .build()
+            .build()
 
     @Singleton
     @Provides
@@ -79,5 +81,27 @@ object AppModule {
     @Provides
     fun provideExerciseDao(database: PytutorDatabase): ExerciseDao {
         return database.exerciseDao()
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideSharedPreferences(
+            application: Application
+    ): SharedPreferences {
+        return application
+                .getSharedPreferences(
+                        Constants.APP_PREFERENCES,
+                        Context.MODE_PRIVATE
+                )
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideSharedPrefsEditor(
+            sharedPreferences: SharedPreferences
+    ): SharedPreferences.Editor {
+        return sharedPreferences.edit()
     }
 }
