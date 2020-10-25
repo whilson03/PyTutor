@@ -69,4 +69,5 @@
     <string name="editor">Editor</string>
     <string name="colon">:</string>
     <string name="output">Output</string>
+    <string name="skip_intro">Skip</string>
 </resources>

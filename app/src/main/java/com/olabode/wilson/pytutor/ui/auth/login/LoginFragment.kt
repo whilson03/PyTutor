@@ -1,6 +1,7 @@
 package com.olabode.wilson.pytutor.ui.auth.login
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -12,19 +13,23 @@ import com.olabode.wilson.pytutor.AuthNavigationDirections
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.UICommunicator
 import com.olabode.wilson.pytutor.databinding.FragmentLoginBinding
-import com.olabode.wilson.pytutor.extensions.disableClick
-import com.olabode.wilson.pytutor.extensions.enableClick
-import com.olabode.wilson.pytutor.extensions.hide
-import com.olabode.wilson.pytutor.extensions.show
-import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.extensions.*
 import com.olabode.wilson.pytutor.ui.auth.AuthUtils
 import com.olabode.wilson.pytutor.ui.auth.ValidationStates
+import com.olabode.wilson.pytutor.utils.Constants
 import com.olabode.wilson.pytutor.utils.EventObserver
 import com.olabode.wilson.pytutor.utils.states.AuthResult
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
+
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+
+    @Inject
+    lateinit var sharedPreferencesEditor: SharedPreferences.Editor
 
     private val authViewModel: LoginViewModel by viewModels()
     private val binding by viewBinding(FragmentLoginBinding::bind)
@@ -48,8 +53,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         binding.createAccount.setOnClickListener {
             findNavController().navigate(
-                LoginFragmentDirections
-                    .actionLoginFragmentToSignUpFragment2()
+                    LoginFragmentDirections
+                            .actionLoginFragmentToSignUpFragment2()
             )
         }
 
@@ -89,18 +94,25 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                 is AuthResult.Success -> {
                     binding.progressLayout.root.hide()
-                    authViewModel.snackBarMessage(result.data)
+                    setIsNotFirstTimeUser()
                     findNavController().navigate(AuthNavigationDirections.actionGlobalHomeFragment())
                 }
 
                 is AuthResult.UnAuthenticated -> {
                     findNavController()
-                        .navigate(
-                            LoginFragmentDirections
-                                .actionLoginFragmentToVerifyPasswordFragment()
-                        )
+                            .navigate(
+                                    LoginFragmentDirections
+                                            .actionLoginFragmentToVerifyPasswordFragment()
+                            )
                 }
             }
         })
+    }
+
+    private fun setIsNotFirstTimeUser() {
+        if (sharedPreferences.getBoolean(Constants.IS_FIRST_TIME_USER_KEY, true)) {
+            sharedPreferencesEditor.putBoolean(Constants.IS_FIRST_TIME_USER_KEY, false)
+            sharedPreferencesEditor.apply()
+        }
     }
 }
