@@ -198,6 +198,15 @@
             app:popExitAnim="@anim/slide_out_right"
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
     </fragment>
     <action
         android:id="@+id/action_global_auth_navigation"
@@ -256,4 +265,18 @@
         android:name="com.olabode.wilson.pytutor.ui.code.InterpreterFragment"
         android:label="fragment_interpreter"
         tools:layout="@layout/fragment_interpreter" />
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.olabode.wilson.pytutor.ui.onboarding.OnBoardingFragment"
+        android:label="OnBoardingFragment">
+        <action
+            android:id="@+id/action_onBoardingFragment_to_auth_navigation"
+            app:destination="@id/auth_navigation"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mobile_navigation.xml"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

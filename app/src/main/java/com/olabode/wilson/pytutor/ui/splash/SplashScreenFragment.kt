@@ -1,5 +1,6 @@
 package com.olabode.wilson.pytutor.ui.splash
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -10,12 +11,16 @@ import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentSplashScreenBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.utils.Constants
 import com.olabode.wilson.pytutor.utils.states.AuthResult
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
 
+    @Inject
+    lateinit var preferences: SharedPreferences
     private val binding by viewBinding(FragmentSplashScreenBinding::bind)
     private val viewModel: SplashViewModel by viewModels()
 
@@ -24,7 +29,7 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
 
         Handler().postDelayed({
             context?.let {
-                observeAuthState()
+                setupUI()
             }
         }, 2500)
     }
@@ -41,5 +46,13 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
                 }
             }
         })
+    }
+
+    private fun setupUI() {
+        if (preferences.getBoolean(Constants.IS_FIRST_TIME_USER_KEY, true)) {
+            findNavController().navigate(SplashScreenFragmentDirections.actionSplashScreenFragmentToOnBoardingFragment())
+        } else {
+            observeAuthState()
+        }
     }
 }
