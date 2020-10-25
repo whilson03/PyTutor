@@ -14,7 +14,7 @@ class ExerciseNetworkMapper @Inject constructor() : EntityMapper<ExerciseRespons
         return Exercise(
                 id = entity.id,
                 title = entity.title,
-                difficulty = entity.category,
+                difficulty = entity.difficulty,
                 question = entity.question,
                 solution = entity.solution
         )
@@ -24,7 +24,7 @@ class ExerciseNetworkMapper @Inject constructor() : EntityMapper<ExerciseRespons
         return ExerciseResponse(
                 id = domainModel.id,
                 title = domainModel.title,
-                category = domainModel.difficulty,
+                difficulty = domainModel.difficulty,
                 question = domainModel.question,
                 solution = domainModel.solution
         )

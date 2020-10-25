@@ -4,3 +4,17 @@ Check Even
 Calculate Area of Circle
 Check vowels
 calculate number of days between two dates.
+Max of Three
+Convert Minutes into Seconds
+Find the Largest Number in a List
+Get the Sum of All List Elements
+Check Unique
+Print Triangle Pattern
+Check Leap Year
+Check Prime Number
+Display multiplication table from 1 to 10
+Print the Fibonacci sequence
+Check Armstrong Number
+Find the Factorial of a Number
+Check Palindrome number
+Reverse a number
