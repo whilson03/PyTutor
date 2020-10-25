@@ -6,7 +6,7 @@ package com.olabode.wilson.pytutor.models.remote.exercise
 data class ExerciseResponse(
         val id: String = "",
         val title: String,
-        val difficulty: Int = CATEGORY.BASICS.ordinal,
+        val category: Int = CATEGORY.BASICS.ordinal,
         val question: String,
         val solution: String
 ) {
