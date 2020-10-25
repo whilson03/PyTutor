@@ -12,21 +12,21 @@ import javax.inject.Inject
 class ExerciseNetworkMapper @Inject constructor() : EntityMapper<ExerciseResponse, Exercise> {
     override fun mapFromEntity(entity: ExerciseResponse): Exercise {
         return Exercise(
-            id = entity.id,
-            title = entity.title,
-            difficulty = entity.difficulty,
-            question = entity.question,
-            solution = entity.solution
+                id = entity.id,
+                title = entity.title,
+                difficulty = entity.category,
+                question = entity.question,
+                solution = entity.solution
         )
     }
 
     override fun mapToEntity(domainModel: Exercise): ExerciseResponse {
         return ExerciseResponse(
-            id = domainModel.id,
-            title = domainModel.title,
-            difficulty = domainModel.difficulty,
-            question = domainModel.question,
-            solution = domainModel.solution
+                id = domainModel.id,
+                title = domainModel.title,
+                category = domainModel.difficulty,
+                question = domainModel.question,
+                solution = domainModel.solution
         )
     }
 
