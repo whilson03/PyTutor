@@ -1,6 +1,7 @@
 package com.olabode.wilson.pytutor.ui.code
 
 
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.res.Resources
 import android.os.Bundle
@@ -8,9 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.webkit.JsPromptResult
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.EditText
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -46,7 +49,35 @@ class CodeOutputFragment(val code: String) : BottomSheetDialogFragment() {
                 view?.loadUrl(func)
             }
         }
-        interpreter.webChromeClient = object : WebChromeClient() {}
+
+        interpreter.webChromeClient = object : WebChromeClient() {
+
+            override fun onJsPrompt(view: WebView?, url: String?, message: String?, defaultValue: String?, result: JsPromptResult?): Boolean {
+
+                val builder: AlertDialog.Builder = AlertDialog.Builder(view!!.context)
+
+                builder.setTitle(getString(R.string.enter_input)).setMessage(message)
+
+                val et = EditText(view.context)
+                et.setSingleLine()
+                et.setText(defaultValue)
+                builder.setView(et)
+                        .setPositiveButton(getString(R.string.ok)) { _, _ ->
+                            if (!et.text.toString().isNullOrEmpty()) {
+                                result!!.confirm(et.text.toString())
+                            } else {
+                                result!!.cancel()
+                            }
+
+                        }
+                        .setNeutralButton(getString(R.string.cancel)) { _, _ -> result!!.cancel() }
+
+                builder.setCancelable(false)
+                val dialog = builder.create()
+                dialog.show()
+                return true
+            }
+        }
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -74,5 +105,4 @@ class CodeOutputFragment(val code: String) : BottomSheetDialogFragment() {
     fun getScreenHeight(): Int {
         return Resources.getSystem().displayMetrics.heightPixels
     }
-
 }
