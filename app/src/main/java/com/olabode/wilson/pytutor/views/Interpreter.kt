@@ -45,7 +45,7 @@ class Interpreter @JvmOverloads constructor(
     </style>
 
         <head> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <script src="www/jquery-3.5.1.min.js" type="text/javascript"></script> 
         <script src="www/skulpt.min.js" type="text/javascript"></script> 
         <script src="www/skulpt-stdlib.js" type="text/javascript"></script> 
