@@ -15,6 +15,7 @@ import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.files.exercises.listOfExercises
 import com.olabode.wilson.pytutor.mappers.exercise.ExerciseNetworkMapper
 import com.olabode.wilson.pytutor.models.Exercise
+import com.olabode.wilson.pytutor.utils.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +33,8 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
         super.onViewCreated(view, savedInstanceState)
 
         adapter = ExerciseListAdapter { exercise ->
-            findNavController().navigate(ExerciseListFragmentDirections.actionExerciseListFragmentToExerciseFragment(exercise))
+            navigateSafe(ExerciseListFragmentDirections
+                .actionExerciseListFragmentToExerciseFragment(exercise))
         }
 
         binding.exerciseListRecycler.adapter = adapter

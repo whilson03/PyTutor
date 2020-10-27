@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import com.olabode.wilson.pytutor.R
@@ -15,6 +14,7 @@ import com.olabode.wilson.pytutor.databinding.FragmentHomeBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.ui.profile.ProfileViewModel
+import com.olabode.wilson.pytutor.utils.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,29 +46,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         })
 
         binding.cardOne.setOnClickListener {
-            findNavController().navigate(
-                HomeFragmentDirections
-                    .actionHomeFragmentToTutorialTopicsFragment()
-            )
+            navigateSafe(HomeFragmentDirections.actionHomeFragmentToTutorialTopicsFragment())
         }
 
         binding.cardTwo.setOnClickListener {
-            findNavController().navigate(
-                    HomeFragmentDirections
-                            .actionHomeFragmentToListAlgosFragment()
-            )
+            navigateSafe(HomeFragmentDirections.actionHomeFragmentToListAlgosFragment())
         }
 
         binding.cardThree.setOnClickListener {
-            findNavController().navigate(
-                    HomeFragmentDirections.actionHomeFragmentToExerciseListFragment()
-            )
+            navigateSafe(HomeFragmentDirections.actionHomeFragmentToExerciseListFragment())
         }
 
         binding.cardFour.setOnClickListener {
-            findNavController().navigate(
-                    HomeFragmentDirections.actionHomeFragmentToInterpreterFragment()
-            )
+            navigateSafe(HomeFragmentDirections.actionHomeFragmentToInterpreterFragment())
         }
     }
 
