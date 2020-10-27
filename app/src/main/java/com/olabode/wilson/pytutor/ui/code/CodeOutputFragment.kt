@@ -32,7 +32,7 @@ class CodeOutputFragment(val code: String) : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         root = inflater.inflate(R.layout.code_output_sheet, container, false)
-        interpreter = root.findViewById<Interpreter>(R.id.interpreter)
+        interpreter = root.findViewById(R.id.interpreter)
 
         val close = root.findViewById<android.widget.Toolbar>(R.id.toolbar)
         close.setNavigationOnClickListener { dismiss() }
@@ -42,11 +42,13 @@ class CodeOutputFragment(val code: String) : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         interpreter.setCode()
+
         interpreter.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                val func = "javascript:run(`${code.replace("\n", "\\n").replace("\t", "\\t")}`)"
-                view?.loadUrl(func)
+                val code = code.replace("\n", "\\n").replace("\t", "\\t")
+                val func = "javascript:run(`$code`);"
+                view?.evaluateJavascript(func, null)
             }
         }
 
