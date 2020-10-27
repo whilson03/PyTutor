@@ -4,7 +4,9 @@ package com.olabode.wilson.pytutor.ui.code
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,9 +48,21 @@ class CodeOutputFragment(val code: String) : BottomSheetDialogFragment() {
         interpreter.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                val code = code.replace("\n", "\\n").replace("\t", "\\t")
-                val func = "javascript:run(`$code`);"
-                view?.evaluateJavascript(func, null)
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                    val code = code.replace("\n", "\\n")
+                            .replace("\t", "\\t")
+
+                    val func = "javascript:run(\"$code\");"
+                    Log.e("chromium", func)
+                    view?.evaluateJavascript(func, null)
+
+                } else {
+                    val code = code.replace("\n", "\\n")
+                            .replace("\t", "\\t")
+                    val func = "javascript:run(`$code`);"
+                    view?.evaluateJavascript(func, null)
+                }
+
             }
         }
 
