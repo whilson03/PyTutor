@@ -16,6 +16,7 @@ import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialTopicAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialTopicViewModel
 import com.olabode.wilson.pytutor.utils.EventObserver
+import com.olabode.wilson.pytutor.utils.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,7 +47,7 @@ class TutorialTopicsFragment : Fragment(R.layout.fragment_tutorial_topics) {
         super.onViewCreated(view, savedInstanceState)
         adapter = TutorialTopicAdapter { topic, message ->
             topic?.let {
-                findNavController().navigate(
+                navigateSafe(
                     TutorialTopicsFragmentDirections
                         .actionTutorialTopicsFragmentToViewTutorialsFragment(
                             title = topic.title,
