@@ -34,9 +34,9 @@
             android:id="@+id/action_homeFragment_to_interpreterFragment"
             app:destination="@id/interpreterFragment"
             app:enterAnim="@anim/slide_up"
-            app:exitAnim="@anim/slide_down"
+            app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/slide_up"
-            app:popExitAnim="@anim/slide_down" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
 
