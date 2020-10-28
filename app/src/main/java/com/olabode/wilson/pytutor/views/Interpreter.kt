@@ -108,7 +108,7 @@ function run(code){
         }
       ).catch(function(err) {
         outf("\n" + err.toString());
-      }).finally(function(){
+      }).then(function(){
          status.innerHTML = "Stopped";
       });
 }
@@ -214,7 +214,7 @@ Sk.misceval.asyncToPromise(function(){
     }
   }).catch(function(err) {
     outf("\n" + err.toString());
-  }).finally(function(){
+  }).then(function(){
      status.innerHTML = "Stopped";
   });
 
