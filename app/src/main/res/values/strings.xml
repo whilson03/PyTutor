@@ -70,4 +70,6 @@
     <string name="colon">:</string>
     <string name="output">Output</string>
     <string name="skip_intro">Skip</string>
+    <string name="enter_input">Enter Input</string>
+    <string name="ok">OK</string>
 </resources>

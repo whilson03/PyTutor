@@ -115,7 +115,7 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "  if len(data) == len(set(data)):\n" +
                         "    return True\n" +
                         "  else:\n" +
-                        "    return False;\n\n" +
+                        "    return False\n\n" +
                         "print(test_distinct([1,5,7]))\n" +
                         "print(test_distinct([5,5,7,9]))"
 
@@ -213,7 +213,7 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "        print(\" \", end=\"\")\n" +
                         "    print(row, \"| \", end=\"\") # Print heading for this row.\n" +
                         "    for column in range(1, 11): # Table has 10 columns.\n" +
-                        "        product = row*column; # Compute product\n" +
+                        "        product = row*column # Compute product\n" +
                         "        if product < 100: # Need to add space?\n" +
                         "            print(end=\" \")\n" +
                         "        if product < 10: # Need to add another space?\n" +
@@ -342,75 +342,199 @@ fun listOfExercises() = listOf<ExerciseResponse>(
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Concatenate All Elements in a List",
+                question = "Write a Python program to concatenate all elements in a list into a string and return it.",
+                solution = "def concatenate_list(sampleList):\n" +
+                        "    result= \"\"\n" +
+                        "    for element in sampleList:\n" +
+                        "        result += str(element)\n" +
+                        "    \n" +
+                        "    return result\n" +
+                        "\n" +
+                        "print(concatenate_list([\"three\", 5, \"blue\", \"low\"]))"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Find the LCM of Two Positive Numbers",
+                question = "Write a Python program to get the least common multiple (LCM) of two positive integers.",
+                solution = "def lcm(x, y):\n" +
+                        "   if x > y:\n" +
+                        "       z = x\n" +
+                        "   else:\n" +
+                        "       z = y\n" +
+                        "\n" +
+                        "   while(True):\n" +
+                        "       if((z % x == 0) and (z % y == 0)):\n" +
+                        "           lcm = z\n" +
+                        "           break\n" +
+                        "       z += 1\n" +
+                        "\n" +
+                        "   return lcm\n" +
+                        "\n" +
+                        "print(lcm(4, 7))"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Find the GCD of Two Positive Numbers",
+                question = "Write a Python program to compute the greatest common divisor (GCD) of two positive integers.",
+                solution = "def gcd(x, y):\n" +
+                        "    gcd = 1\n" +
+                        "    \n" +
+                        "    if x % y == 0:\n" +
+                        "        return y\n" +
+                        "    \n" +
+                        "    for i in range(int(y / 2), 0, -1):\n" +
+                        "        if x % i == 0 and y % i == 0:\n" +
+                        "            gcd = i\n" +
+                        "            break \n" +
+                        "         \n" +
+                        "    return gcd\n" +
+                        "\n" +
+                        "print(gcd(12, 16))"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Calculate the Distance between 2 Points",
+                question = "Write a Python program to compute the distance between the points (x1, y1) and (x2, y2).",
+                solution = "import math\n" +
+                        "p1 = [4, 2]\n" +
+                        "p2 = [5, 5]\n" +
+                        "distance = math.sqrt( (p1[0]-p2[0])**2 + (p1[1]-p2[1])**2 ) \n" +
+                        "\n" +
+                        "print(distance)"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Calculate the Sum of the Digits in an Integer",
+                question = " Write a Python program to calculate the sum of the digits in a 4 digit integer.",
+                solution = "num = int(input(\"Input a four digit numbers: \"))\n" +
+                        "x  = num // 1000\n" +
+                        "x1 = (num - x*1000) // 100\n" +
+                        "x2 = (num - x*1000 - x1*100) // 10\n" +
+                        "x3 = num - x*1000 - x1*100 - x2*10\n" +
+                        "print(f\"The sum of digits in the number is {x+x1+x2+x3}\")"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Check if a Word is a Palindrome",
+                question = "Write a program which checks if a string is a palindrome.",
+                solution = "def palindrome(word):\n" +
+                        "    left = 0\n" +
+                        "    right = len(word) - 1\n" +
+                        "\n" +
+                        "    while left < right:\n" +
+                        "        if word[left] != word[right]:\n" +
+                        "            return False\n" +
+                        "        left += 1\n" +
+                        "        right -= 1\n" +
+                        "\n" +
+                        "    return True\n" +
+                        "\n" +
+                        "def main():\n" +
+                        "    word = input(\"Enter a word\\n\")\n" +
+                        "\n" +
+                        "    if palindrome(word):\n" +
+                        "        print(f\"{word} is a palindrome\")\n" +
+                        "    else:\n" +
+                        "        print(f\"{word} is not a palindrome\")\n" +
+                        "\n" +
+                        "main()\n"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Find the Midpoint of a Line",
+                question = "Write a Python program to calculate midpoints of a line.",
+                solution = "x1 = float(input(\"The value of x1: \"))\n" +
+                        "y1 = float(input(\"The value of y1: \"))\n" +
+                        "print()\n" +
+                        "x2 = float(input(\"The value of x2: \"))\n" +
+                        "y2 = float(input(\"The value of y2: \"))\n" +
+                        "\n" +
+                        "xMidPoint = (x1 + x2)/2\n" +
+                        "yMidPoint = (y1 + y2)/2\n" +
+                        "\n" +
+                        "print()\n" +
+                        "print(f\"The midpoint's x value is: {xMidPoint}\")\n" +
+                        "print(f\"The midpoint's y value is: {yMidPoint}\")"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Find the Character Count in a String",
+                question = "Write a Python program to count the number of occurrence of a specific character in a string.",
+                solution = "def charCount(word, char):\n" +
+                        "    count = 0\n" +
+                        "    for c in word:\n" +
+                        "        if char == c:\n" +
+                        "            count += 1\n" +
+                        "\n" +
+                        "    return count \n" +
+                        "\n" +
+                        "sampleWord = \"The quick brown fox jumps over the lazy dog.\"\n" +
+                        "print(charCount(sampleWord, \"o\"))"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Swap Two Variables",
+                question = "Write a program to swap two variables.",
+                solution = "a = \"first\"\n" +
+                        "b = \"second\"\n" +
+                        "\n" +
+                        "print(\"Before the swap:\")\n" +
+                        "print(f\"a = {a}\")\n" +
+                        "print(f\"b = {b}\")\n" +
+                        "\n" +
+                        "temp = a\n" +
+                        "a = b\n" +
+                        "b = temp\n" +
+                        "\n" +
+                        "print()\n" +
+                        "print(\"After the swap:\")\n" +
+                        "print(f\"a = {a}\")\n" +
+                        "print(f\"b = {b}\")"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Filter Positive Numbers from a List",
+                question = "Write a Python program to filter the positive numbers from a list.",
+                solution = "def posFilter(sampleList):\n" +
+                        "    posList = []\n" +
+                        "\n" +
+                        "    for num in sampleList:\n" +
+                        "        if num % 2 == 0:\n" +
+                        "            posList.append(num)\n" +
+                        "    \n" +
+                        "    return posList\n" +
+                        "\n" +
+                        "numList = [1, 2, 7, 9, 2, 4, 6]\n" +
+                        "print(posFilter(numList))"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Check if a Number is Divisible by Another",
+                question = "Write a Python function to check whether a number is divisible by another without a remainder.",
+                solution = "def isDivisible(num, den):\n" +
+                        "    if num % den == 0:\n" +
+                        "        return True\n" +
+                        "    \n" +
+                        "    return False\n" +
+                        "\n" +
+                        "numerator = int(input(\"Enter the numerator: \"))\n" +
+                        "denominator = int(input(\"Enter the denominator: \"))\n" +
+                        "\n" +
+                        "print(isDivisible(numerator, denominator))"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Implement the Pythagorean Theorem",
+                question = "Implement the Pythagorean Theorem to find the length of the hypotenuse of a triangle when given the other two sides.",
+                solution = "import math\n" +
+                        "\n" +
+                        "def hyp(sideA, sideB):\n" +
+                        "    return math.sqrt(sideA**2 + sideB**2)\n" +
+                        "\n" +
+                        "a = float(input(\"Enter the length of side A: \"))\n" +
+                        "b = float(input(\"Enter the length of side B: \"))\n" +
+                        "print(f\"The hypotenuse of the triangle is {hyp(a, b)}\")"
 
         ),
         ExerciseResponse(
