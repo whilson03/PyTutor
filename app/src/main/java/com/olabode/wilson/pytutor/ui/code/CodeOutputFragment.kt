@@ -1,15 +1,21 @@
 package com.olabode.wilson.pytutor.ui.code
 
 
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.webkit.JsPromptResult
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.EditText
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -28,7 +34,7 @@ class CodeOutputFragment(val code: String) : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         root = inflater.inflate(R.layout.code_output_sheet, container, false)
-        interpreter = root.findViewById<Interpreter>(R.id.interpreter)
+        interpreter = root.findViewById(R.id.interpreter)
 
         val close = root.findViewById<android.widget.Toolbar>(R.id.toolbar)
         close.setNavigationOnClickListener { dismiss() }
@@ -38,11 +44,54 @@ class CodeOutputFragment(val code: String) : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         interpreter.setCode()
+
         interpreter.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                val func = "javascript:run(`${code.replace("\n", "\\n").replace("\t", "\\t")}`)"
-                view?.loadUrl(func)
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                    val code = code.replace("\n", "\\n")
+                            .replace("\t", "\\t")
+
+                    val func = "javascript:run(\"$code\");"
+                    Log.e("chromium", func)
+                    view?.evaluateJavascript(func, null)
+
+                } else {
+                    val code = code.replace("\n", "\\n")
+                            .replace("\t", "\\t")
+                    val func = "javascript:run(`$code`);"
+                    view?.evaluateJavascript(func, null)
+                }
+
+            }
+        }
+
+        interpreter.webChromeClient = object : WebChromeClient() {
+
+            override fun onJsPrompt(view: WebView?, url: String?, message: String?, defaultValue: String?, result: JsPromptResult?): Boolean {
+
+                val builder: AlertDialog.Builder = AlertDialog.Builder(view!!.context)
+
+                builder.setTitle(getString(R.string.enter_input)).setMessage(message)
+
+                val et = EditText(view.context)
+                et.setSingleLine()
+                et.setText(defaultValue)
+                builder.setView(et)
+                        .setPositiveButton(getString(R.string.ok)) { _, _ ->
+                            if (!et.text.toString().isNullOrEmpty()) {
+                                result!!.confirm(et.text.toString())
+                            } else {
+                                result!!.cancel()
+                            }
+
+                        }
+                        .setNeutralButton(getString(R.string.cancel)) { _, _ -> result!!.cancel() }
+
+                builder.setCancelable(false)
+                val dialog = builder.create()
+                dialog.show()
+                return true
             }
         }
     }
@@ -72,5 +121,4 @@ class CodeOutputFragment(val code: String) : BottomSheetDialogFragment() {
     fun getScreenHeight(): Int {
         return Resources.getSystem().displayMetrics.heightPixels
     }
-
 }
