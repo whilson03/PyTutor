@@ -59,18 +59,39 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/question_text" />
 
-            <com.olabode.wilson.pytutor.views.CodeViewer
-                android:id="@+id/solution_view"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/solution_layout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="8dp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/show_solution_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/show_solution_button"
-                tools:visibility="visible" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="invisible"
+                tools:visibility="visible">
 
+                <com.olabode.wilson.pytutor.views.CodeViewer
+                    android:id="@+id/solution_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@id/runCode"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/runCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/run"
+                    app:layout_constraintTop_toBottomOf="@id/solution_view"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/white"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
