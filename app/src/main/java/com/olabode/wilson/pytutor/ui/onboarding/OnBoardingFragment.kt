@@ -57,7 +57,7 @@ class OnBoardingFragment : Fragment(R.layout.fragment_on_boarding) {
     private fun onBoardingItems(): List<IntroSlideItem> {
         return listOf(
                 IntroSlideItem(
-                        "You have to wrestle",
+                        "Learn On the GO!",
                         "Not earth or space, realize the faith.The surrender is an evil self.",
                         R.drawable.ic_coder_girl
                 ),
