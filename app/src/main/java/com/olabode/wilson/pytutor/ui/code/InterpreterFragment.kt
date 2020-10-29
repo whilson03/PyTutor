@@ -59,7 +59,7 @@ class InterpreterFragment : Fragment(R.layout.fragment_interpreter) {
     }
 
     private fun executeCode(code: String) {
-        CodeOutputFragment(code).show(parentFragmentManager, "CodeSheet")
+        findNavController().navigate(InterpreterFragmentDirections.actionInterpreterFragmentToCodeOutputFragment(code))
     }
 
 
