@@ -14,6 +14,7 @@ import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentOnBoardingBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.IntroSlideItem
+import com.olabode.wilson.pytutor.ui.tutorial.DepthPageTransformer
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -29,6 +30,7 @@ class OnBoardingFragment : Fragment(R.layout.fragment_on_boarding) {
 
         adapter = OnboardingAdapter(onBoardingItems())
         binding.introSliderViewPager.adapter = adapter
+        binding.introSliderViewPager.setPageTransformer(DepthPageTransformer())
         setupIndicators()
         setCurrentIndicator(index = 0)
         binding.introSliderViewPager.registerOnPageChangeCallback(object :
