@@ -9,11 +9,11 @@ import androidx.navigation.fragment.navArgs
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentExerciseContentBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
-import com.olabode.wilson.pytutor.ui.code.CodeOutputFragment
 
 /**
  * Created by Ogheneruona Onobrakpeya on 10/10/20.
  */
+
 class ExerciseFragment: Fragment(R.layout.fragment_exercise_content) {
     private val binding by viewBinding(FragmentExerciseContentBinding::bind)
     private val args: ExerciseFragmentArgs by navArgs()
@@ -35,7 +35,7 @@ class ExerciseFragment: Fragment(R.layout.fragment_exercise_content) {
         }
 
         binding.runCode.setOnClickListener {
-            CodeOutputFragment(exercise.solution).show(parentFragmentManager, "CodeSheet")
+            findNavController().navigate(ExerciseFragmentDirections.actionExerciseFragmentToCodeOutputFragment(exercise.solution))
         }
 
         binding.toolbar.setNavigationOnClickListener {findNavController().navigateUp()}
