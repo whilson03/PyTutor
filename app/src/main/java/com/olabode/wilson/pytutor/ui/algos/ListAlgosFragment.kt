@@ -11,6 +11,7 @@ import com.olabode.wilson.pytutor.databinding.FragmentListAlgosBinding
 import com.olabode.wilson.pytutor.extensions.hide
 import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.utils.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,10 +25,8 @@ class ListAlgosFragment : Fragment(R.layout.fragment_list_algos) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter = AlgorithmListAdapter { algorithm ->
-            findNavController().navigate(
-                    ListAlgosFragmentDirections
-                            .actionListAlgosFragmentToAlgorithmFragment(algorithm, algorithm.title)
-            )
+            navigateSafe(ListAlgosFragmentDirections
+                .actionListAlgosFragmentToAlgorithmFragment(algorithm, algorithm.title))
         }
         binding.algoList.adapter = adapter
 
