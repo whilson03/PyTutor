@@ -29,9 +29,9 @@ interface TopicsDao {
     @Query("UPDATE topics_table SET  is_completed = 1 , stars=:stars WHERE topicId =:topicId")
     suspend fun updateCompletedCourse(topicId: String, stars: Float)
 
-    @Query("UPDATE topics_table SET is_locked = 0 WHERE order_key =:orderKey")
-    suspend fun unlockNextTopic(orderKey: Int)
+    @Query("UPDATE topics_table SET is_locked = 0 WHERE topicId =:topicId")
+    suspend fun unlockNextTopic(topicId: String)
 
-    @Query("SELECT * FROM topics_table WHERE order_key=:orderKey")
-    fun getTopic(orderKey: Int): TopicCacheEntity?
+    @Query("SELECT * FROM topics_table WHERE topicId=:topicId")
+    fun getTopic(topicId: String): TopicCacheEntity?
 }

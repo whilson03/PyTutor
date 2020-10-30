@@ -100,25 +100,24 @@ class UserRepositoryImpl @Inject constructor(
     }.flowOn(Dispatchers.IO)
 
     override fun updateCourse(
-        topicKey: String,
-        rating: Float,
-        orderKey: Int
+            topicId: String,
+            rating: Float,
+            nextTopicId: String?
     ): Flow<DataState<String>> = flow {
         emit(DataState.Loading)
-        val nextCourseKey = orderKey + 1
-        Timber.e(nextCourseKey.toString())
 
-        val completedCourse = mapOf(topicKey to rating)
-        topicsDao.updateCompletedCourse(topicKey, rating)
-        topicsDao.unlockNextTopic(nextCourseKey)
+        val completedCourse = mapOf(topicId to rating)
+
+        topicsDao.updateCompletedCourse(topicId, rating)
+        nextTopicId?.let { topicsDao.unlockNextTopic(it) }
 
         remoteDatabase
-            .collection(RemoteDatabaseKeys.NODE_USERS)
-            .document(getUserId())
-            .set(
-                mapOf(RemoteDatabaseKeys.FIELD_COURSES_COMPLETED to completedCourse),
-                SetOptions.merge()
-            ).await()
+                .collection(RemoteDatabaseKeys.NODE_USERS)
+                .document(getUserId())
+                .set(
+                        mapOf(RemoteDatabaseKeys.FIELD_COURSES_COMPLETED to completedCourse),
+                        SetOptions.merge()
+                ).await()
 
         emit(DataState.Success(Messages.GENERIC_SUCCESS))
     }.catch { error ->

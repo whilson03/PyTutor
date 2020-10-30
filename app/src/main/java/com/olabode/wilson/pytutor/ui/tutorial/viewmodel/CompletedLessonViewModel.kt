@@ -13,19 +13,19 @@ import com.olabode.wilson.pytutor.utils.states.DataState
  *   Created by OLABODE WILSON on 9/22/20.
  */
 class CompletedLessonViewModel @ViewModelInject constructor(
-    private val userRepository: UserRepository,
-    private val tutorialRepository: TutorialRepository
+        private val userRepository: UserRepository,
+        private val tutorialRepository: TutorialRepository
 ) : ViewModel() {
 
-    fun getNextTopic(orderKey: Int): LiveData<DataState<Topic>> {
-        return tutorialRepository.getNextTopic(orderKey.plus(1)).asLiveData()
+    fun getNextTopic(topicId: String): LiveData<DataState<Topic>> {
+        return tutorialRepository.getNextTopic(topicId).asLiveData()
     }
 
     fun onCourseCompleted(
-        topicId: String,
-        rating: Float,
-        orderKey: Int
+            topicId: String,
+            rating: Float,
+            nextTopicId: String?
     ): LiveData<DataState<String>> {
-        return userRepository.updateCourse(topicId, rating, orderKey).asLiveData()
+        return userRepository.updateCourse(topicId, rating, nextTopicId).asLiveData()
     }
 }
