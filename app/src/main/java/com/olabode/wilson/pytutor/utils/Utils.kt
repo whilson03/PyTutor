@@ -40,6 +40,4 @@ object Utils {
         val maxRating = NO_STARS
         return maxRating / numberOfQuestions * score
     }
-
-
 }

@@ -72,4 +72,6 @@
     <string name="skip_intro">Skip</string>
     <string name="enter_input">Enter Input</string>
     <string name="ok">OK</string>
+    <string name="cannot_retrieve_user">Failed To Retrieve User Details</string>
+    <string name="updating">Updating</string>
 </resources>

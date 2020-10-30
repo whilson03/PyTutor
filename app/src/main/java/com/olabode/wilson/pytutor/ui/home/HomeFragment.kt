@@ -1,6 +1,5 @@
 package com.olabode.wilson.pytutor.ui.home
 
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -12,6 +11,9 @@ import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentHomeBinding
+import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.show
+import com.olabode.wilson.pytutor.extensions.showUserProgress
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.ui.profile.ProfileViewModel
@@ -30,16 +32,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel.userDetails.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is DataState.Success -> {
-                    binding.nameField.visibility = View.VISIBLE
+                    binding.nameField.show()
                     setupUserDetails(result.data)
                 }
                 is DataState.Error -> {
-                    binding.nameField.visibility = View.INVISIBLE
+                    binding.nameField.hide()
                     Toast.makeText(
-                        requireContext(),
-                        "Failed To Retrieve User Details",
-                        Toast.LENGTH_SHORT
+                            requireContext(),
+                            getString(R.string.cannot_retrieve_user),
+                            Toast.LENGTH_SHORT
                     ).show()
+                }
+                else -> {
                 }
             }
 
@@ -47,8 +51,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.cardOne.setOnClickListener {
             findNavController().navigate(
-                HomeFragmentDirections
-                    .actionHomeFragmentToTutorialTopicsFragment()
+                    HomeFragmentDirections
+                            .actionHomeFragmentToTutorialTopicsFragment()
             )
         }
 
@@ -81,18 +85,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             error(R.drawable.ic_profile_placeholder)
         }
 
-        val userProgress = getUserProgress(user).toInt()
+        val userProgress = user.getUserProgress()
         binding.percentText.text = getString(R.string.progress_level, userProgress, "%")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            binding.progressBar.setProgress(userProgress, true)
-        } else {
-            binding.progressBar.progress = userProgress
-        }
-    }
-
-    private fun getUserProgress(user: User): Float {
-        // Convert completed lessons to percentage
-        return 100 / 18f * user.completedCourses.size
+        binding.progressBar.showUserProgress(userProgress)
     }
 }
 
