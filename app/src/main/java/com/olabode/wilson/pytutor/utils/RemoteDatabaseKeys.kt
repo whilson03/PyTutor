@@ -8,8 +8,6 @@ object RemoteDatabaseKeys {
     const val NODE_TUTORIALS = "TUTORIALS"
     const val NODE_LESSONS = "LESSONS"
     const val NODE_EXERCISES = "EXERCISES"
-    const val DOC_TOPICS = "TOPICS"
-    const val ALL_TOPICS = "ALL_TOPICS"
     const val NODE_USERS = "USERS"
     const val FIELD_COURSES_COMPLETED = "completedCourses"
     const val IMAGE_STORAGE_PATH = "images/users/"

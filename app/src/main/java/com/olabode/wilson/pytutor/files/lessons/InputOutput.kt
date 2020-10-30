@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.files
+package com.olabode.wilson.pytutor.files.lessons
 
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponseType

@@ -40,7 +40,7 @@
     <string name="retry">Retry</string>
     <string name="no_internet_text">Your Device seems Offline.\nCheck Internet Connection then retry.</string>
     <string name="verify_email">Verify Email,</string>
-    <string name="resend_email_verification_link">Resend email verification link</string>
+    <string name="resend_email_verification_link">Didn"t get an email verification link ? </string>
     <string name="back_to_login">back to Login</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="reset_your_password">Reset your password!</string>
@@ -70,4 +70,9 @@
     <string name="colon">:</string>
     <string name="output">Output</string>
     <string name="skip_intro">Skip</string>
+    <string name="enter_input">Enter Input</string>
+    <string name="ok">OK</string>
+    <string name="cannot_retrieve_user">Failed To Retrieve User Details</string>
+    <string name="updating">Updating</string>
+    <string name="resend_verification_link">Resend Verification link</string>
 </resources>

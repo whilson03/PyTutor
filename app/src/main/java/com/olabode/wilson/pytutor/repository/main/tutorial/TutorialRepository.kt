@@ -18,5 +18,5 @@ interface TutorialRepository {
 
     suspend fun clearTopics()
 
-    fun getNextTopic(orderKey: Int): Flow<DataState<Topic>>
+    fun getNextTopic(topicId: String): Flow<DataState<Topic>>
 }

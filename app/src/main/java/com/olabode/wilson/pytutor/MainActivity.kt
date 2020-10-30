@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.databinding.ActivityMainBinding
 import com.olabode.wilson.pytutor.extensions.hide
 import com.olabode.wilson.pytutor.extensions.show
@@ -80,6 +81,10 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 e.printStackTrace()
             }
         }
+    }
+
+    override fun onNewSnackBarMessage(message: String) {
+        Snackbar.make(binding.rootLayout, message, Snackbar.LENGTH_LONG).show()
     }
 
 

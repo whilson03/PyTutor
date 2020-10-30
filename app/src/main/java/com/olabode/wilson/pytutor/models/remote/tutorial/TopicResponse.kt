@@ -6,31 +6,37 @@ package com.olabode.wilson.pytutor.models.remote.tutorial
 
 data class TopicResponse(
 
-    var orderKey: Int,
+        var orderKey: Int,
 
-    var title: String,
+        var title: String,
 
-    var description: String,
+        var description: String,
 
-    var noOfPages: Int,
+        var noOfPages: Int,
 
-    var topicId: String,
+        var topicId: String,
 
-    var isLocked: Boolean,
+        var isLocked: Boolean,
 
-    var isCompleted: Boolean,
+        var isCompleted: Boolean,
 
-    var stars: Float
+        var stars: Float,
+        @field:JvmField
+        val isLastTopic: Boolean = false,
+
+        var nextTopicId: String? = null
 ) {
 
     constructor() : this(
-        0,
-        "",
-        "",
-        0,
-        "",
-        true,
-        true,
-        0f
+            0,
+            "",
+            "",
+            0,
+            "",
+            true,
+            true,
+            0f,
+            false,
+            null
     )
 }
