@@ -11,11 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.UICommunicator
 import com.olabode.wilson.pytutor.databinding.FragmentSignUpBinding
-import com.olabode.wilson.pytutor.extensions.disableClick
-import com.olabode.wilson.pytutor.extensions.enableClick
-import com.olabode.wilson.pytutor.extensions.hide
-import com.olabode.wilson.pytutor.extensions.show
-import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.extensions.*
 import com.olabode.wilson.pytutor.ui.auth.AuthUtils
 import com.olabode.wilson.pytutor.ui.auth.SignUpViewModel
 import com.olabode.wilson.pytutor.ui.auth.ValidationStates
@@ -101,7 +97,9 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
                 is AuthResult.Success -> {
                     binding.progressBarLayout.root.hide()
-                    signUpViewModel.snackBarMessage(result.data)
+                    binding.signIn.enableClick()
+                    uiCommunicator.onNewSnackBarMessage(result.data)
+                    findNavController().navigateUp()
                 }
             }
         })
