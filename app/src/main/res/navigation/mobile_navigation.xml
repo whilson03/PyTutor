@@ -257,6 +257,9 @@
         <argument
             android:name="exercise"
             app:argType="com.olabode.wilson.pytutor.models.Exercise" />
+        <action
+            android:id="@+id/action_exerciseFragment_to_codeOutputFragment"
+            app:destination="@id/codeOutputFragment" />
     </fragment>
     <fragment
         android:id="@+id/exerciseListFragment"
@@ -271,7 +274,11 @@
         android:id="@+id/interpreterFragment"
         android:name="com.olabode.wilson.pytutor.ui.code.InterpreterFragment"
         android:label="fragment_interpreter"
-        tools:layout="@layout/fragment_interpreter" />
+        tools:layout="@layout/fragment_interpreter" >
+        <action
+            android:id="@+id/action_interpreterFragment_to_codeOutputFragment"
+            app:destination="@id/codeOutputFragment" />
+    </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
         android:name="com.olabode.wilson.pytutor.ui.onboarding.OnBoardingFragment"
@@ -286,4 +293,13 @@
             app:popUpTo="@id/mobile_navigation.xml"
             app:popUpToInclusive="true" />
     </fragment>
+    <dialog
+        android:id="@+id/codeOutputFragment"
+        android:name="com.olabode.wilson.pytutor.ui.code.CodeOutputFragment"
+        android:label="CodeOutputFragment"
+        tools:layout="@layout/fragment_code_output">
+        <argument
+            android:name="code"
+            app:argType="string" />
+    </dialog>
 </navigation>
