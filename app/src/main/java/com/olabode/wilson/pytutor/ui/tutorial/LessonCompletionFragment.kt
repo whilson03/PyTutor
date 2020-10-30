@@ -45,15 +45,8 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
         viewModel.onCourseCompleted(topic.topicId, scoreRating, topic.nextTopicsId)
                 .observe(viewLifecycleOwner, Observer {
                     when (it) {
-                        is DataState.Success -> {
-                            Timber.d("SUCCESS")
-                        }
-
-                        is DataState.Error -> {
-                            Timber.d(it.message)
-                        }
-                        else -> {
-
+                        is DataState.Success -> Timber.d("SUCCESS")
+                        else -> { /* no-op */
                         }
                     }
                 })
