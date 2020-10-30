@@ -12,9 +12,9 @@
             android:id="@+id/action_homeFragment_to_tutorialTopicsFragment"
             app:destination="@id/tutorialTopicsFragment"
             app:enterAnim="@anim/slide_up"
-            app:exitAnim="@anim/slide_down"
+            app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/slide_up"
-            app:popExitAnim="@anim/slide_down"
+            app:popExitAnim="@anim/fade_out"
             app:popUpTo="@id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_listAlgosFragment"
@@ -34,9 +34,9 @@
             android:id="@+id/action_homeFragment_to_interpreterFragment"
             app:destination="@id/interpreterFragment"
             app:enterAnim="@anim/slide_up"
-            app:exitAnim="@anim/slide_down"
+            app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/slide_up"
-            app:popExitAnim="@anim/slide_down" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
 
@@ -86,7 +86,14 @@
         <fragment
             android:id="@+id/verifyPasswordFragment"
             android:name="com.olabode.wilson.pytutor.ui.auth.verification.VerifyPasswordFragment"
-            tools:layout="@layout/fragment_verify_password" />
+            tools:layout="@layout/fragment_verify_password">
+            <argument
+                android:name="email"
+                app:argType="string" />
+            <argument
+                android:name="password"
+                app:argType="string" />
+        </fragment>
         <fragment
             android:id="@+id/resetPasswordFragment"
             android:name="com.olabode.wilson.pytutor.ui.auth.resetpassword.ResetPasswordFragment"

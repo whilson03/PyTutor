@@ -5,4 +5,7 @@ package com.olabode.wilson.pytutor
  */
 interface UICommunicator {
     fun hideSoftKeyBoard()
+
+    fun onNewSnackBarMessage(message: String)
+
 }

@@ -20,17 +20,9 @@ import com.olabode.wilson.pytutor.utils.Messages
 import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
 import com.olabode.wilson.pytutor.utils.states.AuthResult
 import com.olabode.wilson.pytutor.utils.states.DataState
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.cancel
+import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import java.io.File
@@ -108,29 +100,28 @@ class UserRepositoryImpl @Inject constructor(
     }.flowOn(Dispatchers.IO)
 
     override fun updateCourse(
-        topicKey: String,
-        rating: Float,
-        orderKey: Int
+            topicId: String,
+            rating: Float,
+            nextTopicId: String?
     ): Flow<DataState<String>> = flow {
         emit(DataState.Loading)
-        val nextCourseKey = orderKey + 1
-        Timber.e(nextCourseKey.toString())
 
-        val completedCourse = mapOf(topicKey to rating)
-        topicsDao.updateCompletedCourse(topicKey, rating)
-        topicsDao.unlockNextTopic(nextCourseKey)
+        val completedCourse = mapOf(topicId to rating)
+
+        topicsDao.updateCompletedCourse(topicId, rating)
+        nextTopicId?.let { topicsDao.unlockNextTopic(it) }
 
         remoteDatabase
-            .collection(RemoteDatabaseKeys.NODE_USERS)
-            .document(getUserId())
-            .set(
-                mapOf(RemoteDatabaseKeys.FIELD_COURSES_COMPLETED to completedCourse),
-                SetOptions.merge()
-            ).await()
+                .collection(RemoteDatabaseKeys.NODE_USERS)
+                .document(getUserId())
+                .set(
+                        mapOf(RemoteDatabaseKeys.FIELD_COURSES_COMPLETED to completedCourse),
+                        SetOptions.merge()
+                ).await()
 
         emit(DataState.Success(Messages.GENERIC_SUCCESS))
     }.catch { error ->
-        emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+        emit(DataState.Error(null, error.message.toString()))
         Timber.e(error)
     }.flowOn(Dispatchers.IO)
 

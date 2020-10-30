@@ -10,4 +10,11 @@ object Constants {
     const val DATABASE_NAME = "PYTUTOR_DATABASE"
     const val PASSWORD_LENGTH = 8
     const val REQUEST_CAMERA_PERMISSION = 9
+    const val UPLOAD_IMAGE_DIALOG_TAG = "UPLOAD_IMAGE_DIALOG"
+    const val REQUEST_IMAGE_FROM_GALLERY = 0
+    const val APP_FILE_PROVIDER_NAME = "com.olabode.wilson.pytutor.fileprovider"
+    const val REQUEST_IMAGE_CAPTURE = 100
+    const val MARKET_BASE_URL = "http://play.google.com/store/apps/details?id="
+    const val PRIVACY_POLICY_LINK = "https://whilson03.wixsite.com/wilsontech/post/privacy-policy"
+    const val FEEDBACK_EMAIL = "whilson03@gmail.com"
 }

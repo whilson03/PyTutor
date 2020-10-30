@@ -18,3 +18,16 @@ Check Armstrong Number
 Find the Factorial of a Number
 Check Palindrome number
 Reverse a number
+
+Concatenate all elements in a list
+Find the LCM of two positive numbers
+Find the GCD of two positive numbers
+Calculate the distance between 2 points
+Calculate the sum of the digits in an integer
+Check if a word is a palindrome
+Find the midpoint of a line
+Find the Character Count in a String
+Swap two variables
+Filter Positive Numbers from a List
+Check if a Number is Divisible by Another
+Implement the Pythagorean Theorem

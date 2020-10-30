@@ -2,13 +2,14 @@ package com.olabode.wilson.pytutor.ui.algos
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentListAlgosBinding
+import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.utils.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
@@ -37,21 +38,21 @@ class ListAlgosFragment : Fragment(R.layout.fragment_list_algos) {
         viewModel.algorithms.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is DataState.Loading -> {
-                    binding.progressBar.isVisible = true
-                    binding.noInternetState.root.isVisible = false
+                    binding.progressBar.show()
+                    binding.noInternetState.root.hide()
                 }
 
                 is DataState.Success -> {
-                    binding.progressBar.isVisible = false
-                    binding.mainPage.isVisible = true
-                    binding.noInternetState.root.isVisible = false
+                    binding.progressBar.hide()
+                    binding.mainPage.show()
+                    binding.noInternetState.root.hide()
                     adapter.submitList(result.data)
                 }
 
                 is DataState.Error -> {
-                    binding.progressBar.isVisible = false
-                    binding.noInternetState.root.isVisible = true
-                    binding.mainPage.isVisible = false
+                    binding.progressBar.hide()
+                    binding.noInternetState.root.show()
+                    binding.mainPage.hide()
                 }
             }
         })

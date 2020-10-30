@@ -102,7 +102,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     findNavController()
                             .navigate(
                                     LoginFragmentDirections
-                                            .actionLoginFragmentToVerifyPasswordFragment()
+                                            .actionLoginFragmentToVerifyPasswordFragment(
+                                                    email, password
+                                            )
                             )
                 }
             }

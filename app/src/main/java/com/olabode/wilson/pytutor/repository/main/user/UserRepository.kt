@@ -17,7 +17,7 @@ interface UserRepository {
 
     fun getLoggedInUserDetails(userId: String): Flow<DataState<User>>
 
-    fun updateCourse(topicKey: String, rating: Float, orderKey: Int): Flow<DataState<String>>
+    fun updateCourse(topicId: String, rating: Float, nextTopicId: String?): Flow<DataState<String>>
 
     fun getUserId(): String
 
