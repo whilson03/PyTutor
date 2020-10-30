@@ -12,9 +12,9 @@
             android:id="@+id/action_homeFragment_to_tutorialTopicsFragment"
             app:destination="@id/tutorialTopicsFragment"
             app:enterAnim="@anim/slide_up"
-            app:exitAnim="@anim/slide_down"
+            app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/slide_up"
-            app:popExitAnim="@anim/slide_down"
+            app:popExitAnim="@anim/fade_out"
             app:popUpTo="@id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_listAlgosFragment"

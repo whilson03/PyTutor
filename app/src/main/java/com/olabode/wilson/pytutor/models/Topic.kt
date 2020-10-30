@@ -10,14 +10,16 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Topic(
-    val orderKey: Int,
-    val title: String,
-    val description: String,
-    val noOfPages: Int,
-    var topicId: String,
-    var isLocked: Boolean,
-    var isCompleted: Boolean,
-    var numOfStars: Float = 0f
+        val orderKey: Int,
+        val title: String,
+        val description: String,
+        val noOfPages: Int,
+        var topicId: String,
+        var isLocked: Boolean,
+        var isCompleted: Boolean,
+        var numOfStars: Float = 0f,
+        val isLastTopic: Boolean = false,
+        val nextTopicsId: String? = null
 ) : Parcelable {
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Topic>() {

@@ -18,12 +18,7 @@ import com.olabode.wilson.pytutor.utils.RemoteDatabaseKeys
 import com.olabode.wilson.pytutor.utils.states.DataState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -143,10 +138,9 @@ class TutorialRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getNextTopic(orderKey: Int): Flow<DataState<Topic>> = flow {
+    override fun getNextTopic(topicId: String): Flow<DataState<Topic>> = flow {
         emit(DataState.Loading)
-
-        val nextTopic = topicsDao.getTopic(orderKey)
+        val nextTopic = topicsDao.getTopic(topicId)
 
         if (nextTopic != null) {
             emit(DataState.Success(topicCacheMapper.mapFromEntity(nextTopic)))
