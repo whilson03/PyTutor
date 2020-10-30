@@ -12,11 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.UICommunicator
 import com.olabode.wilson.pytutor.databinding.FragmentResetPasswordBinding
-import com.olabode.wilson.pytutor.extensions.disableClick
-import com.olabode.wilson.pytutor.extensions.enableClick
-import com.olabode.wilson.pytutor.extensions.hide
-import com.olabode.wilson.pytutor.extensions.show
-import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.extensions.*
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -63,7 +59,8 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
                 is DataState.Success -> {
                     binding.progressBarLayout.root.hide()
                     binding.resetPassword.enableClick()
-                    showSnackBar(result.data)
+                    uiCommunicator.onNewSnackBarMessage(result.data)
+                    findNavController().navigateUp()
                 }
 
                 is DataState.Error -> {
@@ -71,7 +68,6 @@ class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
                     binding.resetPassword.enableClick()
                     showSnackBar(result.message)
                 }
-
             }
         })
     }
