@@ -1,11 +1,14 @@
 package com.olabode.wilson.pytutor.extensions
 
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.os.Build
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
 import android.widget.RatingBar
 import androidx.core.view.isVisible
+import com.olabode.wilson.pytutor.R
 
 /**
  *   Created by OLABODE WILSON on 10/8/20.
@@ -40,5 +43,10 @@ fun ProgressBar.showUserProgress(progress: Int) {
     } else {
         this.progress = progress
     }
+}
+
+fun View.setUpAnimation(context: Context) {
+    val anim = AnimationUtils.loadAnimation(context, R.anim.splash_screen_logo_animation)
+    this.animation = anim
 }
 

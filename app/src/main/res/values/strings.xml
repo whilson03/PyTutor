@@ -75,4 +75,10 @@
     <string name="cannot_retrieve_user">Failed To Retrieve User Details</string>
     <string name="updating">Updating</string>
     <string name="resend_verification_link">Resend Verification link</string>
+    <string name="onboardingTitle1">Code on the Go!</string>
+    <string name="onboardingSubtitle1">Learn to code anywhere, anytime at your own pace.</string>
+    <string name="onboardingTitle2">Offline Interpreter</string>
+    <string name="onboardingSubtitle2">Run your python codes for free.</string>
+    <string name="onboardingTitle3">Challenge Yourself</string>
+    <string name="onboardingSubtitle3">Practice questions and algorithms to put your skills to test.</string>
 </resources>
