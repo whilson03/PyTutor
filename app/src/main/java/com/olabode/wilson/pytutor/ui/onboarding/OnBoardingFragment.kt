@@ -59,18 +59,18 @@ class OnBoardingFragment : Fragment(R.layout.fragment_on_boarding) {
     private fun onBoardingItems(): List<IntroSlideItem> {
         return listOf(
                 IntroSlideItem(
-                        "Learn On the GO!",
-                        "Not earth or space, realize the faith.The surrender is an evil self.",
+                        getString(R.string.onboardingTitle1),
+                        getString(R.string.onboardingSubtitle1),
                         R.drawable.ic_coder_girl
                 ),
                 IntroSlideItem(
-                        "You have to wrestle",
-                        "Not earth or space, realize the faith.The surrender is an evil self.",
+                        getString(R.string.onboardingTitle2),
+                        getString(R.string.onboardingSubtitle2),
                         R.drawable.ic_programmer
                 ),
                 IntroSlideItem(
-                        "You have to wrestle",
-                        "Not earth or space, realize the faith.The surrender is an evil self.",
+                        getString(R.string.onboardingTitle3),
+                        getString(R.string.onboardingSubtitle3),
                         R.drawable.ic_coder_robot
                 )
         )
