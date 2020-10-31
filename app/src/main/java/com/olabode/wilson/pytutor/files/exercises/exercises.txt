@@ -31,3 +31,6 @@ Swap two variables
 Filter Positive Numbers from a List
 Check if a Number is Divisible by Another
 Implement the Pythagorean Theorem
+
+FizzBuzz Challenge
+Print Even Numbers
