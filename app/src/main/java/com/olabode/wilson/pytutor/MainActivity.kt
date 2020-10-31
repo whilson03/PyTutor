@@ -40,14 +40,6 @@ class MainActivity : AppCompatActivity(), UICommunicator {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.homeFragment -> {
-                    bottomNavigationView.show()
-                }
-
-                R.id.tutorialTopicsFragment, R.id.viewTutorialsFragment -> {
-                    bottomNavigationView.hide()
-                }
-
                 R.id.loginFragment,
                 R.id.signUpFragment,
                 R.id.lessonCompletionFragment,
@@ -59,7 +51,10 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 R.id.exerciseListFragment,
                 R.id.exerciseFragment,
                 R.id.interpreterFragment,
-                R.id.onBoardingFragment
+                R.id.onBoardingFragment,
+                R.id.tutorialTopicsFragment,
+                R.id.viewTutorialsFragment,
+                R.id.codeOutputFragment
                 -> {
                     bottomNavigationView.hide()
                 }
