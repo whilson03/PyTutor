@@ -538,15 +538,29 @@ fun listOfExercises() = listOf<ExerciseResponse>(
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "FizzBuzz Challenge",
+                question = "Write a Python program which iterates the integers from 1 to 100. For multiples of three print \"Fizz\" instead of the number and for the multiples of five print \"Buzz\". For numbers which are multiples of both three and five print \"FizzBuzz\".",
+                solution = "for number in range(1, 101):\n" +
+                        "    if number % 3 == 0 and number % 5 == 0:\n" +
+                        "        print(\"FizzBuzz\")\n" +
+                        "    elif number % 3 == 0:\n" +
+                        "        print(\"Fizz\")\n" +
+                        "    elif number % 5 == 0:\n" +
+                        "        print(\"Buzz\")\n"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Print Even Numbers",
+                question = "Print the even numbers from 1 to 100.",
+                solution = "def checkEven(num):\n" +
+                        "    if num % 2 == 0:\n" +
+                        "        return True\n" +
+                        "    else:\n" +
+                        "        return False\n" +
+                        "\n" +
+                        "for num in range(1, 101):\n" +
+                        "    if checkEven(num):\n" +
+                        "        print(num)"
 
         ),
         ExerciseResponse(
