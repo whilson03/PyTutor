@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentSplashScreenBinding
+import com.olabode.wilson.pytutor.extensions.setUpAnimation
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.utils.Constants
 import com.olabode.wilson.pytutor.utils.states.AuthResult
@@ -26,6 +27,7 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.splashIcon.setUpAnimation(requireContext())
 
         Handler().postDelayed({
             context?.let {
@@ -55,4 +57,5 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
             observeAuthState()
         }
     }
+
 }
