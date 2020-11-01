@@ -8,18 +8,13 @@ import androidx.lifecycle.asLiveData
 import com.olabode.wilson.pytutor.repository.auth.AuthRepository
 import com.olabode.wilson.pytutor.utils.Event
 import com.olabode.wilson.pytutor.utils.states.AuthResult
-import timber.log.Timber
 
 /**
  *   Created by OLABODE WILSON on 10/8/20.
  */
 class LoginViewModel @ViewModelInject constructor(
-    private val authRepository: AuthRepository
+        private val authRepository: AuthRepository
 ) : ViewModel() {
-
-    init {
-        Timber.e("LoginViewModel created")
-    }
 
     // snack bar event
     private val _showSnackBar = MutableLiveData<Event<String>>()
@@ -28,18 +23,13 @@ class LoginViewModel @ViewModelInject constructor(
 
     fun snackBarMessage(message: String) {
         _showSnackBar.value =
-            Event(message)
+                Event(message)
     }
 
     fun loginUser(
-        email: String,
-        password: String
+            email: String,
+            password: String
     ): LiveData<AuthResult<String>> {
         return authRepository.loginUser(email, password).asLiveData()
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        Timber.e("Login CLEARED")
     }
 }

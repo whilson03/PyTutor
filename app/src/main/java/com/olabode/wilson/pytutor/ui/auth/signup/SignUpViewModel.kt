@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.ui.auth
+package com.olabode.wilson.pytutor.ui.auth.signup
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -8,40 +8,30 @@ import androidx.lifecycle.asLiveData
 import com.olabode.wilson.pytutor.repository.auth.AuthRepository
 import com.olabode.wilson.pytutor.utils.Event
 import com.olabode.wilson.pytutor.utils.states.AuthResult
-import timber.log.Timber
 
 /**
  *   Created by OLABODE WILSON on 9/6/20.
  */
 class SignUpViewModel @ViewModelInject constructor(
-    private val authRepository: AuthRepository
+        private val authRepository: AuthRepository
 ) : ViewModel() {
-
-    init {
-        Timber.e("AuthViewModel created")
-    }
 
     private val _showSnackBar = MutableLiveData<Event<String>>()
     val showSnackBar: LiveData<Event<String>>
         get() = _showSnackBar
 
     fun snackBarMessage(message: String) {
-        _showSnackBar.value =
-            Event(message)
+        _showSnackBar.value = Event(message)
     }
 
     fun registerNewUser(
-        fullName: String,
-        email: String,
-        password: String,
-        confirmPassword: String
+            fullName: String,
+            email: String,
+            password: String,
+            confirmPassword: String
     ): LiveData<AuthResult<String>> {
         return authRepository.registerNewUser(fullName, email, password, confirmPassword)
-            .asLiveData()
+                .asLiveData()
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        Timber.e("AUTHVIEWMODEL CLEARED")
-    }
 }

@@ -9,5 +9,5 @@ import kotlinx.coroutines.flow.Flow
  */
 interface AlgorithmRepository {
 
-    fun fectchAllAlgorithms(): Flow<DataState<List<Algorithm>>>
+    fun fetchAllAlgorithms(): Flow<DataState<List<Algorithm>>>
 }

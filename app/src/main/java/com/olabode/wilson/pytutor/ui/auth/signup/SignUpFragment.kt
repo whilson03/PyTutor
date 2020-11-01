@@ -13,7 +13,6 @@ import com.olabode.wilson.pytutor.UICommunicator
 import com.olabode.wilson.pytutor.databinding.FragmentSignUpBinding
 import com.olabode.wilson.pytutor.extensions.*
 import com.olabode.wilson.pytutor.ui.auth.AuthUtils
-import com.olabode.wilson.pytutor.ui.auth.SignUpViewModel
 import com.olabode.wilson.pytutor.ui.auth.ValidationStates
 import com.olabode.wilson.pytutor.utils.EventObserver
 import com.olabode.wilson.pytutor.utils.states.AuthResult
@@ -100,6 +99,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                     binding.signIn.enableClick()
                     uiCommunicator.onNewSnackBarMessage(result.data)
                     findNavController().navigateUp()
+                }
+                else -> {/* no-op */
                 }
             }
         })

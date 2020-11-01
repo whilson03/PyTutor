@@ -29,15 +29,15 @@ class AlgorithmRepositoryImpl @Inject constructor(
     private val algorithmCacheMapper: AlgorithmCacheMapper
 ) : AlgorithmRepository {
 
-    override fun fectchAllAlgorithms(): Flow<DataState<List<Algorithm>>> = flow {
+    override fun fetchAllAlgorithms(): Flow<DataState<List<Algorithm>>> = flow {
         emit(DataState.Loading)
 
         val cachedAlgorithm = algorithmDao.getAlgorithms()
 
         if (cachedAlgorithm.isNullOrEmpty()) {
             val response = remoteDatabase
-                .collection(RemoteDatabaseKeys.NODE_ALGORITHMS)
-                .get().await()
+                    .collection(RemoteDatabaseKeys.NODE_ALGORITHMS)
+                    .get().await()
             val algorithmResponse = response.documents
 
             if (!algorithmResponse.isNullOrEmpty()) {
