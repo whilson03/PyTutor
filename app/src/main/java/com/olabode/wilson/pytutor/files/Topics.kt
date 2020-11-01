@@ -14,9 +14,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Get an overview of Python and what it entails.",
                     noOfPages = 3,
                     topicId = "introduction",
-                    isLocked = false,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = false,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
 
             TopicResponse(
@@ -25,9 +26,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Go through ways code is written in Python.You don't have to understand this yet.",
                     noOfPages = 3,
                     topicId = "",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 3,
@@ -35,9 +37,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn how to store data in variables.",
                     noOfPages = 3,
                     topicId = "variables",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
 
             TopicResponse(
@@ -46,9 +49,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn what Strings are and how to manipulate Strings.",
                     noOfPages = 3,
                     topicId = "strings",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
 
             TopicResponse(
@@ -57,9 +61,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Number data types store numeric values. Number objects are created when you assign a value to them.",
                     noOfPages = 3,
                     topicId = "numbers",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 6,
@@ -67,9 +72,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Handle user input and perform output operations.",
                     noOfPages = 3,
                     topicId = "input_output",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 7,
@@ -77,9 +83,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn about data structures.",
                     noOfPages = 3,
                     topicId = "data_structures",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 8,
@@ -87,9 +94,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn about Python lists.",
                     noOfPages = 3,
                     topicId = "lists",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 9,
@@ -97,9 +105,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn about Python tuples.",
                     noOfPages = 3,
                     topicId = "tuples",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 10,
@@ -107,9 +116,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn about Python dictionaries.",
                     noOfPages = 3,
                     topicId = "dictionaries",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 11,
@@ -117,9 +127,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn about Python sets.",
                     noOfPages = 3,
                     topicId = "sets",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
 
             TopicResponse(
@@ -128,9 +139,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn about Python operators, their order and associated types.",
                     noOfPages = 3,
                     topicId = "operators",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
 
             TopicResponse(
@@ -139,9 +151,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn flow control with if...else statements.",
                     noOfPages = 3,
                     topicId = "if_else_statements",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 14,
@@ -149,9 +162,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn flow control with for loops.",
                     noOfPages = 3,
                     topicId = "for_loops",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 15,
@@ -159,9 +173,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn flow control with while loops.",
                     noOfPages = 3,
                     topicId = "while_loops",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 16,
@@ -169,9 +184,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Use break and continue statements for further flow control.",
                     noOfPages = 3,
                     topicId = "break_continue",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 17,
@@ -179,9 +195,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn how to group procedures in functions.",
                     noOfPages = 3,
                     topicId = "functions",
-                    isLocked = true,
-                    isCompleted = false,
-                    stars = 0f
+                    locked = true,
+                    completed = false,
+                    stars = 0f,
+                    lastTopic = false
             ),
             TopicResponse(
                     orderKey = 18,
@@ -189,10 +206,10 @@ fun genTopicResponse(): List<TopicResponse> {
                     description = "Learn how to deal with exceptions.",
                     noOfPages = 3,
                     topicId = "exception_handling",
-                    isLocked = true,
-                    isCompleted = false,
+                    locked = true,
+                    completed = false,
                     stars = 0f,
-                    isLastTopic = true
+                    lastTopic = true
             )
     )
 }
