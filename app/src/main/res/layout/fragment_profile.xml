@@ -87,6 +87,7 @@
                         style="@style/profileCardItem">
 
                         <ImageView
+                            app:tint="@color/primaryLightColor"
                             android:id="@+id/privacy_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
@@ -129,6 +130,7 @@
                         style="@style/profileCardItem">
 
                         <ImageView
+                            app:tint="@color/primaryLightColor"
                             android:id="@+id/rate_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
@@ -171,6 +173,7 @@
                         style="@style/profileCardItem">
 
                         <ImageView
+                            app:tint="@color/primaryLightColor"
                             android:id="@+id/feedback_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="0dp"
@@ -225,6 +228,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout style="@style/profileCardItem">
 
                 <ImageView
+                    app:tint="@color/primaryLightColor"
                     android:id="@+id/sign_out_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
