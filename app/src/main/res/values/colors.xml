@@ -11,7 +11,7 @@
 
     <color name="orange">#CC7832</color>
     <color name="darkGrey">#272822</color>
-    <color name="dividerColor">#f57800</color>
+    <color name="dividerColor">#BDBDBD</color>
     <color name="white">#FFFFFF</color>
     <color name="off_white">#e0e0e0</color>
     <color name="gray">#88898b</color>
@@ -28,11 +28,11 @@
     <color name="item2Start">#4D79FF</color>
     <color name="item2End">#0039E6</color>
 
-    <color name="item3Start">#993399</color>
-    <color name="item3End">#602060</color>
+    <color name="item3Start">#AD64BA</color>
+    <color name="item3End">#9E43ED</color>
 
-    <color name="item4Start">#00B33C</color>
-    <color name="item4End">#006622</color>
+    <color name="item4Start">#24DF63</color>
+    <color name="item4End">#048730</color>
 
     <color name="colorEndBackground">#50FFFFFF</color>
     <color name="colorLightText">#ECECEC</color>
