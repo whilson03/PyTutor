@@ -23,11 +23,11 @@ class TopicNetworkMapper @Inject constructor() :
                 topicId = entity.topicId,
                 title = entity.title,
                 description = entity.description,
-                isCompleted = entity.isCompleted,
-                isLocked = entity.isLocked,
+                isCompleted = entity.completed,
+                isLocked = entity.locked,
                 noOfPages = entity.noOfPages,
                 numOfStars = entity.stars,
-                isLastTopic = entity.isLastTopic,
+                isLastTopic = entity.lastTopic,
                 nextTopicsId = entity.nextTopicId
         )
     }
@@ -38,12 +38,12 @@ class TopicNetworkMapper @Inject constructor() :
                 topicId = domainModel.topicId,
                 title = domainModel.title,
                 description = domainModel.description,
-                isCompleted = domainModel.isCompleted,
-                isLocked = domainModel.isLocked,
+                completed = domainModel.isCompleted,
+                locked = domainModel.isLocked,
                 noOfPages = domainModel.noOfPages,
                 stars = domainModel.numOfStars,
                 nextTopicId = domainModel.nextTopicsId,
-                isLastTopic = domainModel.isLastTopic
+                lastTopic = domainModel.isLastTopic
         )
     }
 }

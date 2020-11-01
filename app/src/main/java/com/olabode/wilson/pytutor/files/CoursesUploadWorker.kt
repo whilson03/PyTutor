@@ -40,6 +40,7 @@ fun uploadCoursesAndLesson(map: Map<TopicResponse, List<LessonResponse>>) {
                 sub.add(j).await()
             }
         }
+        Timber.e("COMPLETED TOPICS AND EXERCISES UPLOAd")
     }
 }
 

@@ -34,3 +34,12 @@ Implement the Pythagorean Theorem
 
 FizzBuzz Challenge
 Print Even Numbers
+Display Diamond
+Longest Word
+Find the Shared Letters between Two Strings
+Change Every Letter to the Next Letter
+Consecutive Numbers
+Numbers in Strings
+Leader in a List
+Remove Repeated Letters
+Sum of Digits Between Two Numbers
