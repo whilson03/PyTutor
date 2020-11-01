@@ -23,7 +23,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                 question = "Write a Python program which accepts the radius of a circle from the user and compute the area.",
                 solution = "from math import pi\n" +
                         "radius = float(input (\"Input the radius of the circle : \"))\n" +
-                        "print (\"The area of the circle with radius \" + str(radius) + \" is: \" + str(pi * radius ** 2))\n"
+                        "print (\"The area of the circle with radius \" + str(radius) + \" is: \" + str(pi * radius ** 2))\n" +
+                        "Hint: Area = πr ** 2"
 
         ),
         ExerciseResponse(
@@ -37,7 +38,9 @@ fun listOfExercises() = listOf<ExerciseResponse>(
         ),
         ExerciseResponse(
                 title = "Max of Three",
-                question = "Implement a function that takes as input three variables, and returns the largest of the three. Do this without using the Python max() function!",
+                question = "Implement a function that takes as input three variables, and returns the largest of the three. Do this without using the Python max() function!\n" +
+                        "E.g Given 5 ,1 , 9\n" +
+                        "Output: 9",
                 solution = "def max_of_three(num1, num2, num3):\n" +
                         "\tif (num1 >= num2) and (num1 >= num3):\n" +
                         "   \t\tlargest = num1\n" +
@@ -46,7 +49,9 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\telse:\n" +
                         "   \t\tlargest = num3\n" +
                         "\n" +
-                        "   \treturn largest"
+                        "   \treturn largest\n" +
+                        "" +
+                        "\nprint(max_of_three(5,1,9))"
 
         ),
         ExerciseResponse(
@@ -60,7 +65,9 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\n" +
                         "convert(2) ➞ 120",
                 solution = "def convert(minutes):\n" +
-                        "\treturn minutes * 60"
+                        "\treturn minutes * 60\n" +
+                        "" +
+                        "print(convert(3))"
 
         ),
         ExerciseResponse(
@@ -80,7 +87,9 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "  for i in nums:\n" +
                         "    if i > largest:\n" +
                         "      largest = i\n" +
-                        "  return largest"
+                        "  return largest\n" +
+                        "" +
+                        "print(findLargestNum([4, 5, 1, 3]))"
 
         ),
         ExerciseResponse(
@@ -99,7 +108,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\ta = 0\n" +
                         "\tfor i in lst:\n" +
                         "\t\ta += i\n" +
-                        "\treturn a"
+                        "\treturn a\n" +
+                        "print(get_sum_of_elements([45, 3, 0]))"
 
         ),
         ExerciseResponse(
@@ -343,7 +353,9 @@ fun listOfExercises() = listOf<ExerciseResponse>(
         ),
         ExerciseResponse(
                 title = "Concatenate All Elements in a List",
-                question = "Write a Python program to concatenate all elements in a list into a string and return it.",
+                question = "Write a Python program to concatenate all elements in a list into a string and return it.\n" +
+                        "E.g [\"three\", 5, \"blue\", \"low\"] \n" +
+                        "Output : three5bluelow",
                 solution = "def concatenate_list(sampleList):\n" +
                         "    result= \"\"\n" +
                         "    for element in sampleList:\n" +
@@ -406,7 +418,9 @@ fun listOfExercises() = listOf<ExerciseResponse>(
         ),
         ExerciseResponse(
                 title = "Calculate the Sum of the Digits in an Integer",
-                question = " Write a Python program to calculate the sum of the digits in a 4 digit integer.",
+                question = " Write a Python program to calculate the sum of the digits in a 4 digit integer.\n" +
+                        "E.g, 1234\n" +
+                        "Output: 10",
                 solution = "num = int(input(\"Input a four digit numbers: \"))\n" +
                         "x  = num // 1000\n" +
                         "x1 = (num - x*1000) // 100\n" +
@@ -417,7 +431,10 @@ fun listOfExercises() = listOf<ExerciseResponse>(
         ),
         ExerciseResponse(
                 title = "Check if a Word is a Palindrome",
-                question = "Write a program which checks if a string is a palindrome.",
+                question = "Write a program which checks if a string is a palindrome.\n" +
+                        "A word is palindrome if the word is thesame when reading from either left or from the right.\n" +
+                        "E.g : AVA " +
+                        "",
                 solution = "def palindrome(word):\n" +
                         "    left = 0\n" +
                         "    right = len(word) - 1\n" +
@@ -431,12 +448,13 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "    return True\n" +
                         "\n" +
                         "def main():\n" +
-                        "    word = input(\"Enter a word\\n\")\n" +
+                        "    word = input(\"Enter a word:  \")\n" +
+                        "    print(word)" +
                         "\n" +
                         "    if palindrome(word):\n" +
-                        "        print(f\"{word} is a palindrome\")\n" +
+                        "        print(word,\"is a palindrome\")\n" +
                         "    else:\n" +
-                        "        print(f\"{word} is not a palindrome\")\n" +
+                        "        print(word,\"is not a palindrome\")\n" +
                         "\n" +
                         "main()\n"
 
@@ -460,7 +478,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
         ),
         ExerciseResponse(
                 title = "Find the Character Count in a String",
-                question = "Write a Python program to count the number of occurrence of a specific character in a string.",
+                question = "Write a Python program to count the number of occurrence of a specific character in a string.\n" +
+                        "",
                 solution = "def charCount(word, char):\n" +
                         "    count = 0\n" +
                         "    for c in word:\n" +
@@ -475,7 +494,12 @@ fun listOfExercises() = listOf<ExerciseResponse>(
         ),
         ExerciseResponse(
                 title = "Swap Two Variables",
-                question = "Write a program to swap two variables.",
+                question = "Write a program to swap two variables.\n" +
+                        "a = \"first\" \n" +
+                        "b = \"second\"\n" +
+                        "Output: \n" +
+                        "a = \"second\"\n" +
+                        "b = \"first\"",
                 solution = "a = \"first\"\n" +
                         "b = \"second\"\n" +
                         "\n" +
@@ -494,8 +518,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
 
         ),
         ExerciseResponse(
-                title = "Filter Positive Numbers from a List",
-                question = "Write a Python program to filter the positive numbers from a list.",
+                title = "Filter Odd Numbers from a List",
+                question = "Write a Python program to filter the odd numbers from a list.",
                 solution = "def posFilter(sampleList):\n" +
                         "    posList = []\n" +
                         "\n" +
