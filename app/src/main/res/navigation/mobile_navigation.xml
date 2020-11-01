@@ -159,6 +159,9 @@
                 android:name="topic"
                 app:argType="com.olabode.wilson.pytutor.models.Topic" />
         </action>
+        <action
+            android:id="@+id/action_lessonCompletionFragment_to_allLessonsCompletedFragment"
+            app:destination="@id/allLessonsCompletedFragment" />
     </fragment>
     <navigation
         android:id="@+id/lesson_graph"
@@ -302,4 +305,13 @@
             android:name="code"
             app:argType="string" />
     </dialog>
+    <fragment
+        android:id="@+id/allLessonsCompletedFragment"
+        android:name="com.olabode.wilson.pytutor.ui.tutorial.AllLessonsCompletedFragment"
+        android:label="AllLessonsCompletedFragment"
+        tools:layout="@layout/fragment_all_lessons_completed" >
+        <action
+            android:id="@+id/action_allLessonsCompletedFragment_to_lesson_graph"
+            app:destination="@id/lesson_graph" />
+    </fragment>
 </navigation>
