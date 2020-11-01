@@ -13,6 +13,6 @@ class AlgorithmsViewModel @ViewModelInject constructor(
 ) : ViewModel() {
 
     val algorithms = algorithmRepository
-            .fectchAllAlgorithms()
+            .fetchAllAlgorithms()
             .asLiveData()
 }

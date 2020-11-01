@@ -1,10 +1,7 @@
 package com.olabode.wilson.pytutor.repository.auth
 
-import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.EmailAuthProvider
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.FirebaseNetworkException
+import com.google.firebase.auth.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.olabode.wilson.pytutor.models.remote.user.RemoteUser
 import com.olabode.wilson.pytutor.utils.Constants
@@ -29,13 +26,13 @@ import javax.inject.Singleton
 
 @Singleton
 class AuthRepositoryImpl @Inject constructor(
-    private val auth: FirebaseAuth,
-    private val remoteDatabase: FirebaseFirestore
+        private val auth: FirebaseAuth,
+        private val remoteDatabase: FirebaseFirestore
 ) : AuthRepository {
 
     override fun loginUser(
-        email: String,
-        password: String
+            email: String,
+            password: String
     ): Flow<AuthResult<String>> = flow {
         emit(AuthResult.Loading)
         val login = auth.signInWithEmailAndPassword(email, password).await()
@@ -50,15 +47,19 @@ class AuthRepositoryImpl @Inject constructor(
         }
 
     }.catch { e ->
+        when (e) {
+            is FirebaseNetworkException -> emit(AuthResult.Failed(Messages.NETWORK_FAILURE))
+            is FirebaseAuthInvalidCredentialsException -> emit(AuthResult.Failed(Messages.INVALID_CREDENTIAL))
+            else -> emit(AuthResult.Failed(Messages.LOGIN_FAILED))
+        }
         Timber.e(e)
-        emit(AuthResult.Failed(Messages.LOGIN_FAILED))
     }.flowOn(Dispatchers.IO)
 
     override fun registerNewUser(
-        fullName: String,
-        email: String,
-        password: String,
-        confirmPassword: String
+            fullName: String,
+            email: String,
+            password: String,
+            confirmPassword: String
     ): Flow<AuthResult<String>> = flow {
         emit(AuthResult.Loading)
         if (password.length < Constants.PASSWORD_LENGTH) {
@@ -74,12 +75,12 @@ class AuthRepositoryImpl @Inject constructor(
         val registerUser = auth.createUserWithEmailAndPassword(email, password).await()
         val firebaseUser = registerUser.user!!
         val user = RemoteUser(
-            fullName = fullName,
-            email = email,
-            userId = firebaseUser.uid
+                fullName = fullName,
+                email = email,
+                userId = firebaseUser.uid
         )
         remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS).document(firebaseUser.uid)
-            .set(user).await()
+                .set(user).await()
         sendEmailVerificationLink(firebaseUser)
         emit(AuthResult.Success(Messages.ACCOUNT_CREATION_SUCCESS))
         logOut()
@@ -103,7 +104,7 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override fun sendEmailVerificationLink(email: String, password: String):
-        Flow<DataState<String>> = flow {
+            Flow<DataState<String>> = flow {
         emit(DataState.Loading)
         val credential: AuthCredential = EmailAuthProvider.getCredential(email, password)
         auth.signInWithCredential(credential).await()

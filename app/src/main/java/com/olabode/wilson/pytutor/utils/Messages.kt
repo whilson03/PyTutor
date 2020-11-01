@@ -4,6 +4,7 @@ package com.olabode.wilson.pytutor.utils
  *   Created by OLABODE WILSON on 9/6/20.
  */
 object Messages {
+    const val INVALID_CREDENTIAL = "Invalid email or password..."
     const val FAILED_TO_LOAD = "Failed to load."
     const val UPLOAD_SUCCESS = "Upload Successful"
     const val UPLOAD_FAILED = "Upload Failed."
@@ -16,7 +17,6 @@ object Messages {
     const val VERIFY_EMAIL = "Check your email box for verification link"
     const val GENERIC_SUCCESS = "SUCCESS"
     const val LOGIN_FAILED = "Login Failed. Try Again"
-    const val ALERT_BLANK_FIELDS = "Fields cannot be blank"
     const val ACCOUNT_IN_USE_FAILURE = "Email already in use, Login."
     const val EXCEPTION_MESSAGE = "ERROR OCCURRED"
     const val FAILED_TO_LOAD_TOPICS = "ERROR: FAILED TO LOAD TOPICS"
@@ -25,4 +25,7 @@ object Messages {
     const val PASSWORD_RESET_LINK_FAILURE = "Failed to send password reset link."
     const val PASSWORD_LINK_SUCCESS = "Link sent to your email."
     const val FAILED_TO_LOAD_LESSONS = "ERROR: FAILED TO LOAD LESSONS"
+    const val NETWORK_FAILURE = "Failed, Check Network Connection"
+    const val BLANK_FIELDS_IN_FORM = "Fields Cannot be Blank"
+    const val PASSWORD_SHORT_IN_FORM = "Password Should Contain 8 Characters"
 }
