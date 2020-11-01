@@ -34,7 +34,7 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
 
         adapter = ExerciseListAdapter { exercise ->
             navigateSafe(ExerciseListFragmentDirections
-                .actionExerciseListFragmentToExerciseFragment(exercise))
+                    .actionExerciseListFragmentToExerciseFragment(exercise))
         }
 
         binding.exerciseListRecycler.adapter = adapter
