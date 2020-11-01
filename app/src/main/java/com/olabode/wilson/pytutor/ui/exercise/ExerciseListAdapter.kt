@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.ItemExercisesBinding
 import com.olabode.wilson.pytutor.models.Exercise
 import com.olabode.wilson.pytutor.models.remote.exercise.DIFFICULTY
@@ -34,6 +35,7 @@ class ExerciseListAdapter(private val clickListener: (exercise: Exercise) -> Uni
             this.item = item
             binding.title.text = item.title
             binding.difficulty.text = getDifficulty(item.difficulty)
+            binding.difficulty.setBackgroundResource(getBackgroundForDifficulty(item.difficulty))
             binding.topicCount.text = Utils.getAdapterNumberLabel(adapterPosition + 1)
         }
 
@@ -42,6 +44,13 @@ class ExerciseListAdapter(private val clickListener: (exercise: Exercise) -> Uni
                 DIFFICULTY.EASY.ordinal -> "Easy"
                 DIFFICULTY.MEDIUM.ordinal -> "Medium"
                 else -> "Hard"
+            }
+        }
+
+        private fun getBackgroundForDifficulty(difficulty: Int): Int {
+            return when (difficulty) {
+                DIFFICULTY.EASY.ordinal -> R.drawable.bg_easy
+                else -> R.drawable.bg_medium
             }
         }
     }
