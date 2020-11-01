@@ -16,13 +16,13 @@ data class TopicResponse(
 
         var topicId: String,
 
-        var isLocked: Boolean,
+        var locked: Boolean,
 
-        var isCompleted: Boolean,
+        var completed: Boolean,
 
         var stars: Float,
-        @field:JvmField
-        val isLastTopic: Boolean = false,
+
+        val lastTopic: Boolean,
 
         var nextTopicId: String? = null
 ) {
