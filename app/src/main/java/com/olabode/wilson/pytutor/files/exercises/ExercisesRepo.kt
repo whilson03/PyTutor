@@ -588,57 +588,216 @@ fun listOfExercises() = listOf<ExerciseResponse>(
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Display Diamond pattern",
+                question = "Write a program that gets an integer value from user and displays a diamond shape.\n" +
+                        "The Diamomd height should be the value gotten from the user.\n" +
+                        "\n" +
+                        "Output:\n" +
+                        "\n" +
+                        "         *\n" +
+                        "        ***\n" +
+                        "       *****\n" +
+                        "      *******\n" +
+                        "     *********\n" +
+                        "    ***********\n" +
+                        "   *************\n" +
+                        "  ***************\n" +
+                        "   *************\n" +
+                        "    ***********\n" +
+                        "     *********\n" +
+                        "      *******\n" +
+                        "       *****\n" +
+                        "        ***\n" +
+                        "         *",
+                solution = "h = int(input(\"please enter diamond's height:\"))\n" +
+                        "print(h)" +
+                        "\n" +
+                        "for i in range(h):\n" +
+                        "    print(\" \"*(h-i), \"*\"*(i*2+1))\n" +
+                        "for i in range(h-2, -1, -1):\n" +
+                        "    print(\" \"*(h-i), \"*\"*(i*2+1))"
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Longest Word",
+                question = "Write a function that finds the longest word in a sentence." +
+                        "If two or more words are found, return the first longest word. Characters such as" +
+                        " apostrophe, comma, period (and the like) count as part of the word (e.g. O'reilly is 8 characters long).\n" +
+                        "Examples\n" +
+                        "longest_word(\"Wilson's game is cool.\") ➞ \"Wilson's\"\n",
+                solution = "def longest_word(s):\n" +
+                        "    return max(s.split(), key=len)\n" +
+                        "\n" +
+                        "print(longest_word(\"the household name\"))",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Find the Shared Letters between Two Strings",
+                question = "Given two strings, return a string containing only the letters shared between the two.\n" +
+                        "\n" +
+                        "Examples\n" +
+                        "shared_letters(\"house\", \"home\") ➞ \"eho\"\n" +
+                        "Note:\n" +
+                        "If none of the letters are shared, return an empty string.\n" +
+                        "The function should be case insensitive (e.g. comparing A and a should return a).\n" +
+                        "Sort the resulting string alphabetically before returning it.",
+                solution = "def shared_letters(a, b):\n" +
+                        "\tlst =[]\n" +
+                        "\tfor i in a.lower():\n" +
+                        "\t\tif i in b.lower():\n" +
+                        "\t\t\tlst.append(i)\n" +
+                        "\treturn ''.join(sorted(set(lst)))\n" +
+                        "\n" +
+                        "print(shared_letters(\"hello\",\"melon\"))",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Change Every Letter to the Next Letter",
+                question = "Write a function that changes every letter to the next letter:\n" +
+                        "\n" +
+                        "\"a\" becomes \"b\"\n" +
+                        "\"b\" becomes \"c\"\n" +
+                        "\"d\" becomes \"e\"\n" +
+                        "and so on ...\n" +
+                        "Examples\n" +
+                        "move(\"hello\") ➞ \"ifmmp\"\n" +
+                        "Note:\n" +
+                        "There will be no z's in the tests.",
+                solution = "def move(word):\n" +
+                        "\tans =''\n" +
+                        "\tfor x in word:\n" +
+                        "\t\tans += chr(ord(x)+1)\n" +
+                        "\treturn ans\n" +
+                        "print(move(\"hello\"))",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Consecutive Numbers",
+                question = "Create a function that determines whether elements in an array can be re-arranged to form a consecutive list of numbers where each number appears exactly once.\n" +
+                        "\n" +
+                        "Examples\n" +
+                        "cons([5, 1, 4, 3, 2]) ➞ True\n" +
+                        "# Can be re-arranged to form [1, 2, 3, 4, 5]\n" +
+                        "\n" +
+                        "cons([5, 1, 4, 3, 2, 8]) ➞ False\n" +
+                        "\n" +
+                        "cons([5, 6, 7, 8, 9, 9]) ➞ False\n" +
+                        "# 9 appears twice",
+                solution = "def cons(lst):\n" +
+                        "    start, times = min(lst), len(lst)\n" +
+                        "    for i in range(start, start + times):\n" +
+                        "        if i not in lst:\n" +
+                        "            return False\n" +
+                        "    return True\n" +
+                        "\n" +
+                        "l = cons([5, 1, 4, 3, 2])\n" +
+                        "print(l)",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Numbers in Strings",
+                question = "Create a function that takes a list of strings and returns a list with only the strings that have numbers in them." +
+                        "If there are no strings containing numbers, return an empty list.\n" +
+                        "\n" +
+                        "Examples\n" +
+                        "num_in_str([\"1a\", \"a\", \"2b\", \"b\"]) ➞ [\"1a\", \"2b\"]\n" +
+                        "\n" +
+                        "num_in_str([\"abc\", \"abc10\"]) ➞ [\"abc10\"]\n" +
+                        "\n" +
+                        "num_in_str([\"abc\", \"ab10c\", \"a10bc\", \"bcd\"]) ➞ [\"ab10c\", \"a10bc\"]\n" +
+                        "\n" +
+                        "num_in_str([\"this is a test\", \"test1\"]) ➞ [\"test1\"]\n" +
+                        "Note:\n" +
+                        "The strings can contain white spaces or any type of characters.",
+                solution = "def num_in_str(lst):\n" +
+                        "  return [i for i in lst if hasDigit(i)]\n" +
+                        "  \n" +
+                        "def hasDigit(str):\n" +
+                        "  for i in str:\n" +
+                        "    if i.isdigit():\n" +
+                        "      return True\n" +
+                        "  return False\n" +
+                        "\n" +
+                        "print(num_in_str([\"1a\", \"a\", \"2b\", \"b\"]))",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Leader in a List",
+                question = "Create a function that finds each number in the given list that is greater than every number that comes after it. Your solution should return a list of the number(s) that meet these criteria.\n" +
+                        "\n" +
+                        "Examples\n" +
+                        "leader([2, 3, 20, 15, 8, 3]) ➞ [20, 15, 8, 3]\n" +
+                        "# Note that 20 is greater than all the elements to it's\n" +
+                        "# right side, similarly 15 and so on.\n" +
+                        "\n" +
+                        "leader([2, 3, 20, 15, 8, 25, 3]) ➞ [25, 3]\n" +
+                        "# Note that 20 cannot be added because it is not greater than 25.\n" +
+                        "\n" +
+                        "leader([1, 2, 3, 4, 5]) ➞ [5]\n" +
+                        "# 5 is technically greater than the (zero) remaining items.\n" +
+                        "\n" +
+                        "leader([8, 7, 1, 2, 10, 3, 5]) ➞ [10, 5]\n" +
+                        "# 10 is greater than all items to the right of it, so include.\n" +
+                        "# 3 is not greater than all items to the right of it, so exclude.\n" +
+                        "# 5 is greater than the remaining items, so include.\n" +
+                        "Note:\n" +
+                        "Add elements in the new list in the same order they occur in the input list.",
+                solution = "def leader(arr):\n" +
+                        "\tnew_arr = []\n" +
+                        "\tm = -1\n" +
+                        "\tfor i in range(len(arr) - 1, -1, -1):\n" +
+                        "\t\tm = max(m, arr[i])\n" +
+                        "\t\tif arr[i] == m:\n" +
+                        "\t\t\tnew_arr.insert(0, arr[i])\n" +
+                        "\t\t\t\n" +
+                        "\treturn new_arr\n" +
+                        "print(leader([2, 3, 20, 15, 8, 3]))",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Remove Repeated Letters",
+                question = "Create a function that replaces all consecutively repeated letters in a word with single letters.\n" +
+                        "\n" +
+                        "Examples\n" +
+                        "remove_repeats(\"aaabbbccc\") ➞ \"abc\"\n" +
+                        "\n" +
+                        "remove_repeats(\"bookkeeper\") ➞ \"bokeper\"",
+                solution = "def remove_repeats(s):\n" +
+                        "\tr = []\n" +
+                        "\tfor x in s:\n" +
+                        "\t\tif not r or r[-1] != x:\n" +
+                        "\t\t\tr.append(x)\n" +
+                        "\treturn ''.join(r)\n" +
+                        "\t\n" +
+                        "print(remove_repeats(\"bookkeeper\"))",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
 
         ),
         ExerciseResponse(
-                title = "",
-                question = "",
-                solution = ""
+                title = "Sum of Digits Between Two Numbers",
+                question = "Create a function that sums the total number of digits between two numbers, inclusive. For example, between the numbers 19 and 22 we have:\n" +
+                        "\n" +
+                        "# 19, 20, 21, 22\n" +
+                        "(1 + 9) + (2 + 0) + (2 + 1) + (2 + 2) = 19\n" +
+                        "Examples\n" +
+                        "sum_digits(7, 8) ➞ 15\n" +
+                        "\n" +
+                        "sum_digits(17, 20) ➞ 29",
+                solution = "def sum_digits(a, b):\n" +
+                        "\ttotal = 0\n" +
+                        "\tfor x in range(a,b+1):\n" +
+                        "\t\tfor n in str(x):\n" +
+                        "\t\t\ttotal = total + int(n)\n" +
+                        "\treturn total\n" +
+                        "\t\n" +
+                        "print(sum_digits(7, 8))",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
 
         )
 
