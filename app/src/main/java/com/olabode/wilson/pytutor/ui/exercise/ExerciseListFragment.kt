@@ -15,7 +15,7 @@ import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.files.exercises.listOfExercises
 import com.olabode.wilson.pytutor.mappers.exercise.ExerciseNetworkMapper
 import com.olabode.wilson.pytutor.models.Exercise
-import com.olabode.wilson.pytutor.utils.navigateSafe
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 

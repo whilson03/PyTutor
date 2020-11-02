@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentAllLessonsCompletedBinding
 import com.olabode.wilson.pytutor.extensions.viewBinding
-import com.olabode.wilson.pytutor.utils.navigateSafe
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import nl.dionsegijn.konfetti.models.Shape
 import nl.dionsegijn.konfetti.models.Size
 

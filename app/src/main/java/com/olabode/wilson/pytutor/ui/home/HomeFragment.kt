@@ -16,7 +16,7 @@ import com.olabode.wilson.pytutor.extensions.showUserProgress
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.user.User
 import com.olabode.wilson.pytutor.ui.profile.ProfileViewModel
-import com.olabode.wilson.pytutor.utils.navigateSafe
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
