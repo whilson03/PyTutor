@@ -4,19 +4,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentHomeBinding
-import com.olabode.wilson.pytutor.extensions.hide
-import com.olabode.wilson.pytutor.extensions.show
-import com.olabode.wilson.pytutor.extensions.showUserProgress
-import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.extensions.*
 import com.olabode.wilson.pytutor.models.user.User
-import com.olabode.wilson.pytutor.ui.profile.ProfileViewModel
-import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val binding by viewBinding(FragmentHomeBinding::bind)
-    private val viewModel: ProfileViewModel by activityViewModels()
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
