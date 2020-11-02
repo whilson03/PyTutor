@@ -159,9 +159,6 @@
                 android:name="topic"
                 app:argType="com.olabode.wilson.pytutor.models.Topic" />
         </action>
-        <action
-            android:id="@+id/action_lessonCompletionFragment_to_allLessonsCompletedFragment"
-            app:destination="@id/allLessonsCompletedFragment" />
     </fragment>
     <navigation
         android:id="@+id/lesson_graph"
@@ -185,6 +182,14 @@
                 app:popExitAnim="@anim/fade_out"
                 app:popUpTo="@id/tutorialTopicsFragment" />
         </fragment>
+        <action
+            android:id="@+id/action_global_allLessonsCompletedFragment"
+            app:destination="@id/allLessonsCompletedFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/tutorialTopicsFragment" />
     </navigation>
     <fragment
         android:id="@+id/splashScreenFragment"
@@ -277,7 +282,7 @@
         android:id="@+id/interpreterFragment"
         android:name="com.olabode.wilson.pytutor.ui.code.InterpreterFragment"
         android:label="fragment_interpreter"
-        tools:layout="@layout/fragment_interpreter" >
+        tools:layout="@layout/fragment_interpreter">
         <action
             android:id="@+id/action_interpreterFragment_to_codeOutputFragment"
             app:destination="@id/codeOutputFragment" />
@@ -309,9 +314,13 @@
         android:id="@+id/allLessonsCompletedFragment"
         android:name="com.olabode.wilson.pytutor.ui.tutorial.AllLessonsCompletedFragment"
         android:label="AllLessonsCompletedFragment"
-        tools:layout="@layout/fragment_all_lessons_completed" >
+        tools:layout="@layout/fragment_all_lessons_completed">
         <action
             android:id="@+id/action_allLessonsCompletedFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 </navigation>

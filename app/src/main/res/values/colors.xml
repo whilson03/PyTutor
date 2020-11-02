@@ -36,6 +36,7 @@
 
     <color name="colorEndBackground">#50FFFFFF</color>
     <color name="colorLightText">#ECECEC</color>
+    <color name="completedScreenBg">#FEBD1B</color>
 
     <!--Monokai Pro Theme Colors-->
     <color name="monokia_pro_green">#9ccc6b</color>
