@@ -107,7 +107,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/keepLearningMessage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -115,15 +115,15 @@
                     android:text="@string/keep_learning"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textView3"
-                    app:layout_constraintEnd_toEndOf="@+id/textView3"
+                    app:layout_constraintBottom_toTopOf="@+id/progressMessage"
+                    app:layout_constraintEnd_toEndOf="@+id/progressMessage"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintStart_toStartOf="@+id/progressMessage"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="packed" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/progressMessage"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -135,7 +135,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/progressBar"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+                    app:layout_constraintTop_toBottomOf="@+id/keepLearningMessage" />
 
                 <ProgressBar
                     android:id="@+id/progressBar"

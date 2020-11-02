@@ -78,6 +78,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val userProgress = user.getUserProgress()
         binding.percentText.text = getString(R.string.progress_level, userProgress, "%")
         binding.progressBar.showUserProgress(userProgress)
+
+        if (userProgress == 100) {
+            binding.keepLearningMessage.text = getString(R.string.congratulations)
+            binding.progressMessage.text = getString(R.string.all_lessons_completed)
+        }
     }
 }
 
