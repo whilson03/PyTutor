@@ -18,6 +18,7 @@ import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.CompletedLessonViewModel
 import com.olabode.wilson.pytutor.utils.Utils
+import com.olabode.wilson.pytutor.utils.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import nl.dionsegijn.konfetti.models.Shape
@@ -51,10 +52,7 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
                     }
                 })
 
-
         isNextTopicAvailable(topic)
-
-
 
         binding.home.setOnClickListener {
             findNavController().popBackStack()
@@ -93,6 +91,14 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
                         }
                     }
                 })
+            }
+        }
+
+        else {
+            binding.home.hide()
+            binding.finish.show()
+            binding.finish.setOnClickListener {
+                navigateSafe(LessonCompletionFragmentDirections.actionLessonCompletionFragmentToAllLessonsCompletedFragment())
             }
         }
     }
