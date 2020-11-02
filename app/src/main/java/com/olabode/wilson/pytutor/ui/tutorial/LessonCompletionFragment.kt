@@ -18,7 +18,7 @@ import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.CompletedLessonViewModel
 import com.olabode.wilson.pytutor.utils.Utils
-import com.olabode.wilson.pytutor.utils.navigateSafe
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import nl.dionsegijn.konfetti.models.Shape

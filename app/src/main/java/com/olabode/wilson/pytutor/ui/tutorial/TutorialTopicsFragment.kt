@@ -16,7 +16,7 @@ import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.ui.tutorial.adapters.TutorialTopicAdapter
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.TutorialTopicViewModel
 import com.olabode.wilson.pytutor.utils.EventObserver
-import com.olabode.wilson.pytutor.utils.navigateSafe
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,4 +1,4 @@
-package com.olabode.wilson.pytutor.utils
+package com.olabode.wilson.pytutor.extensions
 
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
