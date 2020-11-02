@@ -54,7 +54,8 @@ class MainActivity : AppCompatActivity(), UICommunicator {
                 R.id.onBoardingFragment,
                 R.id.tutorialTopicsFragment,
                 R.id.viewTutorialsFragment,
-                R.id.codeOutputFragment
+                R.id.codeOutputFragment,
+                R.id.allLessonsCompletedFragment
                 -> {
                     bottomNavigationView.hide()
                 }

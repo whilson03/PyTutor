@@ -311,7 +311,7 @@
         android:label="AllLessonsCompletedFragment"
         tools:layout="@layout/fragment_all_lessons_completed" >
         <action
-            android:id="@+id/action_allLessonsCompletedFragment_to_lesson_graph"
-            app:destination="@id/lesson_graph" />
+            android:id="@+id/action_allLessonsCompletedFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
