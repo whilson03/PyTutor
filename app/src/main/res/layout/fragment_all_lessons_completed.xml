@@ -28,14 +28,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/allLessonsCompleted"
-        app:layout_constraintVertical_bias="0.32999998"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_graduates" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/home"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/home"
         android:textColor="@color/white"
         app:cornerRadius="16dp"
@@ -72,7 +72,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/congratulations" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
