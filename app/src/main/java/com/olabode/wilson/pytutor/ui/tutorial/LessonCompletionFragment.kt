@@ -18,7 +18,6 @@ import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.CompletedLessonViewModel
 import com.olabode.wilson.pytutor.utils.Utils
-import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import nl.dionsegijn.konfetti.models.Shape
@@ -75,31 +74,21 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
     }
 
     private fun isNextTopicAvailable(topic: Topic) {
-        if (!topic.isLastTopic) {
-            topic.nextTopicsId?.let { nextTopicId ->
-                viewModel.getNextTopic(nextTopicId).observe(viewLifecycleOwner, Observer { result ->
-                    when (result) {
-                        is DataState.Success -> {
-                            binding.nextLesson.show()
-                            binding.nextLesson.setOnClickListener { navigateToNext(result.data) }
-                        }
-                        is DataState.Error -> {
-                            binding.nextLesson.hide()
-                        }
-                        is DataState.Loading -> {
-                            binding.nextLesson.hide()
-                        }
+        topic.nextTopicsId?.let { nextTopicId ->
+            viewModel.getNextTopic(nextTopicId).observe(viewLifecycleOwner, Observer { result ->
+                when (result) {
+                    is DataState.Success -> {
+                        binding.nextLesson.show()
+                        binding.nextLesson.setOnClickListener { navigateToNext(result.data) }
                     }
-                })
-            }
-        }
-
-        else {
-            binding.home.hide()
-            binding.finish.show()
-            binding.finish.setOnClickListener {
-                navigateSafe(LessonCompletionFragmentDirections.actionLessonCompletionFragmentToAllLessonsCompletedFragment())
-            }
+                    is DataState.Error -> {
+                        binding.nextLesson.hide()
+                    }
+                    is DataState.Loading -> {
+                        binding.nextLesson.hide()
+                    }
+                }
+            })
         }
     }
 

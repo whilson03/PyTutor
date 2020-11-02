@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentQuestionBinding
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.models.tutorial.Lesson
 import com.olabode.wilson.pytutor.models.tutorial.Question
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.ArrayList
+import java.util.*
 
 @AndroidEntryPoint
 class QuestionFragment : Fragment(R.layout.fragment_question) {
@@ -36,12 +37,12 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
 
         @JvmStatic
         fun newInstance(lesson: Lesson, topic: Topic) =
-            QuestionFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(QUESTION_RESPONSE, lesson)
-                    putParcelable(TOPIC, topic)
+                QuestionFragment().apply {
+                    arguments = Bundle().apply {
+                        putParcelable(QUESTION_RESPONSE, lesson)
+                        putParcelable(TOPIC, topic)
+                    }
                 }
-            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -86,45 +87,51 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
                     binding.submitOrNext.text = getString(R.string.submit)
                 } else {
                     if (binding.option1.isChecked || binding.option2.isChecked
-                        || binding.option3.isChecked
+                            || binding.option3.isChecked
                     ) {
 
                         val selectedAnswer =
-                            getTextFromCheckedId(binding.optionsGroup.checkedRadioButtonId)
+                                getTextFromCheckedId(binding.optionsGroup.checkedRadioButtonId)
                         validateAnswer(
-                            selectedAnswer,
-                            questions[currentQuestionIndex]
+                                selectedAnswer,
+                                questions[currentQuestionIndex]
                         )
                         answeredKeys.add(questions[currentQuestionIndex].question)
 
                         if (currentQuestionIndex == questions.size.minus(1)) {
-                            navigateToCompletionScreen(score, noOfQuestion = questions.size)
+                            if (topic.isLastTopic) {
+                                navigateToFinalScreen()
+                            } else {
+                                navigateToCompletionScreen(score, noOfQuestion = questions.size)
+                            }
                         } else {
                             binding.submitOrNext.text = getString(R.string.next)
                         }
                         disableOptions()
                     } else {
                         Toast.makeText(
-                            requireContext(),
-                            getString(R.string.pick_option_prompt),
-                            Toast.LENGTH_SHORT
+                                requireContext(),
+                                getString(R.string.pick_option_prompt),
+                                Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
-            } else {
-                navigateToCompletionScreen(score, questions.size)
             }
         }
     }
 
     private fun navigateToCompletionScreen(score: Int, noOfQuestion: Int) {
         findNavController().navigate(
-            ViewTutorialsFragmentDirections
-                .actionViewTutorialsFragmentToLessonCompletionFragment(
-                    score = score, numberOfQuestions = noOfQuestion,
-                    topic = topic
-                )
+                ViewTutorialsFragmentDirections
+                        .actionViewTutorialsFragmentToLessonCompletionFragment(
+                                score = score, numberOfQuestions = noOfQuestion,
+                                topic = topic
+                        )
         )
+    }
+
+    private fun navigateToFinalScreen() {
+        navigateSafe(ViewTutorialsFragmentDirections.actionGlobalAllLessonsCompletedFragment())
     }
 
     private fun setUpQuestion(question: Question) {
