@@ -38,6 +38,6 @@ class TutorialPageFragment : Fragment(R.layout.fragment_tutorial_page) {
 
         val adapter = LessonAdapter()
         binding.lessonsRecycler.adapter = adapter
-        adapter.submitList(lesson.lessons!!.values.toList())
+        adapter.submitList(lesson.lessons!!.values.toList().sortedBy { it.orderKey })
     }
 }
