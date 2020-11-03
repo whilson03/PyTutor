@@ -35,11 +35,11 @@ class Interpreter @JvmOverloads constructor(
 
 <head> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
+<body>
 <script src="www/jquery-3.5.1.min.js" type="text/javascript"></script>
 <script src="www/skulpt.min.js" type="text/javascript"></script> 
 <script src="www/skulpt-stdlib.js" type="text/javascript"></script>
-</head> 
-<body>
 
 <div id="outer"> 
     <div class="inner"><label id="status"><small>Running</small></label></div>
@@ -137,7 +137,7 @@ function run(code){
 
     // code for LOLLIPOP
 
-    fun setUpPageApi21(): String {
+    private fun setUpPageApi21(): String {
         return """
             <html> 
 
