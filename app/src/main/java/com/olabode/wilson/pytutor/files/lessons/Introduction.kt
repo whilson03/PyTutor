@@ -44,7 +44,7 @@ val introduction = listOf(
             "4" to Tutorial(
                 4,
                 "",
-                "Some features of python includes :",
+                "Some features of Python includes :",
                 null,
                 LessonTypes.TEXT.ordinal
             ),
@@ -116,7 +116,7 @@ val introduction = listOf(
             "1" to com.olabode.wilson.pytutor.models.tutorial.Tutorial(
                 1,
                 "",
-                "Some uses of python includes: ",
+                "Some uses of Python includes: ",
                 null,
                 LessonTypes.TEXT.ordinal
             ),
@@ -178,7 +178,7 @@ val introduction = listOf(
                 "",
                 "Game Development: Python is also used in the development of interactive games." +
                     "Libraries such as PySoy which is a 3D game engine supporting Python 3, PyGame which provides functionality and a library for game development." +
-                    "Some games built in python are Civilization-IV, Battlefield 2, The Sims 4, Vega Strike, Mount & Blade etc.",
+                    "Some games built in Python are Civilization-IV, Battlefield 2, The Sims 4, Vega Strike, Mount & Blade etc.",
                 null,
                 LessonTypes.BULLET.ordinal
             ),

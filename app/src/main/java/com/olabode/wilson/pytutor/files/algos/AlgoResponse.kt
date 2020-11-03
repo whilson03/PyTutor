@@ -125,7 +125,7 @@ fun listOfAlgorithms() = listOf(
         id = "",
         title = "Linear Search",
         description = "In this type of search, a sequential search is made over all items one by one. Every item is checked and if a match is found then that particular item is returned, otherwise the search continues till the end of the data structure.",
-        body = "# If you want to implement Linear Search in python \n" +
+        body = "# If you want to implement Linear Search in Python \n" +
             "  \n" +
             "# Linearly search x in arr[] \n" +
             "# If x is present then return its location \n" +
