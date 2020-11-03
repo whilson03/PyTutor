@@ -383,7 +383,7 @@ val numbers = listOf(
         lessons = null,
         question = mapOf(
             "1" to Question(
-                question = "How many numeric types does python support?",
+                question = "How many numeric types does Python support?",
                 options = mapOf(
                     "1" to "4",
                     "2" to "2",
@@ -393,7 +393,7 @@ val numbers = listOf(
             ),
 
             "2" to Question(
-                question = "which combination is Arithmetic Operators is wrong?",
+                question = "Which combination of arithmetic operators is wrong?",
                 options = mapOf(
                     "1" to "+, =, $ , -",
                     "2" to "+, -, %",
@@ -402,7 +402,7 @@ val numbers = listOf(
                 answerKey = "1"
             ),
             "3" to Question(
-                question = "Which operator returns the remainder of the division?",
+                question = "Which operator returns the remainder of a division?",
                 options = mapOf(
                     "1" to "+",
                     "2" to "*",

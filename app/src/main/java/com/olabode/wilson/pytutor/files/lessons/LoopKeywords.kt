@@ -280,20 +280,20 @@ val loop_keywords = listOf(
             ),
 
             "2" to Question(
-                question = "Whats the purpose of the `break statement` ",
+                question = "Whats the purpose of the `break statement`?",
                 options = mapOf(
-                    "1" to "Terminate a loop",
-                    "2" to "Continue loop execution",
+                    "1" to "Terminating a loop",
+                    "2" to "Continuing loop execution",
                     "3" to "It serves as a placeholder"
                 ),
                 answerKey = "1"
             ),
             "3" to Question(
-                question = "Whats the purpose of the `continue statement`",
+                question = "Whats the purpose of the `continue statement`?",
                 options = mapOf(
                     "1" to "It serves as a placeholder",
-                    "2" to "Terminate a loop",
-                    "3" to "Skip execution of a loop body"
+                    "2" to "Terminating a loop",
+                    "3" to "Skipping execution of a loop body"
                 ),
                 answerKey = "3"
             )

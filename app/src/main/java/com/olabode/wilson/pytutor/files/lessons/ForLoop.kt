@@ -27,7 +27,7 @@ val for_loop = listOf(
             "2" to Tutorial(
                 2,
                 "",
-                "The for loop in Python is used to iterate over a sequence (list, tuple, string) or other iterable objects.\n" +
+                "The for-loop in Python is used to iterate over a sequence (list, tuple, string) or other iterable objects.\n" +
                     "Iterating over a sequence is called traversal.",
                 null,
                 LessonTypes.TEXT.ordinal
@@ -64,7 +64,7 @@ val for_loop = listOf(
             "6" to Tutorial(
                 6,
                 "",
-                "NB: The body of the for-loop is indented.This is because python uses indentation to specify blocks rather than {} curly braces used " +
+                "NB: The body of the for-loop is indented.This is because Python uses indentation to specify blocks rather than {} curly braces used " +
                     "by most languages .\n" +
                     "i.e the indented block is to be executed in the for-loop.",
                 null,
@@ -373,8 +373,8 @@ val for_loop = listOf(
         lessons = null,
         question = mapOf(
             "1" to Question(
-                question = "whats the output?\n" +
-                    "for num in range(4,0,-1):\n" +
+                question = "What's the output of the following?\n" +
+                    "for num in range(4, 0, -1):\n" +
                     "    print(num, end=' ')",
                 options = mapOf(
                     "1" to "4 3 2 1",
@@ -385,12 +385,10 @@ val for_loop = listOf(
             ),
 
             "2" to Question(
-                question = "whats the output?\n" +
+                question = "What is the output?\n" +
                     "count = 0\n" +
-                    "\n" +
                     "for num in range(4):\n" +
                     "    count = count + num\n" +
-                    "\n" +
                     "print(count)",
                 options = mapOf(
                     "1" to "4",
@@ -400,7 +398,7 @@ val for_loop = listOf(
                 answerKey = "3"
             ),
             "3" to Question(
-                question = "A for-loop can be used to Iterate over a Tuple",
+                question = "A for-loop can be used to Iterate over a tuple.",
                 options = mapOf(
                     "1" to "True",
                     "2" to "False",

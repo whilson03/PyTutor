@@ -395,7 +395,7 @@ val lists = listOf(
         question = mapOf(
             "1" to Question(
                 question = "colourList = [\"black\", \"red\", \"blue\", \"pink\", \"yellow\"]\n" +
-                    "what is the index of blue in the list above?",
+                    "What is the index of blue in the list above?",
                 options = mapOf(
                     "1" to "3",
                     "2" to "2",
@@ -405,8 +405,9 @@ val lists = listOf(
             ),
 
             "2" to Question(
-                question = "colourList.pop()\n" +
-                    "what does this return?",
+                question = "colourList = [\"black\", \"red\", \"blue\", \"pink\", \"yellow\"]\n" +
+                    "colourList.pop()\n" +
+                    "What does this return?",
                 options = mapOf(
                     "1" to "yellow",
                     "2" to "black",

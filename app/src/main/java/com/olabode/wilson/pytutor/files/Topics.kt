@@ -147,7 +147,7 @@ fun genTopicResponse(): List<TopicResponse> {
 
             TopicResponse(
                     orderKey = 13,
-                    title = "If...Else Statements",
+                    title = "Conditions",
                     description = "Learn flow control with if...else statements.",
                     noOfPages = 3,
                     topicId = "if_else_statements",
@@ -180,7 +180,7 @@ fun genTopicResponse(): List<TopicResponse> {
             ),
             TopicResponse(
                     orderKey = 16,
-                    title = "Pass,Break & Continue",
+                    title = "Pass, Break & Continue",
                     description = "Use break and continue statements for further flow control.",
                     noOfPages = 3,
                     topicId = "break_continue",

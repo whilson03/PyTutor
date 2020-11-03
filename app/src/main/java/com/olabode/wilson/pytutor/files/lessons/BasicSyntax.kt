@@ -19,7 +19,7 @@ val syntax = listOf(
             "1" to Tutorial(
                 1,
                 "",
-                "This Topic illustrates some rules, syntax and common function used in python.",
+                "This lesson illustrates some rules, syntax and common function used in Python.",
                 null,
                 LessonTypes.TEXT.ordinal
             ),
@@ -27,7 +27,7 @@ val syntax = listOf(
             "2" to Tutorial(
                 2,
                 "",
-                "As you keep progressing you would get a better understanding of them.",
+                "As you keep progressing you will get a better understanding of them.",
                 null,
                 LessonTypes.BULLET.ordinal
             ),
@@ -290,7 +290,7 @@ val syntax = listOf(
         lessons = null,
         question = mapOf(
             "1" to Question(
-                question = "Which combination is are not valid Python Keywords?",
+                question = "Which combination is not valid Python Keywords?",
                 options = mapOf(
                     "1" to "raise, try, and",
                     "2" to "let, pass, break",
@@ -317,17 +317,7 @@ val syntax = listOf(
                 ),
                 answerKey = "3"
             ),
-
             "4" to Question(
-                question = "Python supports multi-line comments? ",
-                options = mapOf(
-                    "1" to "True",
-                    "2" to "False",
-                    "3" to "Not sure"
-                ),
-                answerKey = "2"
-            ),
-            "5" to Question(
                 question = "Which function is used to display values to the console?",
                 options = mapOf(
                     "1" to "print()",

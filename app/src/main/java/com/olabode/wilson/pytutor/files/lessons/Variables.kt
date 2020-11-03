@@ -240,9 +240,9 @@ val variables = listOf(
             ),
 
             "2" to Question(
-                question = "Whats the output of `c`?\n" +
+                question = "Whats the final value of `c`?\n" +
                     "\n" +
-                    "a , b , c = 3 \n" +
+                    "a = b = c = 3 \n" +
                     "\n" +
                     "a = c + b\n" +
                     "\n" +
@@ -260,7 +260,7 @@ val variables = listOf(
                 question = "\n" +
                     "Is this a valid assignment statement? \n" +
                     "\n" +
-                    "a , b ,c = 4, 5 ,7",
+                    "a, b, c = 4, 5, 7",
                 options = mapOf(
                     "1" to "True",
                     "2" to "False",
@@ -270,12 +270,12 @@ val variables = listOf(
             ),
 
             "4" to Question(
-                question = "Why will this Statement show an Error?\n" +
+                question = "Why will this statement raise an error?\n" +
                     "\n" +
-                    "name ,age, height = \"Tom\", \"5\"",
+                    "name, age, height = \"Tom\", \"5\"",
                 options = mapOf(
-                    "1" to "Its a valid statement, No Error.",
-                    "2" to "No value assigned to height.",
+                    "1" to "It's a valid statement without errors",
+                    "2" to "No value is assigned to height",
                     "3" to "\"5\" is assigned to `age`"
                 ),
                 answerKey = "2"

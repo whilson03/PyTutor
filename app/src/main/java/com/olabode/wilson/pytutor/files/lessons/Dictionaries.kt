@@ -425,7 +425,7 @@ val dictionaries = listOf(
             ),
 
             "3" to Question(
-                question = "Which command returns boths the keys and values of a dictionary?",
+                question = "Which command returns the key and value pairs of a dictionary?",
                 options = mapOf(
                     "1" to "dict.all()",
                     "2" to "dict.items()",

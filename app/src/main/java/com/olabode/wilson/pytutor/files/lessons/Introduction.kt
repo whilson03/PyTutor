@@ -212,8 +212,8 @@ val introduction = listOf(
                 question = "Which of these is not a feature of Python?",
                 options = mapOf(
                     "1" to "Readability",
-                    "2" to "Difficult to learn",
-                    "3" to "Cross platform"
+                    "2" to "Difficulty to learn",
+                    "3" to "Cross-platform"
                 ),
                 answerKey = "2"
             ),

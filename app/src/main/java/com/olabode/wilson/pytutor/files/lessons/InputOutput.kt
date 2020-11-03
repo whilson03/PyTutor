@@ -333,9 +333,9 @@ val io = listOf(
                 "",
                 "end\n" +
                     "The purpose of `end=` is to specify what to print at the end of each line.\n" +
-                    "By default when a print statement is executed, the cursor moves to the next line after printing.This is because by default end='\\n'.\n" +
+                    "By default when a print statement is executed, the cursor moves to the next line after printing.This is because by default, end='\\n'.\n" +
                     "`\\n` is a special character which means newline,it moves the cursor to the next line.\n" +
-                    "we can change this behaviour by providing it with what ever we want to get printed after each line",
+                    "we can change this behaviour by providing it with what ever we want to get printed after each line.",
                 null,
                 LessonTypes.BULLET.ordinal
             ),
@@ -359,7 +359,7 @@ val io = listOf(
                 "",
                 "sep\n" +
                     "This value is optional. It specifies how to separate the objects, if there is more than one.\n" +
-                    "If no value is provided, the default value is an empty string ' '",
+                    "If no value is provided, the default value is a whitespace (' ').",
                 null,
                 LessonTypes.BULLET.ordinal
             ),
@@ -395,8 +395,8 @@ val io = listOf(
             ),
 
             "2" to Question(
-                question = "Whats the output?\n" +
-                    "print(\"hello\",\"tom\",sep='--',end='&jerry')",
+                question = "What is the output?\n" +
+                    "print(\"hello\", \"tom\", sep='--', end='&jerry')",
                 options = mapOf(
                     "1" to "hello&jerry--tom&jerry",
                     "2" to "Error",
@@ -405,7 +405,7 @@ val io = listOf(
                 answerKey = "3"
             ),
             "3" to Question(
-                question = "Whats the default value for `sep= ???` and `end= ???` respectively?",
+                question = "What are default values for `sep` and `end` respectively?",
                 options = mapOf(
                     "1" to "' ' , \\n ",
                     "2" to "\\n , ' '",
