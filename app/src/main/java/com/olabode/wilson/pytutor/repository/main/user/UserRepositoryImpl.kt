@@ -35,17 +35,17 @@ import javax.inject.Singleton
 @ExperimentalCoroutinesApi
 @Singleton
 class UserRepositoryImpl @Inject constructor(
-    private val userNetworkMapper: UserNetworkMapper,
-    private val userCacheMapper: UserCacheMapper,
-    private val auth: FirebaseAuth,
-    private val remoteDatabase: FirebaseFirestore,
-    private val userDao: UserDao,
-    private val topicsDao: TopicsDao,
-    private val storage: FirebaseStorage
+        private val userNetworkMapper: UserNetworkMapper,
+        private val userCacheMapper: UserCacheMapper,
+        private val auth: FirebaseAuth,
+        private val remoteDatabase: FirebaseFirestore,
+        private val userDao: UserDao,
+        private val topicsDao: TopicsDao,
+        private val storage: FirebaseStorage
 ) : UserRepository {
     override fun checkLoginStatus(): LiveData<AuthResult<String>> {
         return FirebaseUserLiveData(
-            auth
+                auth
         ).map { user ->
             if (user == null) {
                 AuthResult.Failed(Messages.VERIFY_EMAIL)
@@ -67,7 +67,7 @@ class UserRepositoryImpl @Inject constructor(
             offer(DataState.Success(userCacheMapper.mapFromEntity(cachedUser)))
         }
         val userRef = remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS)
-            .document(userId)
+                .document(userId)
 
         val listener = userRef.addSnapshotListener { snapshot, exception ->
             if (snapshot != null && snapshot.exists()) {
@@ -82,10 +82,10 @@ class UserRepositoryImpl @Inject constructor(
             // If exception occurs, cancel this scope with exception message.
             exception?.let {
                 offer(
-                    DataState.Error(
-                        FirebaseException("Failed to Load Profile"),
-                        Messages.GENERIC_FAILURE
-                    )
+                        DataState.Error(
+                                FirebaseException("Failed to Load Profile"),
+                                Messages.GENERIC_FAILURE
+                        )
                 )
                 cancel()
             }
@@ -106,7 +106,11 @@ class UserRepositoryImpl @Inject constructor(
     ): Flow<DataState<String>> = flow {
         emit(DataState.Loading)
 
-        val completedCourse = mapOf(topicId to rating)
+        val completedCourse = if (nextTopicId != null) {
+            mapOf(topicId to rating, nextTopicId to 0f)
+        } else {
+            mapOf(topicId to rating)
+        }
 
         topicsDao.updateCompletedCourse(topicId, rating)
         nextTopicId?.let { topicsDao.unlockNextTopic(it) }
@@ -132,15 +136,15 @@ class UserRepositoryImpl @Inject constructor(
     override fun updateProfileImage(file: File, userId: String): Flow<DataState<String>> = flow {
         emit(DataState.Loading)
         val ref = storage.reference.child(RemoteDatabaseKeys.IMAGE_STORAGE_PATH)
-            .child(userId)
-            .child(RemoteDatabaseKeys.PROFILE_IMAGE_DIR)
-            .child(RemoteDatabaseKeys.PROFILE_IMAGE)
+                .child(userId)
+                .child(RemoteDatabaseKeys.PROFILE_IMAGE_DIR)
+                .child(RemoteDatabaseKeys.PROFILE_IMAGE)
         val uploadedImageUrl = ref.putFile(Uri.fromFile(file))
-            .await().storage.downloadUrl.await().toString()
+                .await().storage.downloadUrl.await().toString()
 
         remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS).document(userId)
-            .update(mapOf(RemoteDatabaseKeys.FIELD_PROFILE_IMAGE to uploadedImageUrl))
-            .await()
+                .update(mapOf(RemoteDatabaseKeys.FIELD_PROFILE_IMAGE to uploadedImageUrl))
+                .await()
 
         emit(DataState.Success(Messages.UPLOAD_SUCCESS))
     }.catch {
