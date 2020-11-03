@@ -39,7 +39,7 @@ fun RatingBar.showAndAnimateRating(value: Float) {
 
 fun ProgressBar.showUserProgress(progress: Int) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        this.setProgress(progress, true)
+        this.setProgress(progress, false)
     } else {
         this.progress = progress
     }
