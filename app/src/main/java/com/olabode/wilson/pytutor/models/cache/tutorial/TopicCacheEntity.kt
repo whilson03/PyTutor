@@ -11,16 +11,16 @@ import androidx.room.PrimaryKey
 data class TopicCacheEntity(
 
         @ColumnInfo(name = "order_key")
-    val orderKey: Int,
+        val orderKey: Int,
 
         @ColumnInfo(name = "title")
-    val title: String,
+        val title: String,
 
         @ColumnInfo(name = "description")
-    val description: String,
+        val description: String,
 
         @ColumnInfo(name = "pages_count")
-    val noOfPages: Int,
+        val noOfPages: Int,
 
         @PrimaryKey(autoGenerate = false)
         var topicId: String,
