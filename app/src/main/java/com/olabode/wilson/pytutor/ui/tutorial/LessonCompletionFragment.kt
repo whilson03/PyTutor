@@ -2,7 +2,6 @@ package com.olabode.wilson.pytutor.ui.tutorial
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -59,8 +58,7 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
     }
 
     private fun showConfetti() {
-        val display = DisplayMetrics()
-        requireActivity().windowManager.defaultDisplay.getMetrics(display)
+        val width = Utils.getWidth(requireContext(), requireActivity())
         binding.viewKonfetti.build()
                 .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
                 .setDirection(0.0, 359.0)
@@ -69,7 +67,7 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
                 .setTimeToLive(2000L)
                 .addShapes(Shape.Square, Shape.Circle)
                 .addSizes(Size(12))
-                .setPosition(-50f, display.widthPixels + 50f, -50f, -50f)
+                .setPosition(-50f, width + 50f, -50f, -50f)
                 .streamFor(300, 2000L)
     }
 

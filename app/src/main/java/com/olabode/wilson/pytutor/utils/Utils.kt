@@ -1,7 +1,11 @@
 package com.olabode.wilson.pytutor.utils
 
+import android.app.Activity
 import android.content.Context
+import android.os.Build
 import android.os.Environment
+import android.util.DisplayMetrics
+import android.view.Display
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -39,5 +43,21 @@ object Utils {
         // Convert score to star rating
         val maxRating = NO_STARS
         return maxRating / numberOfQuestions * score
+    }
+
+
+    fun getWidth(context: Context, activity: Activity): Int {
+        var width: Int = 0
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val displayMetrics = DisplayMetrics()
+            val display: Display? = context.display
+            display!!.getRealMetrics(displayMetrics)
+            displayMetrics.widthPixels
+        } else {
+            val displayMetrics = DisplayMetrics()
+            activity.windowManager.defaultDisplay.getMetrics(displayMetrics)
+            width = displayMetrics.widthPixels
+            width
+        }
     }
 }

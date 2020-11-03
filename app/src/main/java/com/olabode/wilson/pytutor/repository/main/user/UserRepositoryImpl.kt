@@ -107,7 +107,8 @@ class UserRepositoryImpl @Inject constructor(
         emit(DataState.Loading)
 
         val completedCourse = if (nextTopicId != null) {
-            mapOf(topicId to rating, nextTopicId to 0f)
+            val nextTopicStars = topicsDao.getTopic(nextTopicId)?.numOfStars ?: 0f
+            mapOf(topicId to rating, nextTopicId to nextTopicStars)
         } else {
             mapOf(topicId to rating)
         }
