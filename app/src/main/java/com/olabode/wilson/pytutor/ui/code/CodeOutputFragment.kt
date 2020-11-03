@@ -29,6 +29,7 @@ import com.olabode.wilson.pytutor.views.Interpreter
 
 class CodeOutputFragment : BottomSheetDialogFragment() {
 
+
     private lateinit var interpreter: Interpreter
     private var _binding: FragmentCodeOutputBinding? = null
     private val binding get() = _binding!!
@@ -66,15 +67,16 @@ class CodeOutputFragment : BottomSheetDialogFragment() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                    val code = code.replace("\n", "\\n")
+                    val code = Regex.escapeReplacement(code).replace("\n", "\\n")
                             .replace("\t", "\\t")
 
                     val func = "javascript:run(\"$code\");"
                     view?.evaluateJavascript(func, null)
 
                 } else {
-                    val code = code.replace("\n", "\\n")
+                    val code = Regex.escapeReplacement(code).replace("\n", "\\n")
                             .replace("\t", "\\t")
+
                     val func = "javascript:run(`$code`);"
                     view?.evaluateJavascript(func, null)
                 }
