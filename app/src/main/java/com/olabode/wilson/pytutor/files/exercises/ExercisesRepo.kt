@@ -9,7 +9,7 @@ import com.olabode.wilson.pytutor.models.remote.exercise.ExerciseResponse
 
 fun listOfExercises() = listOf<ExerciseResponse>(
         ExerciseResponse(
-                title = "Check Even",
+                title = "Even Number Check",
                 question = "Determine if a number is an Even Number.\nAn Even Number is one that is divisible by 2 without a remainder." +
                         "\nE.g: 2 ,4 ,6 ... ",
                 solution = "num = 8\n" +
@@ -18,24 +18,25 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "else:\n" +
                         "    print(num , \"is Odd\")\n"
         ),
+
         ExerciseResponse(
-                title = "Calculate Area of Circle",
-                question = "Write a Python program which accepts the radius of a circle from the user and compute the area.",
+                title = "Area of a Circle",
+                question = "Write a Python program which accepts the radius of a circle from the user and compute the area.\n" +
+                        "Formula: Area = πr ** 2",
                 solution = "from math import pi\n" +
                         "radius = float(input (\"Input the radius of the circle : \"))\n" +
-                        "print (\"The area of the circle with radius \" + str(radius) + \" is: \" + str(pi * radius ** 2))\n" +
-                        "Hint: Area = πr ** 2"
-
+                        "print (\"The area of the circle with radius \" + str(radius) + \" is: \" + str(pi * radius ** 2))\n"
         ),
+
         ExerciseResponse(
-                title = "Check Vowels",
+                title = "Vowel Check",
                 question = "Write a Python program to test whether a passed letter is a vowel or not.\nVowels are: a, e, i, o, u",
                 solution = "def is_vowel(char):\n" +
                         "    all_vowels = 'aeiou'\n" +
                         "    return char in all_vowels\n" +
                         "print(is_vowel('c'))"
-
         ),
+
         ExerciseResponse(
                 title = "Max of Three",
                 question = "Implement a function that takes as input three variables, and returns the largest of the three. Do this without using the Python max() function!\n" +
@@ -52,8 +53,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "   \treturn largest\n" +
                         "" +
                         "\nprint(max_of_three(5,1,9))"
-
         ),
+
         ExerciseResponse(
                 title = "Convert Minutes into Seconds",
                 question = "Write a function that takes an integer minutes and converts it to seconds.\n" +
@@ -68,10 +69,10 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\treturn minutes * 60\n" +
                         "" +
                         "print(convert(3))"
-
         ),
+
         ExerciseResponse(
-                title = "Find the Largest Number in a List",
+                title = "Largest Number in a List",
                 question = "Create a function that takes a list of numbers. Return the largest number in the list.\n" +
                         "This should be done without using the max() function." +
                         "\n" +
@@ -90,10 +91,10 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "  return largest\n" +
                         "" +
                         "print(findLargestNum([4, 5, 1, 3]))"
-
         ),
+
         ExerciseResponse(
-                title = "Get the Sum of All List Elements",
+                title = "Sum of All List Elements",
                 question = "Create a function that takes a list and returns the sum of all numbers in the list.\n" +
                         "This should be done without using the sum function" +
                         "\n" +
@@ -110,10 +111,10 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\t\ta += i\n" +
                         "\treturn a\n" +
                         "print(get_sum_of_elements([45, 3, 0]))"
-
         ),
+
         ExerciseResponse(
-                title = "Check Unique",
+                title = "Unique Number Check",
                 question = "Write a Python function that takes a sequence of numbers and determines whether all the numbers are different from each other.\n" +
                         "\n" +
                         "Examples\n" +
@@ -128,8 +129,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "    return False\n\n" +
                         "print(test_distinct([1,5,7]))\n" +
                         "print(test_distinct([5,5,7,9]))"
-
         ),
+
         ExerciseResponse(
                 title = "Display Triangular Pattern",
                 question = "write a program to display a triangle pattern based on specified height.\n" +
@@ -143,10 +144,10 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "    print(\"#\" * i)\n" +
                         "\n" +
                         "\n"
-
         ),
+
         ExerciseResponse(
-                title = "Check Leap Year",
+                title = "Leap Year Check",
                 question = "A leap year is exactly divisible by 4 except for century years (years ending with 00). The century year is a leap year only if it is perfectly divisible by 400.\n" +
                         "\n" +
                         "For example,\n" +
@@ -171,11 +172,11 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "       print(\"{0} is a leap year\".format(year))\n" +
                         "else:\n" +
                         "   print(\"{0} is not a leap year\".format(year))"
-
         ),
 
+
         ExerciseResponse(
-                title = "Check Prime Number",
+                title = "Prime Number Check",
                 question = "check whether an integer is a prime number\n " +
                         "\n" +
                         "What is a Prime Number?\n" +
@@ -199,10 +200,10 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "# or equal to 1, it is not prime\n" +
                         "else:\n" +
                         "   print(num,\"is not a prime number\")"
-
         ),
+
         ExerciseResponse(
-                title = "Find the Factorial of a Number",
+                title = "Factorial of a Number",
                 question = "The factorial of a number is the product of all the integers from 1 to that number.\n" +
                         "\n" +
                         "For example:\nThe factorial of 6 is 1*2*3*4*5*6 = 720.\nFactorial is not defined for negative numbers, and the factorial of zero is one, 0! = 1.",
@@ -219,13 +220,13 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "   for i in range(1,num + 1):\n" +
                         "       factorial = factorial*i\n" +
                         "   print(\"The factorial of\",num,\"is\",factorial)"
-
         ),
+
         ExerciseResponse(
-                title = "Check Palindrome number",
-                question = "A palindrome is nothing but any number or a string which remains unaltered when reversed.\nExample\n" +
+                title = "Palindromicity of a Number",
+                question = "A palindrome is any number or a string which remains unaltered when reversed.\nExample\n" +
                         "121, 12321",
-                solution = "num = 6 \n" +
+                solution = "num = 848 \n" +
                         "temp = num\n" +
                         "rev = 0\n" +
                         "while(num > 0):\n" +
@@ -233,13 +234,13 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "    rev = rev * 10 + dig\n" +
                         "    num = num // 10\n" +
                         "if(temp == rev):\n" +
-                        "    print(\"The number is palindrome!\")\n" +
+                        "    print(f\"{temp} is a palindrome!\")\n" +
                         "else:\n" +
-                        "    print(\"Not a palindrome!\")"
-
+                        "    print(f\"{temp} is not a palindrome!\")"
         ),
+
         ExerciseResponse(
-                title = "Reverse a number",
+                title = "Reverse a Number",
                 question = "Write a program to reverse a number\n" +
                         "Example:\n" +
                         "123\n" +
@@ -262,8 +263,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         " \n" +
                         "# Display the result\n" +
                         "print(\"The reverse number is : {}\".format(test_num))"
-
         ),
+
         ExerciseResponse(
                 title = "Concatenate All Elements in a List",
                 question = "Write a Python program to concatenate all elements in a list into a string and return it.\n" +
@@ -277,11 +278,12 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "    return result\n" +
                         "\n" +
                         "print(concatenate_list([\"three\", 5, \"blue\", \"low\"]))"
-
         ),
+
         ExerciseResponse(
-                title = "Find the LCM of Two Positive Numbers",
-                question = "Write a Python program to get the least common multiple (LCM) of two positive integers.",
+                title = "LCM of Two Positive Numbers",
+                question = "Write a Python program to get the least common multiple (LCM) of two positive integers. \n" +
+                        "Example: The LCM of 4 and 5 is 20.",
                 solution = "def lcm(x, y):\n" +
                         "   if x > y:\n" +
                         "       z = x\n" +
@@ -297,11 +299,12 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "   return lcm\n" +
                         "\n" +
                         "print(lcm(4, 7))"
-
         ),
+
         ExerciseResponse(
-                title = "Find the GCD of Two Positive Numbers",
-                question = "Write a Python program to compute the greatest common divisor (GCD) of two positive integers.",
+                title = "GCD of Two Positive Numbers",
+                question = "Write a Python program to compute the greatest common divisor (GCD) of two positive integers. \n" +
+                        "Example: The GCD of 8 and 12 is 4.",
                 solution = "def gcd(x, y):\n" +
                         "    gcd = 1\n" +
                         "    \n" +
@@ -316,37 +319,26 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "    return gcd\n" +
                         "\n" +
                         "print(gcd(12, 16))"
-
         ),
+
         ExerciseResponse(
-                title = "Calculate the Distance between 2 Points",
-                question = "Write a Python program to compute the distance between the points (x1, y1) and (x2, y2).",
+                title = "Distance between 2 Points",
+                question = "Write a Python program to compute the distance between the points (x1, y1) and (x2, y2).\n" +
+                        "Formula:\n" +
+                        "distance = √[(x2 - x1)**2 + (y2 - y1)**2]",
                 solution = "import math\n" +
                         "p1 = [4, 2]\n" +
                         "p2 = [5, 5]\n" +
                         "distance = math.sqrt( (p1[0]-p2[0])**2 + (p1[1]-p2[1])**2 ) \n" +
                         "\n" +
                         "print(distance)"
-
         ),
-        ExerciseResponse(
-                title = "Calculate the Sum of the Digits in an Integer",
-                question = " Write a Python program to calculate the sum of the digits in a 4 digit integer.\n" +
-                        "E.g, 1234\n" +
-                        "Output: 10",
-                solution = "num = int(input(\"Input a four digit numbers: \"))\n" +
-                        "x  = num // 1000\n" +
-                        "x1 = (num - x*1000) // 100\n" +
-                        "x2 = (num - x*1000 - x1*100) // 10\n" +
-                        "x3 = num - x*1000 - x1*100 - x2*10\n" +
-                        "print(f\"The sum of digits in the number is {x+x1+x2+x3}\")"
 
-        ),
         ExerciseResponse(
-                title = "Check if a Word is a Palindrome",
+                title = "Palindrome Word Check",
                 question = "Write a program which checks if a string is a palindrome.\n" +
-                        "A word is palindrome if the word is thesame when reading from either left or from the right.\n" +
-                        "E.g : AVA " +
+                        "A word is palindrome if the word is the same when reading from either left or from the right.\n" +
+                        "E.g : AVA is a palindrome " +
                         "",
                 solution = "def palindrome(word):\n" +
                         "    left = 0\n" +
@@ -370,11 +362,14 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "        print(word,\"is not a palindrome\")\n" +
                         "\n" +
                         "main()\n"
-
         ),
+
         ExerciseResponse(
-                title = "Find the Midpoint of a Line",
-                question = "Write a Python program to calculate midpoints of a line.",
+                title = "Midpoint of a Line",
+                question = "Write a Python program to calculate midpoints of a line with the coordinates (x1, y1) and (x2, y2).\n" +
+                        "Formula:\n" +
+                        "midpoint x value = (x1 + x2) / 2\n" +
+                        "midpoint y value = (y1 + y2) / 2",
                 solution = "x1 = float(input(\"The value of x1: \"))\n" +
                         "y1 = float(input(\"The value of y1: \"))\n" +
                         "print()\n" +
@@ -387,12 +382,12 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "print()\n" +
                         "print(f\"The midpoint's x value is: {xMidPoint}\")\n" +
                         "print(f\"The midpoint's y value is: {yMidPoint}\")"
-
         ),
+
         ExerciseResponse(
-                title = "Find the Character Count in a String",
+                title = "Character Count in a String",
                 question = "Write a Python program to count the number of occurrence of a specific character in a string.\n" +
-                        "",
+                        "Example: 'a' appears 4 times in \"It was a dark and stormy night\"",
                 solution = "def charCount(word, char):\n" +
                         "    count = 0\n" +
                         "    for c in word:\n" +
@@ -403,8 +398,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\n" +
                         "sampleWord = \"The quick brown fox jumps over the lazy dog.\"\n" +
                         "print(charCount(sampleWord, \"o\"))"
-
         ),
+
         ExerciseResponse(
                 title = "Swap Two Variables",
                 question = "Write a program to swap two variables.\n" +
@@ -428,42 +423,51 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "print(\"After the swap:\")\n" +
                         "print(f\"a = {a}\")\n" +
                         "print(f\"b = {b}\")"
-
         ),
+
         ExerciseResponse(
                 title = "Filter Odd Numbers from a List",
-                question = "Write a Python program to filter the odd numbers from a list.",
-                solution = "def posFilter(sampleList):\n" +
-                        "    posList = []\n" +
+                question = "Write a Python program to filter out the odd numbers from a list. \n" +
+                        "Hint: Filtering [1, 2, 3, 4, 5] removes the odd numbers and returns [2, 4].",
+                solution = "def oddFilter(sampleList):\n" +
+                        "    evenList = []\n" +
                         "\n" +
                         "    for num in sampleList:\n" +
                         "        if num % 2 == 0:\n" +
-                        "            posList.append(num)\n" +
+                        "            evenList.append(num)\n" +
                         "    \n" +
-                        "    return posList\n" +
+                        "    return evenList\n" +
                         "\n" +
                         "numList = [1, 2, 7, 9, 2, 4, 6]\n" +
-                        "print(posFilter(numList))"
-
+                        "print(oddFilter(numList))"
         ),
+
         ExerciseResponse(
-                title = "Check if a Number is Divisible by Another",
-                question = "Write a Python function to check whether a number is divisible by another without a remainder.",
+                title = "Divisibility of a Number",
+                question = "Write a Python function to check whether a number is divisible by another without a remainder. \n" +
+                        "Example:\n" +
+                        "Numerator = 6, Denominator = 2\n" +
+                        "Output = True\n" +
+                        "\n" +
+                        "Numerator = 9, Denominator = 4\n" +
+                        "Output = False",
                 solution = "def isDivisible(num, den):\n" +
                         "    if num % den == 0:\n" +
                         "        return True\n" +
                         "    \n" +
                         "    return False\n" +
                         "\n" +
-                        "numerator = int(input(\"Enter the numerator: \"))\n" +
-                        "denominator = int(input(\"Enter the denominator: \"))\n" +
+                        "numerator = int(input(\"Numerator: \"))\n" +
+                        "denominator = int(input(\"Denominator: \"))\n" +
                         "\n" +
                         "print(isDivisible(numerator, denominator))"
-
         ),
+
         ExerciseResponse(
                 title = "Implement the Pythagorean Theorem",
-                question = "Implement the Pythagorean Theorem to find the length of the hypotenuse of a triangle when given the other two sides.",
+                question = "Implement the Pythagorean Theorem to find the length of the hypotenuse of a triangle when given the other two sides. \n" +
+                        "Formula:\n" +
+                        "hypotenuse ** 2 = (sideA ** 2) + (sideB ** 2)",
                 solution = "import math\n" +
                         "\n" +
                         "def hyp(sideA, sideB):\n" +
@@ -472,8 +476,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "a = float(input(\"Enter the length of side A: \"))\n" +
                         "b = float(input(\"Enter the length of side B: \"))\n" +
                         "print(f\"The hypotenuse of the triangle is {hyp(a, b)}\")"
-
         ),
+
         ExerciseResponse(
                 title = "FizzBuzz Challenge",
                 question = "Write a Python program which iterates the integers from 1 to 100. For multiples of three print \"Fizz\" instead of the number and for the multiples of five print \"Buzz\". For numbers which are multiples of both three and five print \"FizzBuzz\".",
@@ -484,8 +488,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "        print(\"Fizz\")\n" +
                         "    elif number % 5 == 0:\n" +
                         "        print(\"Buzz\")\n"
-
         ),
+
         ExerciseResponse(
                 title = "Print Even Numbers",
                 question = "Print the even numbers from 1 to 100.",
@@ -498,8 +502,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "for num in range(1, 101):\n" +
                         "    if checkEven(num):\n" +
                         "        print(num)"
-
         ),
+
         ExerciseResponse(
                 title = "Display Diamond pattern",
                 question = "Write a program that gets an integer value from user and displays a diamond shape.\n" +
@@ -528,11 +532,12 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "for i in range(h):\n" +
                         "    print(\" \"*(h-i), \"*\"*(i*2+1))\n" +
                         "for i in range(h-2, -1, -1):\n" +
-                        "    print(\" \"*(h-i), \"*\"*(i*2+1))"
-
+                        "    print(\" \"*(h-i), \"*\"*(i*2+1))",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
         ),
+
         ExerciseResponse(
-                title = "Display multiplication table from 1 to 10 ",
+                title = "Display Multiplication Table from 1 to 10 ",
                 question = "Write a program to display the whole multiplication table from 1 to 10\nOutput" +
                         "\n" +
                         " +----------------------------------------\n" +
@@ -562,10 +567,10 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "    print() # Move cursor to next row\n" +
                         "    \n",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
-                title = "Print the Fibonacci sequence",
+                title = "Print a Fibonacci Sequence",
                 question = "A Fibonacci sequence is the integer sequence of 0, 1, 1, 2, 3, 5, 8....\n" +
                         "\n" +
                         "The first two terms are 0 and 1. All other terms are obtained by adding the preceding two terms. This means to say the nth term is the sum of (n-1)th and (n-2)th term.",
@@ -591,11 +596,25 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "       n2 = nth\n" +
                         "       count += 1",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
-                title = "Check Armstrong Number",
-                question = "check whether an n-digit integer is an Armstrong number or not.\n" +
+                title = "Sum of the Digits in an Integer",
+                question = " Write a Python program to calculate the sum of the digits in a 4 digit integer.\n" +
+                        "E.g, 1234\n" +
+                        "Output: 10",
+                solution = "num = int(input(\"Input a four digit numbers: \"))\n" +
+                        "x  = num // 1000\n" +
+                        "x1 = (num - x*1000) // 100\n" +
+                        "x2 = (num - x*1000 - x1*100) // 10\n" +
+                        "x3 = num - x*1000 - x1*100 - x2*10\n" +
+                        "print(f\"The sum of digits in the number is {x+x1+x2+x3}\")",
+                difficulty = DIFFICULTY.MEDIUM.ordinal
+        ),
+
+        ExerciseResponse(
+                title = "Armstrong Number Check",
+                question = "Check whether an n-digit integer is an Armstrong number or not.\n" +
                         "Armstrong number is a number that is equal to the sum of cubes of its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong numbers.\n" +
                         "Example:\n153 = 1*1*1 + 5*5*5 + 3*3*3  // 153 is an Armstrong number.",
                 solution = "num = 370\n" +
@@ -616,8 +635,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "else:\n" +
                         "   print(num,\"is not an Armstrong number\")",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
                 title = "Longest Word",
                 question = "Write a function that finds the longest word in a sentence." +
@@ -630,10 +649,10 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\n" +
                         "print(longest_word(\"the household name\"))",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
-                title = "Find the Shared Letters between Two Strings",
+                title = "Common Letters between Two Strings",
                 question = "Given two strings, return a string containing only the letters shared between the two.\n" +
                         "\n" +
                         "Examples\n" +
@@ -651,10 +670,10 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\n" +
                         "print(shared_letters(\"hello\",\"melon\"))",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
-                title = "Change Every Letter to the Next Letter",
+                title = "Change Every Letter to the Next",
                 question = "Write a function that changes every letter to the next letter:\n" +
                         "\n" +
                         "\"a\" becomes \"b\"\n" +
@@ -672,8 +691,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\treturn ans\n" +
                         "print(move(\"hello\"))",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
                 title = "Consecutive Numbers",
                 question = "Create a function that determines whether elements in an array can be re-arranged to form a consecutive list of numbers where each number appears exactly once.\n" +
@@ -696,8 +715,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "l = cons([5, 1, 4, 3, 2])\n" +
                         "print(l)",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
                 title = "Numbers in Strings",
                 question = "Create a function that takes a list of strings and returns a list with only the strings that have numbers in them." +
@@ -724,8 +743,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\n" +
                         "print(num_in_str([\"1a\", \"a\", \"2b\", \"b\"]))",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
                 title = "Leader in a List",
                 question = "Create a function that finds each number in the given list that is greater than every number that comes after it. Your solution should return a list of the number(s) that meet these criteria.\n" +
@@ -758,8 +777,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\treturn new_arr\n" +
                         "print(leader([2, 3, 20, 15, 8, 3]))",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
                 title = "Remove Repeated Letters",
                 question = "Create a function that replaces all consecutively repeated letters in a word with single letters.\n" +
@@ -777,8 +796,8 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\t\n" +
                         "print(remove_repeats(\"bookkeeper\"))",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         ),
+
         ExerciseResponse(
                 title = "Sum of Digits Between Two Numbers",
                 question = "Create a function that sums the total number of digits between two numbers, inclusive. For example, between the numbers 19 and 22 we have:\n" +
@@ -798,8 +817,5 @@ fun listOfExercises() = listOf<ExerciseResponse>(
                         "\t\n" +
                         "print(sum_digits(7, 8))",
                 difficulty = DIFFICULTY.MEDIUM.ordinal
-
         )
-
-
 )
