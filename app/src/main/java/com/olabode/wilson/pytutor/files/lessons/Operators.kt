@@ -19,7 +19,7 @@ val operators = listOf(
             "1" to Tutorial(
                 1,
                 "",
-                "In the previous chapters we talked about the Assignment Operator, Arithmetic Operators and their uses.",
+                "In a previous lesson we covered the assignment and arithmetic operators, and their uses.",
                 null,
                 LessonTypes.TEXT.ordinal
             ),
@@ -27,7 +27,7 @@ val operators = listOf(
             "2" to Tutorial(
                 2,
                 "",
-                "In this Chapter you will learn other operators : ",
+                "In this lesson you will learn other operators : ",
                 null,
                 LessonTypes.TEXT.ordinal
             ),
@@ -619,7 +619,7 @@ val operators = listOf(
         lessons = null,
         question = mapOf(
             "1" to Question(
-                question = "which is an identity Operator ?",
+                question = "Which is the identity operator?",
                 options = mapOf(
                     "1" to "is",
                     "2" to "not",
@@ -630,7 +630,7 @@ val operators = listOf(
 
             "2" to Question(
                 question = "\n" +
-                    "Whats the output ?\n" +
+                    "What is the output?\n" +
                     "\n" +
                     "number =  4 % 2\n" +
                     "\n" +

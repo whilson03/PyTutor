@@ -294,20 +294,20 @@ val tuples = listOf(
             "2" to Question(
                 question = "What is used to create tuples?",
                 options = mapOf(
-                    "1" to "Parenthesis.",
-                    "2" to "Square braces.",
-                    "3" to "Curly braces."
+                    "1" to "Parentheses",
+                    "2" to "Square braces",
+                    "3" to "Curly braces"
                 ),
                 answerKey = "1"
             ),
             "3" to Question(
                 question = "Can tuples be sliced?",
                 options = mapOf(
-                    "1" to "No.",
-                    "2" to "Yes.",
-                    "3" to "Kinda."
+                    "1" to "No",
+                    "2" to "Yes",
+                    "3" to "Kinda"
                 ),
-                answerKey = "1"
+                answerKey = "2"
             )
         ),
         type = LessonResponseType.QUESTION.ordinal

@@ -336,10 +336,8 @@ val conditions = listOf(
             "1" to Question(
                 question = "What will be the output of:\n" +
                     "name = \"Debbie\"\n" +
-                    "\n" +
                     "if len(name) > 5:\n" +
                     "    print(\"Name check passed\")\n" +
-                    "\n" +
                     "else:\n" +
                     "    print(\"Name check failed\")",
                 options = mapOf(
@@ -351,7 +349,7 @@ val conditions = listOf(
             ),
 
             "2" to Question(
-                question = "Conditions can consist of blocks such as if, else and...",
+                question = "Conditions can consist of blocks such as if, else and ___",
                 options = mapOf(
                     "1" to "elif",
                     "2" to "else if",

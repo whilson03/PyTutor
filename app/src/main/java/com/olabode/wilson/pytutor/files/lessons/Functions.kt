@@ -331,7 +331,7 @@ val functions = listOf(
         lessons = null,
         question = mapOf(
             "1" to Question(
-                question = "What is not a purpose of functions?",
+                question = "Which is not a purpose of functions?",
                 options = mapOf(
                     "1" to "Reusability",
                     "2" to "Instability",

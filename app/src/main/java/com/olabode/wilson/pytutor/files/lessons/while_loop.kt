@@ -272,6 +272,7 @@ val while_loop = listOf(
         question = mapOf(
             "1" to Question(
                 question = "How many times does the body of this while loop get executed?\n" +
+                    "\n" +
                     "total = 0\n" +
                     "while total < 10:\n" +
                     "    total  = 1\n" +
@@ -285,22 +286,23 @@ val while_loop = listOf(
             ),
 
             "2" to Question(
-                question = "This program evaluates to an Infinite-loop, why?\n" +
+                question = "This program evaluates to an infinite loop. Why?\n" +
+                    "\n" +
                     "total = 0\n" +
                     "while total <= 3:\n" +
                     "    total  = total * 8\n" +
                     "    print(total)",
                 options = mapOf(
                     "1" to "total * 8 is always 0 which is less than 3",
-                    "2" to "Its not an infinite loop",
-                    "3" to "The expression is never `True`"
+                    "2" to "It is not an infinite loop",
+                    "3" to "The condition is never `True`"
                 ),
                 answerKey = "1"
             ),
             "3" to Question(
-                question = "How many times will the body of this loop get Executed?\n" +
-                    "count = 1\n" +
+                question = "How many times will the body of this loop get executed?\n" +
                     "\n" +
+                    "count = 1\n" +
                     "while count >= 5:\n" +
                     "    print(count)\n" +
                     "    count = count + 2",

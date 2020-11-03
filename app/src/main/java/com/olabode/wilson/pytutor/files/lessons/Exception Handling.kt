@@ -235,7 +235,7 @@ val exception_handling = listOf(
             ),
 
             "2" to Question(
-                question = "Exception handling may consist of all but",
+                question = "Exception handling in Python may consist of all but",
                 options = mapOf(
                     "1" to "try blocks",
                     "2" to "catch block",
