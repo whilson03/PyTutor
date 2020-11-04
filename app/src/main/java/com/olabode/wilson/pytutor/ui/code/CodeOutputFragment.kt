@@ -67,17 +67,17 @@ class CodeOutputFragment : BottomSheetDialogFragment() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                    val code = Regex.escapeReplacement(code).replace("\n", "\\n")
+                    val formattedCode = Regex.escapeReplacement(code).replace("\n", "\\n")
                             .replace("\t", "\\t")
 
-                    val func = "javascript:run(\"$code\");"
+                    val func = "javascript:run(\"$formattedCode\");"
                     view?.evaluateJavascript(func, null)
 
                 } else {
-                    val code = Regex.escapeReplacement(code).replace("\n", "\\n")
+                    val formattedCode = Regex.escapeReplacement(code).replace("\n", "\\n")
                             .replace("\t", "\\t")
 
-                    val func = "javascript:run(`$code`);"
+                    val func = "javascript:run(`$formattedCode`);"
                     view?.evaluateJavascript(func, null)
                 }
 
@@ -85,7 +85,6 @@ class CodeOutputFragment : BottomSheetDialogFragment() {
         }
 
         interpreter.webChromeClient = object : WebChromeClient() {
-
             override fun onJsPrompt(view: WebView?, url: String?, message: String?, defaultValue: String?, result: JsPromptResult?): Boolean {
 
                 val builder: AlertDialog.Builder = AlertDialog.Builder(view!!.context)
@@ -97,7 +96,7 @@ class CodeOutputFragment : BottomSheetDialogFragment() {
                 et.setText(defaultValue)
                 builder.setView(et)
                         .setPositiveButton(getString(R.string.ok)) { _, _ ->
-                            if (!et.text.toString().isNullOrEmpty()) {
+                            if (et.text.toString().isNotEmpty()) {
                                 result!!.confirm(et.text.toString())
                             } else {
                                 result!!.cancel()
