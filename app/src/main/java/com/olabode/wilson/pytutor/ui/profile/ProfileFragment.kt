@@ -66,19 +66,14 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 is DataState.Success -> {
                     setUpProfile(result.data)
                 }
-                else -> {/* no-op */
-                }
+                else -> { /* no-op */ }
             }
         })
 
         binding.signOut.setOnClickListener { logOut() }
-
         binding.navigateToRate.setOnClickListener { rate(requireContext()) }
-
         binding.navigateToPrivacy.setOnClickListener { privacy() }
-
         binding.imageFrame.setOnClickListener { showUploadImageDialog() }
-
         binding.navigateToFeedback.setOnClickListener { sendFeedback() }
     }
 
@@ -257,8 +252,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             Constants.REQUEST_CAMERA_PERMISSION -> {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     dispatchTakePictureIntent()
-                } else {
-                    /* no-op */
                 }
             }
         }
