@@ -52,7 +52,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         })
 
         binding.createAccount.setOnClickListener {
-            findNavController().navigate(
+            navigateSafe(
                     LoginFragmentDirections
                             .actionLoginFragmentToSignUpFragment2()
             )
@@ -74,7 +74,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
 
         binding.forgotPassword.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment())
+            navigateSafe(LoginFragmentDirections.actionLoginFragmentToResetPasswordFragment())
         }
     }
 
@@ -95,7 +95,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 is AuthResult.Success -> {
                     binding.progressLayout.root.hide()
                     setIsNotFirstTimeUser()
-                    findNavController().navigate(AuthNavigationDirections.actionGlobalHomeFragment())
+                    navigateSafe(AuthNavigationDirections.actionGlobalHomeFragment())
                 }
 
                 is AuthResult.UnAuthenticated -> {

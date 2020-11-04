@@ -18,13 +18,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import coil.api.load
 import coil.transform.CircleCropTransformation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentProfileBinding
 import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.user.User
@@ -115,7 +115,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun logOut() {
         viewModel.signOut()
-        findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToAuthNavigation())
+        navigateSafe(ProfileFragmentDirections.actionProfileFragmentToAuthNavigation())
     }
 
     private fun rate(context: Context) {

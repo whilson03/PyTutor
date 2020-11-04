@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.UICommunicator
 import com.olabode.wilson.pytutor.databinding.FragmentInterpreterBinding
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.views.PythonSyntaxManager
 import kotlin.math.max
@@ -59,7 +60,7 @@ class InterpreterFragment : Fragment(R.layout.fragment_interpreter) {
     }
 
     private fun executeCode(code: String) {
-        findNavController().navigate(InterpreterFragmentDirections.actionInterpreterFragmentToCodeOutputFragment(code))
+        navigateSafe(InterpreterFragmentDirections.actionInterpreterFragmentToCodeOutputFragment(code))
     }
 
 

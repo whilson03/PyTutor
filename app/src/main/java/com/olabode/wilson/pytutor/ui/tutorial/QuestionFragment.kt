@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentQuestionBinding
 import com.olabode.wilson.pytutor.extensions.navigateSafe
@@ -121,7 +120,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
     }
 
     private fun navigateToCompletionScreen(score: Int, noOfQuestion: Int) {
-        findNavController().navigate(
+        navigateSafe(
                 ViewTutorialsFragmentDirections
                         .actionViewTutorialsFragmentToLessonCompletionFragment(
                                 score = score, numberOfQuestions = noOfQuestion,
