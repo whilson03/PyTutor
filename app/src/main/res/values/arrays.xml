@@ -46,6 +46,7 @@
         <item>yield</item>
         <item>print()</item>
         <item>range()</item>
+        <item>input()</item>
     </string-array>
 
 </resources>
