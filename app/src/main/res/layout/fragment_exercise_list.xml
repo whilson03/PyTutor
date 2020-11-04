@@ -13,8 +13,7 @@
         android:layout_height="?actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -22,8 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            app:title="@string/exercises"
-            app:navigationIcon="@drawable/ic_back" />
+            app:navigationIcon="@drawable/ic_back"
+            app:title="@string/exercises" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -45,8 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_exercises"
-          />
+            tools:listitem="@layout/item_exercises" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include

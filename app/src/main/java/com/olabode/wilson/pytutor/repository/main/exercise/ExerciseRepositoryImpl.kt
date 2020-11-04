@@ -1,7 +1,6 @@
 package com.olabode.wilson.pytutor.repository.main.exercise
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.toObject
 import com.olabode.wilson.pytutor.data.exercise.ExerciseDao
 import com.olabode.wilson.pytutor.mappers.exercise.ExerciseCacheMapper
@@ -17,6 +16,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -31,44 +31,36 @@ class ExerciseRepositoryImpl @Inject constructor(
         private val exerciseCacheMapper: ExerciseCacheMapper
 ) : ExerciseRepository {
 
-    val first = remoteDatabase.collection(RemoteDatabaseKeys.NODE_EXERCISES).limit(25)
-    var next: Query? = null
-
 
     override fun fetchExercises(): Flow<DataState<List<Exercise>>> = flow {
         emit(DataState.Loading)
-        val nextQuery = next
-        if (nextQuery != null) {
-            val snapshot = nextQuery.get().await()
-            val lastVisible = snapshot.documents[snapshot.size() - 1]
-            next = remoteDatabase.collection(RemoteDatabaseKeys.NODE_EXERCISES)
-                    .startAfter(lastVisible)
-                    .limit(25)
 
-            val result = snapshot.documents.map {
-                it.toObject<ExerciseResponse>()!!
+        val cachedExercise = exerciseDao.retrieveExercises()
+
+        if (cachedExercise.isEmpty()) {
+            val remoteExercises = remoteDatabase
+                    .collection(RemoteDatabaseKeys.NODE_EXERCISES)
+                    .get().await().documents
+
+            if (!remoteExercises.isNullOrEmpty()) {
+                val listOfNetworkExercises = remoteExercises.map { it?.toObject<ExerciseResponse>()!! }
+                val exercisesList = exerciseNetworkMapper.mapFromEntityList(listOfNetworkExercises)
+                val forCache = exerciseCacheMapper.mapToEntityList(exercisesList)
+                exerciseDao.insertAll(forCache)
+                emit(DataState.Success(exercisesList))
+            } else {
+                emit(DataState.Error(null, Messages.FAILED_TO_LOAD_EXERCISES))
             }
-            val exercises = exerciseNetworkMapper.mapFromEntityList(result)
-            emit(DataState.Success(exercises))
-        } else {
-            val firstSnapshot = first.get().await()
-            val lastVisible = firstSnapshot.documents[firstSnapshot.size() - 1]
-            next = remoteDatabase.collection(RemoteDatabaseKeys.NODE_EXERCISES)
-                    .startAfter(lastVisible)
-                    .limit(25)
-            val result = firstSnapshot.documents.map {
-                it.toObject<ExerciseResponse>()!!
-            }
-            val exercises = exerciseNetworkMapper.mapFromEntityList(result)
-            emit(DataState.Success(exercises))
         }
+
     }.catch { e ->
         Timber.e(e)
-        emit(DataState.Error(null, Messages.FAILED_TO_LOAD))
+        emit(DataState.Error(null, Messages.FAILED_TO_LOAD_EXERCISES))
     }.flowOn(Dispatchers.IO)
 
-    override fun refresh() {
-        next = null
-
+    override suspend fun clearExercises() {
+        withContext(Dispatchers.IO) {
+            exerciseDao.clear()
+        }
     }
 }

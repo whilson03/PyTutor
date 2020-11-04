@@ -49,4 +49,3 @@ fun View.setUpAnimation(context: Context) {
     val anim = AnimationUtils.loadAnimation(context, R.anim.splash_screen_logo_animation)
     this.animation = anim
 }
-
