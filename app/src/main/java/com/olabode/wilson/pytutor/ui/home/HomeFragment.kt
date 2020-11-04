@@ -44,19 +44,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         })
 
-        binding.cardOne.setOnClickListener {
+        binding.tutorialSection.setOnClickListener {
             navigateSafe(HomeFragmentDirections.actionHomeFragmentToTutorialTopicsFragment())
         }
 
-        binding.cardTwo.setOnClickListener {
+        binding.algorithmSection.setOnClickListener {
             navigateSafe(HomeFragmentDirections.actionHomeFragmentToListAlgosFragment())
         }
 
-        binding.cardThree.setOnClickListener {
+        binding.exercisesSection.setOnClickListener {
             navigateSafe(HomeFragmentDirections.actionHomeFragmentToExerciseListFragment())
         }
 
-        binding.cardFour.setOnClickListener {
+        binding.codeSection.setOnClickListener {
             navigateSafe(HomeFragmentDirections.actionHomeFragmentToInterpreterFragment())
         }
     }
@@ -64,7 +64,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun setupUserDetails(user: User) {
         binding.nameField.text = user.fullName
         binding.profileIcon.load(user.imageUrl) {
-            crossfade(true)
+            crossfade(false)
             placeholder(R.drawable.ic_profile_placeholder)
             transformations(RoundedCornersTransformation(25f))
             error(R.drawable.ic_profile_placeholder)
