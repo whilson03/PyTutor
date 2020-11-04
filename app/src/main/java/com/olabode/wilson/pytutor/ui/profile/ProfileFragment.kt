@@ -66,6 +66,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 is DataState.Success -> {
                     setUpProfile(result.data)
                 }
+                else -> {/* no-op */
+                }
             }
         })
 
@@ -73,7 +75,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         binding.navigateToRate.setOnClickListener { rate(requireContext()) }
 
-        binding.navigatePrivacy.setOnClickListener { privacy() }
+        binding.navigateToPrivacy.setOnClickListener { privacy() }
 
         binding.imageFrame.setOnClickListener { showUploadImageDialog() }
 

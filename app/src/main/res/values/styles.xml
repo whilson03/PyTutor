@@ -58,7 +58,7 @@
         <item name="background">@color/white</item>
     </style>
 
-    <style name="profileCardItem">
+    <style name="profileCardItem" parent="Widget.MaterialComponents.CardView">
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
