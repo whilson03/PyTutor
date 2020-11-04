@@ -32,13 +32,13 @@ import javax.inject.Singleton
 @Singleton
 @ExperimentalCoroutinesApi
 class TutorialRepositoryImpl @Inject constructor(
-    private val remoteDatabase: FirebaseFirestore,
-    private val topicNetworkMapper: TopicNetworkMapper,
-    private val topicCacheMapper: TopicCacheMapper,
-    private val lessonNetworkMapper: LessonNetworkMapper,
-    private val lessonsCacheMapper: LessonCacheMapper,
-    private val topicsDao: TopicsDao,
-    private val lessonsDao: LessonsDao
+        private val remoteDatabase: FirebaseFirestore,
+        private val topicNetworkMapper: TopicNetworkMapper,
+        private val topicCacheMapper: TopicCacheMapper,
+        private val lessonNetworkMapper: LessonNetworkMapper,
+        private val lessonsCacheMapper: LessonCacheMapper,
+        private val topicsDao: TopicsDao,
+        private val lessonsDao: LessonsDao
 ) : TutorialRepository {
 
     override fun retrieveTopicsFromRemote(userId: String): Flow<DataState<List<Topic>>> = flow {
@@ -47,14 +47,14 @@ class TutorialRepositoryImpl @Inject constructor(
 
         if (cachedTopics < 1) {
             val topicsCollection = remoteDatabase
-                .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
-                .get().await()
+                    .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
+                    .get().await()
 
             val topicResponse = topicsCollection.documents
 
             val user = remoteDatabase
-                .collection(RemoteDatabaseKeys.NODE_USERS)
-                .document(userId).get().await().toObject<RemoteUser>()
+                    .collection(RemoteDatabaseKeys.NODE_USERS)
+                    .document(userId).get().await().toObject<RemoteUser>()
 
             if (!topicResponse.isNullOrEmpty()) {
                 val result = topicResponse.map {
@@ -101,10 +101,10 @@ class TutorialRepositoryImpl @Inject constructor(
 
         if (cachedLessons.isNullOrEmpty()) {
             val response = remoteDatabase
-                .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
-                .document(topicId)
-                .collection(RemoteDatabaseKeys.NODE_LESSONS)
-                .get().await()
+                    .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
+                    .document(topicId)
+                    .collection(RemoteDatabaseKeys.NODE_LESSONS)
+                    .get().await()
             val lessonResponse = response.documents
 
             if (!lessonResponse.isNullOrEmpty()) {

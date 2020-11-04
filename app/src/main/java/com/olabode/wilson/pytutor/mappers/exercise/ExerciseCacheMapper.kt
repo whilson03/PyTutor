@@ -25,14 +25,20 @@ class ExerciseCacheMapper @Inject constructor() : EntityMapper<ExerciseEntity, E
             id = domainModel.id,
             title = domainModel.title,
             difficulty = domainModel.difficulty,
-            question = domainModel.question,
-            solution = domainModel.solution
+                question = domainModel.question,
+                solution = domainModel.solution
         )
     }
 
     fun mapFromEntityList(entities: List<ExerciseEntity>): List<Exercise> {
         return entities.map {
             mapFromEntity(it)
+        }
+    }
+
+    fun mapToEntityList(domainModels: List<Exercise>): List<ExerciseEntity> {
+        return domainModels.map {
+            mapToEntity(it)
         }
     }
 }

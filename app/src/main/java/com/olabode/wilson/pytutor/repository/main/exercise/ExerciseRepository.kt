@@ -11,6 +11,5 @@ import kotlinx.coroutines.flow.Flow
 interface ExerciseRepository {
     fun fetchExercises(): Flow<DataState<List<Exercise>>>
 
-    fun refresh(): Unit
-
+    suspend fun clearExercises()
 }

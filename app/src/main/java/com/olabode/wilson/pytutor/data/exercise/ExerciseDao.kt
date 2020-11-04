@@ -15,6 +15,9 @@ interface ExerciseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(exerciseEntity: ExerciseEntity)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(exerciseEntity: List<ExerciseEntity>)
+
     @Query("DELETE FROM exercise_table")
     suspend fun clear()
 

@@ -2,20 +2,17 @@ package com.olabode.wilson.pytutor.ui.exercise
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentExerciseListBinding
 import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.extensions.show
 import com.olabode.wilson.pytutor.extensions.viewBinding
-import com.olabode.wilson.pytutor.files.exercises.listOfExercises
-import com.olabode.wilson.pytutor.mappers.exercise.ExerciseNetworkMapper
-import com.olabode.wilson.pytutor.models.Exercise
-import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,13 +33,10 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
             navigateSafe(ExerciseListFragmentDirections
                     .actionExerciseListFragmentToExerciseFragment(exercise))
         }
-
         binding.exerciseListRecycler.adapter = adapter
-        binding.progressBar.isVisible = false
-        binding.exerciseListRecycler.isVisible = true
-        adapter.submitList(getDummyList())
+
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
-//        setupObserver()
+        setupObserver()
     }
 
     private fun setupObserver() {
@@ -64,13 +58,18 @@ class ExerciseListFragment : Fragment(R.layout.fragment_exercise_list) {
                     binding.progressBar.hide()
                     binding.noInternetState.root.show()
                     binding.mainPage.hide()
+                    showPersistentSnackBar(result.message, binding.coordinatorLayout) {
+                        setupObserver()
+                    }
                 }
             }
         })
     }
 
-    private fun getDummyList(): List<Exercise> {
-        val exerciseNetworkMapper = ExerciseNetworkMapper()
-        return listOfExercises().map { (exerciseNetworkMapper.mapFromEntity(it)) }
+    private fun showPersistentSnackBar(message: String, view: View, action: () -> Unit) {
+        Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.retry)) {
+                    action.invoke()
+                }.show()
     }
 }

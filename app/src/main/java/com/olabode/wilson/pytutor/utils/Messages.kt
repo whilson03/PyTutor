@@ -6,6 +6,7 @@ package com.olabode.wilson.pytutor.utils
 object Messages {
     const val INVALID_CREDENTIAL = "Invalid email or password..."
     const val FAILED_TO_LOAD = "Failed to load."
+    const val FAILED_TO_LOAD_EXERCISES = "Failed to load exercises."
     const val UPLOAD_SUCCESS = "Upload Successful"
     const val UPLOAD_FAILED = "Upload Failed."
     const val LOCKED_TOPIC = "This Topics is Locked.Complete unlocked topics first."
