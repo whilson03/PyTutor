@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentExerciseContentBinding
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.extensions.viewBinding
 
 /**
@@ -35,7 +36,7 @@ class ExerciseFragment: Fragment(R.layout.fragment_exercise_content) {
         }
 
         binding.runCode.setOnClickListener {
-            findNavController().navigate(ExerciseFragmentDirections.actionExerciseFragmentToCodeOutputFragment(exercise.solution))
+            navigateSafe(ExerciseFragmentDirections.actionExerciseFragmentToCodeOutputFragment(exercise.solution))
         }
 
         binding.toolbar.setNavigationOnClickListener {findNavController().navigateUp()}

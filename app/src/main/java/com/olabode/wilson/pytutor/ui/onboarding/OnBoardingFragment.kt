@@ -8,10 +8,10 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentOnBoardingBinding
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.models.IntroSlideItem
 import com.olabode.wilson.pytutor.ui.tutorial.DepthPageTransformer
@@ -123,12 +123,7 @@ class OnBoardingFragment : Fragment(R.layout.fragment_on_boarding) {
     }
 
     private fun navigateToLogin() {
-        findNavController().navigate(OnBoardingFragmentDirections
+        navigateSafe(OnBoardingFragmentDirections
                 .actionOnBoardingFragmentToAuthNavigation())
     }
-
-    private fun updateText() {
-        binding.next.text = resources.getString(R.string.finish)
-    }
-
 }
