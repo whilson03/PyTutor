@@ -10,10 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentLessonCompletionBinding
-import com.olabode.wilson.pytutor.extensions.hide
-import com.olabode.wilson.pytutor.extensions.show
-import com.olabode.wilson.pytutor.extensions.showAndAnimateRating
-import com.olabode.wilson.pytutor.extensions.viewBinding
+import com.olabode.wilson.pytutor.extensions.*
 import com.olabode.wilson.pytutor.models.Topic
 import com.olabode.wilson.pytutor.ui.tutorial.viewmodel.CompletedLessonViewModel
 import com.olabode.wilson.pytutor.utils.Utils
@@ -91,7 +88,7 @@ class LessonCompletionFragment : Fragment(R.layout.fragment_lesson_completion) {
     }
 
     private fun navigateToNext(topic: Topic) {
-        findNavController().navigate(LessonCompletionFragmentDirections
+        navigateSafe(LessonCompletionFragmentDirections
                 .actionLessonCompletionFragmentToLessonGraph(topic.title, topic)
         )
     }

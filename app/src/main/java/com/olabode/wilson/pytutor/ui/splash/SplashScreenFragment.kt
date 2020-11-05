@@ -7,9 +7,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentSplashScreenBinding
+import com.olabode.wilson.pytutor.extensions.navigateSafe
 import com.olabode.wilson.pytutor.extensions.setUpAnimation
 import com.olabode.wilson.pytutor.extensions.viewBinding
 import com.olabode.wilson.pytutor.utils.Constants
@@ -40,11 +40,11 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
         viewModel.userStatus.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is AuthResult.Failed -> {
-                    findNavController().navigate(SplashScreenFragmentDirections.actionSplashScreenFragmentToAuthNavigation())
+                    navigateSafe(SplashScreenFragmentDirections.actionSplashScreenFragmentToAuthNavigation())
                 }
 
                 is AuthResult.Success -> {
-                    findNavController().navigate(SplashScreenFragmentDirections.actionSplashScreenFragmentToHomeFragment())
+                    navigateSafe(SplashScreenFragmentDirections.actionSplashScreenFragmentToHomeFragment())
                 }
             }
         })
@@ -52,7 +52,7 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash_screen) {
 
     private fun setupUI() {
         if (preferences.getBoolean(Constants.IS_FIRST_TIME_USER_KEY, true)) {
-            findNavController().navigate(SplashScreenFragmentDirections.actionSplashScreenFragmentToOnBoardingFragment())
+            navigateSafe(SplashScreenFragmentDirections.actionSplashScreenFragmentToOnBoardingFragment())
         } else {
             observeAuthState()
         }
