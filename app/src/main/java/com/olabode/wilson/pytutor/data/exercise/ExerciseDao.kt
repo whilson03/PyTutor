@@ -21,6 +21,6 @@ interface ExerciseDao {
     @Query("DELETE FROM exercise_table")
     suspend fun clear()
 
-    @Query("SELECT * FROM exercise_table")
+    @Query("SELECT * FROM exercise_table ORDER BY difficulty ASC")
     suspend fun retrieveExercises(): List<ExerciseEntity>
 }

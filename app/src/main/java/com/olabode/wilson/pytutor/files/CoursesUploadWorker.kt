@@ -2,6 +2,7 @@ package com.olabode.wilson.pytutor.files
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
+import com.olabode.wilson.pytutor.files.exercises.listOfExercises
 import com.olabode.wilson.pytutor.files.lessons.*
 import com.olabode.wilson.pytutor.models.remote.tutorial.LessonResponse
 import com.olabode.wilson.pytutor.models.remote.tutorial.TopicResponse
@@ -16,7 +17,9 @@ import timber.log.Timber
  *   Created by OLABODE WILSON on 9/19/20.
  */
 
-val ref = FirebaseFirestore.getInstance()
+val databaseRef = FirebaseFirestore.getInstance()
+
+val ref = databaseRef
         .collection(RemoteDatabaseKeys.NODE_TUTORIALS)
 
 fun uploadCoursesAndLesson(map: Map<TopicResponse, List<LessonResponse>>) {
@@ -67,7 +70,7 @@ fun updateRelation() {
 
         }
 
-        Timber.e("COMPLETED")
+        Timber.e("Relation Update COMPLETED")
     }
 }
 
@@ -93,4 +96,21 @@ fun dataSet(): Map<TopicResponse, List<LessonResponse>> {
             genTopicResponse()[17] to exception_handling
 
     )
+}
+
+
+fun uploadExercises() {
+    val remoteExercises = databaseRef
+            .collection(RemoteDatabaseKeys.NODE_EXERCISES)
+    CoroutineScope(Dispatchers.IO).launch {
+        for (i in listOfExercises()) {
+            val exerciseId = ref.document().id
+            i.id = exerciseId
+
+
+            remoteExercises.document(exerciseId).set(i).await()
+        }
+    }
+
+    Timber.e("Upload Exercises COMPLETED")
 }
