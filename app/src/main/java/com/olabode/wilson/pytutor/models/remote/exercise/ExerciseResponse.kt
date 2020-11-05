@@ -4,7 +4,7 @@ package com.olabode.wilson.pytutor.models.remote.exercise
  * Created by Ogheneruona Onobrakpeya on 10/13/20.
  */
 data class ExerciseResponse(
-        val id: String = "",
+        var id: String = "",
         val title: String,
         val difficulty: Int = DIFFICULTY.EASY.ordinal,
         val question: String,

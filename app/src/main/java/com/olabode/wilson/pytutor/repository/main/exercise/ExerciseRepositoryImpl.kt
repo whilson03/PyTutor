@@ -1,7 +1,9 @@
 package com.olabode.wilson.pytutor.repository.main.exercise
 
+import androidx.room.withTransaction
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
+import com.olabode.wilson.pytutor.data.PytutorDatabase
 import com.olabode.wilson.pytutor.data.exercise.ExerciseDao
 import com.olabode.wilson.pytutor.mappers.exercise.ExerciseCacheMapper
 import com.olabode.wilson.pytutor.mappers.exercise.ExerciseNetworkMapper
@@ -28,7 +30,8 @@ class ExerciseRepositoryImpl @Inject constructor(
         private val remoteDatabase: FirebaseFirestore,
         private val exerciseDao: ExerciseDao,
         private val exerciseNetworkMapper: ExerciseNetworkMapper,
-        private val exerciseCacheMapper: ExerciseCacheMapper
+        private val exerciseCacheMapper: ExerciseCacheMapper,
+        private val localDatabase: PytutorDatabase
 ) : ExerciseRepository {
 
 
@@ -37,7 +40,7 @@ class ExerciseRepositoryImpl @Inject constructor(
 
         val cachedExercise = exerciseDao.retrieveExercises()
 
-        if (cachedExercise.isEmpty()) {
+        if (cachedExercise.isNullOrEmpty()) {
             val remoteExercises = remoteDatabase
                     .collection(RemoteDatabaseKeys.NODE_EXERCISES)
                     .get().await().documents
@@ -45,12 +48,17 @@ class ExerciseRepositoryImpl @Inject constructor(
             if (!remoteExercises.isNullOrEmpty()) {
                 val listOfNetworkExercises = remoteExercises.map { it?.toObject<ExerciseResponse>()!! }
                 val exercisesList = exerciseNetworkMapper.mapFromEntityList(listOfNetworkExercises)
-                val forCache = exerciseCacheMapper.mapToEntityList(exercisesList)
-                exerciseDao.insertAll(forCache)
-                emit(DataState.Success(exercisesList))
+                val cacheList = exerciseCacheMapper.mapToEntityList(exercisesList)
+
+                localDatabase.withTransaction {
+                    exerciseDao.insertAll(cacheList)
+                }
+                emit(DataState.Success(exercisesList.sortedBy { it.difficulty }))
             } else {
                 emit(DataState.Error(null, Messages.FAILED_TO_LOAD_EXERCISES))
             }
+        } else {
+            emit(DataState.Success(exerciseCacheMapper.mapFromEntityList(cachedExercise)))
         }
 
     }.catch { e ->

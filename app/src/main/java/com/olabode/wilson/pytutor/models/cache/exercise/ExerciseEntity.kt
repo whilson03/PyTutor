@@ -9,8 +9,9 @@ import androidx.room.PrimaryKey
  */
 @Entity(tableName = "exercise_table")
 data class ExerciseEntity(
+
         @ColumnInfo(name = "id")
-        @PrimaryKey
+        @PrimaryKey(autoGenerate = false)
         val id: String,
 
         @ColumnInfo(name = "title")

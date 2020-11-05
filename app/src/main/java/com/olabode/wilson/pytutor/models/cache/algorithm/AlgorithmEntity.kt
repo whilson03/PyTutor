@@ -9,13 +9,13 @@ import androidx.room.PrimaryKey
  */
 @Entity(tableName = "algorithm_table")
 data class AlgorithmEntity(
-    @ColumnInfo(name = "id")
-    @PrimaryKey
-    val id: String,
-    @ColumnInfo(name = "title")
-    val title: String,
-    @ColumnInfo(name = "description")
-    val description: String,
-    @ColumnInfo(name = "body")
-    val body: String
+        @ColumnInfo(name = "id")
+        @PrimaryKey
+        val id: String,
+        @ColumnInfo(name = "title")
+        val title: String,
+        @ColumnInfo(name = "description")
+        val description: String,
+        @ColumnInfo(name = "body")
+        val body: String
 )
