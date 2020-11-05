@@ -267,8 +267,7 @@
             app:argType="com.olabode.wilson.pytutor.models.Exercise" />
         <action
             android:id="@+id/action_exerciseFragment_to_codeOutputFragment"
-            app:destination="@id/codeOutputFragment"
-            app:popUpTo="@id/exerciseListFragment" />
+            app:destination="@id/codeOutputFragment" />
     </fragment>
     <fragment
         android:id="@+id/exerciseListFragment"
