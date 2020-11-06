@@ -65,10 +65,18 @@ class TutorialRepositoryImpl @Inject constructor(
 
                 for (topic in topics) {
                     user?.let {
+
                         if (user.completedCourses.containsKey(topic.topicId)) {
                             topic.isCompleted = true
                             topic.isLocked = false
                             topic.numOfStars = user.completedCourses[topic.topicId] ?: 0f
+                        }
+                        if (user.currentlyUnlockedTopicsId != null
+                                && user.currentlyUnlockedTopicsId == topic.topicId
+                                && !user.completedCourses.containsKey(topic.topicId)) {
+                            topic.isCompleted = false
+                            topic.isLocked = false
+                            topic.numOfStars = 0f
                         }
                     }
                     topicsDao.insert(topicCacheMapper.mapToEntity(topic))

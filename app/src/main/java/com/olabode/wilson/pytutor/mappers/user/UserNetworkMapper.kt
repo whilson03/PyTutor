@@ -12,28 +12,30 @@ class UserNetworkMapper @Inject constructor() : EntityMapper<RemoteUser, User> {
 
     override fun mapFromEntity(entity: RemoteUser): User {
         return User(
-            fullName = entity.fullName,
-            email = entity.email,
-            imageUrl = entity.imageUrl,
-            badges = entity.badgesAttained,
-            level = entity.level,
-            userId = entity.userId,
-            experiencePoint = entity.currentXp,
-            completedCourses = entity.completedCourses
+                fullName = entity.fullName,
+                email = entity.email,
+                imageUrl = entity.imageUrl,
+                badges = entity.badgesAttained,
+                level = entity.level,
+                userId = entity.userId,
+                experiencePoint = entity.currentXp,
+                completedCourses = entity.completedCourses,
+                currentlyUnlockedTopicsId = entity.currentlyUnlockedTopicsId
         )
     }
 
     override fun mapToEntity(domainModel: User): RemoteUser {
         return RemoteUser(
-            fullName = domainModel.fullName,
-            email = domainModel.email,
-            level = domainModel.level,
-            currentXp = domainModel.experiencePoint,
-            badgesAttained = domainModel.badges,
-            dateJoined = null,
-            userId = domainModel.userId,
-            imageUrl = domainModel.imageUrl,
-            completedCourses = domainModel.completedCourses
+                fullName = domainModel.fullName,
+                email = domainModel.email,
+                level = domainModel.level,
+                currentXp = domainModel.experiencePoint,
+                badgesAttained = domainModel.badges,
+                dateJoined = null,
+                userId = domainModel.userId,
+                imageUrl = domainModel.imageUrl,
+                completedCourses = domainModel.completedCourses,
+                currentlyUnlockedTopicsId = domainModel.currentlyUnlockedTopicsId
         )
     }
 }

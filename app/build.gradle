@@ -5,6 +5,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 
 android {
@@ -82,6 +83,10 @@ dependencies {
 
     //Logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.2.2'
+    implementation 'com.google.firebase:firebase-analytics-ktx:18.0.0'
 
     //Firebase
     implementation 'com.google.firebase:firebase-core:17.5.0'
