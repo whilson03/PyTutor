@@ -322,7 +322,7 @@ val strings = listOf(
                     "2" to "Wilson",
                     "3" to "W"
                 ),
-                answerKey = "1"
+                answerKey = "3"
             ),
             "3" to Question(
                 question = "Whats the output?\n" +
