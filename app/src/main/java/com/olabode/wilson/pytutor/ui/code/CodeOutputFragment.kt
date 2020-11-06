@@ -3,7 +3,6 @@ package com.olabode.wilson.pytutor.ui.code
 
 import android.app.AlertDialog
 import android.app.Dialog
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -66,21 +65,13 @@ class CodeOutputFragment : BottomSheetDialogFragment() {
         interpreter.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                    val formattedCode = Regex.escapeReplacement(code).replace("\n", "\\n")
-                            .replace("\t", "\\t")
 
-                    val func = "javascript:run(\"$formattedCode\");"
-                    view?.evaluateJavascript(func, null)
+                val formattedCode = Regex.escapeReplacement(code)
+                        .replace("\n", "\\n")
+                        .replace("\t", "\\t")
 
-                } else {
-                    val formattedCode = Regex.escapeReplacement(code).replace("\n", "\\n")
-                            .replace("\t", "\\t")
-
-                    val func = "javascript:run(`$formattedCode`);"
-                    view?.evaluateJavascript(func, null)
-                }
-
+                val func = "javascript:run(`$formattedCode`);"
+                view?.evaluateJavascript(func, null)
             }
         }
 
