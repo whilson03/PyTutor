@@ -1,7 +1,6 @@
 package com.olabode.wilson.pytutor.models.remote.user
 
 import com.google.firebase.firestore.ServerTimestamp
-import com.olabode.wilson.pytutor.models.Badge
 import java.util.*
 
 /**
@@ -14,8 +13,6 @@ data class RemoteUser(
         var level: Int = 0,
         @ServerTimestamp
         var dateJoined: Date? = null,
-        var currentXp: Int = 0,
-        var badgesAttained: List<Badge> = emptyList(),
         var userId: String,
         var imageUrl: String = "",
         var completedCourses: Map<String, Float> = mapOf(),
@@ -27,8 +24,6 @@ data class RemoteUser(
             "",
             0,
             null,
-            0,
-            emptyList(),
             "",
             "",
             mapOf(),
