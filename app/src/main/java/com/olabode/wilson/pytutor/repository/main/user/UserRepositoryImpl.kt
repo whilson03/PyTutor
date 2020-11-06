@@ -106,23 +106,23 @@ class UserRepositoryImpl @Inject constructor(
     ): Flow<DataState<String>> = flow {
         emit(DataState.Loading)
 
-        val completedCourse = if (nextTopicId != null) {
-            val nextTopicStars = topicsDao.getTopic(nextTopicId)?.numOfStars ?: 0f
-            mapOf(topicId to rating, nextTopicId to nextTopicStars)
-        } else {
-            mapOf(topicId to rating)
-        }
-
+        val completedCourse = mapOf(topicId to rating)
         topicsDao.updateCompletedCourse(topicId, rating)
         nextTopicId?.let { topicsDao.unlockNextTopic(it) }
 
-        remoteDatabase
-                .collection(RemoteDatabaseKeys.NODE_USERS)
-                .document(getUserId())
-                .set(
-                        mapOf(RemoteDatabaseKeys.FIELD_COURSES_COMPLETED to completedCourse),
-                        SetOptions.merge()
-                ).await()
+        val nextTopic = nextTopicId?.let { topicsDao.getTopic(it) }
+
+        val ref = remoteDatabase.collection(RemoteDatabaseKeys.NODE_USERS).document(getUserId())
+        if (nextTopic != null && !nextTopic.isCompleted) {
+            ref.set(mapOf(RemoteDatabaseKeys.FIELD_COURSES_COMPLETED to completedCourse
+                    , RemoteDatabaseKeys.FIELD_CURRENT_UNLOCKED_TOPIC_ID to nextTopicId),
+                    SetOptions.merge()
+            ).await()
+        } else {
+            ref.set(mapOf(RemoteDatabaseKeys.FIELD_COURSES_COMPLETED to completedCourse),
+                    SetOptions.merge()
+            ).await()
+        }
 
         emit(DataState.Success(Messages.GENERIC_SUCCESS))
     }.catch { error ->

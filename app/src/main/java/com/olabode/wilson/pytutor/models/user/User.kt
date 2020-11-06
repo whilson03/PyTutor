@@ -14,7 +14,8 @@ data class User(
         val imageUrl: String,
         val badges: List<Badge>,
         val userId: String,
-        val completedCourses: Map<String, Float>
+        val completedCourses: Map<String, Float>,
+        var currentlyUnlockedTopicsId: String? = null
 ) {
 
     fun getUserProgress(): Int {

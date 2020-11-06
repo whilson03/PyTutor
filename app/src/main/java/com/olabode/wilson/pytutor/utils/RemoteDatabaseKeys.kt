@@ -14,4 +14,5 @@ object RemoteDatabaseKeys {
     const val PROFILE_IMAGE_DIR = "profile_image/"
     const val PROFILE_IMAGE = "profile_image"
     const val FIELD_PROFILE_IMAGE = "imageUrl"
+    const val FIELD_CURRENT_UNLOCKED_TOPIC_ID = "currentlyUnlockedTopicsId"
 }

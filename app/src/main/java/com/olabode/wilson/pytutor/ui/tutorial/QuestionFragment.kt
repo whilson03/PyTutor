@@ -99,7 +99,7 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
 
                         if (currentQuestionIndex == questions.size.minus(1)) {
                             if (topic.isLastTopic) {
-                                navigateToFinalScreen()
+                                navigateToFinalScreen(topic, score, numberOfQuestions = questions.size)
                             } else {
                                 navigateToCompletionScreen(score, noOfQuestion = questions.size)
                             }
@@ -129,8 +129,9 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         )
     }
 
-    private fun navigateToFinalScreen() {
-        navigateSafe(ViewTutorialsFragmentDirections.actionGlobalAllLessonsCompletedFragment())
+    private fun navigateToFinalScreen(lastTopic: Topic, score: Int, numberOfQuestions: Int) {
+        navigateSafe(ViewTutorialsFragmentDirections
+                .actionGlobalAllLessonsCompletedFragment(lastTopic = lastTopic, score = score, numberOfQuestions = numberOfQuestions))
     }
 
     private fun setUpQuestion(question: Question) {
