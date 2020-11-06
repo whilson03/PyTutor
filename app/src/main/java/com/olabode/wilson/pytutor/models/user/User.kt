@@ -21,5 +21,14 @@ data class User(
     fun getUserProgress(): Int {
         // Convert completed lessons to percentage
         return (100 / 18f * this.completedCourses.size).toInt()
+
+//        Using the decrementing method:
+//        val completedCourses = this.completedCourses.size - 1
+//        return if (completedCourses > 0) {
+//            (100 / 18f * completedCourses).toInt()
+//        }
+//        else {
+//            0
+//        }
     }
 }
