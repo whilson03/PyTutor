@@ -1,5 +1,6 @@
 package com.olabode.wilson.pytutor.ui.home
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -23,6 +24,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        excludeLollipopInterpreter()
 
         viewModel.userDetails.observe(viewLifecycleOwner, Observer { result ->
             when (result) {
@@ -77,6 +80,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         if (userProgress == 100) {
             binding.keepLearningMessage.text = getString(R.string.congratulations)
             binding.progressMessage.text = getString(R.string.all_lessons_completed)
+        }
+    }
+
+    private fun excludeLollipopInterpreter() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            binding.codeSection.hide()
         }
     }
 }

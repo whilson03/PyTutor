@@ -1,7 +1,9 @@
 package com.olabode.wilson.pytutor.ui.exercise
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -22,6 +24,8 @@ class ExerciseFragment: Fragment(R.layout.fragment_exercise_content) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        excludeLollipopInterpreter()
+
         val exercise = args.exercise
         binding.toolbar.title = exercise.title
         binding.questionText.text = exercise.question
@@ -40,5 +44,11 @@ class ExerciseFragment: Fragment(R.layout.fragment_exercise_content) {
         }
 
         binding.toolbar.setNavigationOnClickListener {findNavController().navigateUp()}
+    }
+
+    private fun excludeLollipopInterpreter() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            binding.runCode.isInvisible = true
+        }
     }
 }
