@@ -15,10 +15,8 @@ class UserNetworkMapper @Inject constructor() : EntityMapper<RemoteUser, User> {
                 fullName = entity.fullName,
                 email = entity.email,
                 imageUrl = entity.imageUrl,
-                badges = entity.badgesAttained,
                 level = entity.level,
                 userId = entity.userId,
-                experiencePoint = entity.currentXp,
                 completedCourses = entity.completedCourses,
                 currentlyUnlockedTopicsId = entity.currentlyUnlockedTopicsId
         )
@@ -29,8 +27,6 @@ class UserNetworkMapper @Inject constructor() : EntityMapper<RemoteUser, User> {
                 fullName = domainModel.fullName,
                 email = domainModel.email,
                 level = domainModel.level,
-                currentXp = domainModel.experiencePoint,
-                badgesAttained = domainModel.badges,
                 dateJoined = null,
                 userId = domainModel.userId,
                 imageUrl = domainModel.imageUrl,
