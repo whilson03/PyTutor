@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.olabode.wilson.pytutor.repository.auth.AuthRepository
+import com.olabode.wilson.pytutor.repository.main.exercise.ExerciseRepository
 import com.olabode.wilson.pytutor.repository.main.tutorial.TutorialRepository
 import com.olabode.wilson.pytutor.repository.main.user.UserRepository
 import com.olabode.wilson.pytutor.utils.states.DataState
@@ -17,16 +18,20 @@ import java.io.File
  */
 
 class ProfileViewModel @ViewModelInject constructor(
-    private val userRepository: UserRepository,
-    private val authRepository: AuthRepository,
-    private val tutorialRepository: TutorialRepository
+        private val userRepository: UserRepository,
+        private val authRepository: AuthRepository,
+        private val tutorialRepository: TutorialRepository,
+        private val exerciseRepository: ExerciseRepository
 ) : ViewModel() {
     val userDetails = userRepository
         .getLoggedInUserDetails(userRepository.getUserId())
         .asLiveData()
 
     fun signOut() {
-        viewModelScope.launch { tutorialRepository.clearTopics() }
+        viewModelScope.launch {
+            tutorialRepository.clearTopics()
+            exerciseRepository.clearExercises()
+        }
         authRepository.logOut()
     }
 
