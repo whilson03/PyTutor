@@ -12,20 +12,21 @@ import com.google.android.material.snackbar.Snackbar
 import com.olabode.wilson.pytutor.databinding.ActivityMainBinding
 import com.olabode.wilson.pytutor.extensions.hide
 import com.olabode.wilson.pytutor.extensions.show
-import com.olabode.wilson.pytutor.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), UICommunicator {
 
-    private val binding by viewBinding(ActivityMainBinding::inflate)
+    private lateinit var binding: ActivityMainBinding
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         navController = findNavController(R.id.fragments_container)
         bottomNavigationView = binding.bottomNavigationView
 
