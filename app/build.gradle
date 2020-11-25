@@ -14,14 +14,15 @@ android {
         applicationId "com.olabode.wilson.pytutor"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 3
-        versionName "1.2"
+        versionCode 8
+        versionName "2.4"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -54,6 +55,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+
     //material design
     implementation 'com.google.android.material:material:1.2.0'
 
@@ -74,6 +76,9 @@ dependencies {
 
     //Coil Image Loading
     implementation("io.coil-kt:coil:0.11.0")
+
+    //Play core
+    implementation 'com.google.android.play:core:1.8.3'
 
     // Architecture Components
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
@@ -137,8 +142,5 @@ dependencies {
     androidTestImplementation "org.mockito:mockito-core:2.21.0"
     androidTestImplementation 'app.cash.turbine:turbine:0.2.1'
 
-
-    //Detect memory leaks
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
 }
 
