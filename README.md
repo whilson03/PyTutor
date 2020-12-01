@@ -1,4 +1,5 @@
-# **PyTutor**
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# **PyTutor** 
 Learn the fundamentals of the Python programming language from your smartphone, anytime at your own pace and on the go with PyTutor.PyTutor provides users with :
 
 * In-depth lessons with quizzes.Exercises and solutions of varying difficulties.
