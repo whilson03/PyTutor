@@ -2,25 +2,34 @@ package com.olabode.wilson.pytutor.ui.home
 
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import com.olabode.wilson.pytutor.R
 import com.olabode.wilson.pytutor.databinding.FragmentHomeBinding
-import com.olabode.wilson.pytutor.extensions.*
+import com.olabode.wilson.pytutor.extensions.hide
+import com.olabode.wilson.pytutor.extensions.navigateSafe
+import com.olabode.wilson.pytutor.extensions.show
+import com.olabode.wilson.pytutor.extensions.showUserProgress
 import com.olabode.wilson.pytutor.models.user.User
+import com.olabode.wilson.pytutor.ui.base.BaseFragment
 import com.olabode.wilson.pytutor.utils.states.DataState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
-    private val binding by viewBinding(FragmentHomeBinding::bind)
-    private val viewModel: HomeViewModel by viewModels()
+    override val viewModel: HomeViewModel by viewModels()
+
+    override fun getViewBinding(
+            inflater: LayoutInflater,
+            container: ViewGroup?
+    ): FragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
