@@ -12,21 +12,27 @@ import javax.inject.Inject
 class ExerciseCacheMapper @Inject constructor() : EntityMapper<ExerciseEntity, Exercise> {
     override fun mapFromEntity(entity: ExerciseEntity): Exercise {
         return Exercise(
-            id = entity.id,
-            title = entity.title,
-            difficulty = entity.difficulty,
-            question = entity.question,
-            solution = entity.solution
+                id = entity.id,
+                title = entity.title,
+                difficulty = entity.difficulty,
+                question = entity.question,
+                solution = entity.solution,
+                postedBy = entity.postedBy,
+                datePosted = entity.datePosted,
+                tags = entity.tags
         )
     }
 
     override fun mapToEntity(domainModel: Exercise): ExerciseEntity {
         return ExerciseEntity(
-            id = domainModel.id,
-            title = domainModel.title,
-            difficulty = domainModel.difficulty,
+                id = domainModel.id,
+                title = domainModel.title,
+                difficulty = domainModel.difficulty,
                 question = domainModel.question,
-                solution = domainModel.solution
+                solution = domainModel.solution,
+                postedBy = domainModel.postedBy,
+                datePosted = domainModel.datePosted,
+                tags = domainModel.tags
         )
     }
 

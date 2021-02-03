@@ -71,4 +71,13 @@ class ExerciseRepositoryImpl @Inject constructor(
             exerciseDao.clear()
         }
     }
+
+    override suspend fun uploadExercise(exercise: Exercise): Flow<DataState<String>> = flow {
+        emit(DataState.Loading)
+
+        val ref = remoteDatabase.collection(RemoteDatabaseKeys.NODE_EXERCISES).document()
+
+
+
+    }
 }

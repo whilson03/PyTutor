@@ -10,6 +10,7 @@ import com.olabode.wilson.pytutor.data.tutorial.TopicsDao
 import com.olabode.wilson.pytutor.data.user.UserDao
 import com.olabode.wilson.pytutor.models.cache.algorithm.AlgorithmEntity
 import com.olabode.wilson.pytutor.models.cache.exercise.ExerciseEntity
+import com.olabode.wilson.pytutor.models.cache.exercise.ExercisesTagConverter
 import com.olabode.wilson.pytutor.models.cache.tutorial.LessonCacheEntity
 import com.olabode.wilson.pytutor.models.cache.tutorial.TopicCacheEntity
 import com.olabode.wilson.pytutor.models.cache.tutorial.converters.QuestionMapConverter
@@ -24,7 +25,8 @@ import com.olabode.wilson.pytutor.models.cache.user.UserCompletedCoursesConverte
 @TypeConverters(
         TutorialMapConverter::class,
         QuestionMapConverter::class,
-        UserCompletedCoursesConverter::class
+        UserCompletedCoursesConverter::class,
+        ExercisesTagConverter::class
 )
 @Database(
         entities = [

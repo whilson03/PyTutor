@@ -14,7 +14,10 @@ data class Exercise(
         val title: String,
         val difficulty: Int,
         val question: String,
-        val solution: String
+        val solution: String,
+        val postedBy: String,
+        val tags: Map<Int, String>,
+        val datePosted: String = ""
 ) : Parcelable {
 
     companion object {

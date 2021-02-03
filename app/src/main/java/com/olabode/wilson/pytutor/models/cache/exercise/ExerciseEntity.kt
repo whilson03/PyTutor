@@ -24,5 +24,14 @@ data class ExerciseEntity(
         val question: String,
 
         @ColumnInfo(name = "solution")
-        val solution: String
+        val solution: String,
+
+        @ColumnInfo(name = "posted_by")
+        val postedBy: String,
+
+        @ColumnInfo(name = "tags")
+        val tags: Map<Int, String>,
+
+        @ColumnInfo(name = "date_posted")
+        val datePosted: String
 )

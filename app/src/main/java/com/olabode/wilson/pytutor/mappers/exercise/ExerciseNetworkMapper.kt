@@ -3,6 +3,7 @@ package com.olabode.wilson.pytutor.mappers.exercise
 import com.olabode.wilson.pytutor.models.Exercise
 import com.olabode.wilson.pytutor.models.remote.exercise.ExerciseResponse
 import com.olabode.wilson.pytutor.utils.EntityMapper
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -16,7 +17,10 @@ class ExerciseNetworkMapper @Inject constructor() : EntityMapper<ExerciseRespons
                 title = entity.title,
                 difficulty = entity.difficulty,
                 question = entity.question,
-                solution = entity.solution
+                solution = entity.solution,
+                postedBy = entity.postedBy,
+                datePosted = entity.datePosted.toString(),
+                tags = entity.tags
         )
     }
 
@@ -26,7 +30,10 @@ class ExerciseNetworkMapper @Inject constructor() : EntityMapper<ExerciseRespons
                 title = domainModel.title,
                 difficulty = domainModel.difficulty,
                 question = domainModel.question,
-                solution = domainModel.solution
+                solution = domainModel.solution,
+                postedBy = domainModel.postedBy,
+                datePosted = null,
+                tags = domainModel.tags
         )
     }
 

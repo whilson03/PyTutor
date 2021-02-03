@@ -12,4 +12,6 @@ interface ExerciseRepository {
     fun fetchExercises(): Flow<DataState<List<Exercise>>>
 
     suspend fun clearExercises()
+
+    suspend fun uploadExercise(exercise: Exercise): Flow<DataState<String>>
 }
