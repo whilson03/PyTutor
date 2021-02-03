@@ -75,9 +75,13 @@ class ExerciseRepositoryImpl @Inject constructor(
     override suspend fun uploadExercise(exercise: Exercise): Flow<DataState<String>> = flow {
         emit(DataState.Loading)
 
-        val ref = remoteDatabase.collection(RemoteDatabaseKeys.NODE_EXERCISES).document()
+        val ref = remoteDatabase.collection(RemoteDatabaseKeys.NODE_EXERCISES)
+        val pushId = ref.document().id
+        exercise.id = pushId
+        ref.document(pushId).set(exerciseNetworkMapper.mapToEntity(exercise)).await()
 
-
-
-    }
+        emit(DataState.Success(Messages.UPLOAD_SUCCESS))
+    }.catch {
+        emit(DataState.Error(null, Messages.GENERIC_FAILURE))
+    }.flowOn(Dispatchers.IO)
 }

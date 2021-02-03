@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Exercise(
-        val id: String,
+        var id: String,
         val title: String,
         val difficulty: Int,
         val question: String,

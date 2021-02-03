@@ -29,4 +29,5 @@ object Messages {
     const val NETWORK_FAILURE = "Failed, Check Network Connection"
     const val BLANK_FIELDS_IN_FORM = "Fields Cannot be Blank"
     const val PASSWORD_SHORT_IN_FORM = "Password Should Contain 8 Characters"
+    const val FAILED_TO_LOAD_TAGS = "Error... Failed to load Tags"
 }
