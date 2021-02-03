@@ -17,4 +17,29 @@ object Constants {
     const val MARKET_BASE_URL = "http://play.google.com/store/apps/details?id="
     const val PRIVACY_POLICY_LINK = "https://whilson03.wixsite.com/wilsontech/post/privacy-policy"
     const val FEEDBACK_EMAIL = "whilson03@gmail.com"
+
+
+    const val EXEERCISE_SUBMISSION_HINT = "Enter Question Here.\n" +
+            "\n" +
+            "N.B:\n" +
+            "\t-  Questions should be clearly stated\n" +
+            "\n" +
+            "\t-  Questions should follow the format below\n" +
+            "\n" +
+            "\t-  Provide Sample inputs and expected outputs where neccesary\n" +
+            "\n" +
+            "<format>\n" +
+            "\n" +
+            "\t<Question-Body> \n" +
+            "\t\tFind all the even numbers in a given list\n" +
+            "\n" +
+            "\t</Question-Body>\n" +
+            "\n" +
+            "\n" +
+            "\t<Samples> \n" +
+            "\t\tsample input1 : [2, 3, 6, 8] \n" +
+            "\t\texpected output : 2, 6, 8\n" +
+            "\n" +
+            "\t</samples>\n" +
+            "</format>"
 }

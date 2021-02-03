@@ -81,4 +81,14 @@
     <string name="onboardingSubtitle2">Run your Python programs for free.</string>
     <string name="onboardingTitle3">Challenge Yourself</string>
     <string name="onboardingSubtitle3">Practice questions and algorithms to put your skills to test.</string>
+
+    <string name="title">Title</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="tags">Tags</string>
+
 </resources>
