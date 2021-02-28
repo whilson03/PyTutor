@@ -336,4 +336,45 @@
             android:name="numberOfQuestions"
             app:argType="integer" />
     </fragment>
+    <navigation android:id="@+id/exerciseContributionGraph"
+        app:startDestination="@id/exerciseQuestionFragment">
+        <fragment
+            android:id="@+id/exerciseQuestionFragment"
+            android:name="com.olabode.wilson.pytutor.ui.exercise.upload.ExerciseQuestionFragment"
+            tools:layout="@layout/fragment_add_exercise_question">
+            <action
+                android:id="@+id/action_exerciseQuestionFragment_to_uploadExerciseSolutionFragment"
+                app:destination="@id/uploadExerciseSolutionFragment"
+                app:popUpTo="@id/exerciseQuestionFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/uploadExerciseSolutionFragment"
+            android:name="com.olabode.wilson.pytutor.ui.exercise.upload.UploadExerciseSolutionFragment"
+            tools:layout="@layout/fragment_upload_exercise_solution">
+            <action
+                android:id="@+id/action_uploadExerciseSolutionFragment_to_exerciseTagsAndSubmissionFragment"
+                app:destination="@id/exerciseTagsAndSubmissionFragment"
+                app:popUpTo="@id/uploadExerciseSolutionFragment" />
+            <argument
+                android:name="title"
+                app:argType="string" />
+            <argument
+                android:name="question"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/exerciseTagsAndSubmissionFragment"
+            android:name="com.olabode.wilson.pytutor.ui.exercise.upload.ExerciseTagsAndSubmissionFragment"
+            tools:layout="@layout/fragment_exercise_tags_and_submission" >
+            <argument
+                android:name="title"
+                app:argType="string" />
+            <argument
+                android:name="question"
+                app:argType="string" />
+            <argument
+                android:name="code"
+                app:argType="string" />
+        </fragment>
+    </navigation>
 </navigation>

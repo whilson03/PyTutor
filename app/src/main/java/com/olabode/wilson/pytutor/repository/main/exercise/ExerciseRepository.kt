@@ -13,5 +13,5 @@ interface ExerciseRepository {
 
     suspend fun clearExercises()
 
-    suspend fun uploadExercise(exercise: Exercise): Flow<DataState<String>>
+    fun uploadExercise(exercise: Exercise): Flow<DataState<String>>
 }

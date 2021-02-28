@@ -30,4 +30,5 @@ object Messages {
     const val BLANK_FIELDS_IN_FORM = "Fields Cannot be Blank"
     const val PASSWORD_SHORT_IN_FORM = "Password Should Contain 8 Characters"
     const val FAILED_TO_LOAD_TAGS = "Error... Failed to load Tags"
+    const val UPLOAD_FAILED_MESSAGE = "Error, Failed to submit"
 }
